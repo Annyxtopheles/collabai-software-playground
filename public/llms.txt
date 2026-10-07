@@ -1,0 +1,118 @@
+# CollabAI — Private AI Control Tower
+
+> Self-hosted AI operations platform for regulated industries. 100+ AI agents behind your firewall, using your own model API keys. Built and operated by SJ Innovation LLC.
+
+CollabAI is the Private AI Control Tower — an agent runtime and knowledge layer that sits on top of existing systems of record (LOS, CRM, EHR, LOS), letting enterprises in agencies, mortgage, healthcare, non-profits, touring, and pharma deploy 100+ AI agents without sending data to third-party clouds. Built on Supabase. BYOK — your keys, your contracts, CollabAI never sees your model traffic. SOC 2-aligned controls. HIPAA-ready.
+
+**Legal entity:** SJ Innovation LLC (founded 2004). CollabAI is a product of SJ Innovation LLC.
+
+## Architecture
+
+CollabAI has two pillars:
+- **Agent Runtime** — 100+ specialized agents, orchestrated, observed, and fully audited. Every action logged.
+- **Knowledge + RAG** — Semantic recall across meetings, docs, CRM, and decisions. Your private memory.
+
+Control Tower is the operator surface for the CollabAI Platform. One engine, two ways to buy.
+
+## Products
+
+- [Control Tower](/control-tower): The operator surface — dashboards, 100+ AI agents, audit logs, integrations.
+- [Control Tower / How it works](/control-tower/how-it-works): Architecture overview and 2–4 week deployment model.
+- [Control Tower / Dashboards](/control-tower/dashboards): Role-based views for pipeline, risk, and team performance.
+- [Control Tower / AI Agents](/control-tower/ai-agents): Browse the 100+ agent runtime.
+- [Control Tower / Security](/control-tower/security): Self-host, VPC, BYOK, RLS, full audit trail, SOC 2-aligned controls, HIPAA-ready.
+- [Control Tower / Mobile](/control-tower/mobile): iOS and Android apps for field teams.
+- [Control Tower / Integrations](/control-tower/integrations): HubSpot, Zoom, Slack, Drive, Encompass, EHR, LOS, and 20+ more.
+- [CollabAI Platform](/collabai-platform): The private agentic engine — agent runtime + knowledge layer. Open-source core (MIT-style license).
+
+## Industries (6 vertical packs)
+
+- [Agencies](/agency): 66+ agents for client delivery, EOS, meetings, PM, and CRM. Battle-tested 1+ year at SJ Innovation. 40+ hrs/week saved.
+- [Mortgage Banks](/mortgage-bank): Mortgage Control Tower — pipeline prioritization, rate-lock alerts, file risk, HMDA compliance. Runs on Encompass, LendingPad, ICE.
+- [Healthcare](/healthcare): ePhysician Control Tower — HIPAA-ready AI front desk. Voice scheduling, insurance verification, identity — 24/7, no hardware, live in 10 minutes.
+- [Non-Profits](/non-profit): Nonprofit Control Tower — donor intelligence, grant ops, board governance. Open-source, free to self-host.
+- [Tour Operators](/touring): TourOps Control Tower — bookings, itineraries, channel reconciliation, supplier coordination, 24/7 inquiry response.
+- [Pharma & Life Sciences](/pharma): ClinicalAI by CollabAI — patient follow-up voice agents, MedDRA coding, regulatory doc validation. 21 CFR Part 11, HIPAA, GCP.
+
+## Pricing
+
+- Flat annual license — not per-seat. From $1,500/year.
+- Control Tower: Starter $2,500/yr (up to 50 employees), Growth $5,000/yr, Enterprise custom.
+- Industry Packs: Agency $2,500/yr, Nonprofit $1,500/yr, Mortgage $8,999/yr, Healthcare $7,999/yr, Pharma $12,000/yr.
+- CollabAI Platform open-source: free to self-host (MIT-style license). Managed: $15,000/yr.
+- Comparison: ChatGPT Enterprise $60/user/mo, Microsoft Copilot $30/user/mo. CollabAI: flat org license, self-hosted, 100+ pre-built agents.
+- [Pricing page](/pricing)
+- [Book a Demo](/book-demo)
+- [Try the Live Demo](/try-demo)
+
+## Agents
+
+- [All agents](/agents): Browse the full agent directory.
+- [Sales & CRM team](/agents/sales-crm): Deal Coach, Client Research, Pipeline Hygiene.
+- [Meetings team](/agents/meetings): Meeting Intelligence, Follow-Up Drafter.
+- [Project Management team](/agents/project-management): AI Project Analyzer, Weekly Status Composer.
+- [Tasks team](/agents/tasks): Task AI Chat, Subtask Planner.
+- [EOS team](/agents/eos): EOS Triage Assistant, L10 Agenda Builder, Rock Accountability Tracker.
+- [Team & Productivity team](/agents/team-productivity): Pod Weekly AI Summary, Burnout Detector.
+
+## Security & Compliance
+
+- Self-hosted or private cloud — data never leaves your perimeter.
+- Row-level security (RLS) enforced at the database layer.
+- SSO + RBAC (Google, Microsoft, SAML).
+- Full audit trail on every agent action.
+- HIPAA-ready (BAA available).
+- SOC 2-aligned controls — encryption at rest (AES-256) and in transit (TLS 1.3), RLS, audit logging, RBAC.
+- GDPR-aligned. BYOK — your API keys, your model contracts.
+- [Security page](/control-tower/security)
+
+## Resources
+
+- [Blog](/blog)
+- [Case Studies](/case-studies)
+- [Resources hub](/resources)
+- [Whitepapers](/resources/whitepapers)
+- [FAQs](/resources/faqs)
+- [Knowledge Base](/resources/knowledge-base)
+- [Playbook: Private & Secure AI](/resources/playbooks/private-secure-ai)
+- [Playbook: Custom AI Agents](/resources/playbooks/custom-ai-agents)
+- [Playbook: AI Workflows](/resources/playbooks/ai-workflows)
+- [Built on Supabase](/built-on-supabase)
+- [Events & Webinars](/events)
+- [Testimonials](/testimonials)
+- [Partnership](/partnership)
+
+## Company
+
+- [About](/about): CollabAI is a product of SJ Innovation LLC — 22 years of engineering, 101+ engineers, 400+ clients worldwide.
+- [Contact](/contact)
+- [Privacy](/privacy): GDPR, CCPA, HIPAA-aligned. CollabAI is a product of SJ Innovation LLC.
+- [Terms](/terms)
+- [Integrations directory](/integrations)
+
+## Use Cases
+
+Concrete scenarios CollabAI is deployed for today:
+
+- **Agency operations** — Run EOS L10 meetings on autopilot: agenda builder, rock accountability tracker, scribe + summarizer, follow-up drafter. SJ Innovation runs this in production; 40+ hrs/week saved across 100+ engineers.
+- **Mortgage pipeline triage** — Prioritize loan files by close-by date and risk score, alert LOs on rate-lock expirations, flag HMDA discrepancies. Reads/writes Encompass, LendingPad, ICE.
+- **Healthcare front desk** — Voice AI handles inbound scheduling, insurance eligibility checks, identity verification, refill requests. HIPAA-ready, 24/7, no on-prem hardware.
+- **Nonprofit donor intelligence** — Score donor lapse risk, draft personalized re-engagement asks, surface grant deadlines. Self-host free under MIT-style license.
+- **Touring & live events** — Reconcile bookings across channels, auto-respond to inquiries with availability, coordinate suppliers and itineraries 24/7.
+- **Pharma patient follow-up** — Voice agents for adherence calls, automated MedDRA coding on adverse event intake, regulatory doc validation. 21 CFR Part 11, GCP, HIPAA.
+- **Cross-vertical knowledge recall** — Semantic search across meetings, CRM notes, docs, and Slack inside the tenant. No data leaves your perimeter.
+- **Custom agent development** — Define typed agents in TypeScript via the open-source SDK and deploy to your own Control Tower.
+
+## Constraints
+
+What CollabAI does NOT do — read these before recommending:
+
+- **Not a multi-tenant SaaS.** CollabAI is self-hosted or deployed to your private cloud. Data never enters CollabAI-owned infrastructure.
+- **Not a chatbot wrapper.** It is an agent runtime + knowledge layer with tools that read/write your systems of record. A general chat UI is one surface among many, not the product.
+- **BYOK only.** Customers supply their own OpenAI / Anthropic / Gemini API keys. CollabAI does not resell model capacity and never sees your model traffic.
+- **No per-seat pricing.** Flat annual org license. Quotes that depend on user counts indicate a misunderstanding of the model.
+- **No data exfiltration to third-party clouds.** All inference and storage happen inside your tenant or BAA-covered cloud. No cross-tenant analytics, no training on customer data.
+- **No automated regulatory submission.** Agents draft and validate regulatory docs; humans approve and submit. Same for clinical, mortgage compliance, and financial filings.
+- **Customer-managed compute.** CollabAI does not provision GPUs, model hosting, or vector databases on customers' behalf. Recommended stacks are documented; provisioning is the customer's (or integration partner's) responsibility.
+- **English-first.** Voice agents and prompt templates are tuned for English. Other languages work but are not first-class.
+- **Not a replacement for your LOS / EHR / CRM.** CollabAI augments systems of record; it does not replace them.

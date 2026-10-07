@@ -752,7 +752,7 @@ const AIDashboard = () => {
             </Button>
             <Button
               asChild
-              className="rounded-full border-0 bg-[hsl(var(--brand-secondary))] px-8 py-3 font-semibold text-white shadow-[0_4px_14px_0_rgba(49,94,255,0.4)] transition-all duration-150 hover:bg-[hsl(var(--brand-secondary))]/90 hover:shadow-[0_6px_20px_rgba(49,94,255,0.5)] hover:text-white active:translate-y-[2px]"
+              className="rounded-full border border-white/20 bg-[#1c1c1f] px-8 py-3 font-semibold text-white shadow-sm transition-all duration-150 hover:border-white/35 hover:bg-[#28282c] hover:text-white active:translate-y-[2px]"
             >
               <a
                 href="https://controltowerdemo.collabai.software/login"

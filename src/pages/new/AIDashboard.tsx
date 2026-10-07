@@ -1,35 +1,16 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
   ExternalLink,
   Search,
   Zap,
-  Clock,
   CheckCircle2,
-  Cpu,
   Layers,
-  Sparkles,
   Play,
-  RotateCcw,
-  ShieldCheck,
-  Building,
-  Briefcase,
-  Mic,
-  LineChart,
-  ListChecks,
-  Target,
-  Users,
-  Heart,
-  Stethoscope,
   Terminal,
-  Activity,
-  Check,
-  TrendingUp,
-  FileCheck,
   SlidersHorizontal,
   ChevronRight,
-  Workflow
 } from "lucide-react";
 import PageSeoHead from "@/components/PageSeoHead";
 import { Button } from "@/components/ui/button";
@@ -432,15 +413,6 @@ const DASHBOARD_AGENTS: DashboardAgent[] = [
   }
 ];
 
-const METRICS = [
-  { value: "100+", label: "Production Agents", icon: Cpu },
-  { value: "40+ hrs", label: "Saved / Team / Week", icon: Clock },
-  { value: "85%", label: "Faster Task Turnaround", icon: Zap },
-  { value: "< 45s", label: "Trigger-to-Output Speed", icon: TrendingUp },
-  { value: "0 Fee", label: "Token Markup (BYOK)", icon: ShieldCheck },
-  { value: "100%", label: "Tenant Data Privacy", icon: FileCheck },
-];
-
 const TEAMS = [
   "All Teams",
   "Sales & CRM",
@@ -452,25 +424,11 @@ const TEAMS = [
   "Industry Packs"
 ];
 
-const SIMULATED_ACTIVITIES = [
-  { time: "8s ago", agent: "Deal Coach", action: "Generated executive negotiation brief for Acme Corp ($140k ARR)", badge: "Sales" },
-  { time: "24s ago", agent: "Meeting Intelligence", action: "Processed 45-min Sprint Sync → 6 action items synced to Monday.com", badge: "Meetings" },
-  { time: "1m ago", agent: "Pipeline Hygiene", action: "Audited 184 deals → flagged 4 stalled opportunities in HubSpot", badge: "CRM" },
-  { time: "2m ago", agent: "Donor 360", action: "Drafted 8-page foundation grant proposal for Environmental Program", badge: "Nonprofit" },
-  { time: "4m ago", agent: "Weekly Status", action: "Synthesized 28 Git PRs into Friday leadership memo for Pod Mobile", badge: "Projects" },
-  { time: "6m ago", agent: "Burnout Detector", action: "Analyzed weekend on-call logs → alert dispatched to Ops Manager", badge: "Productivity" },
-];
-
 const AIDashboard = () => {
   const [selectedTeam, setSelectedTeam] = useState("All Teams");
   const [selectedTrigger, setSelectedTrigger] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [activeAgentModal, setActiveAgentModal] = useState<DashboardAgent | null>(null);
-  
-  // Simulation interactive state
-  const [simulationRunning, setSimulationRunning] = useState(false);
-  const [simulationStep, setSimulationStep] = useState(0);
-  const [activeWorkflowTab, setActiveWorkflowTab] = useState<"meeting" | "deal" | "project">("meeting");
 
   const filteredAgents = useMemo(() => {
     return DASHBOARD_AGENTS.filter((agent) => {
@@ -497,28 +455,6 @@ const AIDashboard = () => {
       return matchesTeam && matchesTrigger && matchesSearch;
     });
   }, [selectedTeam, selectedTrigger, searchQuery]);
-
-  // Handle simulation run
-  const runWorkflowSimulation = () => {
-    setSimulationRunning(true);
-    setSimulationStep(1);
-    const timer1 = setTimeout(() => setSimulationStep(2), 1200);
-    const timer2 = setTimeout(() => setSimulationStep(3), 2400);
-    const timer3 = setTimeout(() => {
-      setSimulationStep(4);
-      setSimulationRunning(false);
-    }, 3600);
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-      clearTimeout(timer3);
-    };
-  };
-
-  const resetSimulation = () => {
-    setSimulationRunning(false);
-    setSimulationStep(0);
-  };
 
   return (
     <>
@@ -578,265 +514,6 @@ const AIDashboard = () => {
                   <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
                 </a>
               </Button>
-            </div>
-          </div>
-
-          {/* Metric Bar */}
-          <div className="mt-16 grid grid-cols-2 gap-4 rounded-3xl border border-border bg-card p-6 shadow-sm sm:grid-cols-3 lg:grid-cols-6">
-            {METRICS.map((m) => (
-              <div key={m.label} className="flex flex-col items-center text-center p-3">
-                <div className="mb-2 grid h-9 w-9 place-items-center rounded-xl bg-slate-light text-[hsl(var(--brand-secondary))]">
-                  <m.icon className="h-4 w-4" />
-                </div>
-                <span className="font-mono text-2xl font-bold text-brand-primary">{m.value}</span>
-                <span className="mt-1 text-[11px] font-medium uppercase tracking-wider text-slate-secondary">
-                  {m.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Live Agent Activity Feed / Telemetry */}
-      <section className="border-b border-border bg-slate-light/60 py-6">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div className="flex items-center gap-2">
-              <Activity className="h-4 w-4 text-[hsl(var(--brand-secondary))]" />
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-primary">
-                Live Agent Telemetry Stream
-              </span>
-              <span className="rounded bg-emerald-500/10 px-2 py-0.5 font-mono text-[10px] font-bold text-emerald-600">
-                ACTIVE
-              </span>
-            </div>
-            <div className="flex items-center gap-2 text-xs text-slate-secondary">
-              <span>Audited in private tenant</span>
-              <span>·</span>
-              <span>Zero data shared with LLM public training</span>
-            </div>
-          </div>
-
-          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {SIMULATED_ACTIVITIES.slice(0, 3).map((item, idx) => (
-              <div
-                key={idx}
-                className="flex items-start gap-3 rounded-xl border border-border bg-background p-3 text-xs shadow-sm"
-              >
-                <div className="mt-0.5 h-2 w-2 shrink-0 rounded-full bg-[hsl(var(--brand-secondary))]" />
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center justify-between gap-1">
-                    <span className="font-semibold text-brand-primary">{item.agent}</span>
-                    <span className="font-mono text-[10px] text-slate-secondary">{item.time}</span>
-                  </div>
-                  <p className="mt-1 line-clamp-2 text-slate-secondary">{item.action}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Interactive Workflow Speedup Simulator */}
-      <section className="bg-background py-20">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <Badge variant="outline" className="border-border bg-card text-[hsl(var(--brand-secondary))]">
-              <Workflow className="mr-1.5 h-3.5 w-3.5" />
-              Workflow Speedup Engine
-            </Badge>
-            <h2 className="mt-4 text-3xl font-bold text-brand-primary sm:text-4xl">
-              Compare: Manual Drag vs. Automated Agent Flow
-            </h2>
-            <p className="mt-3 text-base text-slate-secondary">
-              See what happens when agents trigger instantly across your stack instead of waiting for human busywork.
-            </p>
-          </div>
-
-          <div className="mx-auto mt-12 max-w-5xl rounded-3xl border border-border bg-card p-6 shadow-sm lg:p-8">
-            {/* Tabs for choosing scenario */}
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-6">
-              <div className="flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setActiveWorkflowTab("meeting");
-                    resetSimulation();
-                  }}
-                  className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${
-                    activeWorkflowTab === "meeting"
-                      ? "bg-black text-white"
-                      : "bg-slate-light text-brand-primary hover:bg-slate-200"
-                  }`}
-                >
-                  Scenario 1: Post-Meeting Action Items & CRM
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setActiveWorkflowTab("deal");
-                    resetSimulation();
-                  }}
-                  className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${
-                    activeWorkflowTab === "deal"
-                      ? "bg-black text-white"
-                      : "bg-slate-light text-brand-primary hover:bg-slate-200"
-                  }`}
-                >
-                  Scenario 2: Pre-Meeting Deal Coaching
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setActiveWorkflowTab("project");
-                    resetSimulation();
-                  }}
-                  className={`rounded-full px-4 py-2 text-xs font-semibold transition-all ${
-                    activeWorkflowTab === "project"
-                      ? "bg-black text-white"
-                      : "bg-slate-light text-brand-primary hover:bg-slate-200"
-                  }`}
-                >
-                  Scenario 3: Friday Project Delivery Pulse
-                </button>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <Button
-                  size="sm"
-                  onClick={runWorkflowSimulation}
-                  disabled={simulationRunning}
-                  className="rounded-full bg-[hsl(var(--brand-primary))] text-xs font-semibold text-white"
-                >
-                  <Play className="mr-1.5 h-3.5 w-3.5" />
-                  {simulationRunning ? "Simulating Execution..." : "Run Agent Simulation"}
-                </Button>
-                {simulationStep > 0 && (
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={resetSimulation}
-                    className="h-8 w-8 rounded-full p-0 text-slate-secondary hover:text-brand-primary"
-                  >
-                    <RotateCcw className="h-3.5 w-3.5" />
-                  </Button>
-                )}
-              </div>
-            </div>
-
-            {/* Side by side comparison */}
-            <div className="mt-8 grid gap-8 lg:grid-cols-2">
-              {/* Without Control Tower */}
-              <div className="rounded-2xl border border-rose-200 bg-rose-50/40 p-6">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-rose-700">
-                    Traditional Workflow (Manual)
-                  </span>
-                  <span className="rounded-full bg-rose-200/60 px-2.5 py-0.5 font-mono text-[11px] font-semibold text-rose-800">
-                    ~2.5 to 4 Hours
-                  </span>
-                </div>
-                <h3 className="mt-3 text-lg font-bold text-rose-950">
-                  {activeWorkflowTab === "meeting" && "Scribbling notes, re-watching recordings, forgotten tasks"}
-                  {activeWorkflowTab === "deal" && "Scrambling through HubSpot, stale LinkedIn profiles, cold pitch"}
-                  {activeWorkflowTab === "project" && "Chasing engineers on Slack, manually compiling Jira commits"}
-                </h3>
-                <ul className="mt-4 space-y-3 text-xs text-rose-900/80">
-                  <li className="flex items-start gap-2">
-                    <span className="mt-0.5 text-rose-600 font-bold">✕</span>
-                    <span>Team members spend 45 minutes drafting recap emails from memory.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-0.5 text-rose-600 font-bold">✕</span>
-                    <span>Action items fall through cracks when attendees don't log them in Jira / Monday.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-0.5 text-rose-600 font-bold">✕</span>
-                    <span>Client CRM records remain outdated for weeks until management audits.</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* With Control Tower Agents */}
-              <div className="rounded-2xl border border-emerald-200 bg-emerald-50/40 p-6">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-emerald-700">
-                    With Control Tower Agents
-                  </span>
-                  <span className="rounded-full bg-emerald-200/60 px-2.5 py-0.5 font-mono text-[11px] font-semibold text-emerald-800">
-                    Under 45 Seconds (100% Automated)
-                  </span>
-                </div>
-                <h3 className="mt-3 text-lg font-bold text-emerald-950">
-                  {activeWorkflowTab === "meeting" && "Instant transcript ingestion → tasks created → email drafted"}
-                  {activeWorkflowTab === "deal" && "Instant executive brief + objection strategy ready in 1 click"}
-                  {activeWorkflowTab === "project" && "Automated GitHub & task aggregation straight to client inbox"}
-                </h3>
-
-                {/* Simulation Execution steps */}
-                <div className="mt-4 space-y-2.5">
-                  <div
-                    className={`flex items-center gap-3 rounded-xl border p-2.5 text-xs transition-all ${
-                      simulationStep >= 1
-                        ? "border-emerald-300 bg-emerald-100/70 text-emerald-900 font-semibold"
-                        : "border-border bg-background text-slate-secondary"
-                    }`}
-                  >
-                    <CheckCircle2
-                      className={`h-4 w-4 shrink-0 ${
-                        simulationStep >= 1 ? "text-emerald-600" : "text-slate-300"
-                      }`}
-                    />
-                    <span>1. Ingest event webhook (Zoom audio / CRM update / scheduled trigger)</span>
-                  </div>
-
-                  <div
-                    className={`flex items-center gap-3 rounded-xl border p-2.5 text-xs transition-all ${
-                      simulationStep >= 2
-                        ? "border-emerald-300 bg-emerald-100/70 text-emerald-900 font-semibold"
-                        : "border-border bg-background text-slate-secondary"
-                    }`}
-                  >
-                    <CheckCircle2
-                      className={`h-4 w-4 shrink-0 ${
-                        simulationStep >= 2 ? "text-emerald-600" : "text-slate-300"
-                      }`}
-                    />
-                    <span>2. Model reasoning with tenant private context (Gemini 3.0 / Claude / GPT)</span>
-                  </div>
-
-                  <div
-                    className={`flex items-center gap-3 rounded-xl border p-2.5 text-xs transition-all ${
-                      simulationStep >= 3
-                        ? "border-emerald-300 bg-emerald-100/70 text-emerald-900 font-semibold"
-                        : "border-border bg-background text-slate-secondary"
-                    }`}
-                  >
-                    <CheckCircle2
-                      className={`h-4 w-4 shrink-0 ${
-                        simulationStep >= 3 ? "text-emerald-600" : "text-slate-300"
-                      }`}
-                    />
-                    <span>3. Bidirectional write: sync tasks to Monday/Jira + draft email in Gmail</span>
-                  </div>
-
-                  <div
-                    className={`flex items-center gap-3 rounded-xl border p-2.5 text-xs transition-all ${
-                      simulationStep >= 4
-                        ? "border-emerald-500 bg-emerald-200/90 text-emerald-950 font-bold"
-                        : "border-border bg-background text-slate-secondary"
-                    }`}
-                  >
-                    <Sparkles
-                      className={`h-4 w-4 shrink-0 ${
-                        simulationStep >= 4 ? "text-emerald-700" : "text-slate-300"
-                      }`}
-                    />
-                    <span>4. Complete: Human reviews 1-click & sends. 0 hours wasted!</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

@@ -35,7 +35,7 @@ const FinalCTASection = ({
         {showNewsletter ? <div className="max-w-md mx-auto">
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <input type="email" placeholder="Enter your email" className="flex-1 h-12 px-4 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder:text-white/70 focus:outline-none focus:ring-2 focus:ring-white/30" />
-              <Button size="lg" variant="secondary" className="h-12 bg-white text-trust-blue hover:bg-white/90">
+              <Button className="h-12 rounded-lg border border-white bg-white px-6 font-bold text-slate-950 shadow-sm transition-all duration-150 hover:bg-slate-100 active:translate-y-[1px]">
                 Subscribe
               </Button>
             </div>
@@ -43,13 +43,19 @@ const FinalCTASection = ({
               {newsletterDisclaimer}
             </p>
           </div> : <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="bg-white text-trust-blue hover:bg-white/95 hover:text-trust-blue" asChild>
+            <Button
+              asChild
+              className="rounded-full border border-white bg-white px-8 py-3 font-bold text-slate-950 shadow-md transition-all duration-150 hover:bg-slate-100 hover:text-black active:translate-y-[2px]"
+            >
               <Link to={button1Link}>
                 {button1Text}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-trust-blue hover:bg-white/10" asChild>
+            <Button
+              asChild
+              className="rounded-full border border-white/35 bg-white/10 px-8 py-3 font-semibold text-white backdrop-blur-xs transition-all duration-150 hover:border-white/60 hover:bg-white/20 hover:text-white active:translate-y-[2px]"
+            >
               <Link to={button2Link}>
                 {button2Text}
               </Link>

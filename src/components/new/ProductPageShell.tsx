@@ -33,11 +33,11 @@ export interface ProductPageShellProps {
 
 const Cta = ({ label, url, external, variant = "primary" }: ProductPageHeroCta) => {
   const base =
-    "inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all active:translate-y-[2px]";
+    "inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-150 active:translate-y-[2px]";
   const styles =
     variant === "primary"
-      ? "bg-[hsl(var(--brand-secondary))] text-background hover:shadow-lg"
-      : "border border-border bg-card text-brand-primary hover:shadow-md";
+      ? "border border-slate-900 bg-slate-950 text-white shadow-sm hover:border-slate-800 hover:bg-slate-800 hover:text-white"
+      : "border border-slate-300 bg-white text-slate-800 shadow-xs hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950";
   if (external) {
     return (
       <a href={url} target="_blank" rel="noopener noreferrer" className={`${base} ${styles}`}>

@@ -55,7 +55,14 @@ const PricingTeaser = () => (
                 </li>
               ))}
             </ul>
-            <Button asChild className="mt-7" variant={t.featured ? "default" : "outline"}>
+            <Button
+              asChild
+              className={`mt-7 rounded-full px-6 py-2.5 font-semibold transition-all duration-150 active:translate-y-[2px] ${
+                t.featured
+                  ? "border border-slate-900 bg-slate-950 text-white shadow-sm hover:border-slate-800 hover:bg-slate-800 hover:text-white"
+                  : "border border-slate-300 bg-white text-slate-800 shadow-xs hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950"
+              }`}
+            >
               <Link to={t.cta.to}>
                 {t.cta.label} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

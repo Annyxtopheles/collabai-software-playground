@@ -492,7 +492,7 @@ const AIDashboard = () => {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Button
                 asChild
-                className="rounded-full bg-black px-8 py-3 font-semibold text-white hover:bg-black/90 active:translate-y-[2px]"
+                className="rounded-full border border-slate-900 bg-slate-950 px-8 py-3 font-semibold text-white shadow-sm transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[2px]"
               >
                 <a href="#agents-explorer">
                   <Search className="mr-2 h-4 w-4" />
@@ -501,17 +501,16 @@ const AIDashboard = () => {
               </Button>
               <Button
                 asChild
-                variant="outline"
-                className="rounded-full border-border bg-background px-8 py-3 font-semibold text-brand-primary hover:bg-slate-light"
+                className="rounded-full border border-slate-300 bg-white px-8 py-3 font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 active:translate-y-[2px]"
               >
                 <a
                   href="https://controltowerdemo.collabai.software/login"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Play className="mr-2 h-4 w-4 text-[hsl(var(--brand-secondary))]" />
+                  <Play className="mr-2 h-4 w-4 text-slate-700" />
                   Launch Live Demo
-                  <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
+                  <ExternalLink className="ml-1.5 h-3.5 w-3.5 text-slate-500" />
                 </a>
               </Button>
             </div>
@@ -560,7 +559,7 @@ const AIDashboard = () => {
                   aria-label="Filter agents by trigger type"
                   value={selectedTrigger}
                   onChange={(e) => setSelectedTrigger(e.target.value)}
-                  className="rounded-full border border-border bg-background px-3 py-2 text-xs font-medium text-brand-primary shadow-sm focus:outline-none"
+                  className="rounded-full border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-300"
                 >
                   <option value="All">All Triggers</option>
                   <option value="Event-driven">Event-driven</option>
@@ -577,10 +576,10 @@ const AIDashboard = () => {
                   key={team}
                   type="button"
                   onClick={() => setSelectedTeam(team)}
-                  className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${
+                  className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all duration-150 ${
                     selectedTeam === team
-                      ? "bg-black text-white shadow-sm"
-                      : "border border-border bg-background text-brand-primary hover:bg-slate-200"
+                      ? "border border-slate-950 bg-slate-950 text-white shadow-sm"
+                      : "border border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950"
                   }`}
                 >
                   {team}
@@ -655,15 +654,14 @@ const AIDashboard = () => {
                 </div>
 
                 <div className="mt-6 pt-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
+                  <button
+                    type="button"
                     onClick={() => setActiveAgentModal(agent)}
-                    className="w-full rounded-full border-border text-xs font-semibold hover:border-black hover:bg-black hover:text-white"
+                    className="inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-slate-300 bg-white py-2 text-xs font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-950 hover:bg-slate-950 hover:text-white active:translate-y-[1px]"
                   >
-                    Inspect Workflow & Output
-                    <ChevronRight className="ml-1 h-3.5 w-3.5" />
-                  </Button>
+                    <span>Inspect Workflow & Output</span>
+                    <ChevronRight className="h-3.5 w-3.5" />
+                  </button>
                 </div>
               </div>
             ))}
@@ -745,7 +743,7 @@ const AIDashboard = () => {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Button
               asChild
-              className="rounded-full bg-white px-8 py-3 font-semibold text-black hover:bg-white/90 active:translate-y-[2px]"
+              className="rounded-full border border-white bg-white px-8 py-3 font-bold text-slate-950 shadow-sm transition-all duration-150 hover:bg-slate-100 hover:text-black active:translate-y-[2px]"
             >
               <Link to="/book-demo">
                 Book a Personalized Demo
@@ -754,8 +752,7 @@ const AIDashboard = () => {
             </Button>
             <Button
               asChild
-              variant="outline"
-              className="rounded-full border-white/20 bg-transparent px-8 py-3 font-semibold text-white hover:bg-white/10 active:translate-y-[2px]"
+              className="rounded-full border border-white/25 bg-white/5 px-8 py-3 font-semibold text-white backdrop-blur-xs transition-all duration-150 hover:border-white/40 hover:bg-white/15 active:translate-y-[2px]"
             >
               <a
                 href="https://controltowerdemo.collabai.software/login"
@@ -856,16 +853,16 @@ const AIDashboard = () => {
                 </div>
 
                 <div className="flex items-center justify-end gap-3 pt-2">
-                  <Button
-                    variant="outline"
+                  <button
+                    type="button"
                     onClick={() => setActiveAgentModal(null)}
-                    className="rounded-full text-xs"
+                    className="rounded-full border border-slate-300 bg-white px-5 py-2 text-xs font-semibold text-slate-700 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950"
                   >
                     Close
-                  </Button>
+                  </button>
                   <Button
                     asChild
-                    className="rounded-full bg-black text-xs text-white"
+                    className="rounded-full border border-slate-900 bg-slate-950 px-6 py-2 text-xs font-semibold text-white shadow-sm transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white"
                   >
                     <Link to="/book-demo">
                       Request Custom Configuration

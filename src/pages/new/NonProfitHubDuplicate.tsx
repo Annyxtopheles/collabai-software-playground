@@ -40,11 +40,11 @@ const Btn = ({
   variant?: "primary" | "secondary";
 }) => {
   const base =
-    "inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all active:translate-y-[2px]";
+    "inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-150 active:translate-y-[2px]";
   const styles =
     variant === "primary"
-      ? "text-background shadow-lg shadow-[hsl(0,0%,9%)]/10 hover:shadow-xl"
-      : "border border-border bg-background text-brand-primary hover:shadow-md";
+      ? "text-white shadow-md hover:shadow-lg hover:brightness-105"
+      : "border border-slate-300 bg-white text-slate-800 shadow-xs hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950";
   const inline =
     variant === "primary"
       ? { background: "linear-gradient(135deg, var(--np-sage), var(--np-terra))" }

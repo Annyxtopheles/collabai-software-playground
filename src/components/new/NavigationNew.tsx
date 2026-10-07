@@ -170,7 +170,7 @@ const NavigationNew = () => {
         </NavigationMenu>
 
         <div className="hidden lg:block">
-          <Button asChild className="hover:shadow-[0_4px_14px_0_rgba(49,94,255,0.25)]">
+          <Button asChild className="rounded-full px-5 py-2 text-sm font-semibold shadow-xs transition-all duration-150 hover:shadow-md hover:brightness-105 active:translate-y-[1px]">
             <Link to="/book-demo">Get Free Demo</Link>
           </Button>
         </div>
@@ -192,10 +192,10 @@ const NavigationNew = () => {
             <MobileGroup title="Industry" items={verticals} onNavigate={() => setMobileOpen(false)} />
             <MobileGroup title="Resources" items={resources} onNavigate={() => setMobileOpen(false)} />
             <div className="flex gap-3 pt-2">
-              <Button asChild variant="outline" className="flex-1">
+              <Button asChild className="flex-1 rounded-full border border-slate-300 bg-white py-2 text-sm font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950">
                 <Link to="/contact" onClick={() => setMobileOpen(false)}>Contact</Link>
               </Button>
-              <Button asChild className="flex-1 bg-foreground text-background hover:bg-foreground/90">
+              <Button asChild className="flex-1 rounded-full border border-slate-900 bg-slate-950 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white">
                 <Link to="/book-demo" onClick={() => setMobileOpen(false)}>Get Free Demo</Link>
               </Button>
             </div>

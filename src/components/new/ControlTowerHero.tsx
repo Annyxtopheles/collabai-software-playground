@@ -57,7 +57,7 @@ const ControlTowerHero = ({
         <div className="mt-8 flex flex-col items-center gap-3">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Button
-              className="group relative cursor-pointer overflow-hidden rounded-full border bg-black px-8 py-2 text-center font-semibold active:translate-y-[2px] transition-all"
+              className="group relative cursor-pointer overflow-hidden rounded-full border border-slate-900 bg-slate-950 px-8 py-2.5 text-center font-semibold text-white shadow-sm transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[2px]"
               asChild
             >
               {buttonUrl.startsWith("/") ? (
@@ -74,9 +74,8 @@ const ControlTowerHero = ({
             </Button>
             {secondaryCta && (
               <Button
-                variant="outline"
-                className="rounded-full border-foreground/15 bg-background px-8 py-2 font-semibold hover:bg-foreground/10 hover:text-foreground active:translate-y-[2px] transition-all"
                 asChild
+                className="rounded-full border border-slate-300 bg-white px-8 py-2.5 font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 active:translate-y-[2px]"
               >
                 <Link to={secondaryCta.to}>{secondaryCta.label}</Link>
               </Button>

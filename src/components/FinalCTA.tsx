@@ -42,10 +42,8 @@ const FinalCTA = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
-              size="lg" 
-              variant="secondary"
-              className="bg-white text-trust-blue hover:bg-white/90 font-semibold px-8 py-3 group"
               asChild
+              className="rounded-full border border-white bg-white px-8 py-3 font-bold text-slate-950 shadow-md transition-all duration-150 hover:bg-slate-100 hover:text-black active:translate-y-[2px] group"
             >
               <Link to="/book-demo">
                 Book a Demo
@@ -54,11 +52,12 @@ const FinalCTA = () => {
             </Button>
             
             <Button 
-              size="lg" 
-              variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 px-8 py-3"
+              asChild
+              className="rounded-full border border-white/35 bg-white/10 px-8 py-3 font-semibold text-white backdrop-blur-xs transition-all duration-150 hover:border-white/60 hover:bg-white/20 hover:text-white active:translate-y-[2px]"
             >
-              Download Industry Playbook
+              <Link to="/resources">
+                Download Industry Playbook
+              </Link>
             </Button>
           </div>
 

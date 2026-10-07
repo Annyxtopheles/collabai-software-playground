@@ -56,6 +56,7 @@ const NewTryDemo = lazy(() => import("./pages/new/TryDemo"));
 const NewAIReadiness = lazy(() => import("./pages/new/AIReadiness"));
 const NewApi = lazy(() => import("./pages/new/Api"));
 const NewDevelopers = lazy(() => import("./pages/new/Developers"));
+const NewAIDashboard = lazy(() => import("./pages/new/AIDashboard"));
 
 // Niche hubs + sub-pages (flat root URLs: /agency, /mortgage-bank, /healthcare, /non-profit, /touring)
 const NicheHub = lazy(() => import("./pages/niches/NicheRouter").then((m) => ({ default: m.NicheHub })));
@@ -96,7 +97,9 @@ export const AppRoutes = () => (
               <Route path="/control-tower/mobile" element={<NewCTMobile />} />
               <Route path="/control-tower/integrations" element={<NewCTIntegrations />} />
               <Route path="/collabai-platform" element={<NewCollabAIPlatform />} />
-              {/* Agent directory */}
+              {/* Agent directory & AI Dashboard */}
+              <Route path="/ai-dashboard" element={<NewAIDashboard />} />
+              <Route path="/dashboard" element={<NewAIDashboard />} />
               <Route path="/agents" element={<NewAgents />} />
               <Route path="/agents/:team" element={<NewAgentTeam />} />
               <Route path="/agents/:team/:agent" element={<NewAgentDetail />} />

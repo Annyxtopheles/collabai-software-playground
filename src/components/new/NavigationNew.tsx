@@ -17,6 +17,7 @@ const platformItems = [
   { label: "Overview", to: "/control-tower" },
   { label: "How It Works", to: "/control-tower/how-it-works" },
   { label: "Operational Dashboards", to: "/control-tower/dashboards" },
+  { label: "AI Workforce Dashboard", to: "/ai-dashboard" },
   { label: "AI Agents (100+)", to: "/control-tower/ai-agents" },
   { label: "Security", to: "/control-tower/security" },
   { label: "Mobile Apps", to: "/control-tower/mobile" },

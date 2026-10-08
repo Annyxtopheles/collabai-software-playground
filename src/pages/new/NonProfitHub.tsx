@@ -37,8 +37,8 @@ import bspLogo from "@/assets/clients/bsp.png";
 import theOptimistsLogo from "@/assets/clients/the-optimists.png";
 import queensChamberLogo from "@/assets/clients/queens-chamber.png";
 
-// Section Visuals
-import solutionArchitecture from "@/assets/nonprofit/solution-architecture.jpg";
+// Section Visuals & Components
+import NonprofitIntegrationsBeam from "@/components/new/nonprofit/NonprofitIntegrationsBeam";
 import problemScatteredDonors from "@/assets/nonprofit/problem-scattered-donors.png";
 import problemReportingTime from "@/assets/nonprofit/problem-reporting-time.jpg";
 import problemManualWork from "@/assets/nonprofit/problem-manual-work.png";
@@ -374,100 +374,9 @@ const NonProfitHub = () => {
             </p>
           </div>
 
-          {/* Main Connected Architecture Diagram Visual */}
-          <div className="mt-12 overflow-hidden rounded-3xl border border-[#14a800]/25 bg-white p-3 sm:p-5 md:p-6 shadow-xl">
-            <img
-              src={solutionArchitecture}
-              alt="Nonprofit Control Tower Connected Architecture Diagram showing tools connecting to central hub and flowing to staff, leadership, and board"
-              className="w-full h-auto rounded-2xl object-cover shadow-xs"
-            />
-          </div>
-
-          {/* Connected Architecture Schematic Breakdown */}
-          <div className="mt-8 rounded-3xl border border-[#14a800]/20 bg-white p-6 shadow-sm md:p-10">
-            <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.2fr_1fr]">
-              {/* Left Column: Existing Tools */}
-              <div className="space-y-3">
-                <div className="text-center text-xs font-bold uppercase tracking-wider text-slate-500 lg:text-left">
-                  Your Existing Tools
-                </div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 space-y-2.5">
-                  {[
-                    { label: "CRM & Donors", sub: "Salesforce NPSP, Bloomerang" },
-                    { label: "Finance & Accounting", sub: "QuickBooks, Stripe" },
-                    { label: "Documents & Files", sub: "Google Drive, M365" },
-                    { label: "Meetings & Comms", sub: "Zoom, Slack, Email" },
-                  ].map((tool, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center justify-between rounded-xl border border-slate-200/80 bg-white px-3.5 py-2.5 text-xs shadow-2xs"
-                    >
-                      <span className="font-semibold text-slate-800">
-                        {tool.label}
-                      </span>
-                      <span className="text-slate-400">{tool.sub}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Center Column: Central Nonprofit Control Tower */}
-              <div className="relative rounded-3xl border-2 border-[#14a800] bg-[#e7f5e3]/40 p-6 text-center shadow-lg md:p-8">
-                <div className="inline-flex items-center gap-2 rounded-full bg-[#14a800] px-3.5 py-1 text-xs font-semibold text-white">
-                  <Sparkles className="h-3 w-3" />
-                  Central Hub
-                </div>
-                <h3 className="mt-4 text-xl font-extrabold text-[#0c180a] md:text-2xl">
-                  Nonprofit Control Tower
-                </h3>
-                <p className="mt-2 text-xs leading-relaxed text-slate-600">
-                  Private operational intelligence connecting workflows, data,
-                  and governance.
-                </p>
-
-                <div className="mt-6 grid grid-cols-2 gap-2 text-left text-xs">
-                  <div className="rounded-lg bg-white/90 p-2.5 border border-[#14a800]/20">
-                    <div className="font-bold text-[#14a800]">Unified Data</div>
-                    <div className="text-[11px] text-slate-500">Cross-tool sync</div>
-                  </div>
-                  <div className="rounded-lg bg-white/90 p-2.5 border border-[#14a800]/20">
-                    <div className="font-bold text-[#14a800]">Private AI</div>
-                    <div className="text-[11px] text-slate-500">Zero model training</div>
-                  </div>
-                  <div className="rounded-lg bg-white/90 p-2.5 border border-[#14a800]/20">
-                    <div className="font-bold text-[#14a800]">Automations</div>
-                    <div className="text-[11px] text-slate-500">Repetitive work done</div>
-                  </div>
-                  <div className="rounded-lg bg-white/90 p-2.5 border border-[#14a800]/20">
-                    <div className="font-bold text-[#14a800]">Role Access</div>
-                    <div className="text-[11px] text-slate-500">Permission-locked</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Delivered Outputs */}
-              <div className="space-y-3">
-                <div className="text-center text-xs font-bold uppercase tracking-wider text-slate-500 lg:text-left">
-                  Connected Outcomes
-                </div>
-                <div className="rounded-2xl border border-[#14a800]/20 bg-[#e7f5e3]/20 p-4 space-y-2.5">
-                  {[
-                    { role: "Staff", out: "Automated grant drafts & meeting summaries" },
-                    { role: "Leadership", out: "Instant 360° operational clarity" },
-                    { role: "Board", out: "Packets assembled & policy self-serve" },
-                    { role: "Donors", out: "Timely stewardship & accurate updates" },
-                  ].map((out, idx) => (
-                    <div
-                      key={idx}
-                      className="rounded-xl border border-[#14a800]/20 bg-white p-3 text-xs shadow-2xs"
-                    >
-                      <div className="font-bold text-[#118f00]">{out.role}</div>
-                      <div className="mt-0.5 text-slate-600">{out.out}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+          {/* Connected Systems Diagram Visual */}
+          <div className="mt-14">
+            <NonprofitIntegrationsBeam />
           </div>
         </div>
       </section>

@@ -662,7 +662,7 @@ const AgentLightboxModal = ({
   agent: DashboardAgent;
   onClose: () => void;
 }) => {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeTab, setActiveTab] = useState<"workflow" | "output" | "specs">("workflow");
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -671,383 +671,260 @@ const AgentLightboxModal = ({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const whatItDoesBullets =
-    agent.workflowSteps && agent.workflowSteps.length >= 3
-      ? agent.workflowSteps
-      : [
-          `Monitors live events and context across ${agent.integrations.join(", ")}.`,
-          `Executes verified domain logic according to ${agent.tier.toLowerCase()} operational guidelines.`,
-          `Delivers structured, execution-ready records directly into your downstream tools.`,
-        ];
-
-  const howItSavesTimeBullets = [
-    `Eliminates manual bottlenecks with an estimated ${agent.timeSaved} savings across your team.`,
-    `Accelerates execution cycle by ${agent.speedupMultiplier}, replacing slow manual copy-paste handoffs.`,
-    `Automates handoffs across ${agent.integrations.slice(0, 3).join(", ")}, delivering verified records in minutes instead of hours.`,
-  ];
-
   return (
     <div className="flex flex-col">
-      {/* Top Header Row */}
+      {/* Lightbox Header */}
       <div className="flex flex-col gap-3 pr-8">
-        <DialogTitle className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 text-left">
+        <DialogTitle className="text-2xl sm:text-3xl font-bold tracking-tight text-brand-primary text-left">
           {agent.name}
         </DialogTitle>
-        <DialogDescription className="sr-only">
+        <DialogDescription className="text-sm text-slate-secondary text-left">
           {agent.description}
         </DialogDescription>
 
-        {/* Badges + Orange CTA Row */}
+        {/* Badges + Action CTA Row */}
         <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50/90 px-3 py-1 text-xs font-semibold text-amber-900">
-            <Tag className="h-3 w-3 text-amber-600" />
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
+            <Tag className="h-3 w-3 text-slate-500" />
             {agent.team}
           </span>
 
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-200 bg-sky-50/90 px-3 py-1 text-xs font-semibold text-sky-900">
-            <Laptop className="h-3 w-3 text-sky-600" />
-            {agent.tier} MicroApp
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-[hsl(var(--brand-secondary))]/20 bg-[hsl(var(--brand-secondary))]/10 px-3 py-1 text-xs font-semibold text-[hsl(var(--brand-secondary))]">
+            <Zap className="h-3 w-3 text-[hsl(var(--brand-secondary))]" />
+            {agent.tier} Agent
           </span>
 
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50/90 px-3 py-1 text-xs font-semibold text-emerald-900">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-700">
             <Clock className="h-3 w-3 text-emerald-600" />
-            Saves your team {agent.timeSaved}
+            Saves {agent.timeSaved}
           </span>
 
           <Link
             to="/book-demo"
-            className="inline-flex items-center gap-1.5 rounded-full bg-[#FF5722] hover:bg-[#F4511E] px-4 sm:px-5 py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white shadow-[0_4px_14px_rgba(255,87,34,0.35)] hover:shadow-[0_6px_20px_rgba(255,87,34,0.45)] transition-all"
+            className="inline-flex items-center gap-1.5 rounded-full bg-[hsl(var(--brand-secondary))] hover:bg-[#254bdb] px-5 py-2 text-xs font-semibold text-white shadow-[0_2px_12px_rgba(49,94,255,0.25)] transition-all"
           >
-            <span>Interested in this? Book a demo</span>
+            <span>Deploy Workflow Demo</span>
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
       </div>
 
-      {/* 2-Column Split Body */}
-      <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
-        {/* Left Box: WHAT IT DOES / HOW IT SAVES TIME */}
-        <div className="lg:col-span-5 flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-[#FAF9F7] p-5 sm:p-6 space-y-6">
+      {/* 2-Column Body Layout */}
+      <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        {/* Left Column: What It Does & How It Saves Time */}
+        <div className="lg:col-span-5 flex flex-col justify-between rounded-2xl border border-border bg-slate-50/60 p-5 sm:p-6 space-y-6">
           <div>
-            <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-900">
-              What It Does
+            <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+              What This Agent Does
             </h4>
-            <ul className="mt-3.5 space-y-3 text-xs leading-relaxed text-slate-600">
-              {whatItDoesBullets.map((bullet, idx) => (
+            <ul className="mt-3.5 space-y-3 text-xs leading-relaxed text-brand-primary">
+              {agent.workflowSteps.map((step, idx) => (
                 <li key={idx} className="flex items-start gap-2.5">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-400 shrink-0" />
-                  <span>{bullet}</span>
+                  <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white border border-slate-200 text-[10px] font-bold text-slate-600">
+                    {idx + 1}
+                  </span>
+                  <span>{step}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="border-t border-slate-200/70 pt-5">
-            <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-900">
-              How It Saves Time
+          <div className="border-t border-slate-200/80 pt-5">
+            <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+              Measurable Time & ROI Impact
             </h4>
-            <ul className="mt-3.5 space-y-3 text-xs leading-relaxed text-slate-600">
-              {howItSavesTimeBullets.map((bullet, idx) => (
-                <li key={idx} className="flex items-start gap-2.5">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-slate-400 shrink-0" />
-                  <span>{bullet}</span>
-                </li>
-              ))}
+            <ul className="mt-3.5 space-y-3 text-xs leading-relaxed text-brand-primary">
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                <span>
+                  <strong>{agent.speedupMultiplier}</strong> faster execution turnaround compared to manual workflow.
+                </span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                <span>
+                  Saves an estimated <strong>{agent.timeSaved}</strong> by eliminating repetitive manual review steps.
+                </span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                <span>
+                  Connects directly into <strong>{agent.integrations.join(", ")}</strong> without requiring context-switching.
+                </span>
+              </li>
             </ul>
           </div>
         </div>
 
-        {/* Right Box: SaaS Mockup Carousel */}
-        <div className="lg:col-span-7 flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-[#F7F6F3] p-4 sm:p-5 relative overflow-hidden min-h-[460px]">
-          {/* Slide Navigation Buttons */}
-          <button
-            type="button"
-            onClick={() => setActiveSlide((prev) => (prev === 0 ? 2 : prev - 1))}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-700 shadow-md transition-all hover:bg-slate-100"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
+        {/* Right Column: CollabAI Interactive Console */}
+        <div className="lg:col-span-7 flex flex-col justify-between rounded-2xl border border-border bg-white p-5 shadow-xs">
+          {/* Console Header Tabs */}
+          <div className="flex items-center justify-between border-b border-border pb-3">
+            <div className="flex items-center gap-1.5 rounded-lg bg-slate-100 p-1">
+              <button
+                type="button"
+                onClick={() => setActiveTab("workflow")}
+                className={`rounded-md px-3 py-1.5 text-xs font-semibold transition-all ${
+                  activeTab === "workflow"
+                    ? "bg-white text-brand-primary shadow-xs"
+                    : "text-slate-secondary hover:text-brand-primary"
+                }`}
+              >
+                Workflow Execution
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("output")}
+                className={`rounded-md px-3 py-1.5 text-xs font-semibold transition-all ${
+                  activeTab === "output"
+                    ? "bg-white text-brand-primary shadow-xs"
+                    : "text-slate-secondary hover:text-brand-primary"
+                }`}
+              >
+                Sample Output Artifact
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("specs")}
+                className={`rounded-md px-3 py-1.5 text-xs font-semibold transition-all ${
+                  activeTab === "specs"
+                    ? "bg-white text-brand-primary shadow-xs"
+                    : "text-slate-secondary hover:text-brand-primary"
+                }`}
+              >
+                Architecture & Privacy
+              </button>
+            </div>
 
-          <button
-            type="button"
-            onClick={() => setActiveSlide((prev) => (prev === 2 ? 0 : prev + 1))}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-700 shadow-md transition-all hover:bg-slate-100"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </button>
-
-          {/* Top Mini Nav */}
-          <div className="flex items-center justify-between border-b border-slate-200/80 pb-3 px-1">
-            <div className="flex items-center gap-2">
-              <div className="flex h-6 w-6 items-center justify-center rounded-md bg-slate-900 text-[10px] font-bold text-white">
-                CA
-              </div>
-              <span className="text-xs font-bold text-slate-800">
-                {agent.name} Workspace
-              </span>
-            </div>
-            <div className="hidden sm:flex items-center gap-3 text-[11px] font-medium text-slate-500">
-              <button
-                type="button"
-                onClick={() => setActiveSlide(0)}
-                className={`transition-colors ${
-                  activeSlide === 0 ? "font-bold text-slate-900" : "hover:text-slate-800"
-                }`}
-              >
-                Pipeline
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveSlide(1)}
-                className={`transition-colors ${
-                  activeSlide === 1 ? "font-bold text-slate-900" : "hover:text-slate-800"
-                }`}
-              >
-                Output Artifact
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveSlide(2)}
-                className={`transition-colors ${
-                  activeSlide === 2 ? "font-bold text-slate-900" : "hover:text-slate-800"
-                }`}
-              >
-                Architecture
-              </button>
-            </div>
-            <div className="flex items-center gap-2 text-slate-400">
-              <Search className="h-3.5 w-3.5" />
-              <Bell className="h-3.5 w-3.5" />
-              <div className="h-5 w-5 rounded-full bg-gradient-to-tr from-amber-500 to-indigo-600" />
-            </div>
+            <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-700">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              Private VPC Ready
+            </span>
           </div>
 
-          {/* Slide Content */}
-          <div className="my-auto px-4 sm:px-6 py-2">
-            {activeSlide === 0 && (
+          {/* Console Tab Content */}
+          <div className="py-4 flex-1">
+            {activeTab === "workflow" && (
               <div className="space-y-4">
-                {/* Batch Progress Banner */}
+                {/* Trigger & Input Banner */}
+                <div className="rounded-xl border border-border bg-slate-50/70 p-3.5 text-xs">
+                  <div className="flex items-center justify-between text-[11px] text-slate-secondary">
+                    <span className="font-semibold uppercase tracking-wider text-slate-400">Trigger Source:</span>
+                    <span className="font-medium text-brand-primary">{agent.trigger}</span>
+                  </div>
+                  <div className="mt-2 text-xs font-medium text-brand-primary">
+                    <span className="text-slate-400 font-normal">Input Context: </span>
+                    {agent.workflowInput}
+                  </div>
+                </div>
+
+                {/* Reasoning Pipeline Steps */}
                 <div>
-                  <div className="flex items-baseline justify-between">
-                    <h5 className="text-sm sm:text-base font-extrabold text-slate-900">
-                      Synthesizing Batch 3 of 6...
-                    </h5>
-                    <span className="text-[10px] font-bold text-[#FF5722]">24% Complete</span>
-                  </div>
-                  <p className="mt-0.5 text-[11px] text-slate-500">
-                    109 records processed of 450 total in this active sequence.
-                  </p>
-                  <div className="mt-2 h-1.5 w-full rounded-full bg-slate-200/90 overflow-hidden">
-                    <div className="h-full rounded-full bg-[#FF5722] w-[24%]" />
-                  </div>
-                </div>
-
-                {/* Live Data Sources Strip */}
-                <div className="flex flex-wrap items-center gap-1.5">
-                  {agent.integrations.map((src) => (
-                    <span
-                      key={src}
-                      className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 py-0.5 text-[10px] font-medium text-slate-700 shadow-2xs"
-                    >
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      {src} / Live
-                    </span>
-                  ))}
-                </div>
-
-                {/* Execution Pipeline + Record Inspector Split */}
-                <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-1">
-                  {/* Stages */}
-                  <div className="sm:col-span-5 space-y-2">
-                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                      Execution Pipeline
-                    </span>
-                    <div className="rounded-xl border border-slate-200 bg-white p-2.5 shadow-2xs">
-                      <div className="flex items-center justify-between text-[10px] text-slate-500">
-                        <span className="font-semibold text-slate-700">Raw Input (12)</span>
-                        <span>Queued</span>
-                      </div>
-                      <p className="mt-1 text-[10px] text-slate-600 line-clamp-1 truncate">
-                        {agent.workflowInput}
-                      </p>
-                    </div>
-
-                    <div className="rounded-xl border-2 border-[#FF5722]/80 bg-white p-2.5 shadow-xs">
-                      <div className="flex items-center justify-between text-[10px]">
-                        <span className="font-bold text-slate-900">Processing (5)</span>
-                        <div className="h-2 w-2 rounded-full bg-[#FF5722] animate-ping" />
-                      </div>
-                      <p className="mt-1 text-[10px] font-medium text-slate-800 line-clamp-1">
-                        Running {agent.name}...
-                      </p>
-                    </div>
-
-                    <div className="rounded-xl border border-slate-200 bg-white p-2.5 shadow-2xs">
-                      <div className="flex items-center justify-between text-[10px] text-slate-500">
-                        <span className="font-semibold text-slate-700">Enriched & Ready (84)</span>
-                        <CheckCircle2 className="h-3 w-3 text-emerald-600" />
-                      </div>
-                      <p className="mt-1 text-[10px] text-emerald-700 font-medium">
-                        100% verified schema
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Profile Inspector Card */}
-                  <div className="sm:col-span-7 flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-3.5 shadow-xs">
-                    <div>
-                      <div className="flex items-center gap-2.5">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-900 text-xs font-bold text-white">
-                          {agent.name.slice(0, 2).toUpperCase()}
-                        </div>
-                        <div>
-                          <h6 className="text-xs font-bold text-slate-900">{agent.name}</h6>
-                          <span className="text-[10px] text-slate-400">Validated Production Record</span>
-                        </div>
-                      </div>
-
-                      <div className="mt-3 space-y-1.5">
-                        <div className="flex items-center justify-between rounded-lg bg-slate-50 px-2.5 py-1.5 text-[10px]">
-                          <div>
-                            <span className="text-slate-400">Efficiency Gain:</span>
-                            <span className="ml-1.5 font-bold text-slate-800">{agent.timeSaved}</span>
-                          </div>
-                          <CheckCircle2 className="h-3 w-3 text-emerald-500" />
-                        </div>
-
-                        <div className="flex items-center justify-between rounded-lg bg-slate-50 px-2.5 py-1.5 text-[10px]">
-                          <div>
-                            <span className="text-slate-400">Execution Speed:</span>
-                            <span className="ml-1.5 font-bold text-slate-800">{agent.speedupMultiplier}</span>
-                          </div>
-                          <CheckCircle2 className="h-3 w-3 text-emerald-500" />
-                        </div>
-
-                        <div className="flex items-center justify-between rounded-lg bg-slate-50 px-2.5 py-1.5 text-[10px]">
-                          <div>
-                            <span className="text-slate-400">Primary Trigger:</span>
-                            <span className="ml-1.5 font-bold text-slate-800">{agent.trigger}</span>
-                          </div>
-                          <CheckCircle2 className="h-3 w-3 text-emerald-500" />
-                        </div>
-
-                        <div className="flex items-center justify-between rounded-lg bg-slate-50 px-2.5 py-1.5 text-[10px]">
-                          <div>
-                            <span className="text-slate-400">Connected Stack:</span>
-                            <span className="ml-1.5 inline-block max-w-[120px] truncate align-bottom font-bold text-slate-800">
-                              {agent.integrations.join(", ")}
-                            </span>
-                          </div>
-                          <CheckCircle2 className="h-3 w-3 text-emerald-500" />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-2.5">
-                      <div className="flex -space-x-1.5">
-                        <div className="flex h-5 w-5 items-center justify-center rounded-full border border-white bg-slate-200 text-[8px] font-bold text-slate-600">
-                          U1
-                        </div>
-                        <div className="flex h-5 w-5 items-center justify-center rounded-full border border-white bg-blue-200 text-[8px] font-bold text-blue-700">
-                          AI
-                        </div>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => setActiveSlide(1)}
-                        className="rounded-md bg-slate-900 px-2.5 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-slate-800"
+                  <span className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+                    Autonomous Reasoning Chain
+                  </span>
+                  <div className="space-y-2">
+                    {agent.workflowSteps.map((step, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-start gap-3 rounded-xl border border-border bg-white p-3 text-xs shadow-xs"
                       >
-                        Preview Output
-                      </button>
-                    </div>
+                        <div className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[hsl(var(--brand-secondary))]/10 text-[11px] font-bold text-[hsl(var(--brand-secondary))]">
+                          {idx + 1}
+                        </div>
+                        <div className="flex-1">
+                          <p className="font-medium text-brand-primary">{step}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Integrations Strip */}
+                <div>
+                  <span className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+                    Connected Systems
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {agent.integrations.map((app) => (
+                      <span
+                        key={app}
+                        className="rounded-lg border border-border bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700"
+                      >
+                        {app}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
             )}
 
-            {activeSlide === 1 && (
+            {activeTab === "output" && (
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <div>
-                    <h5 className="text-sm font-bold text-slate-900">Generated Output Artifact</h5>
-                    <p className="text-[11px] text-slate-500">
-                      Production-ready result synthesized from workflow triggers.
-                    </p>
-                  </div>
+                  <span className="text-xs font-semibold text-brand-primary">
+                    Synthesized Executive Deliverable
+                  </span>
                   <button
                     type="button"
                     onClick={handleCopy}
-                    className="inline-flex items-center gap-1 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-[11px] font-medium text-slate-700 shadow-2xs hover:bg-slate-50"
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-slate-50 px-2.5 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-100 transition-colors"
                   >
-                    {copied ? <Check className="h-3 w-3 text-emerald-600" /> : <Copy className="h-3 w-3 text-slate-400" />}
-                    <span>{copied ? "Copied" : "Copy"}</span>
+                    {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5 text-slate-400" />}
+                    <span>{copied ? "Copied" : "Copy Output"}</span>
                   </button>
                 </div>
 
-                <div className="max-h-[300px] overflow-y-auto whitespace-pre-wrap rounded-xl border border-emerald-200 bg-emerald-50/70 p-4 font-sans text-xs leading-relaxed text-emerald-950">
+                <div className="rounded-xl border border-emerald-200/80 bg-emerald-50/40 p-4 font-sans text-xs leading-relaxed text-emerald-950 whitespace-pre-wrap max-h-[320px] overflow-y-auto">
                   {agent.sampleOutput}
                 </div>
               </div>
             )}
 
-            {activeSlide === 2 && (
-              <div className="space-y-3">
-                <div>
-                  <h5 className="text-sm font-bold text-slate-900">Agent Specs & Enterprise Governance</h5>
-                  <p className="text-[11px] text-slate-500">Security parameters and execution telemetry.</p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3 text-xs">
-                  <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-2xs">
-                    <span className="block text-[10px] font-bold uppercase text-slate-400">Model Engine</span>
-                    <p className="mt-1 font-bold text-slate-900">{agent.model}</p>
-                    <span className="text-[10px] text-slate-500">Private VPC inference</span>
+            {activeTab === "specs" && (
+              <div className="space-y-4">
+                <span className="block text-xs font-semibold text-brand-primary">
+                  Governance & Model Engine Specifications
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="rounded-xl border border-border bg-slate-50/60 p-3.5">
+                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Model Engine</span>
+                    <p className="mt-1 text-sm font-bold text-brand-primary">{agent.model}</p>
+                    <span className="mt-0.5 block text-[11px] text-slate-secondary">Zero retention private inference</span>
                   </div>
 
-                  <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-2xs">
-                    <span className="block text-[10px] font-bold uppercase text-slate-400">Trigger Mode</span>
-                    <p className="mt-1 font-bold text-slate-900">{agent.trigger}</p>
-                    <span className="text-[10px] text-slate-500 truncate block">{agent.triggerDetail}</span>
+                  <div className="rounded-xl border border-border bg-slate-50/60 p-3.5">
+                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Trigger Frequency</span>
+                    <p className="mt-1 text-sm font-bold text-brand-primary">{agent.trigger}</p>
+                    <span className="mt-0.5 block text-[11px] text-slate-secondary truncate">{agent.triggerDetail}</span>
                   </div>
 
-                  <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-2xs">
-                    <span className="block text-[10px] font-bold uppercase text-slate-400">Audit & SOC2</span>
-                    <p className="mt-1 font-bold text-emerald-600">Zero Retention</p>
-                    <span className="text-[10px] text-slate-500">No training on customer data</span>
+                  <div className="rounded-xl border border-border bg-slate-50/60 p-3.5">
+                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Data Boundary</span>
+                    <p className="mt-1 text-sm font-bold text-emerald-600">On-Premises / Private VPC</p>
+                    <span className="mt-0.5 block text-[11px] text-slate-secondary">Customer-isolated encrypted environment</span>
                   </div>
 
-                  <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-2xs">
-                    <span className="block text-[10px] font-bold uppercase text-slate-400">Team Scope</span>
-                    <p className="mt-1 font-bold text-slate-900">{agent.team}</p>
-                    <span className="text-[10px] text-slate-500">Role-based access control</span>
+                  <div className="rounded-xl border border-border bg-slate-50/60 p-3.5">
+                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Department Scope</span>
+                    <p className="mt-1 text-sm font-bold text-brand-primary">{agent.team}</p>
+                    <span className="mt-0.5 block text-[11px] text-slate-secondary">RBAC & audit log enforced</span>
                   </div>
                 </div>
               </div>
             )}
           </div>
 
-          {/* Bottom Slide Indicators */}
-          <div className="mt-4 flex items-center justify-center gap-3 pt-2 border-t border-slate-200/60">
-            <div className="flex items-center gap-1.5">
-              {[0, 1, 2].map((idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  onClick={() => setActiveSlide(idx)}
-                  className={`transition-all ${
-                    activeSlide === idx
-                      ? "h-2 w-5 rounded-full bg-[#FF5722]"
-                      : "h-2 w-2 rounded-full bg-slate-300 hover:bg-slate-400"
-                  }`}
-                  aria-label={`Slide ${idx + 1}`}
-                />
-              ))}
-            </div>
-            <span className="text-xs font-semibold text-slate-500">
-              {activeSlide + 1} / 3
-            </span>
+          {/* Console Footer */}
+          <div className="flex items-center justify-between border-t border-border pt-3 text-xs text-slate-secondary">
+            <span>Powered by CollabAI Agent Runtime</span>
+            <button
+              type="button"
+              onClick={onClose}
+              className="font-medium text-slate-500 hover:text-brand-primary transition-colors"
+            >
+              Close
+            </button>
           </div>
         </div>
       </div>

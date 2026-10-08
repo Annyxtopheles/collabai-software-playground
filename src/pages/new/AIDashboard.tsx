@@ -467,7 +467,7 @@ const AIDashboard = () => {
       {/* Hero Header */}
       <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-background via-slate-light/40 to-background pt-12 pb-16 lg:pt-16 lg:pb-24">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="mx-auto max-w-5xl text-center">
             {/* Live operational badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--brand-secondary))]/30 bg-[hsl(var(--brand-secondary))]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
               <span className="relative flex h-2 w-2">
@@ -484,7 +484,7 @@ const AIDashboard = () => {
               </span>
             </h1>
 
-            <p className="mt-6 text-lg text-slate-secondary lg:text-xl">
+            <p className="mx-auto mt-6 max-w-4xl text-lg text-slate-secondary text-balance lg:text-xl">
               From automated meeting intelligence to pipeline hygiene, project risk detection, and grant drafting.
               Explore our production agent workforce running inside your tools with zero per-token markup.
             </p>

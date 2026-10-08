@@ -74,15 +74,21 @@ const BookFreeDemoBtn = ({
   variant?: "primary" | "secondary" | "white";
 }) => {
   const base =
-    "inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-sm md:text-base font-semibold transition-all duration-200 active:translate-y-[1px] shadow-sm";
+    "group inline-flex items-center justify-center gap-3 rounded-full pl-7 pr-3 py-2.5 text-sm md:text-base font-semibold transition-all duration-200 active:translate-y-[1px]";
 
   const variants = {
     primary:
-      "bg-[#14a800] text-white hover:bg-[#118f00] shadow-[0_4px_16px_rgba(20,168,0,0.25)] hover:shadow-[0_6px_22px_rgba(20,168,0,0.35)]",
+      "bg-[#14a800] text-white hover:bg-[#118f00] shadow-[0_4px_18px_rgba(20,168,0,0.28)] hover:shadow-[0_6px_24px_rgba(20,168,0,0.38)]",
     secondary:
-      "border border-[#14a800]/25 bg-[#e7f5e3]/60 text-[#118f00] hover:bg-[#e7f5e3] hover:border-[#14a800]/40",
+      "border border-[#14a800]/30 bg-[#e7f5e3]/60 text-[#118f00] hover:bg-[#e7f5e3] hover:border-[#14a800]/50",
     white:
       "bg-white text-[#0c180a] hover:bg-slate-50 shadow-md hover:shadow-lg",
+  };
+
+  const iconVariants = {
+    primary: "bg-white text-[#14a800] group-hover:bg-[#e7f5e3]",
+    secondary: "bg-[#14a800] text-white",
+    white: "bg-[#14a800] text-white",
   };
 
   return (
@@ -90,8 +96,12 @@ const BookFreeDemoBtn = ({
       to="/book-demo"
       className={`${base} ${variants[variant]} ${className}`}
     >
-      Book Free Demo
-      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+      <span>Book Free Demo</span>
+      <span
+        className={`flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-200 group-hover:translate-x-0.5 ${iconVariants[variant]}`}
+      >
+        <ArrowRight className="h-4 w-4" />
+      </span>
     </Link>
   );
 };
@@ -124,35 +134,146 @@ const NonProfitHub = () => {
           }}
         />
 
-        <div className="container mx-auto max-w-6xl px-4 text-center">
-          {/* Eyebrow badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#14a800]/20 bg-[#e7f5e3]/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#118f00]">
-            <Sparkles className="h-3.5 w-3.5" />
-            AI Operations for Nonprofits & Boards
-          </div>
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
+            {/* Left Column: Copy & Action */}
+            <div className="text-left lg:col-span-7">
+              {/* Eyebrow badge */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#14a800]/25 bg-[#e7f5e3]/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#118f00] shadow-2xs">
+                <Sparkles className="h-3.5 w-3.5 text-[#14a800]" />
+                <span>AI Operations for Nonprofits & Boards</span>
+              </div>
 
-          {/* Main Headline */}
-          <h1 className="mt-8 text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-[1.12]">
-            <span className="block sm:whitespace-nowrap">Spend Less Time Managing Systems.</span>
-            <span className="block mt-1 text-[#14a800] sm:whitespace-nowrap">
-              More Time Moving Your Mission Forward.
-            </span>
-          </h1>
+              {/* Main Headline */}
+              <h1 className="mt-6 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.65rem] leading-[1.12]">
+                <span className="block">Spend Less Time Managing Systems.</span>
+                <span className="block mt-1.5 text-[#14a800]">
+                  More Time Moving Your Mission Forward.
+                </span>
+              </h1>
 
-          {/* Supporting Copy */}
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-600 sm:text-xl sm:leading-relaxed text-pretty">
-            Connect your donors, grants, programs, meetings, documents and board
-            operations in one private AI-powered Nonprofit Control Tower without
-            replacing the tools you already&nbsp;use.
-          </p>
+              {/* Supporting Copy */}
+              <p className="mt-6 max-w-2xl text-base text-slate-600 sm:text-lg sm:leading-relaxed text-pretty">
+                Connect your donors, grants, programs, meetings, documents and board
+                operations in one private AI-powered Nonprofit Control Tower without
+                replacing the tools you already&nbsp;use.
+              </p>
 
-          <p className="mt-3 text-sm font-medium text-slate-500 text-pretty">
-            See what your nonprofit could run from one connected&nbsp;system.
-          </p>
+              <p className="mt-2.5 text-sm font-medium text-slate-500 text-pretty">
+                See what your nonprofit could run from one connected&nbsp;system.
+              </p>
 
-          {/* Primary CTA */}
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <BookFreeDemoBtn className="w-full sm:w-auto" />
+              {/* Primary CTA + Reassurance */}
+              <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                <BookFreeDemoBtn />
+              </div>
+
+              {/* Social Proof Strip (like Dribbble reference 4K+ trusted) */}
+              <div className="mt-10 flex items-center gap-4 pt-6 border-t border-slate-200/70">
+                <div className="flex -space-x-2 overflow-hidden">
+                  <div className="inline-block h-9 w-9 rounded-full ring-2 ring-white bg-[#14a800] text-white flex items-center justify-center font-bold text-xs shadow-2xs">
+                    ED
+                  </div>
+                  <div className="inline-block h-9 w-9 rounded-full ring-2 ring-white bg-[#0c180a] text-white flex items-center justify-center font-bold text-xs shadow-2xs">
+                    BM
+                  </div>
+                  <div className="inline-block h-9 w-9 rounded-full ring-2 ring-white bg-slate-700 text-white flex items-center justify-center font-bold text-xs shadow-2xs">
+                    GO
+                  </div>
+                  <div className="inline-block h-9 w-9 rounded-full ring-2 ring-white bg-[#e7f5e3] text-[#118f00] flex items-center justify-center font-bold text-xs shadow-2xs">
+                    +
+                  </div>
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-[#0c180a]">
+                    500+ Organizations & Boards
+                  </div>
+                  <div className="text-xs text-slate-500 font-medium">
+                    Supported across North America & Global Missions
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Layered Hero Mockup with Floating Cards (Reference Style) */}
+            <div className="relative lg:col-span-5 flex justify-center">
+              {/* Backing Ambient Arch Frame */}
+              <div className="relative w-full max-w-[460px] rounded-3xl border border-[#14a800]/20 bg-gradient-to-b from-[#e7f5e3]/50 to-white p-5 sm:p-6 shadow-[0_20px_50px_rgba(20,168,0,0.08)]">
+                {/* Header bar */}
+                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-3 w-3 rounded-full bg-[#14a800] animate-pulse" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
+                      Nonprofit Control Tower
+                    </span>
+                  </div>
+                  <span className="rounded-full bg-[#e7f5e3] px-2.5 py-0.5 text-[11px] font-semibold text-[#118f00]">
+                    Live Operations
+                  </span>
+                </div>
+
+                {/* Core Live Summary Inside Frame */}
+                <div className="mt-5 space-y-3">
+                  <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-xs">
+                    <div className="flex items-center justify-between text-xs text-slate-500">
+                      <span>Executive Operational View</span>
+                      <span className="font-semibold text-[#14a800]">Synced</span>
+                    </div>
+                    <div className="mt-2 text-xl font-extrabold text-[#0c180a]">
+                      $1.42M Raised &middot; 4 Active Grants
+                    </div>
+                    <div className="mt-1 flex items-center gap-1.5 text-xs text-slate-500">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#14a800]" />
+                      <span>All 12 donor & CRM systems consolidated</span>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2.5">
+                    <div className="rounded-2xl border border-slate-100 bg-white p-3.5 shadow-xs">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        Board Governance
+                      </span>
+                      <div className="mt-1 text-sm font-bold text-slate-800">
+                        Packet Synthesized
+                      </div>
+                      <span className="text-[11px] text-[#14a800] font-medium">Ready for review</span>
+                    </div>
+
+                    <div className="rounded-2xl border border-slate-100 bg-white p-3.5 shadow-xs">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        Grant Reporting
+                      </span>
+                      <div className="mt-1 text-sm font-bold text-slate-800">
+                        Q3 Draft Complete
+                      </div>
+                      <span className="text-[11px] text-[#14a800] font-medium">Saves ~18 staff hrs</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Card 1: Top Right Pill (like Expert Doctors / 24/7 in reference) */}
+                <div className="absolute -top-4 -right-4 hidden sm:flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-2.5 shadow-lg backdrop-blur-xs">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
+                    <ShieldCheck className="h-4 w-4" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs font-bold text-slate-900">Private by Design</div>
+                    <div className="text-[10px] text-slate-500">Zero model training</div>
+                  </div>
+                </div>
+
+                {/* Floating Card 2: Bottom Left Badge (like Your Health Companion in reference) */}
+                <div className="absolute -bottom-4 -left-4 hidden sm:flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-2.5 shadow-lg backdrop-blur-xs">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
+                    <Zap className="h-4 w-4" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs font-bold text-slate-900">Keep Your Tools</div>
+                    <div className="text-[10px] text-slate-500">Connects into CRM & files</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -510,21 +631,33 @@ const NonProfitHub = () => {
 
           <div className="mt-14 grid gap-8 md:grid-cols-2">
             {/* Case 1: IAABO */}
-            <div className="flex flex-col rounded-3xl border border-slate-200 bg-white p-7 shadow-xs md:p-8">
+            <div className="flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
               <div className="flex items-center justify-between border-b border-slate-100 pb-5">
                 <img
                   src={iaaboLogo}
                   alt="IAABO"
                   className="h-12 w-auto object-contain"
                 />
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">
-                  IAABO
+                <span className="rounded-full border border-[#14a800]/20 bg-[#e7f5e3] px-3 py-1 text-xs font-bold text-[#118f00]">
+                  16,000+ Officials
                 </span>
               </div>
               <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
                 AI learning for 16,000+ basketball&nbsp;officials
               </h3>
-              <div className="mt-4 space-y-3 text-sm text-slate-600">
+
+              {/* Mini Result Metric Card */}
+              <div className="my-4 rounded-2xl border border-slate-100 bg-[#fbfdfa] p-3.5 flex items-center justify-between">
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Impact Metric</div>
+                  <div className="text-sm font-extrabold text-[#14a800]">100% Automated Testing & Certification</div>
+                </div>
+                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+              </div>
+
+              <div className="space-y-3 text-sm text-slate-600">
                 <div>
                   <span className="font-semibold text-slate-900">Challenge: </span>
                   IAABO needed one place to train, test and certify officials
@@ -548,21 +681,33 @@ const NonProfitHub = () => {
             </div>
 
             {/* Case 2: BSP */}
-            <div className="flex flex-col rounded-3xl border border-slate-200 bg-white p-7 shadow-xs md:p-8">
+            <div className="flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
               <div className="flex items-center justify-between border-b border-slate-100 pb-5">
                 <img
                   src={bspLogo}
                   alt="BSP"
                   className="h-12 w-auto object-contain"
                 />
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">
-                  BSP
+                <span className="rounded-full border border-[#14a800]/20 bg-[#e7f5e3] px-3 py-1 text-xs font-bold text-[#118f00]">
+                  Community Operations
                 </span>
               </div>
               <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
                 From a placeholder site to a live nonprofit Control&nbsp;Tower
               </h3>
-              <div className="mt-4 space-y-3 text-sm text-slate-600">
+
+              {/* Mini Result Metric Card */}
+              <div className="my-4 rounded-2xl border border-slate-100 bg-[#fbfdfa] p-3.5 flex items-center justify-between">
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Impact Metric</div>
+                  <div className="text-sm font-extrabold text-[#14a800]">Unified Forms, Events & Donations</div>
+                </div>
+                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+              </div>
+
+              <div className="space-y-3 text-sm text-slate-600">
                 <div>
                   <span className="font-semibold text-slate-900">Challenge: </span>
                   A volunteer-run community group needed online sign-ups and a
@@ -586,21 +731,33 @@ const NonProfitHub = () => {
             </div>
 
             {/* Case 3: The Optimists */}
-            <div className="flex flex-col rounded-3xl border border-slate-200 bg-white p-7 shadow-xs md:p-8">
+            <div className="flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
               <div className="flex items-center justify-between border-b border-slate-100 pb-5">
                 <img
                   src={theOptimistsLogo}
                   alt="The Optimists"
                   className="h-10 w-auto object-contain"
                 />
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">
-                  The Optimists
+                <span className="rounded-full border border-[#14a800]/20 bg-[#e7f5e3] px-3 py-1 text-xs font-bold text-[#118f00]">
+                  Legacy Modernization
                 </span>
               </div>
               <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
                 Modernizing a 12-year-old nonprofit&nbsp;platform
               </h3>
-              <div className="mt-4 space-y-3 text-sm text-slate-600">
+
+              {/* Mini Result Metric Card */}
+              <div className="my-4 rounded-2xl border border-slate-100 bg-[#fbfdfa] p-3.5 flex items-center justify-between">
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Impact Metric</div>
+                  <div className="text-sm font-extrabold text-[#14a800]">Zero Downtime Migration to Live Ops</div>
+                </div>
+                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+              </div>
+
+              <div className="space-y-3 text-sm text-slate-600">
                 <div>
                   <span className="font-semibold text-slate-900">Challenge: </span>
                   An outdated WordPress site and admin panel were slowing the
@@ -623,21 +780,33 @@ const NonProfitHub = () => {
             </div>
 
             {/* Case 4: Queens Chamber of Commerce */}
-            <div className="flex flex-col rounded-3xl border border-slate-200 bg-white p-7 shadow-xs md:p-8">
+            <div className="flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
               <div className="flex items-center justify-between border-b border-slate-100 pb-5">
                 <img
                   src={queensChamberLogo}
                   alt="Queens Chamber of Commerce"
                   className="h-10 w-auto object-contain"
                 />
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">
-                  Queens Chamber
+                <span className="rounded-full border border-[#14a800]/20 bg-[#e7f5e3] px-3 py-1 text-xs font-bold text-[#118f00]">
+                  Community AI Infrastructure
                 </span>
               </div>
               <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
                 AI for a whole business&nbsp;community
               </h3>
-              <div className="mt-4 space-y-3 text-sm text-slate-600">
+
+              {/* Mini Result Metric Card */}
+              <div className="my-4 rounded-2xl border border-slate-100 bg-[#fbfdfa] p-3.5 flex items-center justify-between">
+                <div>
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Impact Metric</div>
+                  <div className="text-sm font-extrabold text-[#14a800]">Board Portal & Member AI Ecosystem</div>
+                </div>
+                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
+                  <CheckCircle2 className="h-4 w-4" />
+                </div>
+              </div>
+
+              <div className="space-y-3 text-sm text-slate-600">
                 <div>
                   <span className="font-semibold text-slate-900">Challenge: </span>
                   The Chamber needed practical AI infrastructure for its own team
@@ -722,35 +891,74 @@ const NonProfitHub = () => {
 
           <div className="mt-14 grid gap-8 md:grid-cols-3">
             {/* Step 1 */}
-            <div className="relative rounded-3xl border border-slate-200 bg-slate-50/50 p-8">
-              <div className="text-3xl font-extrabold text-[#14a800]">01</div>
-              <h3 className="mt-4 text-xl font-bold text-[#0c180a]">Connect</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
-                Connect the CRM, finance, documents, meetings and other systems
-                you already&nbsp;use.
-              </p>
+            <div className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-8 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
+              <div>
+                <div className="flex items-center justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e7f5e3] text-[#14a800]">
+                    <Database className="h-6 w-6" />
+                  </div>
+                  <span className="text-2xl font-black text-[#14a800]/40 group-hover:text-[#14a800] transition-colors">
+                    01
+                  </span>
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-[#0c180a]">Connect</h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
+                  Connect the CRM, finance, documents, meetings and other systems
+                  you already&nbsp;use.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-[#14a800]">
+                <Check className="h-4 w-4" />
+                <span>Zero tool migrations</span>
+              </div>
             </div>
 
             {/* Step 2 */}
-            <div className="relative rounded-3xl border border-slate-200 bg-slate-50/50 p-8">
-              <div className="text-3xl font-extrabold text-[#14a800]">02</div>
-              <h3 className="mt-4 text-xl font-bold text-[#0c180a]">Configure</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
-                Set permissions, workflows, dashboards and AI assistants around
-                your&nbsp;organization.
-              </p>
+            <div className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-8 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
+              <div>
+                <div className="flex items-center justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e7f5e3] text-[#14a800]">
+                    <Layers className="h-6 w-6" />
+                  </div>
+                  <span className="text-2xl font-black text-[#14a800]/40 group-hover:text-[#14a800] transition-colors">
+                    02
+                  </span>
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-[#0c180a]">Configure</h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
+                  Set permissions, workflows, dashboards and AI assistants around
+                  your&nbsp;organization.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-[#14a800]">
+                <Check className="h-4 w-4" />
+                <span>Custom team roles & policies</span>
+              </div>
             </div>
 
             {/* Step 3 */}
-            <div className="relative rounded-3xl border border-slate-200 bg-slate-50/50 p-8">
-              <div className="text-3xl font-extrabold text-[#14a800]">03</div>
-              <h3 className="mt-4 text-xl font-bold text-[#0c180a]">
-                Put Your Data to&nbsp;Work
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
-                Ask questions, automate repetitive work and give every role the
-                information it&nbsp;needs.
-              </p>
+            <div className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-8 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
+              <div>
+                <div className="flex items-center justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e7f5e3] text-[#14a800]">
+                    <Sparkles className="h-6 w-6" />
+                  </div>
+                  <span className="text-2xl font-black text-[#14a800]/40 group-hover:text-[#14a800] transition-colors">
+                    03
+                  </span>
+                </div>
+                <h3 className="mt-6 text-xl font-bold text-[#0c180a]">
+                  Put Your Data to&nbsp;Work
+                </h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
+                  Ask questions, automate repetitive work and give every role the
+                  information it&nbsp;needs.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-[#14a800]">
+                <Check className="h-4 w-4" />
+                <span>Measurable hours saved weekly</span>
+              </div>
             </div>
           </div>
         </div>

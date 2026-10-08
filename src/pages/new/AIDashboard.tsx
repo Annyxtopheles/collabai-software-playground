@@ -356,6 +356,34 @@ const AgentBannerPreview = ({ agent }: { agent: DashboardAgent }) => {
   );
 };
 
+const SCREENSHOTS = [
+  {
+    src: "/lovable-uploads/platform-agent-detail.png",
+    title: "Autonomous Agent Execution & Parameter Configuration",
+    caption: "Live workflow step triggers, input payload parsing, and connected system endpoints."
+  },
+  {
+    src: "/lovable-uploads/platform-dashboard.png",
+    title: "Central Control Tower Real-Time Operations",
+    caption: "Fleet telemetry, active background runs, token budgets, and departmental visibility."
+  },
+  {
+    src: "/lovable-uploads/platform-agents.png",
+    title: "Departmental Workforce Catalog & Permissions",
+    caption: "Role-based trigger controls, isolated data policies, and agent status metrics."
+  },
+  {
+    src: "/lovable-uploads/platform-conversations.png",
+    title: "Contextual Audit Trail & Human-in-the-Loop Reviews",
+    caption: "Deep inspection into intermediate agent reasoning, tool calls, and output drafts."
+  },
+  {
+    src: "/lovable-uploads/platform-knowledge-base.png",
+    title: "Secure Knowledge Base & Vector Ingestion",
+    caption: "Enterprise data connections with zero retention policy and isolated VPC retrieval."
+  },
+];
+
 const AgentLightboxModal = ({
   agent,
   onClose,
@@ -363,19 +391,20 @@ const AgentLightboxModal = ({
   agent: DashboardAgent;
   onClose: () => void;
 }) => {
-  const [activeTab, setActiveTab] = useState<"workflow" | "output" | "specs">("workflow");
-  const [copied, setCopied] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(agent.sampleOutput);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const prevSlide = () => {
+    setCurrentSlide((curr) => (curr === 0 ? SCREENSHOTS.length - 1 : curr - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((curr) => (curr === SCREENSHOTS.length - 1 ? 0 : curr + 1));
   };
 
   return (
     <div className="flex flex-col h-full min-h-0">
       {/* Lightbox Header - Fixed at top */}
-      <div className="shrink-0 flex flex-col gap-3 pr-8 pb-4">
+      <div className="shrink-0 flex flex-col gap-2.5 pr-8 pb-3">
         <DialogTitle className="text-2xl sm:text-3xl font-bold tracking-tight text-brand-primary text-left">
           {agent.name}
         </DialogTitle>
@@ -385,55 +414,53 @@ const AgentLightboxModal = ({
 
         {/* Badges + Action CTA Row */}
         <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-medium text-slate-800">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-3 py-1 text-xs font-medium text-slate-800">
             <Tag className="h-3.5 w-3.5 text-slate-500" />
             {agent.team}
           </span>
 
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-medium text-slate-800">
-            <Zap className="h-3.5 w-3.5 text-slate-500" />
-            {agent.tier} Agent
-          </span>
-
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-medium text-slate-800">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-3 py-1 text-xs font-medium text-slate-800">
             <Clock className="h-3.5 w-3.5 text-slate-500" />
             Saves {agent.timeSaved}
           </span>
 
-          <Link
-            to="/book-demo"
-            className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white hover:border-slate-400 hover:bg-slate-50 px-3.5 py-1.5 text-xs font-semibold text-slate-800 transition-all"
+          <a
+            href="https://controltowerdemo.collabai.software/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-1.5 rounded-full border border-[hsl(var(--brand-secondary))] bg-white px-3.5 py-1 text-xs font-semibold text-[hsl(var(--brand-secondary))] shadow-xs transition-all duration-150 hover:bg-[hsl(var(--brand-secondary))] hover:text-white"
           >
-            <span>Deploy Workflow Demo</span>
-            <ArrowRight className="h-3.5 w-3.5 text-slate-500" />
-          </Link>
+            <Play className="h-3.5 w-3.5 text-[hsl(var(--brand-secondary))] fill-[hsl(var(--brand-secondary))] group-hover:text-white group-hover:fill-white transition-colors" />
+            <span>Run Agent</span>
+            <ExternalLink className="h-3 w-3 text-[hsl(var(--brand-secondary))] group-hover:text-white transition-colors" />
+          </a>
 
           {agent.marketplaceUrl && (
             <a
               href={agent.marketplaceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white hover:border-slate-400 hover:bg-slate-50 px-3.5 py-1.5 text-xs font-semibold text-slate-800 transition-all"
+              className="group inline-flex items-center gap-1.5 rounded-full border border-[hsl(var(--brand-secondary))] bg-white px-3.5 py-1 text-xs font-semibold text-[hsl(var(--brand-secondary))] shadow-xs transition-all duration-150 hover:bg-[hsl(var(--brand-secondary))] hover:text-white"
             >
-              <span>Marketplace Listing</span>
-              <ExternalLink className="h-3.5 w-3.5 text-slate-500" />
+              <span>Marketplace</span>
+              <ExternalLink className="h-3 w-3 text-[hsl(var(--brand-secondary))] group-hover:text-white transition-colors" />
             </a>
           )}
         </div>
       </div>
 
       {/* 2-Column Body Layout - Fixed height with internal scroll */}
-      <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+      <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch pt-1">
         {/* Left Column: What It Does & How It Saves Time */}
-        <div className="lg:col-span-5 flex flex-col justify-between rounded-2xl border border-border bg-slate-50/60 p-5 sm:p-6 space-y-6 overflow-y-auto">
+        <div className="lg:col-span-5 flex flex-col rounded-2xl border border-border bg-slate-50/70 p-4 sm:p-5 overflow-y-auto space-y-4">
           <div>
             <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
               What This Agent Does
             </h4>
-            <ul className="mt-3.5 space-y-3 text-xs leading-relaxed text-brand-primary">
+            <ul className="mt-2.5 space-y-2 text-xs leading-relaxed text-brand-primary">
               {agent.workflowSteps.map((step, idx) => (
-                <li key={idx} className="flex items-start gap-2.5">
-                  <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white border border-slate-200 text-[10px] font-bold text-slate-600">
+                <li key={idx} className="flex items-start gap-2">
+                  <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white border border-slate-200 text-[10px] font-bold text-slate-600">
                     {idx + 1}
                   </span>
                   <span>{step}</span>
@@ -442,24 +469,24 @@ const AgentLightboxModal = ({
             </ul>
           </div>
 
-          <div className="border-t border-slate-200/80 pt-5">
+          <div className="border-t border-slate-200/80 pt-3.5">
             <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
               Measurable Time & ROI Impact
             </h4>
-            <ul className="mt-3.5 space-y-3 text-xs leading-relaxed text-brand-primary">
-              <li className="flex items-start gap-2.5">
+            <ul className="mt-2.5 space-y-2 text-xs leading-relaxed text-brand-primary">
+              <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                 <span>
                   <strong>{agent.speedupMultiplier}</strong> faster execution turnaround compared to manual workflow.
                 </span>
               </li>
-              <li className="flex items-start gap-2.5">
+              <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                 <span>
                   Saves an estimated <strong>{agent.timeSaved}</strong> by eliminating repetitive manual review steps.
                 </span>
               </li>
-              <li className="flex items-start gap-2.5">
+              <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
                 <span>
                   Connects directly into <strong>{agent.integrations.join(", ")}</strong> without requiring context-switching.
@@ -467,177 +494,94 @@ const AgentLightboxModal = ({
               </li>
             </ul>
           </div>
+
+          <div className="border-t border-slate-200/80 pt-3.5">
+            <span className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2">
+              Connected Systems
+            </span>
+            <div className="flex flex-wrap gap-1.5">
+              {agent.integrations.map((app) => (
+                <span
+                  key={app}
+                  className="rounded-lg border border-border bg-white px-2 py-0.5 text-[11px] font-medium text-slate-700 shadow-2xs"
+                >
+                  {app}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Right Column: CollabAI Interactive Console */}
-        <div className="lg:col-span-7 flex flex-col justify-between rounded-2xl border border-border bg-white p-5 shadow-xs overflow-hidden">
-          {/* Console Header Tabs */}
-          <div className="shrink-0 flex items-center justify-between border-b border-border pb-3">
-            <div className="flex items-center gap-1.5 rounded-lg bg-slate-100 p-1">
-              <button
-                type="button"
-                onClick={() => setActiveTab("workflow")}
-                className={`rounded-md px-3 py-1.5 text-xs font-semibold transition-all ${
-                  activeTab === "workflow"
-                    ? "bg-white text-brand-primary shadow-xs"
-                    : "text-slate-secondary hover:text-brand-primary"
-                }`}
-              >
-                Workflow Execution
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab("output")}
-                className={`rounded-md px-3 py-1.5 text-xs font-semibold transition-all ${
-                  activeTab === "output"
-                    ? "bg-white text-brand-primary shadow-xs"
-                    : "text-slate-secondary hover:text-brand-primary"
-                }`}
-              >
-                Sample Output Artifact
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab("specs")}
-                className={`rounded-md px-3 py-1.5 text-xs font-semibold transition-all ${
-                  activeTab === "specs"
-                    ? "bg-white text-brand-primary shadow-xs"
-                    : "text-slate-secondary hover:text-brand-primary"
-                }`}
-              >
-                Architecture & Privacy
-              </button>
+        {/* Right Column: Workflow Screenshots Slider */}
+        <div className="lg:col-span-7 flex flex-col justify-between rounded-2xl border border-border bg-slate-900 text-white p-4 sm:p-5 shadow-xs overflow-hidden">
+          {/* Header of Screenshot viewer */}
+          <div className="shrink-0 flex items-center justify-between pb-3 border-b border-slate-800">
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-xs font-semibold text-slate-200">
+                Agent Workflow & Control Tower Preview
+              </span>
             </div>
-
-            <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-700">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              Private VPC Ready
-            </span>
+            <div className="text-[11px] font-medium text-slate-400">
+              {currentSlide + 1} / {SCREENSHOTS.length}
+            </div>
           </div>
 
-          {/* Console Tab Content */}
-          <div className="flex-1 min-h-0 py-4 overflow-y-auto">
-            {activeTab === "workflow" && (
-              <div className="space-y-4">
-                {/* Trigger & Input Banner */}
-                <div className="rounded-xl border border-border bg-slate-50/70 p-3.5 text-xs">
-                  <div className="flex items-center justify-between text-[11px] text-slate-secondary">
-                    <span className="font-semibold uppercase tracking-wider text-slate-400">Trigger Source:</span>
-                    <span className="font-medium text-brand-primary">{agent.trigger}</span>
-                  </div>
-                  <div className="mt-2 text-xs font-medium text-brand-primary">
-                    <span className="text-slate-400 font-normal">Input Context: </span>
-                    {agent.workflowInput}
-                  </div>
-                </div>
+          {/* Screenshot Display Area with Navigation Arrows */}
+          <div className="relative flex-1 min-h-0 my-3 flex items-center justify-center overflow-hidden rounded-xl bg-slate-950/70 border border-slate-800 group">
+            <img
+              src={SCREENSHOTS[currentSlide].src}
+              alt={SCREENSHOTS[currentSlide].title}
+              className="h-full w-full object-contain p-2 select-none transition-all duration-300"
+              draggable={false}
+            />
 
-                {/* Reasoning Pipeline Steps */}
-                <div>
-                  <span className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
-                    Autonomous Reasoning Chain
-                  </span>
-                  <div className="space-y-2">
-                    {agent.workflowSteps.map((step, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-start gap-3 rounded-xl border border-border bg-white p-3 text-xs shadow-xs"
-                      >
-                        <div className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[hsl(var(--brand-secondary))]/10 text-[11px] font-bold text-[hsl(var(--brand-secondary))]">
-                          {idx + 1}
-                        </div>
-                        <div className="flex-1">
-                          <p className="font-medium text-brand-primary">{step}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Integrations Strip */}
-                <div>
-                  <span className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
-                    Connected Systems
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {agent.integrations.map((app) => (
-                      <span
-                        key={app}
-                        className="rounded-lg border border-border bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700"
-                      >
-                        {app}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {activeTab === "output" && (
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-brand-primary">
-                    Synthesized Executive Deliverable
-                  </span>
-                  <button
-                    type="button"
-                    onClick={handleCopy}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-slate-50 px-2.5 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-100 transition-colors"
-                  >
-                    {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5 text-slate-400" />}
-                    <span>{copied ? "Copied" : "Copy Output"}</span>
-                  </button>
-                </div>
-
-                <div className="rounded-xl border border-emerald-200/80 bg-emerald-50/40 p-4 font-sans text-xs leading-relaxed text-emerald-950 whitespace-pre-wrap">
-                  {agent.sampleOutput}
-                </div>
-              </div>
-            )}
-
-            {activeTab === "specs" && (
-              <div className="space-y-4">
-                <span className="block text-xs font-semibold text-brand-primary">
-                  Governance & Model Engine Specifications
-                </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                  <div className="rounded-xl border border-border bg-slate-50/60 p-3.5">
-                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Model Engine</span>
-                    <p className="mt-1 text-sm font-bold text-brand-primary">{agent.model}</p>
-                    <span className="mt-0.5 block text-[11px] text-slate-secondary">Zero retention private inference</span>
-                  </div>
-
-                  <div className="rounded-xl border border-border bg-slate-50/60 p-3.5">
-                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Trigger Frequency</span>
-                    <p className="mt-1 text-sm font-bold text-brand-primary">{agent.trigger}</p>
-                    <span className="mt-0.5 block text-[11px] text-slate-secondary truncate">{agent.triggerDetail}</span>
-                  </div>
-
-                  <div className="rounded-xl border border-border bg-slate-50/60 p-3.5">
-                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Data Boundary</span>
-                    <p className="mt-1 text-sm font-bold text-emerald-600">On-Premises / Private VPC</p>
-                    <span className="mt-0.5 block text-[11px] text-slate-secondary">Customer-isolated encrypted environment</span>
-                  </div>
-
-                  <div className="rounded-xl border border-border bg-slate-50/60 p-3.5">
-                    <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Department Scope</span>
-                    <p className="mt-1 text-sm font-bold text-brand-primary">{agent.team}</p>
-                    <span className="mt-0.5 block text-[11px] text-slate-secondary">RBAC & audit log enforced</span>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Console Footer */}
-          <div className="shrink-0 flex items-center justify-between border-t border-border pt-3 text-xs text-slate-secondary">
-            <span>Powered by CollabAI Agent Runtime</span>
+            {/* Previous Arrow */}
             <button
               type="button"
-              onClick={onClose}
-              className="font-medium text-slate-500 hover:text-brand-primary transition-colors"
+              onClick={prevSlide}
+              aria-label="Previous screenshot"
+              className="absolute left-2 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-xs transition-all hover:bg-black/90 active:scale-95 shadow-md"
             >
-              Close
+              <ChevronLeft className="h-4 w-4" />
             </button>
+
+            {/* Next Arrow */}
+            <button
+              type="button"
+              onClick={nextSlide}
+              aria-label="Next screenshot"
+              className="absolute right-2 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-xs transition-all hover:bg-black/90 active:scale-95 shadow-md"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+
+          {/* Screenshot Caption and Dots */}
+          <div className="shrink-0 flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 border-t border-slate-800 text-xs">
+            <div className="text-left w-full sm:w-auto">
+              <p className="font-semibold text-slate-100 text-xs truncate max-w-md">
+                {SCREENSHOTS[currentSlide].title}
+              </p>
+              <p className="text-[11px] text-slate-400 truncate max-w-md">
+                {SCREENSHOTS[currentSlide].caption}
+              </p>
+            </div>
+
+            {/* Dot indicators */}
+            <div className="flex items-center gap-1.5 shrink-0">
+              {SCREENSHOTS.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setCurrentSlide(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  className={`h-2 rounded-full transition-all ${
+                    currentSlide === idx ? "w-6 bg-[hsl(var(--brand-secondary))]" : "w-2 bg-slate-700 hover:bg-slate-600"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -788,11 +732,11 @@ const AIDashboard = () => {
                 href="https://controltowerdemo.collabai.software/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[hsl(var(--brand-secondary))] hover:bg-[#254bdb] px-8 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 active:translate-y-[2px]"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-8 py-3 text-sm font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-[hsl(var(--brand-secondary))] hover:bg-[hsl(var(--brand-secondary))] hover:text-white active:translate-y-[2px]"
               >
-                <Play className="h-4 w-4 text-white fill-white transition-transform group-hover:scale-105" />
-                Launch Live Demo
-                <ExternalLink className="h-3.5 w-3.5 text-white/80 transition-transform group-hover:translate-x-0.5" />
+                <Play className="h-4 w-4 text-[hsl(var(--brand-secondary))] fill-[hsl(var(--brand-secondary))] transition-colors group-hover:text-white group-hover:fill-white" />
+                <span>Launch Live Demo</span>
+                <ExternalLink className="h-3.5 w-3.5 text-slate-400 transition-colors group-hover:text-white" />
               </a>
             </div>
           </div>
@@ -811,7 +755,7 @@ const AIDashboard = () => {
                 Filter by operational department, execution trigger, or search specific capabilities.
               </p>
             </div>
-            <div className="text-xs sm:text-sm font-normal text-slate-400">
+            <div className="text-[11px] font-normal text-slate-400">
               Showing {visibleAgents.length} of {filteredAgents.length} agents
             </div>
           </div>
@@ -857,14 +801,14 @@ const AIDashboard = () => {
             <div className="flex items-center gap-2 pt-1 shrink-0 self-start lg:self-auto">
               <SlidersHorizontal className="h-4 w-4 text-slate-500" />
               <Select value={selectedTrigger} onValueChange={(val) => setSelectedTrigger(val)}>
-                <SelectTrigger className="h-auto rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-800 shadow-none hover:border-slate-400 focus:ring-1 focus:ring-slate-400 focus:ring-offset-0 focus:outline-none w-[145px]">
+                <SelectTrigger className="h-auto min-w-[150px] w-auto text-left rounded-full border border-slate-300 bg-white px-4 py-1.5 text-xs font-semibold text-slate-800 shadow-none hover:border-slate-400 focus:ring-1 focus:ring-slate-400 focus:ring-offset-0 focus:outline-none [&>span]:text-left [&>span]:w-full">
                   <SelectValue placeholder="All Triggers" />
                 </SelectTrigger>
                 <SelectContent className="rounded-xl border border-slate-200 bg-white shadow-lg text-xs z-50">
-                  <SelectItem value="All" className="text-xs cursor-pointer rounded-lg font-medium text-slate-700">All Triggers</SelectItem>
-                  <SelectItem value="Event-driven" className="text-xs cursor-pointer rounded-lg font-medium text-slate-700">Event-driven</SelectItem>
-                  <SelectItem value="Scheduled" className="text-xs cursor-pointer rounded-lg font-medium text-slate-700">Scheduled (Cron)</SelectItem>
-                  <SelectItem value="Manual" className="text-xs cursor-pointer rounded-lg font-medium text-slate-700">Manual (On-demand)</SelectItem>
+                  <SelectItem value="All" className="text-xs cursor-pointer rounded-lg font-medium text-slate-700 text-left">All Triggers</SelectItem>
+                  <SelectItem value="Event-driven" className="text-xs cursor-pointer rounded-lg font-medium text-slate-700 text-left">Event-driven</SelectItem>
+                  <SelectItem value="Scheduled" className="text-xs cursor-pointer rounded-lg font-medium text-slate-700 text-left">Scheduled</SelectItem>
+                  <SelectItem value="Manual" className="text-xs cursor-pointer rounded-lg font-medium text-slate-700 text-left">Manual</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -900,19 +844,24 @@ const AIDashboard = () => {
                     </p>
                   </div>
 
-                  {/* 5. CTA Button */}
-                  <div className="mt-6 pt-2">
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setActiveAgentModal(agent);
-                      }}
-                      className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-[hsl(var(--brand-secondary))] py-2.5 text-xs font-semibold text-white shadow-[0_2px_10px_0_rgba(49,94,255,0.25)] transition-all duration-150 hover:bg-[#254bdb] hover:shadow-[0_4px_14px_rgba(49,94,255,0.35)] active:translate-y-[1px]"
+                  {/* 5. Bottom Action Area (replacing redundant Know More button) */}
+                  <div className="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-slate-500">
+                      <Zap className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                      <span>{agent.trigger}</span>
+                    </span>
+
+                    <a
+                      href="https://controltowerdemo.collabai.software/login"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="group/btn inline-flex items-center gap-1.5 rounded-full border border-[hsl(var(--brand-secondary))] bg-white px-3.5 py-1 text-xs font-semibold text-[hsl(var(--brand-secondary))] shadow-2xs transition-all duration-150 hover:bg-[hsl(var(--brand-secondary))] hover:text-white"
                     >
-                      <span>Know More</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </button>
+                      <Play className="h-3 w-3 text-[hsl(var(--brand-secondary))] fill-[hsl(var(--brand-secondary))] group-hover/btn:text-white group-hover/btn:fill-white transition-colors" />
+                      <span>Run Agent</span>
+                      <ExternalLink className="h-2.5 w-2.5 text-[hsl(var(--brand-secondary))] group-hover/btn:text-white transition-colors" />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -928,9 +877,6 @@ const AIDashboard = () => {
                 className="inline-flex items-center gap-2 rounded-full border border-slate-900 bg-slate-950 px-8 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-slate-800 active:translate-y-[1px]"
               >
                 <span>Load More Agents</span>
-                <span className="rounded-full bg-slate-800 px-2.5 py-0.5 text-xs font-semibold text-slate-300">
-                  +{Math.min(12, filteredAgents.length - visibleAgents.length)}
-                </span>
               </button>
             </div>
           )}
@@ -999,10 +945,7 @@ const AIDashboard = () => {
       {/* Final Call to Action */}
       <section className="bg-gradient-to-br from-[hsl(var(--brand-primary))] to-black py-20 text-white">
         <div className="container mx-auto px-4 text-center">
-          <Badge className="bg-white/10 text-white hover:bg-white/20">
-            Ready to Deploy
-          </Badge>
-          <h2 className="mt-4 text-3xl font-bold sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
             Put Your AI Workforce to Work Today.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-white/80">

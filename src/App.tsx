@@ -68,7 +68,6 @@ const PharmaHub = lazy(() => import("./pages/new/PharmaHub"));
 const TouringHub = lazy(() => import("./pages/new/TouringHub"));
 const MortgageHub = lazy(() => import("./pages/new/MortgageHub"));
 const NonProfitHub = lazy(() => import("./pages/new/NonProfitHub"));
-const NonProfitHubDuplicate = lazy(() => import("./pages/new/NonProfitHubDuplicate"));
 const HealthcareHub = lazy(() => import("./pages/new/HealthcareHub"));
 const ClinicalTrialsAI = lazy(() => import("./pages/new/pharma/ClinicalTrialsAI"));
 const PharmacovigilanceAI = lazy(() => import("./pages/new/pharma/PharmacovigilanceAI"));
@@ -117,8 +116,8 @@ export const AppRoutes = () => (
               <Route path="/healthcare/use-cases" element={<NicheUseCases />} />
               <Route path="/healthcare/workflows" element={<NicheWorkflows />} />
               <Route path="/non-profit" element={<NonProfitHub />} />
-              <Route path="/non-profit-duplicate" element={<NonProfitHubDuplicate />} />
-              <Route path="/non-profit-v2" element={<NonProfitHubDuplicate />} />
+              <Route path="/non-profit-duplicate" element={<Navigate to="/non-profit" replace />} />
+              <Route path="/non-profit-v2" element={<Navigate to="/non-profit" replace />} />
               <Route path="/non-profit/agents" element={<NicheAgents />} />
               <Route path="/non-profit/use-cases" element={<NicheUseCases />} />
               <Route path="/non-profit/workflows" element={<NicheWorkflows />} />

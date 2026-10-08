@@ -855,7 +855,7 @@ const AIDashboard = () => {
                       onClick={() => setActiveAgentModal(agent)}
                       className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-[hsl(var(--brand-secondary))] py-2.5 text-xs font-semibold text-white shadow-[0_2px_10px_0_rgba(49,94,255,0.25)] transition-all duration-150 hover:bg-[#254bdb] hover:shadow-[0_4px_14px_rgba(49,94,255,0.35)] active:translate-y-[1px]"
                     >
-                      <span>Inspect Workflow</span>
+                      <span>Know More</span>
                       <ArrowRight className="h-3.5 w-3.5" />
                     </button>
                   </div>

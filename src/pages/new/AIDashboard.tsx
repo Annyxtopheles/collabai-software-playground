@@ -30,6 +30,13 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import LogoStrip from "@/components/LogoStrip";
 import { agentTeams } from "@/data/agentTeams";
 import dealCoachBanner from "@/assets/agents/deal-coach-banner.png";
@@ -805,7 +812,7 @@ const AIDashboard = () => {
               </p>
             </div>
             <div className="text-xs sm:text-sm font-normal text-slate-400">
-              Showing {visibleAgents.length} of {filteredAgents.length} agents ({DASHBOARD_AGENTS.length} cataloged)
+              Showing {visibleAgents.length} of {filteredAgents.length} agents
             </div>
           </div>
 
@@ -848,19 +855,18 @@ const AIDashboard = () => {
 
             {/* Trigger Filter (placed to the right of the search area) */}
             <div className="flex items-center gap-2 pt-1 shrink-0 self-start lg:self-auto">
-              <SlidersHorizontal className="h-4 w-4 text-slate-secondary" />
-              <span className="text-xs font-semibold text-slate-secondary">Trigger:</span>
-              <select
-                aria-label="Filter agents by trigger type"
-                value={selectedTrigger}
-                onChange={(e) => setSelectedTrigger(e.target.value)}
-                className="rounded-full border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-300"
-              >
-                <option value="All">All Triggers</option>
-                <option value="Event-driven">Event-driven</option>
-                <option value="Scheduled">Scheduled (Cron)</option>
-                <option value="Manual">Manual (On-demand)</option>
-              </select>
+              <SlidersHorizontal className="h-4 w-4 text-slate-500" />
+              <Select value={selectedTrigger} onValueChange={(val) => setSelectedTrigger(val)}>
+                <SelectTrigger className="h-auto rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-800 shadow-none hover:border-slate-400 focus:ring-1 focus:ring-slate-400 focus:ring-offset-0 focus:outline-none w-[145px]">
+                  <SelectValue placeholder="All Triggers" />
+                </SelectTrigger>
+                <SelectContent className="rounded-xl border border-slate-200 bg-white shadow-lg text-xs z-50">
+                  <SelectItem value="All" className="text-xs cursor-pointer rounded-lg font-medium text-slate-700">All Triggers</SelectItem>
+                  <SelectItem value="Event-driven" className="text-xs cursor-pointer rounded-lg font-medium text-slate-700">Event-driven</SelectItem>
+                  <SelectItem value="Scheduled" className="text-xs cursor-pointer rounded-lg font-medium text-slate-700">Scheduled (Cron)</SelectItem>
+                  <SelectItem value="Manual" className="text-xs cursor-pointer rounded-lg font-medium text-slate-700">Manual (On-demand)</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </div>
 

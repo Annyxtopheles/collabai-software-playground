@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -378,27 +378,27 @@ const AgentLightboxModal = ({
 
         {/* Badges + Action CTA Row */}
         <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
-            <Tag className="h-3 w-3 text-slate-500" />
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-medium text-slate-800">
+            <Tag className="h-3.5 w-3.5 text-slate-500" />
             {agent.team}
           </span>
 
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-[hsl(var(--brand-secondary))]/20 bg-[hsl(var(--brand-secondary))]/10 px-3 py-1 text-xs font-semibold text-[hsl(var(--brand-secondary))]">
-            <Zap className="h-3 w-3 text-[hsl(var(--brand-secondary))]" />
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-medium text-slate-800">
+            <Zap className="h-3.5 w-3.5 text-slate-500" />
             {agent.tier} Agent
           </span>
 
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-700">
-            <Clock className="h-3 w-3 text-emerald-600" />
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-medium text-slate-800">
+            <Clock className="h-3.5 w-3.5 text-slate-500" />
             Saves {agent.timeSaved}
           </span>
 
           <Link
             to="/book-demo"
-            className="inline-flex items-center gap-1.5 rounded-full bg-[hsl(var(--brand-secondary))] hover:bg-[#254bdb] px-5 py-2 text-xs font-semibold text-white shadow-[0_2px_12px_rgba(49,94,255,0.25)] transition-all"
+            className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white hover:border-slate-400 hover:bg-slate-50 px-3.5 py-1.5 text-xs font-semibold text-slate-800 transition-all"
           >
             <span>Deploy Workflow Demo</span>
-            <ArrowRight className="h-3.5 w-3.5" />
+            <ArrowRight className="h-3.5 w-3.5 text-slate-500" />
           </Link>
 
           {agent.marketplaceUrl && (
@@ -406,7 +406,7 @@ const AgentLightboxModal = ({
               href={agent.marketplaceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white hover:border-slate-400 hover:bg-slate-50 px-3.5 py-2 text-xs font-semibold text-slate-800 transition-all"
+              className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white hover:border-slate-400 hover:bg-slate-50 px-3.5 py-1.5 text-xs font-semibold text-slate-800 transition-all"
             >
               <span>Marketplace Listing</span>
               <ExternalLink className="h-3.5 w-3.5 text-slate-500" />
@@ -659,12 +659,48 @@ const AIDashboard = () => {
   const [selectedTeam, setSelectedTeam] = useState("All Agents");
   const [selectedTrigger, setSelectedTrigger] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const [displayCount, setDisplayCount] = useState(24);
+  const [displayCount, setDisplayCount] = useState(12);
   const [activeAgentModal, setActiveAgentModal] = useState<DashboardAgent | null>(null);
+  const pillsContainerRef = useRef<HTMLDivElement>(null);
+  const [searchWidth, setSearchWidth] = useState<number | undefined>(undefined);
 
   useEffect(() => {
-    setDisplayCount(24);
+    setDisplayCount(12);
   }, [selectedTeam, selectedTrigger, searchQuery]);
+
+  useEffect(() => {
+    const updateSearchWidth = () => {
+      if (pillsContainerRef.current) {
+        const buttons = pillsContainerRef.current.querySelectorAll("button");
+        if (buttons.length > 0) {
+          const containerLeft = pillsContainerRef.current.getBoundingClientRect().left;
+          let maxRight = 0;
+          buttons.forEach((btn) => {
+            const rightEdge = btn.getBoundingClientRect().right - containerLeft;
+            if (rightEdge > maxRight) {
+              maxRight = rightEdge;
+            }
+          });
+          if (maxRight > 100) {
+            setSearchWidth(Math.round(maxRight));
+          }
+        }
+      }
+    };
+
+    updateSearchWidth();
+    const timer = setTimeout(updateSearchWidth, 100);
+    const ro = new ResizeObserver(updateSearchWidth);
+    if (pillsContainerRef.current) {
+      ro.observe(pillsContainerRef.current);
+    }
+    window.addEventListener("resize", updateSearchWidth);
+    return () => {
+      clearTimeout(timer);
+      ro.disconnect();
+      window.removeEventListener("resize", updateSearchWidth);
+    };
+  }, []);
 
   const filteredAgents = useMemo(() => {
     return DASHBOARD_AGENTS.filter((agent) => {
@@ -745,11 +781,11 @@ const AIDashboard = () => {
                 href="https://controltowerdemo.collabai.software/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-8 py-3 text-sm font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-trust-blue/40 hover:bg-trust-blue/10 hover:text-trust-blue-dark active:translate-y-[2px]"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[hsl(var(--brand-secondary))] hover:bg-[#254bdb] px-8 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 active:translate-y-[2px]"
               >
-                <Play className="h-4 w-4 text-slate-700 group-hover:text-trust-blue-dark transition-colors" />
+                <Play className="h-4 w-4 text-white fill-white transition-transform group-hover:scale-105" />
                 Launch Live Demo
-                <ExternalLink className="h-3.5 w-3.5 text-slate-500 group-hover:text-trust-blue-dark transition-colors" />
+                <ExternalLink className="h-3.5 w-3.5 text-white/80 transition-transform group-hover:translate-x-0.5" />
               </a>
             </div>
           </div>
@@ -768,16 +804,19 @@ const AIDashboard = () => {
                 Filter by operational department, execution trigger, or search specific capabilities.
               </p>
             </div>
-            <div className="text-sm font-medium text-slate-secondary">
+            <div className="text-xs sm:text-sm font-normal text-slate-400">
               Showing {visibleAgents.length} of {filteredAgents.length} agents ({DASHBOARD_AGENTS.length} cataloged)
             </div>
           </div>
 
           {/* Search & Filter Controls */}
           <div className="mt-8 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-            {/* Search Input + Category Pills aligned to end at Industry Packs */}
+            {/* Search Input + Category Pills aligned to end at Category Pills boundary */}
             <div className="w-fit max-w-full space-y-3">
-              <div className="relative w-full">
+              <div
+                className="relative"
+                style={{ width: searchWidth ? `${searchWidth}px` : "100%", maxWidth: "100%" }}
+              >
                 <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-secondary" />
                 <Input
                   type="text"
@@ -789,7 +828,7 @@ const AIDashboard = () => {
               </div>
 
               {/* Department / Category Pill Selector */}
-              <div className="flex flex-wrap gap-2 pt-1">
+              <div ref={pillsContainerRef} className="flex flex-wrap gap-2 pt-1">
                 {TEAMS.map((team) => (
                   <button
                     key={team}
@@ -831,7 +870,7 @@ const AIDashboard = () => {
               <div
                 key={agent.id}
                 onClick={() => setActiveAgentModal(agent)}
-                className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-md cursor-pointer"
+                className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-300/80 hover:shadow-[0_4px_20px_rgba(15,23,42,0.04)] cursor-pointer"
               >
                 {/* 1. Banner Image */}
                 <AgentBannerPreview agent={agent} />
@@ -876,20 +915,17 @@ const AIDashboard = () => {
 
           {/* Load More Pagination */}
           {visibleAgents.length < filteredAgents.length && (
-            <div className="mt-12 flex flex-col items-center justify-center gap-3">
+            <div className="mt-12 flex justify-center">
               <button
                 type="button"
-                onClick={() => setDisplayCount((prev) => Math.min(prev + 24, filteredAgents.length))}
+                onClick={() => setDisplayCount((prev) => Math.min(prev + 12, filteredAgents.length))}
                 className="inline-flex items-center gap-2 rounded-full border border-slate-900 bg-slate-950 px-8 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-slate-800 active:translate-y-[1px]"
               >
                 <span>Load More Agents</span>
                 <span className="rounded-full bg-slate-800 px-2.5 py-0.5 text-xs font-semibold text-slate-300">
-                  +{Math.min(24, filteredAgents.length - visibleAgents.length)}
+                  +{Math.min(12, filteredAgents.length - visibleAgents.length)}
                 </span>
               </button>
-              <span className="text-xs text-slate-secondary">
-                Showing {visibleAgents.length} of {filteredAgents.length} agents
-              </span>
             </div>
           )}
 

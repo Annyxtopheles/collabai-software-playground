@@ -50,6 +50,7 @@ interface DashboardAgent {
   workflowInput: string;
   workflowSteps: string[];
   sampleOutput: string;
+  bannerImage?: string;
 }
 
 const DASHBOARD_AGENTS: DashboardAgent[] = [
@@ -57,6 +58,7 @@ const DASHBOARD_AGENTS: DashboardAgent[] = [
   {
     id: "deal-coach",
     name: "Deal Coach",
+    bannerImage: `${import.meta.env.BASE_URL}images/agents/deal-coach-banner.png`,
     team: "Sales & CRM",
     teamSlug: "sales-crm",
     category: "operations",
@@ -421,6 +423,20 @@ const DASHBOARD_AGENTS: DashboardAgent[] = [
 ];
 
 const AgentBannerPreview = ({ agent }: { agent: DashboardAgent }) => {
+  if (agent.bannerImage || agent.id === "deal-coach") {
+    const bannerUrl =
+      agent.bannerImage || `${import.meta.env.BASE_URL}images/agents/deal-coach-banner.png`;
+    return (
+      <div className="relative h-44 w-full overflow-hidden bg-slate-50 select-none">
+        <img
+          src={bannerUrl}
+          alt={agent.name}
+          className="h-full w-full object-cover"
+        />
+      </div>
+    );
+  }
+
   const getBannerData = () => {
     switch (agent.teamSlug) {
       case "sales-crm":
@@ -672,9 +688,9 @@ const AgentLightboxModal = ({
   };
 
   return (
-    <div className="flex flex-col">
-      {/* Lightbox Header */}
-      <div className="flex flex-col gap-3 pr-8">
+    <div className="flex flex-col h-full min-h-0">
+      {/* Lightbox Header - Fixed at top */}
+      <div className="shrink-0 flex flex-col gap-3 pr-8 pb-4">
         <DialogTitle className="text-2xl sm:text-3xl font-bold tracking-tight text-brand-primary text-left">
           {agent.name}
         </DialogTitle>
@@ -709,10 +725,10 @@ const AgentLightboxModal = ({
         </div>
       </div>
 
-      {/* 2-Column Body Layout */}
-      <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+      {/* 2-Column Body Layout - Fixed height with internal scroll */}
+      <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
         {/* Left Column: What It Does & How It Saves Time */}
-        <div className="lg:col-span-5 flex flex-col justify-between rounded-2xl border border-border bg-slate-50/60 p-5 sm:p-6 space-y-6">
+        <div className="lg:col-span-5 flex flex-col justify-between rounded-2xl border border-border bg-slate-50/60 p-5 sm:p-6 space-y-6 overflow-y-auto">
           <div>
             <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
               What This Agent Does
@@ -757,9 +773,9 @@ const AgentLightboxModal = ({
         </div>
 
         {/* Right Column: CollabAI Interactive Console */}
-        <div className="lg:col-span-7 flex flex-col justify-between rounded-2xl border border-border bg-white p-5 shadow-xs">
+        <div className="lg:col-span-7 flex flex-col justify-between rounded-2xl border border-border bg-white p-5 shadow-xs overflow-hidden">
           {/* Console Header Tabs */}
-          <div className="flex items-center justify-between border-b border-border pb-3">
+          <div className="shrink-0 flex items-center justify-between border-b border-border pb-3">
             <div className="flex items-center gap-1.5 rounded-lg bg-slate-100 p-1">
               <button
                 type="button"
@@ -803,7 +819,7 @@ const AgentLightboxModal = ({
           </div>
 
           {/* Console Tab Content */}
-          <div className="py-4 flex-1">
+          <div className="flex-1 min-h-0 py-4 overflow-y-auto">
             {activeTab === "workflow" && (
               <div className="space-y-4">
                 {/* Trigger & Input Banner */}
@@ -875,7 +891,7 @@ const AgentLightboxModal = ({
                   </button>
                 </div>
 
-                <div className="rounded-xl border border-emerald-200/80 bg-emerald-50/40 p-4 font-sans text-xs leading-relaxed text-emerald-950 whitespace-pre-wrap max-h-[320px] overflow-y-auto">
+                <div className="rounded-xl border border-emerald-200/80 bg-emerald-50/40 p-4 font-sans text-xs leading-relaxed text-emerald-950 whitespace-pre-wrap">
                   {agent.sampleOutput}
                 </div>
               </div>
@@ -916,7 +932,7 @@ const AgentLightboxModal = ({
           </div>
 
           {/* Console Footer */}
-          <div className="flex items-center justify-between border-t border-border pt-3 text-xs text-slate-secondary">
+          <div className="shrink-0 flex items-center justify-between border-t border-border pt-3 text-xs text-slate-secondary">
             <span>Powered by CollabAI Agent Runtime</span>
             <button
               type="button"
@@ -1022,11 +1038,11 @@ const AIDashboard = () => {
                 href="https://controltowerdemo.collabai.software/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-8 py-3 text-sm font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 active:translate-y-[2px]"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-8 py-3 text-sm font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-trust-blue/40 hover:bg-trust-blue/10 hover:text-trust-blue-dark active:translate-y-[2px]"
               >
-                <Play className="h-4 w-4 text-slate-700" />
+                <Play className="h-4 w-4 text-slate-700 group-hover:text-trust-blue-dark transition-colors" />
                 Launch Live Demo
-                <ExternalLink className="h-3.5 w-3.5 text-slate-500" />
+                <ExternalLink className="h-3.5 w-3.5 text-slate-500 group-hover:text-trust-blue-dark transition-colors" />
               </a>
             </div>
           </div>
@@ -1038,10 +1054,7 @@ const AIDashboard = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
-                Production Directory
-              </span>
-              <h2 className="mt-2 text-3xl font-bold text-brand-primary lg:text-4xl">
+              <h2 className="text-3xl font-bold text-brand-primary lg:text-4xl">
                 Explore Available AI Agents
               </h2>
               <p className="mt-2 text-base text-slate-secondary">
@@ -1054,52 +1067,54 @@ const AIDashboard = () => {
           </div>
 
           {/* Search & Filter Controls */}
-          <div className="mt-8 space-y-4">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <div className="relative flex-1">
+          <div className="mt-8 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+            {/* Search Input + Category Pills aligned to end at Industry Packs */}
+            <div className="w-fit max-w-full space-y-3">
+              <div className="relative w-full">
                 <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-secondary" />
                 <Input
                   type="text"
                   placeholder="Search agents by name, function, integration (e.g. HubSpot, Zoom, EOS)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="rounded-full border-border bg-background pl-10 pr-4 text-sm shadow-sm"
+                  className="w-full rounded-full border-border bg-background pl-10 pr-4 text-sm shadow-sm"
                 />
               </div>
 
-              <div className="flex items-center gap-2">
-                <SlidersHorizontal className="h-4 w-4 text-slate-secondary" />
-                <span className="text-xs font-semibold text-slate-secondary">Trigger:</span>
-                <select
-                  aria-label="Filter agents by trigger type"
-                  value={selectedTrigger}
-                  onChange={(e) => setSelectedTrigger(e.target.value)}
-                  className="rounded-full border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-300"
-                >
-                  <option value="All">All Triggers</option>
-                  <option value="Event-driven">Event-driven</option>
-                  <option value="Scheduled">Scheduled (Cron)</option>
-                  <option value="Manual">Manual (On-demand)</option>
-                </select>
+              {/* Department / Category Pill Selector */}
+              <div className="flex flex-wrap gap-2 pt-1">
+                {TEAMS.map((team) => (
+                  <button
+                    key={team}
+                    type="button"
+                    onClick={() => setSelectedTeam(team)}
+                    className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all duration-150 ${
+                      selectedTeam === team
+                        ? "border border-slate-950 bg-slate-950 text-white shadow-sm"
+                        : "border border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950"
+                    }`}
+                  >
+                    {team}
+                  </button>
+                ))}
               </div>
             </div>
 
-            {/* Department / Category Pill Selector */}
-            <div className="flex flex-wrap gap-2 pt-2">
-              {TEAMS.map((team) => (
-                <button
-                  key={team}
-                  type="button"
-                  onClick={() => setSelectedTeam(team)}
-                  className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all duration-150 ${
-                    selectedTeam === team
-                      ? "border border-slate-950 bg-slate-950 text-white shadow-sm"
-                      : "border border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950"
-                  }`}
-                >
-                  {team}
-                </button>
-              ))}
+            {/* Trigger Filter (placed to the right of the search area) */}
+            <div className="flex items-center gap-2 pt-1 shrink-0 self-start lg:self-auto">
+              <SlidersHorizontal className="h-4 w-4 text-slate-secondary" />
+              <span className="text-xs font-semibold text-slate-secondary">Trigger:</span>
+              <select
+                aria-label="Filter agents by trigger type"
+                value={selectedTrigger}
+                onChange={(e) => setSelectedTrigger(e.target.value)}
+                className="rounded-full border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-300"
+              >
+                <option value="All">All Triggers</option>
+                <option value="Event-driven">Event-driven</option>
+                <option value="Scheduled">Scheduled (Cron)</option>
+                <option value="Manual">Manual (On-demand)</option>
+              </select>
             </div>
           </div>
 
@@ -1251,7 +1266,7 @@ const AIDashboard = () => {
         open={!!activeAgentModal}
         onOpenChange={(open) => !open && setActiveAgentModal(null)}
       >
-        <DialogContent className="max-w-5xl w-[96vw] max-h-[92vh] overflow-y-auto p-5 sm:p-8 rounded-3xl border border-slate-200 bg-white shadow-2xl">
+        <DialogContent className="max-w-6xl w-[96vw] h-[88vh] max-h-[880px] min-h-[640px] flex flex-col p-6 sm:p-8 rounded-3xl border border-slate-200 bg-white shadow-2xl overflow-hidden">
           {activeAgentModal && (
             <AgentLightboxModal
               agent={activeAgentModal}

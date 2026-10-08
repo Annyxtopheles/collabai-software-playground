@@ -517,7 +517,7 @@ const AIDashboard = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <span className="font-mono text-xs uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
+              <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
                 Production Directory
               </span>
               <h2 className="mt-2 text-3xl font-bold text-brand-primary lg:text-4xl">
@@ -527,7 +527,7 @@ const AIDashboard = () => {
                 Filter by operational department, execution trigger, or search specific capabilities.
               </p>
             </div>
-            <div className="font-mono text-xs font-semibold text-slate-secondary">
+            <div className="text-sm font-medium text-slate-secondary">
               Showing {filteredAgents.length} of {DASHBOARD_AGENTS.length} featured agents
             </div>
           </div>
@@ -592,7 +592,7 @@ const AIDashboard = () => {
                 <div>
                   {/* Top Bar */}
                   <div className="flex items-center justify-between gap-2">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
                       {agent.team}
                     </span>
                     <Badge
@@ -617,7 +617,7 @@ const AIDashboard = () => {
                       <Zap className="h-3 w-3" />
                       {agent.timeSaved}
                     </span>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-slate-light px-2.5 py-1 font-mono text-[10px] text-slate-secondary">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-slate-light px-2.5 py-1 text-xs font-semibold text-slate-600">
                       {agent.speedupMultiplier}
                     </span>
                   </div>
@@ -630,7 +630,7 @@ const AIDashboard = () => {
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-slate-400">Model Engine:</span>
-                      <span className="font-mono font-medium text-brand-primary">{agent.model}</span>
+                      <span className="text-xs font-semibold text-brand-primary">{agent.model}</span>
                     </div>
                   </div>
 
@@ -688,7 +688,7 @@ const AIDashboard = () => {
       {/* Integration Ecosystem Section */}
       <section className="bg-background py-20 border-t border-border">
         <div className="container mx-auto px-4 text-center">
-          <span className="font-mono text-xs uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
             Connected Stack
           </span>
           <h2 className="mt-3 text-3xl font-bold text-brand-primary sm:text-4xl">
@@ -765,7 +765,7 @@ const AIDashboard = () => {
             <div>
               <DialogHeader>
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
                     {activeAgentModal.team}
                   </span>
                   <Badge variant="secondary" className="text-[10px]">
@@ -789,7 +789,7 @@ const AIDashboard = () => {
                   </div>
                   <div>
                     <span className="text-slate-400">Model Engine:</span>
-                    <p className="mt-0.5 font-mono font-semibold text-brand-primary">{activeAgentModal.model}</p>
+                    <p className="mt-0.5 text-xs font-semibold text-brand-primary">{activeAgentModal.model}</p>
                   </div>
                   <div className="col-span-2 sm:col-span-1">
                     <span className="text-slate-400">Workflow Gain:</span>
@@ -803,7 +803,7 @@ const AIDashboard = () => {
                     <Terminal className="h-3.5 w-3.5 text-[hsl(var(--brand-secondary))]" />
                     Trigger Event / Input Data
                   </h4>
-                  <div className="mt-2 rounded-xl border border-border bg-card p-3 font-mono text-xs text-brand-primary">
+                  <div className="mt-2 rounded-xl border border-border bg-card p-3 text-xs leading-relaxed text-brand-primary">
                     {activeAgentModal.workflowInput}
                   </div>
                 </div>
@@ -820,7 +820,7 @@ const AIDashboard = () => {
                         key={idx}
                         className="flex items-start gap-2.5 rounded-lg border border-border bg-background p-2.5 text-xs text-brand-primary"
                       >
-                        <span className="grid h-4 w-4 shrink-0 place-items-center rounded-full bg-slate-light font-mono text-[10px] font-bold">
+                        <span className="grid h-4 w-4 shrink-0 place-items-center rounded-full bg-slate-light text-[11px] font-semibold text-slate-700">
                           {idx + 1}
                         </span>
                         <span>{step}</span>
@@ -835,9 +835,9 @@ const AIDashboard = () => {
                     <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
                     Generated Output Artifact
                   </h4>
-                  <pre className="mt-2 whitespace-pre-wrap rounded-xl border border-emerald-200 bg-emerald-50/50 p-4 font-mono text-xs text-emerald-950">
+                  <div className="mt-2 whitespace-pre-wrap rounded-xl border border-emerald-200 bg-emerald-50/50 p-4 text-xs leading-relaxed text-emerald-950">
                     {activeAgentModal.sampleOutput}
-                  </pre>
+                  </div>
                 </div>
 
                 <div className="flex items-center justify-end gap-3 pt-2">

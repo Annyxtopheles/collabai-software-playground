@@ -12,6 +12,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import collabAiLogo from "@/assets/collabai-logo.png";
 
 const platformItems = [
   { label: "Overview", to: "/control-tower" },
@@ -61,9 +62,9 @@ const NavigationNew = () => {
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-2 text-foreground" aria-label="CollabAI home">
             <img
-              src="/lovable-uploads/aed406e1-e3d5-4045-9238-c551bc2ca3a4.png"
+              src={collabAiLogo}
               alt="CollabAI"
-              className="h-10 w-auto"
+              className="h-10 w-auto object-contain"
             />
           </Link>
           <span className="hidden md:inline-flex items-center gap-1 rounded-full border border-border px-2 py-0.5 text-[11px] uppercase tracking-[0.14em] text-muted-foreground">

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ShieldCheck } from "lucide-react";
+import collabAiLogo from "@/assets/collabai-logo.png";
 
 type FooterLink = { label: string; to: string; external?: boolean };
 
@@ -61,9 +62,9 @@ const FooterNew = () => (
       <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
         <div className="col-span-2">
           <img
-            src="/lovable-uploads/aed406e1-e3d5-4045-9238-c551bc2ca3a4.png"
+            src={collabAiLogo}
             alt="CollabAI"
-            className="h-10 w-auto"
+            className="h-10 w-auto object-contain"
           />
           <p className="mt-3 max-w-sm text-sm text-muted-foreground">
             Private AI ops for your company. Visibility, control, and AI agents that read and write across your stack.

@@ -490,29 +490,23 @@ const AIDashboard = () => {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Button
-                asChild
-                className="rounded-full border border-slate-900 bg-slate-950 px-8 py-3 font-semibold text-white shadow-sm transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[2px]"
+              <a
+                href="#agents-explorer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-900 bg-slate-950 px-8 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[2px]"
               >
-                <a href="#agents-explorer">
-                  <Search className="mr-2 h-4 w-4" />
-                  Explore Agents
-                </a>
-              </Button>
-              <Button
-                asChild
-                className="rounded-full border border-slate-300 bg-white px-8 py-3 font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 active:translate-y-[2px]"
+                <Search className="h-4 w-4" />
+                Explore Agents
+              </a>
+              <a
+                href="https://controltowerdemo.collabai.software/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-8 py-3 text-sm font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 active:translate-y-[2px]"
               >
-                <a
-                  href="https://controltowerdemo.collabai.software/login"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Play className="mr-2 h-4 w-4 text-slate-700" />
-                  Launch Live Demo
-                  <ExternalLink className="ml-1.5 h-3.5 w-3.5 text-slate-500" />
-                </a>
-              </Button>
+                <Play className="h-4 w-4 text-slate-700" />
+                Launch Live Demo
+                <ExternalLink className="h-3.5 w-3.5 text-slate-500" />
+              </a>
             </div>
           </div>
         </div>
@@ -741,28 +735,22 @@ const AIDashboard = () => {
             Self-hosted in your private cloud or managed by us. Bring your own model keys with zero token markups.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Button
-              asChild
-              className="rounded-full bg-white px-8 py-3 font-semibold text-black hover:bg-white/90 active:translate-y-[2px]"
+            <Link
+              to="/book-demo"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white bg-white px-8 py-3 text-sm font-semibold text-black shadow-sm transition-all duration-150 hover:bg-slate-100 hover:text-black active:translate-y-[2px]"
             >
-              <Link to="/book-demo">
-                Book a Personalized Demo
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              className="rounded-full border border-white/20 bg-transparent px-8 py-3 font-semibold text-white transition-all duration-300 hover:border-white/30 hover:bg-white/10 hover:shadow-[0_7px_29px_0_rgba(49,94,255,0.4)] active:translate-y-[2px]"
+              Book a Personalized Demo
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <a
+              href="https://controltowerdemo.collabai.software/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-transparent px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-white/30 hover:bg-white/10 hover:shadow-[0_7px_29px_0_rgba(49,94,255,0.4)] active:translate-y-[2px]"
             >
-              <a
-                href="https://controltowerdemo.collabai.software/login"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Launch Sandbox Live Demo
-                <ExternalLink className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
+              Launch Sandbox Live Demo
+              <ExternalLink className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
@@ -860,15 +848,13 @@ const AIDashboard = () => {
                   >
                     Close
                   </button>
-                  <Button
-                    asChild
-                    className="rounded-full border border-slate-900 bg-slate-950 px-6 py-2 text-xs font-semibold text-white shadow-sm transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white"
+                  <Link
+                    to="/book-demo"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-slate-900 bg-slate-950 px-6 py-2 text-xs font-semibold text-white shadow-sm transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white"
                   >
-                    <Link to="/book-demo">
-                      Request Custom Configuration
-                      <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-                    </Link>
-                  </Button>
+                    Request Custom Configuration
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
                 </div>
               </div>
             </div>

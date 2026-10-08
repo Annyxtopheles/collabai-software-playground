@@ -45,7 +45,7 @@ import problemScatteredDonors from "@/assets/nonprofit/problem-scattered-donors.
 import problemReportingTime from "@/assets/nonprofit/problem-reporting-time.jpg";
 import problemManualWork from "@/assets/nonprofit/problem-manual-work.png";
 import problemLeadershipView from "@/assets/nonprofit/problem-leadership-view.jpg";
-import foodDistributionImpact from "@/assets/nonprofit/food-distribution-impact.jpg";
+import heroCommunityImpact from "@/assets/nonprofit/hero-community-impact.jpg";
 
 // Integration Logos
 import salesforceLogo from "@/assets/logos/salesforce.svg";
@@ -187,81 +187,54 @@ const NonProfitHub = () => {
               </div>
             </div>
 
-            {/* Right Column: Layered Hero Mockup with Floating Cards (Reference Style) */}
+            {/* Right Column: Authentic Community Impact Photo with Floating Modern Badges */}
             <div className="relative lg:col-span-5 flex justify-center">
-              {/* Backing Ambient Arch Frame */}
-              <div className="relative w-full max-w-[460px] rounded-3xl border border-[#14a800]/20 bg-gradient-to-b from-[#e7f5e3]/50 to-white p-5 sm:p-6 shadow-[0_20px_50px_rgba(20,168,0,0.08)]">
-                {/* Header bar */}
-                <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                  <div className="flex items-center gap-2">
-                    <span className="flex h-3 w-3 rounded-full bg-[#14a800] animate-pulse" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
-                      Nonprofit Control Tower
-                    </span>
-                  </div>
-                  <span className="rounded-full bg-[#e7f5e3] px-2.5 py-0.5 text-[11px] font-semibold text-[#118f00]">
-                    Live Operations
-                  </span>
-                </div>
+              <div className="relative w-full max-w-[480px]">
+                {/* Backing Ambient Decorative Glow */}
+                <div
+                  aria-hidden="true"
+                  className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-[#14a800]/20 via-[#e7f5e3]/50 to-transparent blur-xl -z-10"
+                />
 
-                {/* Core Live Summary Inside Frame */}
-                <div className="mt-5 space-y-3">
-                  <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-xs">
-                    <div className="flex items-center justify-between text-xs text-slate-500">
-                      <span>Executive Operational View</span>
-                      <span className="font-semibold text-[#14a800]">Synced</span>
-                    </div>
-                    <div className="mt-2 text-xl font-extrabold text-[#0c180a]">
-                      $1.42M Raised &middot; 4 Active Grants
-                    </div>
-                    <div className="mt-1 flex items-center gap-1.5 text-xs text-slate-500">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-[#14a800]" />
-                      <span>All 12 donor & CRM systems consolidated</span>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2.5">
-                    <div className="rounded-2xl border border-slate-100 bg-white p-3.5 shadow-xs">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                        Board Governance
+                {/* Primary Photo Card */}
+                <div className="relative overflow-hidden rounded-3xl border border-[#14a800]/25 bg-white p-2.5 shadow-[0_20px_50px_rgba(20,168,0,0.12)]">
+                  <div className="relative overflow-hidden rounded-2xl aspect-[4/3] sm:aspect-[1/1] w-full">
+                    <img
+                      src={heroCommunityImpact}
+                      alt="Dedicated nonprofit volunteers and community members working together in a fresh food distribution program"
+                      className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
+                    />
+                    <div className="absolute bottom-3 left-3 text-left">
+                      <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-white bg-black/40 px-2.5 py-1 rounded-full backdrop-blur-md">
+                        Mission in Action · Community Distribution
                       </span>
-                      <div className="mt-1 text-sm font-bold text-slate-800">
-                        Packet Synthesized
-                      </div>
-                      <span className="text-[11px] text-[#14a800] font-medium">Ready for review</span>
-                    </div>
-
-                    <div className="rounded-2xl border border-slate-100 bg-white p-3.5 shadow-xs">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                        Grant Reporting
-                      </span>
-                      <div className="mt-1 text-sm font-bold text-slate-800">
-                        Q3 Draft Complete
-                      </div>
-                      <span className="text-[11px] text-[#14a800] font-medium">Saves ~18 staff hrs</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Floating Card 1: Top Right Pill (like Expert Doctors / 24/7 in reference) */}
-                <div className="absolute -top-4 -right-4 hidden sm:flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-2.5 shadow-lg backdrop-blur-xs">
+                {/* Floating Card 1: Top Right Pill */}
+                <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-2.5 shadow-xl backdrop-blur-xs">
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
                     <ShieldCheck className="h-4 w-4" />
                   </div>
                   <div className="text-left">
                     <div className="text-xs font-bold text-slate-900">Private by Design</div>
-                    <div className="text-[10px] text-slate-500">Zero model training</div>
+                    <div className="text-[10px] text-slate-500 font-medium">Zero model training</div>
                   </div>
                 </div>
 
-                {/* Floating Card 2: Bottom Left Badge (like Your Health Companion in reference) */}
-                <div className="absolute -bottom-4 -left-4 hidden sm:flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-2.5 shadow-lg backdrop-blur-xs">
+                {/* Floating Card 2: Bottom Left Badge */}
+                <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-2.5 shadow-xl backdrop-blur-xs">
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
                     <Zap className="h-4 w-4" />
                   </div>
                   <div className="text-left">
                     <div className="text-xs font-bold text-slate-900">Keep Your Tools</div>
-                    <div className="text-[10px] text-slate-500">Connects into CRM & files</div>
+                    <div className="text-[10px] text-slate-500 font-medium">Connects into CRM & files</div>
                   </div>
                 </div>
               </div>
@@ -790,69 +763,161 @@ const NonProfitHub = () => {
               </div>
             </div>
 
-            {/* Right Column: Genuine Food Distribution Impact Photography with Floating Badges */}
-            <div className="relative lg:col-span-5 w-full flex items-center justify-center">
-              <div className="relative w-full max-w-lg overflow-hidden rounded-3xl border-2 border-white/20 bg-emerald-950/40 p-2 shadow-[0_24px_50px_rgba(0,0,0,0.35)] backdrop-blur-sm">
-                <div className="relative overflow-hidden rounded-2xl aspect-[4/3] w-full">
-                  <img
-                    src={foodDistributionImpact}
-                    alt="Community food distribution program supported by nonprofit operations"
-                    className="h-full w-full object-cover object-center transition-transform duration-500 hover:scale-105"
-                  />
-                  {/* Subtle inner gradient shade to blend with green theme */}
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
-                  />
-                  <div className="absolute bottom-3 left-3 right-3 text-left">
-                    <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-white/90 bg-black/40 px-2 py-0.5 rounded-full backdrop-blur-md">
-                      Community Impact & Field Operations
-                    </span>
-                  </div>
+            {/* Right Column: Bold, Animated Double-Helix Frosted Ribbon Canvas */}
+            <div className="relative lg:col-span-5 h-[280px] sm:h-[340px] w-full flex items-center justify-center">
+              {/* Full SVG Animated Canvas */}
+              <svg
+                viewBox="0 0 460 320"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute inset-0 h-full w-full pointer-events-none overflow-visible select-none"
+              >
+                <defs>
+                  {/* Primary Frosted Ribbon Gradient */}
+                  <linearGradient id="ribbonGlowA" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+                    <stop offset="45%" stopColor="#e7f5e3" stopOpacity="0.35" />
+                    <stop offset="85%" stopColor="#ffffff" stopOpacity="0.75" />
+                    <stop offset="100%" stopColor="#ffffff" stopOpacity="0.1" />
+                  </linearGradient>
+
+                  {/* Secondary Intersecting Ribbon Gradient */}
+                  <linearGradient id="ribbonGlowB" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#ffffff" stopOpacity="0.75" />
+                    <stop offset="50%" stopColor="#c8f0be" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="#ffffff" stopOpacity="0.6" />
+                  </linearGradient>
+
+                  {/* Diffuse Soft Shadow */}
+                  <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="8" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                </defs>
+
+                {/* Ribbon Track 1: Sweeping Upward Helix with Wave Motion */}
+                <motion.path
+                  d="M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140"
+                  stroke="url(#ribbonGlowA)"
+                  strokeWidth="38"
+                  strokeLinecap="round"
+                  fill="none"
+                  filter="url(#softGlow)"
+                  animate={{
+                    d: [
+                      "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
+                      "M 20 230 C 120 270, 160 90, 255 105 C 335 120, 385 200, 450 120",
+                      "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
+                    ],
+                  }}
+                  transition={{
+                    duration: 7.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+
+                {/* Ribbon Track 2: Intersecting Counter Wave (Lucid Cross-Over) */}
+                <motion.path
+                  d="M 40 90 C 130 90, 160 260, 260 240 C 350 220, 380 70, 450 190"
+                  stroke="url(#ribbonGlowB)"
+                  strokeWidth="28"
+                  strokeLinecap="round"
+                  fill="none"
+                  filter="url(#softGlow)"
+                  animate={{
+                    d: [
+                      "M 40 90 C 130 90, 160 260, 260 240 C 350 220, 380 70, 450 190",
+                      "M 40 110 C 140 70, 170 240, 255 220 C 345 200, 390 90, 450 210",
+                      "M 40 90 C 130 90, 160 260, 260 240 C 350 220, 380 70, 450 190",
+                    ],
+                  }}
+                  transition={{
+                    duration: 8.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+
+                {/* Fine Precision Stream lines */}
+                <motion.path
+                  d="M 10 210 Q 150 40, 280 180 T 450 110"
+                  stroke="#ffffff"
+                  strokeWidth="2"
+                  strokeDasharray="4 6"
+                  strokeDashoffset={0}
+                  fill="none"
+                  animate={{
+                    strokeDashoffset: [0, -40],
+                  }}
+                  transition={{
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                />
+
+                <motion.path
+                  d="M 30 110 Q 180 280, 310 140 T 450 240"
+                  stroke="#ffffff"
+                  strokeWidth="1.5"
+                  strokeDasharray="6 8"
+                  strokeDashoffset={0}
+                  fill="none"
+                  animate={{
+                    strokeDashoffset: [-50, 0],
+                  }}
+                  transition={{
+                    duration: 4.5,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                />
+              </svg>
+
+              {/* Floating Operational Pill 1: Top Floating Glass Node */}
+              <motion.div
+                animate={{
+                  y: [-6, 6, -6],
+                  rotate: [-1, 1, -1],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute top-4 sm:top-6 right-2 sm:right-6 z-20 flex items-center gap-2.5 rounded-2xl border border-white/35 bg-white/20 px-4 py-2.5 shadow-[0_12px_28px_rgba(0,0,0,0.18)] backdrop-blur-md"
+              >
+                <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-white text-[#118f00] shadow-2xs">
+                  <Sparkles className="h-4 w-4 text-[#14a800]" />
                 </div>
+                <div className="text-left">
+                  <div className="text-xs font-bold text-white tracking-tight">One Connected View</div>
+                  <div className="text-[10px] text-[#e7f5e3] font-medium">Donors · Grants · Board</div>
+                </div>
+              </motion.div>
 
-                {/* Floating Telemetry Badge 1: Top Right */}
-                <motion.div
-                  animate={{
-                    y: [-4, 4, -4],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute -top-3 -right-3 z-20 flex items-center gap-2.5 rounded-2xl border border-white/30 bg-white/90 px-3.5 py-2 shadow-[0_12px_28px_rgba(0,0,0,0.22)] backdrop-blur-md text-[#0c180a]"
-                >
-                  <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#118f00] shadow-2xs">
-                    <CheckCircle2 className="h-4 w-4 text-[#14a800]" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-xs font-bold tracking-tight">100% Volunteer & Donor Sync</div>
-                    <div className="text-[10px] text-slate-500 font-medium">Real-time community records</div>
-                  </div>
-                </motion.div>
-
-                {/* Floating Telemetry Badge 2: Bottom Left */}
-                <motion.div
-                  animate={{
-                    y: [4, -4, 4],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute -bottom-3 -left-3 z-20 flex items-center gap-2.5 rounded-2xl border border-white/30 bg-white/90 px-3.5 py-2 shadow-[0_12px_28px_rgba(0,0,0,0.22)] backdrop-blur-md text-[#0c180a]"
-                >
-                  <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-[#14a800] text-white shadow-2xs">
-                    <Users className="h-4 w-4" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-xs font-bold tracking-tight">More Time For People</div>
-                    <div className="text-[10px] text-slate-500 font-medium">Zero administrative busywork</div>
-                  </div>
-                </motion.div>
-              </div>
+              {/* Floating Operational Pill 2: Bottom Floating Glass Node */}
+              <motion.div
+                animate={{
+                  y: [6, -6, 6],
+                  rotate: [1, -1, 1],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute bottom-4 sm:bottom-6 left-2 sm:left-6 z-20 flex items-center gap-2.5 rounded-2xl border border-white/35 bg-white/20 px-4 py-2.5 shadow-[0_12px_28px_rgba(0,0,0,0.18)] backdrop-blur-md"
+              >
+                <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-white text-[#118f00] shadow-2xs">
+                  <CheckCircle2 className="h-4 w-4 text-[#14a800]" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs font-bold text-white tracking-tight">Zero Tool Migrations</div>
+                  <div className="text-[10px] text-[#e7f5e3] font-medium">Keep your existing stack</div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>

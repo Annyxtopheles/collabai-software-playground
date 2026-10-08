@@ -413,6 +413,241 @@ const DASHBOARD_AGENTS: DashboardAgent[] = [
   }
 ];
 
+const AgentBannerPreview = ({ agent }: { agent: DashboardAgent }) => {
+  const getBannerData = () => {
+    switch (agent.teamSlug) {
+      case "sales-crm":
+        return {
+          header: "Pipeline Intelligence Hub",
+          tag: "Active",
+          card1Title: "Deal Velocity",
+          card1Metric: "+34% Win Rate",
+          card1Sub: "3 overdue items cleared",
+          card2Title: "Signal Match",
+          bars: [
+            { label: "HubSpot", pct: "88%" },
+            { label: "Decision Makers", pct: "74%" },
+          ],
+        };
+      case "meetings":
+        return {
+          header: "Meeting Intelligence",
+          tag: "Live Audio",
+          card1Title: "Call Synthesis",
+          card1Metric: "100% Ingested",
+          card1Sub: "6 action items logged",
+          card2Title: "Decision Output",
+          bars: [
+            { label: "Key Deliverables", pct: "95%" },
+            { label: "Task Assignees", pct: "100%" },
+          ],
+        };
+      case "project-management":
+        return {
+          header: "Sprint Delivery Radar",
+          tag: "On Track",
+          card1Title: "Sprint Velocity",
+          card1Metric: "91% Complete",
+          card1Sub: "0 critical blockers",
+          card2Title: "Milestone Health",
+          bars: [
+            { label: "Burndown Rate", pct: "86%" },
+            { label: "PR Code Review", pct: "92%" },
+          ],
+        };
+      case "tasks":
+        return {
+          header: "Task Co-Pilot & Plan",
+          tag: "Ready",
+          card1Title: "Decomposition",
+          card1Metric: "4 Subtasks",
+          card1Sub: "Estimates & specs ready",
+          card2Title: "Context Sync",
+          bars: [
+            { label: "Spec Accuracy", pct: "96%" },
+            { label: "Acceptance Criteria", pct: "100%" },
+          ],
+        };
+      case "eos":
+        return {
+          header: "Level-10 Ops Pulse",
+          tag: "Leadership",
+          card1Title: "Scorecard Health",
+          card1Metric: "96% Verified",
+          card1Sub: "Top 3 IDS issues pinned",
+          card2Title: "Rock Progress",
+          bars: [
+            { label: "Department Rocks", pct: "90%" },
+            { label: "Triage Resolution", pct: "84%" },
+          ],
+        };
+      case "team-productivity":
+        return {
+          header: "Pod Utilization Radar",
+          tag: "Balanced",
+          card1Title: "Billable Output",
+          card1Metric: "88.4%",
+          card1Sub: "Retention risk: Optimal",
+          card2Title: "Workload Metrics",
+          bars: [
+            { label: "Core Utilization", pct: "88%" },
+            { label: "Overtime Balance", pct: "94%" },
+          ],
+        };
+      case "non-profit":
+        return {
+          header: "Donor & Grant Hub",
+          tag: "Verified",
+          card1Title: "Grant Proposal",
+          card1Metric: "$250k Drafted",
+          card1Sub: "Program citations 100%",
+          card2Title: "CRM Readiness",
+          bars: [
+            { label: "Salesforce NPSP", pct: "98%" },
+            { label: "Financial Data", pct: "92%" },
+          ],
+        };
+      case "healthcare":
+        return {
+          header: "Clinical Note Scribe",
+          tag: "HIPAA Verified",
+          card1Title: "Consultation Audio",
+          card1Metric: "Synced",
+          card1Sub: "SOAP notes auto-drafted",
+          card2Title: "EHR Validation",
+          bars: [
+            { label: "ICD-10 Codes", pct: "97%" },
+            { label: "Audit Adherence", pct: "100%" },
+          ],
+        };
+      case "mortgage":
+        return {
+          header: "Underwriting Auditor",
+          tag: "Compliant",
+          card1Title: "Loan Dossier",
+          card1Metric: "32% DTI",
+          card1Sub: "Fannie Mae checks passed",
+          card2Title: "1003 Verification",
+          bars: [
+            { label: "Income & Assets", pct: "99%" },
+            { label: "Credit Exception", pct: "91%" },
+          ],
+        };
+      case "touring":
+        return {
+          header: "Tour Route & Venues",
+          tag: "Optimized",
+          card1Title: "14 Venues",
+          card1Metric: "-18% Travel",
+          card1Sub: "Routing contracts linked",
+          card2Title: "Itinerary Progress",
+          bars: [
+            { label: "Production Advances", pct: "88%" },
+            { label: "Schedule Sync", pct: "96%" },
+          ],
+        };
+      case "agency":
+        return {
+          header: "Scope & Fee Estimator",
+          tag: "Calibrated",
+          card1Title: "Target Margin",
+          card1Metric: "42% Gross",
+          card1Sub: "Statement of work ready",
+          card2Title: "Estimation Health",
+          bars: [
+            { label: "Resource Bandwidth", pct: "89%" },
+            { label: "Rate Alignment", pct: "100%" },
+          ],
+        };
+      default:
+        return {
+          header: "Operational Workflow",
+          tag: "Active",
+          card1Title: "Automation Health",
+          card1Metric: "98%",
+          card1Sub: "Zero manual intervention",
+          card2Title: "System Sync",
+          bars: [
+            { label: "Data Quality", pct: "94%" },
+            { label: "Pipeline Status", pct: "98%" },
+          ],
+        };
+    }
+  };
+
+  const data = getBannerData();
+
+  return (
+    <div className="relative h-44 w-full overflow-hidden border-b border-slate-100 bg-[#f8fafc] p-3 select-none">
+      {/* Subtle Dot Grid */}
+      <div
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: "radial-gradient(#0f172a 1px, transparent 1px)",
+          backgroundSize: "12px 12px",
+        }}
+      />
+
+      {/* Mini App Mockup Frame */}
+      <div className="relative flex h-full flex-col justify-between rounded-xl border border-slate-200/80 bg-white p-2.5 shadow-xs transition-transform duration-200 group-hover:scale-[1.01]">
+        {/* Mockup Top Navigation Bar */}
+        <div className="flex items-center justify-between border-b border-slate-100 pb-1.5">
+          <div className="flex items-center gap-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[10px] font-bold text-slate-800 tracking-tight">
+              {data.header}
+            </span>
+          </div>
+          <span className="rounded-full bg-slate-100 px-1.5 py-0.5 text-[9px] font-semibold text-slate-600">
+            {data.tag}
+          </span>
+        </div>
+
+        {/* Mockup Content Grid: 2 mini panels */}
+        <div className="grid grid-cols-2 gap-2 pt-1">
+          {/* Panel 1: Main Metric */}
+          <div className="flex flex-col justify-between rounded-lg border border-slate-100 bg-slate-50/70 p-2">
+            <div>
+              <span className="block text-[9px] font-semibold text-slate-500 uppercase tracking-wider">
+                {data.card1Title}
+              </span>
+              <span className="mt-0.5 block text-xs font-bold text-slate-900">
+                {data.card1Metric}
+              </span>
+            </div>
+            <span className="mt-1 block text-[9px] text-slate-500 truncate">
+              {data.card1Sub}
+            </span>
+          </div>
+
+          {/* Panel 2: Signal / Progress Bars */}
+          <div className="flex flex-col justify-between rounded-lg border border-slate-100 bg-slate-50/70 p-2">
+            <span className="block text-[9px] font-semibold text-slate-500 uppercase tracking-wider">
+              {data.card2Title}
+            </span>
+            <div className="mt-1 space-y-1">
+              {data.bars.map((bar) => (
+                <div key={bar.label}>
+                  <div className="flex justify-between text-[8px] font-medium text-slate-600">
+                    <span className="truncate max-w-[55px]">{bar.label}</span>
+                    <span className="font-bold text-slate-700">{bar.pct}</span>
+                  </div>
+                  <div className="mt-0.5 h-1 w-full rounded-full bg-slate-200/70 overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-trust-blue transition-all duration-300"
+                      style={{ width: bar.pct }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const TEAMS = [
   "All Teams",
   "Sales & CRM",
@@ -589,75 +824,41 @@ const AIDashboard = () => {
             {filteredAgents.map((agent) => (
               <div
                 key={agent.id}
-                className="group flex flex-col justify-between rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-md"
+                className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:-translate-y-1 hover:border-slate-300 hover:shadow-md"
               >
-                <div>
-                  {/* Top Bar */}
-                  <div className="flex items-center justify-between gap-2">
+                {/* 1. Banner Image */}
+                <AgentBannerPreview agent={agent} />
+
+                {/* Card Content Area */}
+                <div className="flex flex-1 flex-col justify-between p-6">
+                  <div>
+                    {/* 2. Category above title */}
                     <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
                       {agent.team}
                     </span>
-                    <Badge
-                      variant="secondary"
-                      className="text-[10px] font-semibold uppercase tracking-wider"
+
+                    {/* 3. Title */}
+                    <h3 className="mt-1.5 text-lg font-bold text-brand-primary group-hover:text-[hsl(var(--brand-secondary))] transition-colors">
+                      {agent.name}
+                    </h3>
+
+                    {/* 4. Description */}
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-secondary">
+                      {agent.description}
+                    </p>
+                  </div>
+
+                  {/* 5. CTA Button */}
+                  <div className="mt-6 pt-2">
+                    <button
+                      type="button"
+                      onClick={() => setActiveAgentModal(agent)}
+                      className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-[hsl(var(--brand-secondary))] py-2.5 text-xs font-semibold text-white shadow-[0_2px_10px_0_rgba(49,94,255,0.25)] transition-all duration-150 hover:bg-[#254bdb] hover:shadow-[0_4px_14px_rgba(49,94,255,0.35)] active:translate-y-[1px]"
                     >
-                      {agent.tier}
-                    </Badge>
+                      <span>Inspect Workflow</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </button>
                   </div>
-
-                  <h3 className="mt-3 text-lg font-bold text-brand-primary group-hover:text-[hsl(var(--brand-secondary))]">
-                    {agent.name}
-                  </h3>
-
-                  <p className="mt-2 text-xs leading-relaxed text-slate-secondary">
-                    {agent.description}
-                  </p>
-
-                  {/* Speedup Metric Pill */}
-                  <div className="mt-4 flex flex-wrap items-center gap-2">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2.5 py-1 text-[11px] font-semibold text-emerald-700">
-                      <Zap className="h-3 w-3" />
-                      {agent.timeSaved}
-                    </span>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-slate-light px-2.5 py-1 text-xs font-semibold text-slate-600">
-                      {agent.speedupMultiplier}
-                    </span>
-                  </div>
-
-                  {/* Trigger & Model Info */}
-                  <div className="mt-4 border-t border-border pt-3 space-y-1.5 text-[11px] text-slate-secondary">
-                    <div className="flex items-center justify-between">
-                      <span className="text-slate-400">Trigger:</span>
-                      <span className="font-medium text-brand-primary">{agent.trigger}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-slate-400">Model Engine:</span>
-                      <span className="text-xs font-semibold text-brand-primary">{agent.model}</span>
-                    </div>
-                  </div>
-
-                  {/* Integrations pill strip */}
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {agent.integrations.map((app) => (
-                      <span
-                        key={app}
-                        className="rounded-md border border-border bg-slate-light/80 px-2 py-0.5 text-[10px] font-medium text-slate-secondary"
-                      >
-                        {app}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-2">
-                  <button
-                    type="button"
-                    onClick={() => setActiveAgentModal(agent)}
-                    className="inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-slate-300 bg-white py-2 text-xs font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-950 hover:bg-slate-950 hover:text-white active:translate-y-[1px]"
-                  >
-                    <span>Inspect Workflow & Output</span>
-                    <ChevronRight className="h-3.5 w-3.5" />
-                  </button>
                 </div>
               </div>
             ))}

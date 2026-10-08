@@ -478,7 +478,8 @@ const AIDashboard = () => {
             </div>
 
             <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-brand-primary sm:text-5xl lg:text-6xl">
-              Specialized AI Agents That{" "}
+              Specialized AI Agents That
+              <br />
               <span className="bg-gradient-to-r from-trust-blue to-trust-blue-dark bg-clip-text text-transparent">
                 Speed Up Every Workflow.
               </span>

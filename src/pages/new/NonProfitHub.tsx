@@ -459,11 +459,19 @@ const NonProfitHub = () => {
             </div>
           </div>
 
-          {/* Bridge Transition Statement */}
-          <div className="mt-12 text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#14a800]/30 bg-[#e7f5e3]/60 px-5 py-2 text-sm font-semibold text-[#118f00]">
-              <Sparkles className="h-4 w-4" />
-              That is where the Nonprofit Control Tower comes in.
+          {/* Impactful Guiding Statement (Elevated from timid pill badge) */}
+          <div className="mt-14 sm:mt-16 text-center">
+            <div className="relative mx-auto inline-flex flex-col items-center">
+              <div className="flex items-center gap-3">
+                <span className="hidden sm:block h-[1px] w-12 bg-gradient-to-r from-transparent to-[#14a800]" />
+                <span className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-[#0c180a]">
+                  That is where the <span className="text-[#14a800]">Nonprofit Control Tower</span> comes in.
+                </span>
+                <span className="hidden sm:block h-[1px] w-12 bg-gradient-to-l from-transparent to-[#14a800]" />
+              </div>
+              <p className="mt-2.5 text-xs sm:text-sm font-medium text-slate-500 max-w-lg text-pretty">
+                Bridging your fragmented systems into one private operational source of truth.
+              </p>
             </div>
           </div>
         </div>
@@ -475,7 +483,7 @@ const NonProfitHub = () => {
       ======================================================== */}
       <section className="border-t border-slate-100 bg-[#f9fbf8] py-16 md:py-24">
         <div className="container mx-auto max-w-6xl px-4">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-4xl text-center">
             <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
               The Unified Solution
             </span>
@@ -483,16 +491,16 @@ const NonProfitHub = () => {
               <span className="block">One place to understand</span>
               <span className="block">and run your nonprofit.</span>
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-slate-600 sm:text-lg text-pretty">
-              The Nonprofit Control Tower sits across the systems you already
-              use and turns scattered information into a clear operational view
-              for your team, leadership and&nbsp;board.
-            </p>
-            <p className="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg text-pretty">
-              It helps your organization connect data, surface answers, automate
-              repetitive work and keep everyone aligned without forcing your team
-              to replace the tools they already&nbsp;know.
-            </p>
+            
+            {/* Fluid, relaxed editorial copy replacing rigid narrow paragraphs */}
+            <div className="mt-6 mx-auto max-w-3xl space-y-4 text-base sm:text-lg leading-relaxed text-slate-600">
+              <p className="text-pretty">
+                The <strong className="font-semibold text-slate-900">Nonprofit Control Tower</strong> sits across the tools you already rely on — turning scattered donor spreadsheets, grant files, and meeting minutes into one clear, real-time operational view for your staff, leadership, and board.
+              </p>
+              <p className="text-pretty text-slate-500 text-sm sm:text-base">
+                Connect data seamlessly, surface immediate answers, and automate repetitive busywork — keeping everyone aligned without forcing your organization to replace a single tool you already know.
+              </p>
+            </div>
           </div>
 
           {/* Connected Systems Diagram Visual */}

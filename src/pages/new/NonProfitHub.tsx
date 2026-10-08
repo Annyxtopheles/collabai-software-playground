@@ -40,6 +40,7 @@ import queensChamberLogo from "@/assets/clients/queens-chamber.png";
 
 // Section Visuals & Components
 import NonprofitIntegrationsBeam from "@/components/new/nonprofit/NonprofitIntegrationsBeam";
+import WhatYouCanDoSection from "@/components/new/nonprofit/WhatYouCanDoSection";
 import problemScatteredDonors from "@/assets/nonprofit/problem-scattered-donors.png";
 import problemReportingTime from "@/assets/nonprofit/problem-reporting-time.jpg";
 import problemManualWork from "@/assets/nonprofit/problem-manual-work.png";
@@ -502,109 +503,9 @@ const NonProfitHub = () => {
 
       {/* ========================================================
           5. WHAT YOU CAN DO
-          6 Outcome-based cards instead of leading with agent counts.
+          Donorbox-inspired alternating cards with video trigger & peeking corner UI.
       ======================================================== */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto max-w-6xl px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
-              Everyday Outcomes
-            </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl">
-              What You Can Do
-            </h2>
-            <p className="mt-4 text-base text-slate-600 sm:text-lg text-balance max-w-2xl mx-auto">
-              <span className="block">Transform daily operations across every department with private,</span>
-              <span className="block">mission-aligned&nbsp;intelligence.</span>
-            </p>
-          </div>
-
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Card 1: Donor Intelligence */}
-            <div className="group rounded-2xl border border-slate-200/80 bg-white p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
-                <Users className="h-6 w-6" />
-              </div>
-              <h3 className="mt-6 text-xl font-bold text-[#0c180a]">
-                Donor Intelligence
-              </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                Understand donors, history, engagement and next actions in one&nbsp;place.
-              </p>
-            </div>
-
-            {/* Card 2: Grant Management */}
-            <div className="group rounded-2xl border border-slate-200/80 bg-white p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
-                <FileText className="h-6 w-6" />
-              </div>
-              <h3 className="mt-6 text-xl font-bold text-[#0c180a]">
-                Grant Management
-              </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                Use existing organizational information to support grant
-                research, drafting, reporting and&nbsp;follow-up.
-              </p>
-            </div>
-
-            {/* Card 3: Program & Operations Visibility */}
-            <div className="group rounded-2xl border border-slate-200/80 bg-white p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
-                <BarChart3 className="h-6 w-6" />
-              </div>
-              <h3 className="mt-6 text-xl font-bold text-[#0c180a]">
-                Program & Operations Visibility
-              </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                See activities, outcomes and operational information together
-                instead of across disconnected&nbsp;systems.
-              </p>
-            </div>
-
-            {/* Card 4: Board Governance */}
-            <div className="group rounded-2xl border border-slate-200/80 bg-white p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
-                <ShieldCheck className="h-6 w-6" />
-              </div>
-              <h3 className="mt-6 text-xl font-bold text-[#0c180a]">
-                Board Governance
-              </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                Organize minutes, policies, board documents, packets and
-                institutional&nbsp;knowledge.
-              </p>
-            </div>
-
-            {/* Card 5: Meeting Intelligence */}
-            <div className="group rounded-2xl border border-slate-200/80 bg-white p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
-                <Calendar className="h-6 w-6" />
-              </div>
-              <h3 className="mt-6 text-xl font-bold text-[#0c180a]">
-                Meeting Intelligence
-              </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                Capture meeting summaries, decisions and action items so
-                important follow-up does not get&nbsp;lost.
-              </p>
-            </div>
-
-            {/* Card 6: AI Assistants */}
-            <div className="group rounded-2xl border border-slate-200/80 bg-white p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
-                <Bot className="h-6 w-6" />
-              </div>
-              <h3 className="mt-6 text-xl font-bold text-[#0c180a]">
-                AI Assistants
-              </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                Ask questions across your organization’s information instead of
-                searching through files, inboxes and systems&nbsp;manually.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WhatYouCanDoSection />
 
       {/* ========================================================
           6. SUCCESS STORIES

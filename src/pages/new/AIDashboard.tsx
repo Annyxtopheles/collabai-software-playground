@@ -427,7 +427,7 @@ const AgentBannerPreview = ({ agent }: { agent: DashboardAgent }) => {
     const bannerUrl =
       agent.bannerImage || `${import.meta.env.BASE_URL}images/agents/deal-coach-banner.png`;
     return (
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50 select-none">
+      <div className="relative aspect-[19/6] w-full overflow-hidden bg-slate-50 select-none">
         <img
           src={bannerUrl}
           alt={agent.name}
@@ -601,7 +601,7 @@ const AgentBannerPreview = ({ agent }: { agent: DashboardAgent }) => {
   const data = getBannerData();
 
   return (
-    <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-slate-100 bg-[#f8fafc] p-3 select-none">
+    <div className="relative aspect-[19/6] w-full overflow-hidden border-b border-slate-100 bg-[#f8fafc] p-2 select-none">
       {/* Subtle Dot Grid */}
       <div
         className="absolute inset-0 opacity-[0.04]"

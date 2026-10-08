@@ -124,7 +124,7 @@ const NonProfitHub = () => {
           }}
         />
 
-        <div className="container mx-auto max-w-5xl px-4 text-center">
+        <div className="container mx-auto max-w-6xl px-4 text-center">
           {/* Eyebrow badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-[#14a800]/20 bg-[#e7f5e3]/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#118f00]">
             <Sparkles className="h-3.5 w-3.5" />
@@ -132,10 +132,10 @@ const NonProfitHub = () => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="mt-8 text-4xl font-extrabold tracking-tight text-[#0c180a] sm:text-5xl md:text-6xl md:leading-[1.14] text-balance">
-            <span className="block">Spend Less Time Managing&nbsp;Systems.</span>
-            <span className="block mt-1 text-[#14a800]">
-              More Time Moving Your Mission&nbsp;Forward.
+          <h1 className="mt-8 text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-[1.12]">
+            <span className="block sm:whitespace-nowrap">Spend Less Time Managing Systems.</span>
+            <span className="block mt-1 text-[#14a800] sm:whitespace-nowrap">
+              More Time Moving Your Mission Forward.
             </span>
           </h1>
 

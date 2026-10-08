@@ -22,7 +22,7 @@ import {
   Clock,
   Briefcase,
   ChevronDown,
-} from "lucide-react";
+import { motion } from "framer-motion";
 import PageSeoHead from "@/components/PageSeoHead";
 import {
   Accordion,
@@ -836,34 +836,42 @@ const NonProfitHub = () => {
       {/* ========================================================
           7. MID-PAGE DECISION CTA
           Captures visitors who now understand problem, solution & proof.
-          Styled as an elevated rounded-3xl banner card inspired by the Lucid reference design.
+          Styled as an elevated rounded-3xl banner card with bold, intentional,
+          mathematically animated SVG frosted ribbon curves and floating telemetry nodes.
       ======================================================== */}
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white overflow-hidden">
         <div className="container mx-auto max-w-6xl px-4">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#118f00] via-[#14a800] to-[#0d7300] p-8 sm:p-12 md:p-16 text-white shadow-[0_20px_50px_rgba(20,168,0,0.22)]">
-            {/* Ambient glassmorphic wave vector overlay placeholder */}
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0c6600] via-[#118f00] to-[#0a5200] p-8 sm:p-12 md:p-16 text-white shadow-[0_24px_60px_rgba(17,143,0,0.28)]">
+            {/* Ambient deep mesh background lighting */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0 -z-0 opacity-25"
+              className="pointer-events-none absolute inset-0 -z-0 opacity-40"
               style={{
                 backgroundImage: `
-                  radial-gradient(circle at 85% 50%, rgba(255, 255, 255, 0.45) 0%, transparent 50%),
-                  radial-gradient(circle at 100% 20%, rgba(231, 245, 227, 0.3) 0%, transparent 40%)
+                  radial-gradient(circle at 82% 40%, rgba(255, 255, 255, 0.3) 0%, transparent 45%),
+                  radial-gradient(circle at 95% 85%, rgba(20, 168, 0, 0.6) 0%, transparent 50%),
+                  radial-gradient(circle at 20% 90%, rgba(0, 0, 0, 0.25) 0%, transparent 60%)
                 `,
               }}
             />
 
-            {/* Stylized Abstract Wave Curves (Placeholder until custom generated bg is dropped in) */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-20 top-1/2 -translate-y-1/2 w-[480px] h-[340px] opacity-20 hidden lg:block"
-            >
-              <div className="w-full h-full rounded-full border-[32px] border-white/60 blur-[2px] transform rotate-45" />
-            </div>
+            {/* Subtle animated ambient aura pulse */}
+            <motion.div
+              animate={{
+                scale: [1, 1.15, 1],
+                opacity: [0.2, 0.35, 0.2],
+              }}
+              transition={{
+                duration: 9,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 h-[420px] w-[420px] rounded-full bg-radial from-white/30 via-[#e7f5e3]/10 to-transparent blur-3xl -z-0"
+            />
 
-            <div className="relative z-10 grid items-center gap-8 lg:grid-cols-12">
+            <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12">
               {/* Left Column: Left-aligned Content */}
-              <div className="text-left lg:col-span-8">
+              <div className="text-left lg:col-span-7">
                 {/* Eyebrow rule */}
                 <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#e7f5e3]">
                   <span className="h-0.5 w-6 bg-[#e7f5e3]" />
@@ -872,10 +880,10 @@ const NonProfitHub = () => {
 
                 <h2 className="mt-4 text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl lg:text-[2.65rem] leading-[1.15] text-balance">
                   <span className="block">See What the Nonprofit Control Tower</span>
-                  <span className="block">Could Do for Your Organization</span>
+                  <span className="block text-[#e7f5e3]">Could Do for Your Organization</span>
                 </h2>
 
-                <p className="mt-4 max-w-2xl text-sm sm:text-base md:text-lg leading-relaxed text-white/90 text-pretty">
+                <p className="mt-4 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-white/90 text-pretty">
                   Every nonprofit operates differently. In a free demo, we’ll show you
                   how the Nonprofit Control Tower can connect with your existing
                   systems, reduce manual work and support the workflows that matter
@@ -890,13 +898,161 @@ const NonProfitHub = () => {
                 </div>
               </div>
 
-              {/* Right Column: Visual Anchor Space */}
-              <div className="lg:col-span-4 hidden lg:flex justify-end items-center">
-                <div className="relative w-48 h-48 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-inner">
-                  <div className="w-32 h-32 rounded-full bg-white/15 border border-white/30 flex items-center justify-center">
-                    <Sparkles className="h-10 w-10 text-white animate-pulse" />
+              {/* Right Column: Bold, Animated Double-Helix Frosted Ribbon Canvas */}
+              <div className="relative lg:col-span-5 h-[280px] sm:h-[320px] w-full flex items-center justify-center">
+                {/* Full SVG Animated Canvas */}
+                <svg
+                  viewBox="0 0 460 320"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="absolute inset-0 h-full w-full pointer-events-none overflow-visible select-none"
+                >
+                  <defs>
+                    {/* Primary Frosted Ribbon Gradient */}
+                    <linearGradient id="ribbonGlowA" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+                      <stop offset="45%" stopColor="#e7f5e3" stopOpacity="0.35" />
+                      <stop offset="85%" stopColor="#ffffff" stopOpacity="0.75" />
+                      <stop offset="100%" stopColor="#ffffff" stopOpacity="0.1" />
+                    </linearGradient>
+
+                    {/* Secondary Intersecting Ribbon Gradient */}
+                    <linearGradient id="ribbonGlowB" x1="100%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#ffffff" stopOpacity="0.75" />
+                      <stop offset="50%" stopColor="#c8f0be" stopOpacity="0.25" />
+                      <stop offset="100%" stopColor="#ffffff" stopOpacity="0.6" />
+                    </linearGradient>
+
+                    {/* Diffuse Soft Shadow */}
+                    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="8" result="blur" />
+                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                  </defs>
+
+                  {/* Ribbon Track 1: Sweeping Upward Helix with Wave Motion */}
+                  <motion.path
+                    d="M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140"
+                    stroke="url(#ribbonGlowA)"
+                    strokeWidth="38"
+                    strokeLinecap="round"
+                    fill="none"
+                    filter="url(#softGlow)"
+                    animate={{
+                      d: [
+                        "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
+                        "M 20 230 C 120 270, 160 90, 255 105 C 335 120, 385 200, 450 120",
+                        "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
+                      ],
+                    }}
+                    transition={{
+                      duration: 7.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+
+                  {/* Ribbon Track 2: Intersecting Counter Wave (Lucid Cross-Over) */}
+                  <motion.path
+                    d="M 40 90 C 130 90, 160 260, 260 240 C 350 220, 380 70, 450 190"
+                    stroke="url(#ribbonGlowB)"
+                    strokeWidth="28"
+                    strokeLinecap="round"
+                    fill="none"
+                    filter="url(#softGlow)"
+                    animate={{
+                      d: [
+                        "M 40 90 C 130 90, 160 260, 260 240 C 350 220, 380 70, 450 190",
+                        "M 40 110 C 140 70, 170 240, 255 220 C 345 200, 390 90, 450 210",
+                        "M 40 90 C 130 90, 160 260, 260 240 C 350 220, 380 70, 450 190",
+                      ],
+                    }}
+                    transition={{
+                      duration: 8.5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+
+                  {/* Fine Precision Stream lines */}
+                  <motion.path
+                    d="M 10 210 Q 150 40, 280 180 T 450 110"
+                    stroke="#ffffff"
+                    strokeWidth="2"
+                    strokeDasharray="4 6"
+                    strokeOpacity="0.65"
+                    fill="none"
+                    animate={{
+                      strokeDashoffset: [0, -40],
+                    }}
+                    transition={{
+                      duration: 3.5,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                  />
+
+                  <motion.path
+                    d="M 30 110 Q 180 280, 310 140 T 450 240"
+                    stroke="#ffffff"
+                    strokeWidth="1.5"
+                    strokeDasharray="6 8"
+                    strokeOpacity="0.45"
+                    fill="none"
+                    animate={{
+                      strokeDashoffset: [-50, 0],
+                    }}
+                    transition={{
+                      duration: 4.5,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                  />
+                </svg>
+
+                {/* Floating Operational Pill 1: Top Floating Glass Node */}
+                <motion.div
+                  animate={{
+                    y: [-6, 6, -6],
+                    rotate: [-1, 1, -1],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute top-4 sm:top-6 right-2 sm:right-6 z-20 flex items-center gap-2.5 rounded-2xl border border-white/35 bg-white/20 px-4 py-2.5 shadow-[0_12px_28px_rgba(0,0,0,0.18)] backdrop-blur-md"
+                >
+                  <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-white text-[#118f00] shadow-2xs">
+                    <Sparkles className="h-4 w-4 text-[#14a800]" />
                   </div>
-                </div>
+                  <div className="text-left">
+                    <div className="text-xs font-bold text-white tracking-tight">One Connected View</div>
+                    <div className="text-[10px] text-[#e7f5e3] font-medium">Donors &middot; Grants &middot; Board</div>
+                  </div>
+                </motion.div>
+
+                {/* Floating Operational Pill 2: Bottom Floating Glass Node */}
+                <motion.div
+                  animate={{
+                    y: [6, -6, 6],
+                    rotate: [1, -1, 1],
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute bottom-4 sm:bottom-6 left-2 sm:left-6 z-20 flex items-center gap-2.5 rounded-2xl border border-white/35 bg-white/20 px-4 py-2.5 shadow-[0_12px_28px_rgba(0,0,0,0.18)] backdrop-blur-md"
+                >
+                  <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-white text-[#118f00] shadow-2xs">
+                    <CheckCircle2 className="h-4 w-4 text-[#14a800]" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs font-bold text-white tracking-tight">Zero Tool Migrations</div>
+                    <div className="text-[10px] text-[#e7f5e3] font-medium">Keep your existing stack</div>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </div>

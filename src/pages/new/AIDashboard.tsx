@@ -32,6 +32,7 @@ import {
 } from "@/components/ui/dialog";
 import LogoStrip from "@/components/LogoStrip";
 import { agentTeams } from "@/data/agentTeams";
+import dealCoachBanner from "@/assets/agents/deal-coach-banner.png";
 
 interface DashboardAgent {
   id: string;
@@ -58,7 +59,7 @@ const DASHBOARD_AGENTS: DashboardAgent[] = [
   {
     id: "deal-coach",
     name: "Deal Coach",
-    bannerImage: `${import.meta.env.BASE_URL}images/agents/deal-coach-banner.png`,
+    bannerImage: dealCoachBanner,
     team: "Sales & CRM",
     teamSlug: "sales-crm",
     category: "operations",
@@ -424,8 +425,7 @@ const DASHBOARD_AGENTS: DashboardAgent[] = [
 
 const AgentBannerPreview = ({ agent }: { agent: DashboardAgent }) => {
   if (agent.bannerImage || agent.id === "deal-coach") {
-    const bannerUrl =
-      agent.bannerImage || `${import.meta.env.BASE_URL}images/agents/deal-coach-banner.png`;
+    const bannerUrl = agent.bannerImage || dealCoachBanner;
     return (
       <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-50 flex items-center justify-center select-none">
         <img

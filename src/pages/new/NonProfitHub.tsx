@@ -836,36 +836,70 @@ const NonProfitHub = () => {
       {/* ========================================================
           7. MID-PAGE DECISION CTA
           Captures visitors who now understand problem, solution & proof.
+          Styled as an elevated rounded-3xl banner card inspired by the Lucid reference design.
       ======================================================== */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#14a800] to-[#0d7300] py-16 text-white md:py-20">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-10"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 75% 30%, #ffffff 0%, transparent 40%)",
-          }}
-        />
-        <div className="container mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl text-balance">
-            <span className="block">See What the Nonprofit Control Tower</span>
-            <span className="block">Could Do for Your Organization</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base text-white/90 sm:text-lg text-pretty">
-            Every nonprofit operates differently. In a free demo, we’ll show you
-            how the Nonprofit Control Tower can connect with your existing
-            systems, reduce manual work and support the workflows that matter
-            most to your&nbsp;team.
-          </p>
+      <section className="py-12 md:py-20 bg-white">
+        <div className="container mx-auto max-w-6xl px-4">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#118f00] via-[#14a800] to-[#0d7300] p-8 sm:p-12 md:p-16 text-white shadow-[0_20px_50px_rgba(20,168,0,0.22)]">
+            {/* Ambient glassmorphic wave vector overlay placeholder */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 -z-0 opacity-25"
+              style={{
+                backgroundImage: `
+                  radial-gradient(circle at 85% 50%, rgba(255, 255, 255, 0.45) 0%, transparent 50%),
+                  radial-gradient(circle at 100% 20%, rgba(231, 245, 227, 0.3) 0%, transparent 40%)
+                `,
+              }}
+            />
 
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <BookFreeDemoBtn variant="white" className="w-full sm:w-auto" />
+            {/* Stylized Abstract Wave Curves (Placeholder until custom generated bg is dropped in) */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-20 top-1/2 -translate-y-1/2 w-[480px] h-[340px] opacity-20 hidden lg:block"
+            >
+              <div className="w-full h-full rounded-full border-[32px] border-white/60 blur-[2px] transform rotate-45" />
+            </div>
+
+            <div className="relative z-10 grid items-center gap-8 lg:grid-cols-12">
+              {/* Left Column: Left-aligned Content */}
+              <div className="text-left lg:col-span-8">
+                {/* Eyebrow rule */}
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#e7f5e3]">
+                  <span className="h-0.5 w-6 bg-[#e7f5e3]" />
+                  <span>Decision Point</span>
+                </div>
+
+                <h2 className="mt-4 text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl lg:text-[2.65rem] leading-[1.15] text-balance">
+                  <span className="block">See What the Nonprofit Control Tower</span>
+                  <span className="block">Could Do for Your Organization</span>
+                </h2>
+
+                <p className="mt-4 max-w-2xl text-sm sm:text-base md:text-lg leading-relaxed text-white/90 text-pretty">
+                  Every nonprofit operates differently. In a free demo, we’ll show you
+                  how the Nonprofit Control Tower can connect with your existing
+                  systems, reduce manual work and support the workflows that matter
+                  most to your&nbsp;team.
+                </p>
+
+                <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <BookFreeDemoBtn variant="white" />
+                  <span className="text-xs font-medium text-white/80">
+                    Focused on your organization’s actual workflows & priorities.
+                  </span>
+                </div>
+              </div>
+
+              {/* Right Column: Visual Anchor Space */}
+              <div className="lg:col-span-4 hidden lg:flex justify-end items-center">
+                <div className="relative w-48 h-48 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-inner">
+                  <div className="w-32 h-32 rounded-full bg-white/15 border border-white/30 flex items-center justify-center">
+                    <Sparkles className="h-10 w-10 text-white animate-pulse" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <p className="mt-4 text-xs font-medium text-white/80 text-pretty">
-            We will focus the demo on your organization’s actual workflows and
-            your&nbsp;priorities.
-          </p>
         </div>
       </section>
 

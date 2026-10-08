@@ -427,11 +427,11 @@ const AgentBannerPreview = ({ agent }: { agent: DashboardAgent }) => {
     const bannerUrl =
       agent.bannerImage || `${import.meta.env.BASE_URL}images/agents/deal-coach-banner.png`;
     return (
-      <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-50 select-none">
+      <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-50 flex items-center justify-center select-none">
         <img
           src={bannerUrl}
           alt={agent.name}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain"
         />
       </div>
     );

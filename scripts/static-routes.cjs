@@ -13,6 +13,8 @@ module.exports = [
   // Platform
   { path: "/collabai-platform", title: "CollabAI Platform — The Private Agentic Engine", description: "The CollabAI Platform is the private agentic engine powering Control Tower. Agent runtime + knowledge layer, running inside your tenant." },
   { path: "/agents", title: "Featured Control Tower Agents — A curated set from the 100+ agent library", description: "Pre-built and custom AI agents for regulated industries." },
+  { path: "/ai-dashboard", title: "AI Workforce Dashboard — CollabAI Control Tower", description: "Live AI workforce operations dashboard. Real-time telemetry, agent catalog, and multi-model execution across your operations." },
+  { path: "/dashboard", title: "AI Workforce Dashboard — CollabAI Control Tower", description: "Live AI workforce operations dashboard. Real-time telemetry, agent catalog, and multi-model execution across your operations." },
 
   // Developers / API
   { path: "/developers", title: "Developers — CollabAI", description: "Build on the CollabAI Platform: open-source agent runtime, knowledge layer, and APIs for self-hosted AI deployments." },

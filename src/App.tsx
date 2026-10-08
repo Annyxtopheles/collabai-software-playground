@@ -116,8 +116,6 @@ export const AppRoutes = () => (
               <Route path="/healthcare/use-cases" element={<NicheUseCases />} />
               <Route path="/healthcare/workflows" element={<NicheWorkflows />} />
               <Route path="/non-profit" element={<NonProfitHub />} />
-              <Route path="/non-profit-duplicate" element={<Navigate to="/non-profit" replace />} />
-              <Route path="/non-profit-v2" element={<Navigate to="/non-profit" replace />} />
               <Route path="/non-profit/agents" element={<NicheAgents />} />
               <Route path="/non-profit/use-cases" element={<NicheUseCases />} />
               <Route path="/non-profit/workflows" element={<NicheWorkflows />} />

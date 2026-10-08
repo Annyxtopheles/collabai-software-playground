@@ -22,6 +22,7 @@ import {
   Clock,
   Briefcase,
   ChevronDown,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import PageSeoHead from "@/components/PageSeoHead";
 import {

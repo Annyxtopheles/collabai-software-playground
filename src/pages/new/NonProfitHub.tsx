@@ -75,7 +75,7 @@ const BookFreeDemoBtn = ({
   variant?: "primary" | "secondary" | "white";
 }) => {
   const base =
-    "group inline-flex items-center justify-center gap-3 rounded-full pl-7 pr-3 py-2.5 text-sm md:text-base font-semibold transition-all duration-200 active:translate-y-[1px]";
+    "group inline-flex items-center justify-center whitespace-nowrap rounded-full px-8 py-3.5 text-sm md:text-base font-semibold transition-all duration-200 active:translate-y-[1px]";
 
   const variants = {
     primary:
@@ -86,23 +86,12 @@ const BookFreeDemoBtn = ({
       "bg-white text-[#0c180a] hover:bg-slate-50 shadow-md hover:shadow-lg",
   };
 
-  const iconVariants = {
-    primary: "bg-white text-[#14a800] group-hover:bg-[#e7f5e3]",
-    secondary: "bg-[#14a800] text-white",
-    white: "bg-[#14a800] text-white",
-  };
-
   return (
     <Link
       to="/book-demo"
       className={`${base} ${variants[variant]} ${className}`}
     >
       <span>Book Free Demo</span>
-      <span
-        className={`flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-200 group-hover:translate-x-0.5 ${iconVariants[variant]}`}
-      >
-        <ArrowRight className="h-4 w-4" />
-      </span>
     </Link>
   );
 };
@@ -848,67 +837,59 @@ const NonProfitHub = () => {
           Styled as an elevated rounded-3xl banner card with bold, intentional,
           mathematically animated SVG frosted ribbon curves and floating telemetry nodes.
       ======================================================== */}
-      <section className="py-12 md:py-20 bg-white overflow-hidden">
-        <div className="container mx-auto max-w-6xl px-4">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0c6600] via-[#118f00] to-[#0a5200] p-8 sm:p-12 md:p-16 text-white shadow-[0_24px_60px_rgba(17,143,0,0.28)]">
-            {/* Ambient deep mesh background lighting */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 -z-0 opacity-40"
-              style={{
-                backgroundImage: `
-                  radial-gradient(circle at 82% 40%, rgba(255, 255, 255, 0.3) 0%, transparent 45%),
-                  radial-gradient(circle at 95% 85%, rgba(20, 168, 0, 0.6) 0%, transparent 50%),
-                  radial-gradient(circle at 20% 90%, rgba(0, 0, 0, 0.25) 0%, transparent 60%)
-                `,
-              }}
-            />
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0c6600] via-[#118f00] to-[#0a5200] py-16 sm:py-20 md:py-24 text-white shadow-inner">
+        {/* Ambient deep mesh background lighting */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-0 opacity-40"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 82% 40%, rgba(255, 255, 255, 0.3) 0%, transparent 45%),
+              radial-gradient(circle at 95% 85%, rgba(20, 168, 0, 0.6) 0%, transparent 50%),
+              radial-gradient(circle at 20% 90%, rgba(0, 0, 0, 0.25) 0%, transparent 60%)
+            `,
+          }}
+        />
 
-            {/* Subtle animated ambient aura pulse */}
-            <motion.div
-              animate={{
-                scale: [1, 1.15, 1],
-                opacity: [0.2, 0.35, 0.2],
-              }}
-              transition={{
-                duration: 9,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 h-[420px] w-[420px] rounded-full bg-radial from-white/30 via-[#e7f5e3]/10 to-transparent blur-3xl -z-0"
-            />
+        {/* Subtle animated ambient aura pulse */}
+        <motion.div
+          animate={{
+            scale: [1, 1.15, 1],
+            opacity: [0.2, 0.35, 0.2],
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 h-[520px] w-[520px] rounded-full bg-radial from-white/30 via-[#e7f5e3]/10 to-transparent blur-3xl -z-0"
+        />
 
-            <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12">
-              {/* Left Column: Left-aligned Content */}
-              <div className="text-left lg:col-span-7">
-                {/* Eyebrow rule */}
-                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#e7f5e3]">
-                  <span className="h-0.5 w-6 bg-[#e7f5e3]" />
-                  <span>Decision Point</span>
-                </div>
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12">
+            {/* Left Column: Left-aligned Content */}
+            <div className="text-left lg:col-span-7">
+              <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl lg:text-[2.65rem] leading-[1.18] text-balance">
+                See What the Nonprofit Control Tower Could Do for Your Organization
+              </h2>
 
-                <h2 className="mt-4 text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl lg:text-[2.65rem] leading-[1.15] text-balance">
-                  <span className="block">See What the Nonprofit Control Tower</span>
-                  <span className="block text-[#e7f5e3]">Could Do for Your Organization</span>
-                </h2>
+              <p className="mt-5 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-white/90 text-pretty">
+                Every nonprofit operates differently. In a free demo, we’ll show you
+                how the Nonprofit Control Tower can connect with your existing
+                systems, reduce manual work and support the workflows that matter
+                most to your&nbsp;team.
+              </p>
 
-                <p className="mt-4 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-white/90 text-pretty">
-                  Every nonprofit operates differently. In a free demo, we’ll show you
-                  how the Nonprofit Control Tower can connect with your existing
-                  systems, reduce manual work and support the workflows that matter
-                  most to your&nbsp;team.
-                </p>
-
-                <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                  <BookFreeDemoBtn variant="white" />
-                  <span className="text-xs font-medium text-white/80">
-                    Focused on your organization’s actual workflows & priorities.
-                  </span>
-                </div>
+              <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <BookFreeDemoBtn variant="white" />
+                <span className="text-xs font-medium text-white/80">
+                  Focused on your organization’s actual workflows & priorities.
+                </span>
               </div>
+            </div>
 
-              {/* Right Column: Bold, Animated Double-Helix Frosted Ribbon Canvas */}
-              <div className="relative lg:col-span-5 h-[280px] sm:h-[320px] w-full flex items-center justify-center">
+            {/* Right Column: Bold, Animated Double-Helix Frosted Ribbon Canvas */}
+            <div className="relative lg:col-span-5 h-[280px] sm:h-[340px] w-full flex items-center justify-center">
                 {/* Full SVG Animated Canvas */}
                 <svg
                   viewBox="0 0 460 320"
@@ -1065,7 +1046,6 @@ const NonProfitHub = () => {
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* ========================================================

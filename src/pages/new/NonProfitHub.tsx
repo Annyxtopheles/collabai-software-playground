@@ -132,23 +132,22 @@ const NonProfitHub = () => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="mt-8 text-4xl font-extrabold tracking-tight text-[#0c180a] sm:text-5xl md:text-6xl md:leading-[1.12]">
-            Spend Less Time Managing Systems.
-            <br />
-            <span className="text-[#14a800]">
-              More Time Moving Your Mission Forward.
+          <h1 className="mt-8 text-4xl font-extrabold tracking-tight text-[#0c180a] sm:text-5xl md:text-6xl md:leading-[1.14] text-balance">
+            <span className="block">Spend Less Time Managing&nbsp;Systems.</span>
+            <span className="block mt-1 text-[#14a800]">
+              More Time Moving Your Mission&nbsp;Forward.
             </span>
           </h1>
 
           {/* Supporting Copy */}
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-600 sm:text-xl sm:leading-relaxed">
+          <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-600 sm:text-xl sm:leading-relaxed text-pretty">
             Connect your donors, grants, programs, meetings, documents and board
             operations in one private AI-powered Nonprofit Control Tower without
-            replacing the tools you already use.
+            replacing the tools you already&nbsp;use.
           </p>
 
-          <p className="mt-3 text-sm font-medium text-slate-500">
-            See what your nonprofit could run from one connected system.
+          <p className="mt-3 text-sm font-medium text-slate-500 text-pretty">
+            See what your nonprofit could run from one connected&nbsp;system.
           </p>
 
           {/* Primary CTA */}
@@ -250,8 +249,9 @@ const NonProfitHub = () => {
             <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
               Operational Reality
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl">
-              Your mission should not be buried under operational busywork.
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+              <span className="block">Your mission should not be buried</span>
+              <span className="block">under operational busywork.</span>
             </h2>
           </div>
 
@@ -267,15 +267,12 @@ const NonProfitHub = () => {
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-red-100 text-red-600 mb-3">
-                  <Database className="h-4 w-4" />
-                </div>
                 <h3 className="text-lg font-bold text-[#0c180a]">
-                  Your donor information is scattered.
+                  Your donor information is&nbsp;scattered.
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                <p className="mt-2 text-sm leading-relaxed text-slate-600 text-pretty">
                   CRM, spreadsheets, email, accounting software and event platforms
-                  all hold different pieces of the story.
+                  all hold different pieces of the&nbsp;story.
                 </p>
               </div>
             </div>
@@ -290,15 +287,12 @@ const NonProfitHub = () => {
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-100 text-amber-600 mb-3">
-                  <Clock className="h-4 w-4" />
-                </div>
                 <h3 className="text-lg font-bold text-[#0c180a]">
-                  Reporting takes too long.
+                  Reporting takes too&nbsp;long.
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                <p className="mt-2 text-sm leading-relaxed text-slate-600 text-pretty">
                   Staff spend hours gathering information before leadership or
-                  board meetings.
+                  board&nbsp;meetings.
                 </p>
               </div>
             </div>
@@ -313,15 +307,12 @@ const NonProfitHub = () => {
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100 text-blue-600 mb-3">
-                  <Briefcase className="h-4 w-4" />
-                </div>
                 <h3 className="text-lg font-bold text-[#0c180a]">
-                  Too much work is still manual.
+                  Too much work is still&nbsp;manual.
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                <p className="mt-2 text-sm leading-relaxed text-slate-600 text-pretty">
                   Follow-ups, summaries, grant reporting, meeting actions and data
-                  cleanup consume valuable staff time.
+                  cleanup consume valuable staff&nbsp;time.
                 </p>
               </div>
             </div>
@@ -336,15 +327,12 @@ const NonProfitHub = () => {
                 />
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-purple-100 text-purple-600 mb-3">
-                  <Search className="h-4 w-4" />
-                </div>
                 <h3 className="text-lg font-bold text-[#0c180a]">
-                  Leadership lacks one clear view.
+                  Leadership lacks one clear&nbsp;view.
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                <p className="mt-2 text-sm leading-relaxed text-slate-600 text-pretty">
                   When an Executive Director asks, “Where do we stand?” The answer
-                  should not require five systems and three spreadsheets.
+                  should not require five systems and three&nbsp;spreadsheets.
                 </p>
               </div>
             </div>
@@ -370,18 +358,19 @@ const NonProfitHub = () => {
             <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
               The Unified Solution
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl">
-              One place to understand and run your nonprofit.
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+              <span className="block">One place to understand</span>
+              <span className="block">and run your nonprofit.</span>
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-slate-600 sm:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-slate-600 sm:text-lg text-pretty">
               The Nonprofit Control Tower sits across the systems you already
               use and turns scattered information into a clear operational view
-              for your team, leadership and board.
+              for your team, leadership and&nbsp;board.
             </p>
-            <p className="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg">
+            <p className="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg text-pretty">
               It helps your organization connect data, surface answers, automate
               repetitive work and keep everyone aligned without forcing your team
-              to replace the tools they already know.
+              to replace the tools they already&nbsp;know.
             </p>
           </div>
 
@@ -496,9 +485,9 @@ const NonProfitHub = () => {
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl">
               What You Can Do
             </h2>
-            <p className="mt-4 text-base text-slate-600 sm:text-lg">
-              Transform daily operations across every department with private,
-              mission-aligned intelligence.
+            <p className="mt-4 text-base text-slate-600 sm:text-lg text-balance max-w-2xl mx-auto">
+              <span className="block">Transform daily operations across every department with private,</span>
+              <span className="block">mission-aligned&nbsp;intelligence.</span>
             </p>
           </div>
 
@@ -511,9 +500,8 @@ const NonProfitHub = () => {
               <h3 className="mt-6 text-xl font-bold text-[#0c180a]">
                 Donor Intelligence
               </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600">
-                Understand donors, history, engagement and next actions in one
-                place.
+              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
+                Understand donors, history, engagement and next actions in one&nbsp;place.
               </p>
             </div>
 
@@ -525,9 +513,9 @@ const NonProfitHub = () => {
               <h3 className="mt-6 text-xl font-bold text-[#0c180a]">
                 Grant Management
               </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600">
+              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
                 Use existing organizational information to support grant
-                research, drafting, reporting and follow-up.
+                research, drafting, reporting and&nbsp;follow-up.
               </p>
             </div>
 
@@ -539,9 +527,9 @@ const NonProfitHub = () => {
               <h3 className="mt-6 text-xl font-bold text-[#0c180a]">
                 Program & Operations Visibility
               </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600">
+              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
                 See activities, outcomes and operational information together
-                instead of across disconnected systems.
+                instead of across disconnected&nbsp;systems.
               </p>
             </div>
 
@@ -553,9 +541,9 @@ const NonProfitHub = () => {
               <h3 className="mt-6 text-xl font-bold text-[#0c180a]">
                 Board Governance
               </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600">
+              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
                 Organize minutes, policies, board documents, packets and
-                institutional knowledge.
+                institutional&nbsp;knowledge.
               </p>
             </div>
 
@@ -567,9 +555,9 @@ const NonProfitHub = () => {
               <h3 className="mt-6 text-xl font-bold text-[#0c180a]">
                 Meeting Intelligence
               </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600">
+              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
                 Capture meeting summaries, decisions and action items so
-                important follow-up does not get lost.
+                important follow-up does not get&nbsp;lost.
               </p>
             </div>
 
@@ -581,9 +569,9 @@ const NonProfitHub = () => {
               <h3 className="mt-6 text-xl font-bold text-[#0c180a]">
                 AI Assistants
               </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600">
+              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
                 Ask questions across your organization’s information instead of
-                searching through files, inboxes and systems manually.
+                searching through files, inboxes and systems&nbsp;manually.
               </p>
             </div>
           </div>
@@ -601,12 +589,13 @@ const NonProfitHub = () => {
             <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
               Real-World Proof
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl">
-              Built for organizations doing real work.
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+              <span className="block">Built for organizations</span>
+              <span className="block">doing real&nbsp;work.</span>
             </h2>
-            <p className="mt-4 text-base text-slate-600 sm:text-lg">
+            <p className="mt-4 text-base text-slate-600 sm:text-lg text-pretty">
               Real implementations delivering measurable operational time back to
-              nonprofit teams.
+              nonprofit&nbsp;teams.
             </p>
           </div>
 
@@ -624,7 +613,7 @@ const NonProfitHub = () => {
                 </span>
               </div>
               <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
-                AI learning for 16,000+ basketball officials
+                AI learning for 16,000+ basketball&nbsp;officials
               </h3>
               <div className="mt-4 space-y-3 text-sm text-slate-600">
                 <div>
@@ -662,7 +651,7 @@ const NonProfitHub = () => {
                 </span>
               </div>
               <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
-                From a placeholder site to a live nonprofit Control Tower
+                From a placeholder site to a live nonprofit Control&nbsp;Tower
               </h3>
               <div className="mt-4 space-y-3 text-sm text-slate-600">
                 <div>
@@ -700,7 +689,7 @@ const NonProfitHub = () => {
                 </span>
               </div>
               <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
-                Modernizing a 12-year-old nonprofit platform
+                Modernizing a 12-year-old nonprofit&nbsp;platform
               </h3>
               <div className="mt-4 space-y-3 text-sm text-slate-600">
                 <div>
@@ -737,7 +726,7 @@ const NonProfitHub = () => {
                 </span>
               </div>
               <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
-                AI for a whole business community
+                AI for a whole business&nbsp;community
               </h3>
               <div className="mt-4 space-y-3 text-sm text-slate-600">
                 <div>
@@ -780,23 +769,24 @@ const NonProfitHub = () => {
           }}
         />
         <div className="container mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl">
-            See What the Nonprofit Control Tower Could Do for Your Organization
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl text-balance">
+            <span className="block">See What the Nonprofit Control Tower</span>
+            <span className="block">Could Do for Your Organization</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base text-white/90 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-base text-white/90 sm:text-lg text-pretty">
             Every nonprofit operates differently. In a free demo, we’ll show you
             how the Nonprofit Control Tower can connect with your existing
             systems, reduce manual work and support the workflows that matter
-            most to your team.
+            most to your&nbsp;team.
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <BookFreeDemoBtn variant="white" className="w-full sm:w-auto" />
           </div>
 
-          <p className="mt-4 text-xs font-medium text-white/80">
+          <p className="mt-4 text-xs font-medium text-white/80 text-pretty">
             We will focus the demo on your organization’s actual workflows and
-            your priorities.
+            your&nbsp;priorities.
           </p>
         </div>
       </section>
@@ -811,12 +801,13 @@ const NonProfitHub = () => {
             <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
               Simple Implementation
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl">
-              Keep your tools. Connect your operations.
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+              <span className="block">Keep your tools.</span>
+              <span className="block">Connect your operations.</span>
             </h2>
-            <p className="mt-4 text-base text-slate-600 sm:text-lg">
+            <p className="mt-4 text-base text-slate-600 sm:text-lg text-pretty">
               No long, risky software transitions. We bring the intelligence to
-              the data you already possess.
+              the data you already&nbsp;possess.
             </p>
           </div>
 
@@ -825,9 +816,9 @@ const NonProfitHub = () => {
             <div className="relative rounded-3xl border border-slate-200 bg-slate-50/50 p-8">
               <div className="text-3xl font-extrabold text-[#14a800]">01</div>
               <h3 className="mt-4 text-xl font-bold text-[#0c180a]">Connect</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
                 Connect the CRM, finance, documents, meetings and other systems
-                you already use.
+                you already&nbsp;use.
               </p>
             </div>
 
@@ -835,9 +826,9 @@ const NonProfitHub = () => {
             <div className="relative rounded-3xl border border-slate-200 bg-slate-50/50 p-8">
               <div className="text-3xl font-extrabold text-[#14a800]">02</div>
               <h3 className="mt-4 text-xl font-bold text-[#0c180a]">Configure</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
                 Set permissions, workflows, dashboards and AI assistants around
-                your organization.
+                your&nbsp;organization.
               </p>
             </div>
 
@@ -845,11 +836,11 @@ const NonProfitHub = () => {
             <div className="relative rounded-3xl border border-slate-200 bg-slate-50/50 p-8">
               <div className="text-3xl font-extrabold text-[#14a800]">03</div>
               <h3 className="mt-4 text-xl font-bold text-[#0c180a]">
-                Put Your Data to Work
+                Put Your Data to&nbsp;Work
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
                 Ask questions, automate repetitive work and give every role the
-                information it needs.
+                information it&nbsp;needs.
               </p>
             </div>
           </div>
@@ -866,13 +857,14 @@ const NonProfitHub = () => {
             <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
               Zero Vendor Lock-in
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl">
-              Keep the tools your team already knows.
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+              <span className="block">Keep the tools your team</span>
+              <span className="block">already&nbsp;knows.</span>
             </h2>
-            <p className="mt-4 text-base text-slate-600 sm:text-lg">
+            <p className="mt-4 text-base text-slate-600 sm:text-lg text-pretty max-w-2xl mx-auto">
               The Nonprofit Control Tower adds an intelligence and automation
               layer across your existing systems instead of forcing you to
-              rebuild your technology stack.
+              rebuild your technology&nbsp;stack.
             </p>
           </div>
 
@@ -921,13 +913,14 @@ const NonProfitHub = () => {
             <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
               Privacy & Protection
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl">
-              Your Data Is Private, Protected and Secure
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+              <span className="block">Your Data Is Private,</span>
+              <span className="block">Protected and&nbsp;Secure</span>
             </h2>
-            <p className="mt-4 text-base text-slate-600 sm:text-lg">
+            <p className="mt-4 text-base text-slate-600 sm:text-lg text-pretty max-w-2xl mx-auto">
               The Nonprofit Control Tower is designed for organizations that want
               the benefits of AI without giving up control of sensitive donor,
-              member, financial or organizational information.
+              member, financial or organizational&nbsp;information.
             </p>
           </div>
 
@@ -974,7 +967,7 @@ const NonProfitHub = () => {
                 <h3 className="mt-4 text-lg font-bold text-[#0c180a]">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                <p className="mt-2 text-sm leading-relaxed text-slate-600 text-pretty">
                   {item.desc}
                 </p>
               </div>
@@ -1006,11 +999,11 @@ const NonProfitHub = () => {
             <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
               Clear, Honest Pricing
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl">
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
               Flexible Hosting Options
             </h2>
-            <p className="mt-4 text-base text-slate-600 sm:text-lg">
-              Choose where you want your Nonprofit Control Tower to run.
+            <p className="mt-4 text-base text-slate-600 sm:text-lg text-pretty">
+              Choose where you want your Nonprofit Control Tower to&nbsp;run.
             </p>
           </div>
 
@@ -1022,12 +1015,12 @@ const NonProfitHub = () => {
                 Self-Hosted
               </div>
               <h3 className="mt-3 text-2xl font-bold text-[#0c180a]">
-                Host on Your Own Infrastructure
+                Host on Your Own&nbsp;Infrastructure
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
                 Your organization can run the Nonprofit Control Tower within its
                 own hosting environment, giving you greater control over your
-                infrastructure and data.
+                infrastructure and&nbsp;data.
               </p>
 
               <div className="my-6 border-y border-slate-100 py-6">
@@ -1076,12 +1069,12 @@ const NonProfitHub = () => {
                 Fully Managed
               </div>
               <h3 className="mt-3 text-2xl font-bold text-[#0c180a]">
-                Let Us Host It for You
+                Let Us Host It for&nbsp;You
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
                 Prefer not to manage the hosting yourself? We can host the
                 Nonprofit Control Tower for your organization so you never worry
-                about servers.
+                about&nbsp;servers.
               </p>
 
               <div className="my-6 border-y border-slate-100 py-6">
@@ -1135,12 +1128,13 @@ const NonProfitHub = () => {
           }}
         />
         <div className="container mx-auto max-w-4xl px-4">
-          <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl">
-            Give your team more time for the work that matters.
+          <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+            <span className="block">Give your team more time</span>
+            <span className="block">for the work that&nbsp;matters.</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg text-pretty">
             See how your donor data, programs, board operations and everyday
-            workflows could work together in one intelligent system.
+            workflows could work together in one intelligent&nbsp;system.
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -1163,12 +1157,12 @@ const NonProfitHub = () => {
             <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
               Got Questions?
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl text-balance">
               Frequently Asked Questions
             </h2>
-            <p className="mt-3 text-sm text-slate-500">
+            <p className="mt-3 text-sm text-slate-500 text-pretty">
               Everything you need to know about getting started with the
-              Nonprofit Control Tower.
+              Nonprofit Control&nbsp;Tower.
             </p>
           </div>
 

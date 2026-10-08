@@ -37,6 +37,13 @@ import bspLogo from "@/assets/clients/bsp.png";
 import theOptimistsLogo from "@/assets/clients/the-optimists.png";
 import queensChamberLogo from "@/assets/clients/queens-chamber.png";
 
+// Section Visuals
+import solutionArchitecture from "@/assets/nonprofit/solution-architecture.jpg";
+import problemScatteredDonors from "@/assets/nonprofit/problem-scattered-donors.png";
+import problemReportingTime from "@/assets/nonprofit/problem-reporting-time.jpg";
+import problemManualWork from "@/assets/nonprofit/problem-manual-work.png";
+import problemLeadershipView from "@/assets/nonprofit/problem-leadership-view.jpg";
+
 // Integration Logos
 import salesforceLogo from "@/assets/logos/salesforce.svg";
 import blackbaudLogo from "@/assets/logos/blackbaud.svg";
@@ -251,59 +258,95 @@ const NonProfitHub = () => {
           {/* Infographic Problem Cards */}
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {/* Card 1 */}
-            <div className="group relative rounded-2xl border border-red-100 bg-red-50/30 p-6 transition-all hover:border-red-200 hover:shadow-md">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-red-100 text-red-600">
-                <Database className="h-5 w-5" />
+            <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50/70 border-b border-slate-100 flex items-center justify-center p-3">
+                <img
+                  src={problemScatteredDonors}
+                  alt="Scattered donor data across spreadsheets, CRM, and files"
+                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
-              <h3 className="mt-5 text-lg font-bold text-[#0c180a]">
-                Your donor information is scattered.
-              </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600">
-                CRM, spreadsheets, email, accounting software and event platforms
-                all hold different pieces of the story.
-              </p>
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-red-100 text-red-600 mb-3">
+                  <Database className="h-4 w-4" />
+                </div>
+                <h3 className="text-lg font-bold text-[#0c180a]">
+                  Your donor information is scattered.
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  CRM, spreadsheets, email, accounting software and event platforms
+                  all hold different pieces of the story.
+                </p>
+              </div>
             </div>
 
             {/* Card 2 */}
-            <div className="group relative rounded-2xl border border-amber-100 bg-amber-50/30 p-6 transition-all hover:border-amber-200 hover:shadow-md">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-amber-600">
-                <Clock className="h-5 w-5" />
+            <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50/70 border-b border-slate-100 flex items-center justify-center p-3">
+                <img
+                  src={problemReportingTime}
+                  alt="Reporting takes too long with stacks of binders and hourglass"
+                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
-              <h3 className="mt-5 text-lg font-bold text-[#0c180a]">
-                Reporting takes too long.
-              </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600">
-                Staff spend hours gathering information before leadership or
-                board meetings.
-              </p>
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-100 text-amber-600 mb-3">
+                  <Clock className="h-4 w-4" />
+                </div>
+                <h3 className="text-lg font-bold text-[#0c180a]">
+                  Reporting takes too long.
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  Staff spend hours gathering information before leadership or
+                  board meetings.
+                </p>
+              </div>
             </div>
 
             {/* Card 3 */}
-            <div className="group relative rounded-2xl border border-blue-100 bg-blue-50/30 p-6 transition-all hover:border-blue-200 hover:shadow-md">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
-                <Briefcase className="h-5 w-5" />
+            <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50/70 border-b border-slate-100 flex items-center justify-center p-3">
+                <img
+                  src={problemManualWork}
+                  alt="Too much work is still manual with repetitive task cycles"
+                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
-              <h3 className="mt-5 text-lg font-bold text-[#0c180a]">
-                Too much work is still manual.
-              </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600">
-                Follow-ups, summaries, grant reporting, meeting actions and data
-                cleanup consume valuable staff time.
-              </p>
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100 text-blue-600 mb-3">
+                  <Briefcase className="h-4 w-4" />
+                </div>
+                <h3 className="text-lg font-bold text-[#0c180a]">
+                  Too much work is still manual.
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  Follow-ups, summaries, grant reporting, meeting actions and data
+                  cleanup consume valuable staff time.
+                </p>
+              </div>
             </div>
 
             {/* Card 4 */}
-            <div className="group relative rounded-2xl border border-purple-100 bg-purple-50/30 p-6 transition-all hover:border-purple-200 hover:shadow-md">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-100 text-purple-600">
-                <Search className="h-5 w-5" />
+            <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-50/70 border-b border-slate-100 flex items-center justify-center p-3">
+                <img
+                  src={problemLeadershipView}
+                  alt="Leadership lacks one clear view across disparate dashboards"
+                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
-              <h3 className="mt-5 text-lg font-bold text-[#0c180a]">
-                Leadership lacks one clear view.
-              </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600">
-                When an Executive Director asks, “Where do we stand?” The answer
-                should not require five systems and three spreadsheets.
-              </p>
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-purple-100 text-purple-600 mb-3">
+                  <Search className="h-4 w-4" />
+                </div>
+                <h3 className="text-lg font-bold text-[#0c180a]">
+                  Leadership lacks one clear view.
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  When an Executive Director asks, “Where do we stand?” The answer
+                  should not require five systems and three spreadsheets.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -342,8 +385,17 @@ const NonProfitHub = () => {
             </p>
           </div>
 
-          {/* Connected Architecture Schematic Visual */}
-          <div className="mt-14 rounded-3xl border border-[#14a800]/20 bg-white p-6 shadow-sm md:p-10">
+          {/* Main Connected Architecture Diagram Visual */}
+          <div className="mt-12 overflow-hidden rounded-3xl border border-[#14a800]/25 bg-white p-3 sm:p-5 md:p-6 shadow-xl">
+            <img
+              src={solutionArchitecture}
+              alt="Nonprofit Control Tower Connected Architecture Diagram showing tools connecting to central hub and flowing to staff, leadership, and board"
+              className="w-full h-auto rounded-2xl object-cover shadow-xs"
+            />
+          </div>
+
+          {/* Connected Architecture Schematic Breakdown */}
+          <div className="mt-8 rounded-3xl border border-[#14a800]/20 bg-white p-6 shadow-sm md:p-10">
             <div className="grid items-center gap-8 lg:grid-cols-[1fr_1.2fr_1fr]">
               {/* Left Column: Existing Tools */}
               <div className="space-y-3">

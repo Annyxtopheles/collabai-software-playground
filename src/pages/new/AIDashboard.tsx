@@ -38,6 +38,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import LogoStrip from "@/components/LogoStrip";
+import { LOGOS, type LogoItem } from "@/data/logos";
 import { agentTeams } from "@/data/agentTeams";
 import dealCoachBanner from "@/assets/agents/deal-coach-banner.png";
 
@@ -357,32 +358,26 @@ const AgentBannerPreview = ({ agent }: { agent: DashboardAgent }) => {
 };
 
 const SCREENSHOTS = [
-  {
-    src: "/lovable-uploads/platform-agent-detail.png",
-    title: "Autonomous Agent Execution & Parameter Configuration",
-    caption: "Live workflow step triggers, input payload parsing, and connected system endpoints."
-  },
-  {
-    src: "/lovable-uploads/platform-dashboard.png",
-    title: "Central Control Tower Real-Time Operations",
-    caption: "Fleet telemetry, active background runs, token budgets, and departmental visibility."
-  },
-  {
-    src: "/lovable-uploads/platform-agents.png",
-    title: "Departmental Workforce Catalog & Permissions",
-    caption: "Role-based trigger controls, isolated data policies, and agent status metrics."
-  },
-  {
-    src: "/lovable-uploads/platform-conversations.png",
-    title: "Contextual Audit Trail & Human-in-the-Loop Reviews",
-    caption: "Deep inspection into intermediate agent reasoning, tool calls, and output drafts."
-  },
-  {
-    src: "/lovable-uploads/platform-knowledge-base.png",
-    title: "Secure Knowledge Base & Vector Ingestion",
-    caption: "Enterprise data connections with zero retention policy and isolated VPC retrieval."
-  },
+  "/lovable-uploads/platform-agent-detail.png",
+  "/lovable-uploads/platform-dashboard.png",
+  "/lovable-uploads/platform-agents.png",
+  "/lovable-uploads/platform-conversations.png",
+  "/lovable-uploads/platform-knowledge-base.png",
 ];
+
+const findIntegrationLogo = (appName: string): LogoItem | undefined => {
+  const normalized = appName.toLowerCase().replace(/[^a-z0-9]/g, "");
+  return LOGOS.find((logo) => {
+    const logoNorm = logo.name.toLowerCase().replace(/[^a-z0-9]/g, "");
+    const logoIdNorm = logo.id.toLowerCase().replace(/[^a-z0-9]/g, "");
+    return (
+      logoNorm === normalized ||
+      logoIdNorm === normalized ||
+      normalized.includes(logoIdNorm) ||
+      logoIdNorm.includes(normalized)
+    );
+  });
+};
 
 const AgentLightboxModal = ({
   agent,
@@ -496,43 +491,43 @@ const AgentLightboxModal = ({
           </div>
 
           <div className="border-t border-slate-200/80 pt-3.5">
-            <span className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2">
+            <span className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2.5">
               Connected Systems
             </span>
-            <div className="flex flex-wrap gap-1.5">
-              {agent.integrations.map((app) => (
-                <span
-                  key={app}
-                  className="rounded-lg border border-border bg-white px-2 py-0.5 text-[11px] font-medium text-slate-700 shadow-2xs"
-                >
-                  {app}
-                </span>
-              ))}
+            <div className="flex flex-wrap items-center gap-2">
+              {agent.integrations.map((app) => {
+                const logo = findIntegrationLogo(app);
+                return (
+                  <div
+                    key={app}
+                    title={app}
+                    className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 shadow-2xs transition-colors hover:border-slate-300"
+                  >
+                    {logo ? (
+                      <img
+                        src={logo.src}
+                        alt={app}
+                        className="h-4 w-auto max-w-[20px] object-contain"
+                      />
+                    ) : (
+                      <Layers className="h-3.5 w-3.5 text-slate-400" />
+                    )}
+                    <span>{app}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
 
-        {/* Right Column: Workflow Screenshots Slider */}
-        <div className="lg:col-span-7 flex flex-col justify-between rounded-2xl border border-border bg-slate-900 text-white p-4 sm:p-5 shadow-xs overflow-hidden">
-          {/* Header of Screenshot viewer */}
-          <div className="shrink-0 flex items-center justify-between pb-3 border-b border-slate-800">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-xs font-semibold text-slate-200">
-                Agent Workflow & Control Tower Preview
-              </span>
-            </div>
-            <div className="text-[11px] font-medium text-slate-400">
-              {currentSlide + 1} / {SCREENSHOTS.length}
-            </div>
-          </div>
-
+        {/* Right Column: Clean Screenshot Showcase */}
+        <div className="lg:col-span-7 flex flex-col justify-between rounded-2xl border border-slate-200 bg-slate-50/50 p-3 sm:p-4 shadow-xs overflow-hidden">
           {/* Screenshot Display Area with Navigation Arrows */}
-          <div className="relative flex-1 min-h-0 my-3 flex items-center justify-center overflow-hidden rounded-xl bg-slate-950/70 border border-slate-800 group">
+          <div className="relative flex-1 min-h-0 flex items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white shadow-2xs group">
             <img
-              src={SCREENSHOTS[currentSlide].src}
-              alt={SCREENSHOTS[currentSlide].title}
-              className="h-full w-full object-contain p-2 select-none transition-all duration-300"
+              src={SCREENSHOTS[currentSlide]}
+              alt={`Agent Platform Screenshot ${currentSlide + 1}`}
+              className="h-full w-full object-contain p-2 select-none"
               draggable={false}
             />
 
@@ -541,7 +536,7 @@ const AgentLightboxModal = ({
               type="button"
               onClick={prevSlide}
               aria-label="Previous screenshot"
-              className="absolute left-2 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-xs transition-all hover:bg-black/90 active:scale-95 shadow-md"
+              className="absolute left-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 shadow-sm transition-all hover:bg-white hover:text-slate-900 active:scale-95"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -551,33 +546,30 @@ const AgentLightboxModal = ({
               type="button"
               onClick={nextSlide}
               aria-label="Next screenshot"
-              className="absolute right-2 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-xs transition-all hover:bg-black/90 active:scale-95 shadow-md"
+              className="absolute right-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 shadow-sm transition-all hover:bg-white hover:text-slate-900 active:scale-95"
             >
               <ChevronRight className="h-4 w-4" />
             </button>
           </div>
 
-          {/* Screenshot Caption and Dots */}
-          <div className="shrink-0 flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 border-t border-slate-800 text-xs">
-            <div className="text-left w-full sm:w-auto">
-              <p className="font-semibold text-slate-100 text-xs truncate max-w-md">
-                {SCREENSHOTS[currentSlide].title}
-              </p>
-              <p className="text-[11px] text-slate-400 truncate max-w-md">
-                {SCREENSHOTS[currentSlide].caption}
-              </p>
-            </div>
+          {/* Dots Indicator & Slide Counter */}
+          <div className="shrink-0 flex items-center justify-between pt-3 px-1 text-xs">
+            <span className="text-[11px] font-medium text-slate-400">
+              {currentSlide + 1} of {SCREENSHOTS.length}
+            </span>
 
             {/* Dot indicators */}
-            <div className="flex items-center gap-1.5 shrink-0">
+            <div className="flex items-center gap-1.5">
               {SCREENSHOTS.map((_, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => setCurrentSlide(idx)}
                   aria-label={`Go to slide ${idx + 1}`}
-                  className={`h-2 rounded-full transition-all ${
-                    currentSlide === idx ? "w-6 bg-[hsl(var(--brand-secondary))]" : "w-2 bg-slate-700 hover:bg-slate-600"
+                  className={`h-1.5 rounded-full transition-all duration-150 ${
+                    currentSlide === idx
+                      ? "w-5 bg-[hsl(var(--brand-secondary))]"
+                      : "w-1.5 bg-slate-300 hover:bg-slate-400"
                   }`}
                 />
               ))}

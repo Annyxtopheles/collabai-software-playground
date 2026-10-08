@@ -14,8 +14,11 @@ import { componentTagger } from "lovable-tagger";
  * Dev mode is skipped entirely.
  */
 function prerenderPlugin(mode: string) {
-  // Skip entirely inside the nested SSR bundle build we spawn ourselves.
-  const enabled = mode !== "development" && process.env.SSR_BUILD !== "1";
+  // Skip entirely inside the nested SSR bundle build we spawn ourselves or when SKIP_PRERENDER is set.
+  const enabled =
+    mode !== "development" &&
+    process.env.SSR_BUILD !== "1" &&
+    process.env.SKIP_PRERENDER !== "1";
   return {
     name: "collabai-prerender",
     apply: "build" as const,
@@ -57,6 +60,7 @@ function prerenderPlugin(mode: string) {
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: process.env.VITE_BASE_PATH || "/",
   server: {
     host: "::",
     port: 8080,

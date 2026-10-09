@@ -57,7 +57,7 @@ const OUTCOME_CARDS: WhatYouCanDoCardItem[] = [
   },
   {
     id: "program-operations",
-    theme: "green",
+    theme: "light",
     badge: "Operations Command",
     title: "Program & Operations Visibility",
     subheader: "Activities, outcomes & operations together",
@@ -74,7 +74,7 @@ const OUTCOME_CARDS: WhatYouCanDoCardItem[] = [
   },
   {
     id: "board-governance",
-    theme: "light",
+    theme: "green",
     badge: "Governance & Trustee",
     title: "Board Governance",
     subheader: "Minutes, policies & board packets organized",
@@ -162,17 +162,8 @@ export const WhatYouCanDoSection: React.FC = () => {
                 {/* Top Row: Title + Play Lightbox Trigger */}
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <span
-                      className={`inline-block text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
-                        isGreen
-                          ? "bg-white/15 text-[#e7f5e3] border border-white/20"
-                          : "bg-[#e7f5e3] text-[#118f00] border border-[#14a800]/20"
-                      }`}
-                    >
-                      {card.badge}
-                    </span>
                     <h3
-                      className={`mt-3 text-2xl sm:text-3xl font-extrabold tracking-tight ${
+                      className={`text-2xl sm:text-3xl font-extrabold tracking-tight ${
                         isGreen ? "text-white" : "text-[#0c180a]"
                       }`}
                     >

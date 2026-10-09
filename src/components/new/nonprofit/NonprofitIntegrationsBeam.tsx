@@ -208,50 +208,27 @@ const NonprofitIntegrationsBeam = () => {
           ))}
         </div>
 
-        {/* Center: The Nonprofit Control Tower Hub */}
+        {/* Center: The Nonprofit Control Tower Hub (Clean & Focused) */}
         <div className="flex flex-col items-center justify-center">
           <div className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-400 lg:hidden">
             Unified Hub
           </div>
           <Tile
             ref={hubRef}
-            className="w-full max-w-xs sm:w-64 flex-col items-center justify-center gap-2.5 rounded-2xl border-2 border-[#14a800] bg-white p-5 text-center shadow-[0_0_50px_-12px_rgba(20,168,0,0.35)] sm:py-6"
+            className="w-full max-w-xs sm:w-60 flex-col items-center justify-center gap-2 rounded-2xl border-2 border-[#14a800] bg-white p-6 text-center shadow-[0_0_50px_-12px_rgba(20,168,0,0.35)] sm:py-8"
           >
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-[#e7f5e3] px-3 py-1 text-xs font-bold text-[#118f00]">
-              <Sparkles className="h-3.5 w-3.5" />
-              Central Hub
+            <div className="inline-flex items-center justify-center h-10 w-10 rounded-2xl bg-[#e7f5e3] text-[#14a800] mb-1">
+              <Sparkles className="h-5 w-5" />
             </div>
-            <div className="text-lg font-extrabold tracking-tight text-[#0c180a] sm:text-xl">
+            <div className="text-xl sm:text-2xl font-black tracking-tight text-[#0c180a] leading-tight">
               Nonprofit
               <br />
               Control Tower
             </div>
-            <p className="text-xs leading-relaxed text-slate-500">
-              Private AI connecting workflows, data &amp; governance
-            </p>
-
-            <div className="mt-2 grid grid-cols-2 gap-2 w-full text-left text-[11px]">
-              <div className="rounded-lg bg-slate-50 p-2 border border-slate-100">
-                <span className="font-bold text-[#14a800]">Private AI</span>
-                <span className="block text-[10px] text-slate-400">No public training</span>
-              </div>
-              <div className="rounded-lg bg-slate-50 p-2 border border-slate-100">
-                <span className="font-bold text-[#14a800]">Unified Data</span>
-                <span className="block text-[10px] text-slate-400">Cross-tool sync</span>
-              </div>
-              <div className="rounded-lg bg-slate-50 p-2 border border-slate-100">
-                <span className="font-bold text-[#14a800]">Automations</span>
-                <span className="block text-[10px] text-slate-400">Manual work done</span>
-              </div>
-              <div className="rounded-lg bg-slate-50 p-2 border border-slate-100">
-                <span className="font-bold text-[#14a800]">Role Access</span>
-                <span className="block text-[10px] text-slate-400">Locked permissions</span>
-              </div>
-            </div>
           </Tile>
         </div>
 
-        {/* Right: Connected Outcomes */}
+        {/* Right: Connected Outcomes & System Capabilities */}
         <div className="flex flex-col items-center gap-2.5 lg:items-start">
           <div className="mb-1 text-xs font-bold uppercase tracking-wider text-slate-400">
             Delivered Outcomes
@@ -261,7 +238,7 @@ const NonprofitIntegrationsBeam = () => {
             return (
               <Tile
                 key={output.title}
-                className="w-full sm:w-64 lg:w-fit py-2"
+                className="w-full sm:w-64 lg:w-fit py-2.5"
                 ref={(el) => {
                   outputRefs.current[i] = el;
                 }}
@@ -269,9 +246,16 @@ const NonprofitIntegrationsBeam = () => {
                 <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[#e7f5e3] text-[#14a800]">
                   <Icon className="h-3.5 w-3.5" />
                 </div>
-                <span className="text-xs font-semibold text-slate-800 sm:text-sm">
-                  {output.title}
-                </span>
+                <div className="text-left">
+                  <span className="text-xs font-semibold text-slate-800 sm:text-sm block">
+                    {output.title}
+                  </span>
+                  {"subtitle" in output && output.subtitle && (
+                    <span className="text-[10px] text-slate-400 font-medium block">
+                      {output.subtitle}
+                    </span>
+                  )}
+                </div>
               </Tile>
             );
           })}

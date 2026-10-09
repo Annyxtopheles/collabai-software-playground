@@ -202,17 +202,8 @@ const NonProfitHub = () => {
                     <img
                       src={heroCommunityImpact}
                       alt="Dedicated nonprofit volunteers and community members working together in a fresh food distribution program"
-                      className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                      className="h-full w-full object-cover object-center"
                     />
-                    <div
-                      aria-hidden="true"
-                      className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
-                    />
-                    <div className="absolute bottom-3 left-3 text-left">
-                      <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-white bg-black/40 px-2.5 py-1 rounded-full backdrop-blur-md">
-                        Mission in Action · Community Distribution
-                      </span>
-                    </div>
                   </div>
                 </div>
 
@@ -222,19 +213,19 @@ const NonProfitHub = () => {
                     <ShieldCheck className="h-4 w-4" />
                   </div>
                   <div className="text-left">
-                    <div className="text-xs font-bold text-slate-900">Private by Design</div>
-                    <div className="text-[10px] text-slate-500 font-medium">Zero model training</div>
+                    <div className="text-xs font-bold text-slate-900">Private Data Vault</div>
+                    <div className="text-[10px] text-slate-500 font-medium">Zero public model training</div>
                   </div>
                 </div>
 
                 {/* Floating Card 2: Bottom Left Badge */}
                 <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-2.5 shadow-xl backdrop-blur-xs">
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
-                    <Zap className="h-4 w-4" />
+                    <CheckCircle2 className="h-4 w-4 text-[#14a800]" />
                   </div>
                   <div className="text-left">
-                    <div className="text-xs font-bold text-slate-900">Keep Your Tools</div>
-                    <div className="text-[10px] text-slate-500 font-medium">Connects into CRM & files</div>
+                    <div className="text-xs font-bold text-slate-900">Zero Migration Required</div>
+                    <div className="text-[10px] text-slate-500 font-medium">Syncs CRM, files & accounting</div>
                   </div>
                 </div>
               </div>
@@ -291,33 +282,33 @@ const NonProfitHub = () => {
           </div>
 
           {/* Client Logos Strip */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-8 md:gap-14">
-            <div className="flex h-12 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-75 hover:opacity-100">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-10 md:gap-16">
+            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
               <img
                 src={iaaboLogo}
                 alt="IAABO"
-                className="h-10 w-auto object-contain"
+                className="h-14 md:h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex h-12 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-75 hover:opacity-100">
+            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
               <img
                 src={bspLogo}
                 alt="BSP"
-                className="h-10 w-auto object-contain"
+                className="h-14 md:h-16 w-auto object-contain"
               />
             </div>
-            <div className="flex h-12 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-75 hover:opacity-100">
+            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
               <img
                 src={theOptimistsLogo}
                 alt="The Optimists"
-                className="h-8 w-auto object-contain"
+                className="h-12 md:h-14 w-auto object-contain"
               />
             </div>
-            <div className="flex h-12 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-75 hover:opacity-100">
+            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
               <img
                 src={queensChamberLogo}
                 alt="Queens Chamber of Commerce"
-                className="h-8 w-auto object-contain"
+                className="h-12 md:h-14 w-auto object-contain"
               />
             </div>
           </div>
@@ -424,20 +415,11 @@ const NonProfitHub = () => {
             </div>
           </div>
 
-          {/* Impactful Guiding Statement (Elevated from timid pill badge) */}
+          {/* Impactful Guiding Statement */}
           <div className="mt-14 sm:mt-16 text-center">
-            <div className="relative mx-auto inline-flex flex-col items-center">
-              <div className="flex items-center gap-3">
-                <span className="hidden sm:block h-[1px] w-12 bg-gradient-to-r from-transparent to-[#14a800]" />
-                <span className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-[#0c180a]">
-                  That is where the <span className="text-[#14a800]">Nonprofit Control Tower</span> comes in.
-                </span>
-                <span className="hidden sm:block h-[1px] w-12 bg-gradient-to-l from-transparent to-[#14a800]" />
-              </div>
-              <p className="mt-2.5 text-xs sm:text-sm font-medium text-slate-500 max-w-lg text-pretty">
-                Bridging your fragmented systems into one private operational source of truth.
-              </p>
-            </div>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-[#0c180a]">
+              That is where the <span className="text-[#14a800]">Nonprofit Control Tower</span> comes in.
+            </h3>
           </div>
         </div>
       </section>

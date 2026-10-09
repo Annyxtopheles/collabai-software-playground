@@ -146,15 +146,15 @@ export const WhatYouCanDoSection: React.FC = () => {
             return (
               <div
                 key={card.id}
-                className={`group relative overflow-hidden rounded-3xl p-7 sm:p-9 md:p-10 min-h-[290px] sm:min-h-[310px] pb-28 sm:pb-32 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl ${
+                className={`group relative overflow-hidden rounded-3xl p-7 sm:p-9 md:p-10 min-h-[300px] sm:min-h-[320px] pb-32 sm:pb-36 flex flex-col justify-between transition-all duration-300 shadow-none ${
                   isGreen
-                    ? "bg-gradient-to-br from-[#0c6600] via-[#118f00] to-[#0a5200] text-white shadow-[0_16px_36px_rgba(17,143,0,0.22)] border border-[#14a800]/40"
-                    : "bg-white text-[#0c180a] border-2 border-emerald-100/90 shadow-[0_12px_32px_rgba(0,0,0,0.06)] hover:border-[#14a800]/50"
+                    ? "bg-gradient-to-br from-[#0c6600] via-[#118f00] to-[#0a5200] text-white border border-[#14a800]/40 hover:shadow-[0_20px_50px_rgba(20,168,0,0.35)]"
+                    : "bg-white text-[#0c180a] border-2 border-emerald-100/90 hover:border-[#14a800]/50 hover:shadow-[0_20px_50px_rgba(20,168,0,0.18)]"
                 }`}
               >
                 {/* Top Row: Title + Subheading + Play Lightbox Trigger */}
                 <div className="flex items-start justify-between gap-4">
-                  <div className="max-w-[70%] sm:max-w-[64%]">
+                  <div className="max-w-[70%] sm:max-w-[62%] md:max-w-[60%]">
                     <h3
                       className={`text-2xl sm:text-3xl font-extrabold tracking-tight ${
                         isGreen ? "text-white" : "text-[#0c180a]"
@@ -186,13 +186,13 @@ export const WhatYouCanDoSection: React.FC = () => {
                   </button>
                 </div>
 
-                {/* Peeking Corner UI Element (Smoothly moves towards center on card hover) */}
-                <div className="pointer-events-none absolute -bottom-3 -right-3 sm:-bottom-2 sm:-right-2 w-[220px] sm:w-[255px] select-none transition-transform duration-300 ease-out group-hover:-translate-x-3 group-hover:-translate-y-3 group-hover:scale-[1.03]">
+                {/* Peeking Corner UI Element (Seamlessly clipped by card overflow-hidden so most is hidden off-corner) */}
+                <div className="pointer-events-none absolute -bottom-10 -right-10 sm:-bottom-12 sm:-right-12 w-[280px] sm:w-[320px] select-none transition-transform duration-300 ease-out group-hover:-translate-x-3 group-hover:-translate-y-3 group-hover:scale-[1.02]">
                   <div
-                    className={`rounded-2xl p-4 shadow-[0_16px_36px_rgba(0,0,0,0.18)] backdrop-blur-xl border ${
+                    className={`rounded-2xl p-4 sm:p-5 shadow-2xl backdrop-blur-xl border ${
                       isGreen
-                        ? "bg-white/95 text-slate-800 border-white/60 shadow-[0_20px_40px_rgba(0,0,0,0.28)]"
-                        : "bg-[#0c180a] text-white border-slate-700/60 shadow-[0_20px_40px_rgba(12,24,10,0.35)]"
+                        ? "bg-white/95 text-slate-800 border-white/60 shadow-[0_20px_50px_rgba(0,0,0,0.28)]"
+                        : "bg-[#0c180a] text-white border-slate-700/60 shadow-[0_20px_50px_rgba(12,24,10,0.35)]"
                     }`}
                   >
                     {/* Peeking Top Micro Bar */}

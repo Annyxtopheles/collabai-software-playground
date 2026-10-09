@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
+  ArrowDown,
   ShieldCheck,
   CheckCircle2,
   Database,
@@ -211,21 +212,29 @@ const NonProfitHub = () => {
                 <BookFreeDemoBtn />
               </div>
 
-              {/* Social Proof Strip (like Dribbble reference 4K+ trusted) */}
+              {/* Social Proof Strip with real leadership images */}
               <div className="mt-10 flex items-center gap-4 pt-6 border-t border-slate-200/70">
-                <div className="flex -space-x-2 overflow-hidden">
-                  <div className="inline-block h-9 w-9 rounded-full ring-2 ring-white bg-[#14a800] text-white flex items-center justify-center font-bold text-xs shadow-2xs">
-                    ED
-                  </div>
-                  <div className="inline-block h-9 w-9 rounded-full ring-2 ring-white bg-[#0c180a] text-white flex items-center justify-center font-bold text-xs shadow-2xs">
-                    BM
-                  </div>
-                  <div className="inline-block h-9 w-9 rounded-full ring-2 ring-white bg-slate-700 text-white flex items-center justify-center font-bold text-xs shadow-2xs">
-                    GO
-                  </div>
-                  <div className="inline-block h-9 w-9 rounded-full ring-2 ring-white bg-[#e7f5e3] text-[#118f00] flex items-center justify-center font-bold text-xs shadow-2xs">
-                    +
-                  </div>
+                <div className="flex -space-x-2.5 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
+                    alt="Executive Director"
+                    className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover object-center shadow-xs"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
+                    alt="Board Member"
+                    className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover object-center shadow-xs"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80"
+                    alt="Operations Leader"
+                    className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover object-center shadow-xs"
+                  />
+                  <img
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80"
+                    alt="Program Director"
+                    className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover object-center shadow-xs"
+                  />
                 </div>
                 <div>
                   <div className="text-sm font-bold text-[#0c180a]">
@@ -258,8 +267,18 @@ const NonProfitHub = () => {
                   </div>
                 </div>
 
-                {/* Floating Card 1: Top Right Pill */}
-                <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-2.5 shadow-xl backdrop-blur-xs">
+                {/* Floating Card 1: Top Right Pill with smooth floating motion */}
+                <motion.div
+                  animate={{
+                    y: [-6, 6, -6],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-2.5 shadow-xl backdrop-blur-xs"
+                >
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
                     <ShieldCheck className="h-4 w-4" />
                   </div>
@@ -267,10 +286,20 @@ const NonProfitHub = () => {
                     <div className="text-xs font-bold text-slate-900">Private Data Vault</div>
                     <div className="text-[10px] text-slate-500 font-medium">Zero public model training</div>
                   </div>
-                </div>
+                </motion.div>
 
-                {/* Floating Card 2: Bottom Left Badge */}
-                <div className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-2.5 shadow-xl backdrop-blur-xs">
+                {/* Floating Card 2: Bottom Left Badge with smooth counter floating motion */}
+                <motion.div
+                  animate={{
+                    y: [6, -6, 6],
+                  }}
+                  transition={{
+                    duration: 5.6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-2.5 shadow-xl backdrop-blur-xs"
+                >
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
                     <CheckCircle2 className="h-4 w-4 text-[#14a800]" />
                   </div>
@@ -278,7 +307,7 @@ const NonProfitHub = () => {
                     <div className="text-xs font-bold text-slate-900">Zero Migration Required</div>
                     <div className="text-[10px] text-slate-500 font-medium">Syncs CRM, files & accounting</div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -317,7 +346,7 @@ const NonProfitHub = () => {
                   {/* FRONT FACE: Logo Banner + Title Name */}
                   <div className="absolute inset-0 h-full w-full rounded-2xl border border-slate-200/90 bg-white p-4 flex flex-col justify-between [backface-visibility:hidden]">
                     {/* Top Banner with Client Logo */}
-                    <div className="w-full h-28 rounded-xl bg-gradient-to-b from-[#f8faf6] to-[#edf5eb]/60 border border-slate-100 flex items-center justify-center p-3 relative overflow-hidden">
+                    <div className="w-full h-32 rounded-xl bg-gradient-to-b from-[#f8faf6] to-[#edf5eb]/60 border border-slate-100 flex items-center justify-center p-3 relative overflow-hidden">
                       <img
                         src={client.logo}
                         alt={client.name}
@@ -334,12 +363,6 @@ const NonProfitHub = () => {
                         {client.subtitle}
                       </p>
                     </div>
-
-                    {/* Subtle Flip Cue */}
-                    <div className="flex items-center justify-center gap-1.5 text-[11px] font-semibold text-[#14a800]">
-                      <span>Hover to explore</span>
-                      <ArrowRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5" />
-                    </div>
                   </div>
 
                   {/* BACK FACE: Clean Flipped Preview with Navigation Link */}
@@ -348,7 +371,6 @@ const NonProfitHub = () => {
                       <span className="text-[10px] font-extrabold uppercase tracking-wider bg-white/20 text-[#e7f5e3] px-2.5 py-0.5 rounded-full">
                         {client.metric}
                       </span>
-                      <span className="text-[10px] text-white/70 font-medium">Click to view</span>
                     </div>
 
                     <div className="my-auto py-1">
@@ -360,10 +382,10 @@ const NonProfitHub = () => {
                       </p>
                     </div>
 
-                    <div className="pt-2 border-t border-white/20 flex items-center justify-between text-xs font-bold text-white">
-                      <span className="underline underline-offset-4 decoration-white/60">Read Success Story</span>
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-[#118f00] shadow-xs">
-                        <ArrowRight className="h-3.5 w-3.5" />
+                    <div className="pt-2 border-t border-white/20">
+                      <div className="inline-flex w-full items-center justify-between rounded-xl bg-white/15 px-3.5 py-2 text-xs font-bold text-white backdrop-blur-xs transition-all duration-200 group-hover:bg-white group-hover:text-[#0c6600] shadow-2xs">
+                        <span>Read Success Story</span>
+                        <ArrowDown className="h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" />
                       </div>
                     </div>
                   </div>

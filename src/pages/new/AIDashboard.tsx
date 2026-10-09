@@ -838,13 +838,19 @@ const AIDashboard = () => {
                 {/* Card Content Area */}
                 <div className="flex flex-1 flex-col justify-between p-6">
                   <div>
-                    {/* 2. Category above title */}
-                    <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
-                      {agent.team}
-                    </span>
+                    {/* 2. Top Row: Category on left, Trigger badge on top right */}
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
+                        {agent.team}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-slate-500">
+                        <Zap className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+                        <span>{agent.trigger}</span>
+                      </span>
+                    </div>
 
                     {/* 3. Title */}
-                    <h3 className="mt-1.5 text-lg font-bold text-brand-primary group-hover:text-[hsl(var(--brand-secondary))] transition-colors">
+                    <h3 className="mt-2 text-lg font-bold text-brand-primary group-hover:text-[hsl(var(--brand-secondary))] transition-colors">
                       {agent.name}
                     </h3>
 
@@ -854,13 +860,8 @@ const AIDashboard = () => {
                     </p>
                   </div>
 
-                  {/* 5. Bottom Action Area (replacing redundant Know More button) */}
-                  <div className="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-slate-500">
-                      <Zap className="h-3.5 w-3.5 text-amber-500 shrink-0" />
-                      <span>{agent.trigger}</span>
-                    </span>
-
+                  {/* 5. Bottom Action Area: Run Agent CTA positioned on the bottom left */}
+                  <div className="mt-6 pt-3 border-t border-slate-100 flex items-center justify-start">
                     <a
                       href="https://controltowerdemo.collabai.software/login"
                       target="_blank"

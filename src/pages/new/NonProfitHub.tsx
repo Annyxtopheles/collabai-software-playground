@@ -937,34 +937,40 @@ const NonProfitHub = () => {
                 </p>
               </div>
 
-              {/* Decorative Corner SVG Illustration: Interconnecting network hubs */}
+              {/* Decorative Corner SVG Illustration: Multi-ring converging orbital network */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute -bottom-6 -right-6 select-none transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-x-1 group-hover:-translate-y-1"
+                className="pointer-events-none absolute -bottom-7 -right-7 select-none transition-all duration-500 ease-out group-hover:scale-115 group-hover:-translate-x-2 group-hover:-translate-y-2"
               >
                 <svg
-                  width="160"
-                  height="160"
-                  viewBox="0 0 160 160"
+                  width="180"
+                  height="180"
+                  viewBox="0 0 180 180"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="text-white/15"
+                  className="text-white/20"
                 >
-                  <circle cx="110" cy="110" r="34" fill="currentColor" fillOpacity="0.8" />
-                  <circle cx="45" cy="110" r="16" fill="currentColor" fillOpacity="0.5" />
-                  <circle cx="110" cy="45" r="16" fill="currentColor" fillOpacity="0.5" />
-                  <path
-                    d="M61 110 H76 M110 61 V76"
-                    stroke="currentColor"
-                    strokeWidth="8"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M58 97 L96 59"
-                    stroke="currentColor"
-                    strokeWidth="6"
-                    strokeDasharray="4 4"
-                  />
+                  {/* Concentric Signal Radar Rings */}
+                  <circle cx="120" cy="120" r="70" stroke="currentColor" strokeWidth="2" strokeDasharray="6 6" className="transition-transform duration-700 ease-out group-hover:scale-105 origin-center" />
+                  <circle cx="120" cy="120" r="48" stroke="currentColor" strokeWidth="2" strokeOpacity="0.8" />
+                  <circle cx="120" cy="120" r="28" fill="currentColor" fillOpacity="0.3" stroke="currentColor" strokeWidth="3" />
+                  <circle cx="120" cy="120" r="12" fill="currentColor" />
+
+                  {/* Satellite Interconnecting Nodes with Dynamic Hover Translation */}
+                  <g className="transition-transform duration-500 ease-out group-hover:translate-x-1 group-hover:translate-y-1">
+                    <circle cx="48" cy="120" r="14" fill="currentColor" fillOpacity="0.5" />
+                    <line x1="62" y1="120" x2="92" y2="120" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                  </g>
+
+                  <g className="transition-transform duration-500 ease-out group-hover:-translate-x-1 group-hover:translate-y-1">
+                    <circle cx="120" cy="48" r="14" fill="currentColor" fillOpacity="0.5" />
+                    <line x1="120" y1="62" x2="120" y2="92" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                  </g>
+
+                  <g className="transition-transform duration-500 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1">
+                    <circle cx="70" cy="70" r="10" fill="currentColor" fillOpacity="0.6" />
+                    <line x1="78" y1="78" x2="100" y2="100" stroke="currentColor" strokeWidth="3" strokeDasharray="3 3" />
+                  </g>
                 </svg>
               </div>
             </div>
@@ -1014,32 +1020,43 @@ const NonProfitHub = () => {
                 </p>
               </div>
 
-              {/* Decorative Corner SVG Illustration: Active analytics chart & intelligence sparks */}
+              {/* Decorative Corner SVG Illustration: Dynamic ascending operational surge & pulse rays */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute -bottom-5 -right-5 select-none transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-x-1 group-hover:-translate-y-1"
+                className="pointer-events-none absolute -bottom-6 -right-6 select-none transition-all duration-500 ease-out group-hover:scale-115 group-hover:-translate-x-1 group-hover:-translate-y-1"
               >
                 <svg
-                  width="160"
-                  height="160"
-                  viewBox="0 0 160 160"
+                  width="180"
+                  height="180"
+                  viewBox="0 0 180 180"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="text-white/15"
+                  className="text-white/20"
                 >
-                  {/* Ascending Chart Bars */}
-                  <rect x="35" y="105" width="18" height="35" rx="5" fill="currentColor" fillOpacity="0.4" />
-                  <rect x="62" y="85" width="18" height="55" rx="5" fill="currentColor" fillOpacity="0.6" />
-                  <rect x="89" y="60" width="18" height="80" rx="5" fill="currentColor" fillOpacity="0.8" />
-                  <rect x="116" y="40" width="18" height="100" rx="5" fill="currentColor" />
-                  {/* Spark Line */}
+                  {/* Stepped Surge Bars with Staggered Hover Elevation */}
+                  <rect x="36" y="125" width="18" height="35" rx="6" fill="currentColor" fillOpacity="0.35" className="transition-transform duration-300 group-hover:-translate-y-1" />
+                  <rect x="64" y="102" width="18" height="58" rx="6" fill="currentColor" fillOpacity="0.5" className="transition-transform duration-400 group-hover:-translate-y-2" />
+                  <rect x="92" y="74" width="18" height="86" rx="6" fill="currentColor" fillOpacity="0.75" className="transition-transform duration-500 group-hover:-translate-y-3" />
+                  <rect x="120" y="44" width="18" height="116" rx="6" fill="currentColor" className="transition-transform duration-600 group-hover:-translate-y-4" />
+
+                  {/* Dynamic Trajectory Vector */}
                   <path
-                    d="M38 95 L68 75 L95 50 L125 30"
+                    d="M38 116 L66 92 L94 65 L126 34"
                     stroke="currentColor"
                     strokeWidth="4"
                     strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
-                  <circle cx="125" cy="30" r="5" fill="currentColor" />
+                  {/* Glowing Operational Star / Apex Node */}
+                  <circle cx="126" cy="34" r="7" fill="currentColor" className="transition-transform duration-500 group-hover:scale-125 origin-center" />
+                  <path
+                    d="M126 18 V26 M126 42 V50 M110 34 H118 M134 34 H142"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeOpacity="0.7"
+                    className="transition-transform duration-500 group-hover:rotate-45 origin-center"
+                  />
                 </svg>
               </div>
             </div>

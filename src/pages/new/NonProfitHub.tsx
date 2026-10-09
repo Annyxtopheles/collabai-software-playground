@@ -97,6 +97,8 @@ const BookFreeDemoBtn = ({
       <span>Book Free Demo</span>
     </Link>
   );
+};
+
 const CLIENT_CASE_CARDS = [
   {
     id: "case-iaabo",

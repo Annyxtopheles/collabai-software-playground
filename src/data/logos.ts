@@ -49,6 +49,7 @@ import inituitquickbooks from "@/assets/logos/intuitquickbooks.svg";
 import eventbrite from "@/assets/logos/eventbrite.svg";
 import givebutter from "@/assets/logos/givebutter.svg";
 import mailchimp from "@/assets/logos/mailchimp.svg";
+import onecause from "@/assets/logos/onecause.svg";
 import linkedin from "@/assets/integrations/linkedin-colored.svg";
 import clearbit from "@/assets/logos/clearbit.svg";
 import googledocs from "@/assets/logos/googledocs.svg";
@@ -105,7 +106,6 @@ export const LOGOS = [
   { id: "twilio", name: "Twilio", src: twilio },
   { id: "zapier", name: "Zapier", src: zapier },
   { id: "webhooks", name: "Webhooks", src: webhooks },
-  { id: "zapier", name: "Zapier", src: zapier },
   { id: "restapi", name: "REST API", src: restapi },
   { id: "nexthealth", name: "NextHealth", src: nexthealth },
   { id: "openai", name: "OpenAI", src: openai },

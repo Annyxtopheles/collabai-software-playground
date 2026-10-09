@@ -1,11 +1,8 @@
 import React from "react";
 import {
-  ShieldCheck,
   Lock,
   Database,
-  CheckCircle2,
   Server,
-  Layers,
   ExternalLink,
   Check,
   Minus,
@@ -17,46 +14,39 @@ export const NonprofitSecuritySection: React.FC = () => {
   return (
     <section className="py-20 md:py-28 bg-white border-t border-slate-100">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header Block matching Reference Layout: Title Left with Eyebrow, Supporting Text Right */}
-        <div className="grid gap-6 md:grid-cols-12 md:items-end border-b border-slate-200/80 pb-12">
-          <div className="md:col-span-7">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
-              Privacy &amp; Protection
-            </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
-              Your Data Is Private, Protected and Secure
-            </h2>
-          </div>
-
-          <div className="md:col-span-5 md:border-l md:border-slate-200/80 md:pl-8">
-            <p className="text-base sm:text-lg leading-relaxed text-slate-600 text-pretty">
-              Get the benefits of AI without giving up control of your organization’s sensitive donor,
-              member, financial or operational information.
-            </p>
-          </div>
+        {/* Header Block: Centered, clean hierarchy with subtitle directly under title, no arbitrary divider lines */}
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#14a800]">
+            Privacy &amp; Protection
+          </span>
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+            Your Data Is Private, Protected and Secure
+          </h2>
+          <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-600 text-pretty">
+            Get the benefits of AI without giving up control of your organization’s sensitive donor,
+            member, financial or operational information.
+          </p>
         </div>
 
-        {/* 6 Structured Cards with Micro-UI Proof Elements */}
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {/* 01: Private by design */}
+        {/* 6 Structured Cards with Micro-UI Proof Elements (No arbitrary numbers 1-6) */}
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Card 1: Private by design */}
           <div className="group flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#fbfdfa] p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:bg-white hover:shadow-lg">
             <div>
-              <span className="text-xs font-black tracking-widest text-[#14a800]">01</span>
-              <h3 className="mt-2 text-xl font-bold text-[#0c180a]">Private by design</h3>
+              <h3 className="text-xl font-bold text-[#0c180a]">Private by design</h3>
               <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
                 Your data stays isolated in your dedicated organization environment, completely private from
                 other entities.
               </p>
             </div>
 
-            {/* Micro-UI Proof: Isolated Tenant Graphic */}
+            {/* Micro-UI Proof: Isolated Tenant Graphic (Clean, no pulsing dots) */}
             <div className="mt-6 rounded-2xl border border-slate-200/80 bg-white p-3.5 shadow-2xs">
               <div className="flex items-center justify-between gap-2">
                 {/* Organization Isolated Tenant Box */}
                 <div className="flex-1 rounded-xl border-2 border-[#14a800] bg-[#e7f5e3]/40 p-2.5 text-left">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-[#0c180a]">
-                    <div className="h-2 w-2 rounded-full bg-[#14a800] animate-pulse" />
-                    <span>Your Organization</span>
+                  <div className="text-xs font-bold text-[#0c180a]">
+                    Your Organization
                   </div>
                   <span className="text-[10px] font-semibold text-[#118f00] block mt-0.5">
                     Isolated tenant
@@ -77,11 +67,10 @@ export const NonprofitSecuritySection: React.FC = () => {
             </div>
           </div>
 
-          {/* 02: Role-based access */}
+          {/* Card 2: Role-based access */}
           <div className="group flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#fbfdfa] p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:bg-white hover:shadow-lg">
             <div>
-              <span className="text-xs font-black tracking-widest text-[#14a800]">02</span>
-              <h3 className="mt-2 text-xl font-bold text-[#0c180a]">Role-based access</h3>
+              <h3 className="text-xl font-bold text-[#0c180a]">Role-based access</h3>
               <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
                 Granular permission locks ensure staff, leadership, and board members only see information
                 intended for their role.
@@ -141,11 +130,10 @@ export const NonprofitSecuritySection: React.FC = () => {
             </div>
           </div>
 
-          {/* 03: Encrypted in transit & at rest */}
+          {/* Card 3: Encrypted in transit & at rest */}
           <div className="group flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#fbfdfa] p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:bg-white hover:shadow-lg">
             <div>
-              <span className="text-xs font-black tracking-widest text-[#14a800]">03</span>
-              <h3 className="mt-2 text-xl font-bold text-[#0c180a]">Encrypted in transit &amp; at rest</h3>
+              <h3 className="text-xl font-bold text-[#0c180a]">Encrypted in transit &amp; at rest</h3>
               <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
                 Enterprise-grade TLS 1.3 in transit and AES-256 encryption at rest protect every file,
                 transcript, and record.
@@ -176,11 +164,10 @@ export const NonprofitSecuritySection: React.FC = () => {
             </div>
           </div>
 
-          {/* 04: Never used to train public models */}
+          {/* Card 4: Never used to train public models */}
           <div className="group flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#fbfdfa] p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:bg-white hover:shadow-lg">
             <div>
-              <span className="text-xs font-black tracking-widest text-[#14a800]">04</span>
-              <h3 className="mt-2 text-xl font-bold text-[#0c180a]">
+              <h3 className="text-xl font-bold text-[#0c180a]">
                 Never used to train public models
               </h3>
               <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
@@ -219,51 +206,43 @@ export const NonprofitSecuritySection: React.FC = () => {
             </div>
           </div>
 
-          {/* 05: Self-hosting available */}
+          {/* Card 5: Self-hosting available */}
           <div className="group flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#fbfdfa] p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:bg-white hover:shadow-lg">
             <div>
-              <span className="text-xs font-black tracking-widest text-[#14a800]">05</span>
-              <h3 className="mt-2 text-xl font-bold text-[#0c180a]">Self-hosting available</h3>
+              <h3 className="text-xl font-bold text-[#0c180a]">Self-hosting available</h3>
               <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
                 Run on your own infrastructure or cloud for total organizational control over data residency
                 and compliance.
               </p>
             </div>
 
-            {/* Micro-UI Proof: Infrastructure Choice Switch */}
+            {/* Micro-UI Proof: Infrastructure Choice (Clean, no extra dots) */}
             <div className="mt-6 grid grid-cols-2 gap-2.5">
               <div className="rounded-2xl border border-slate-200/80 bg-white p-3 shadow-2xs text-left">
-                <div className="flex items-center justify-between">
-                  <Server className="h-4 w-4 text-slate-500" />
-                  <span className="h-2 w-2 rounded-full border border-slate-300" />
-                </div>
+                <Server className="h-4 w-4 text-slate-500" />
                 <div className="mt-2 text-xs font-bold text-slate-800">Your servers</div>
                 <span className="text-[10px] text-slate-400 block">On-prem / private cloud</span>
               </div>
 
               <div className="rounded-2xl border-2 border-[#14a800] bg-[#e7f5e3]/40 p-3 shadow-2xs text-left">
-                <div className="flex items-center justify-between">
-                  <Cloud className="h-4 w-4 text-[#14a800]" />
-                  <span className="h-2 w-2 rounded-full bg-[#14a800]" />
-                </div>
+                <Cloud className="h-4 w-4 text-[#14a800]" />
                 <div className="mt-2 text-xs font-bold text-[#0c180a]">Our cloud</div>
                 <span className="text-[10px] text-[#118f00] font-semibold block">Secure, isolated</span>
               </div>
             </div>
           </div>
 
-          {/* 06: Auditable AI activity */}
+          {/* Card 6: Auditable AI activity */}
           <div className="group flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#fbfdfa] p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:bg-white hover:shadow-lg">
             <div>
-              <span className="text-xs font-black tracking-widest text-[#14a800]">06</span>
-              <h3 className="mt-2 text-xl font-bold text-[#0c180a]">Auditable AI activity</h3>
+              <h3 className="text-xl font-bold text-[#0c180a]">Auditable AI activity</h3>
               <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
                 Comprehensive logs record every AI interaction, search query, and automated action for
                 complete governance oversight.
               </p>
             </div>
 
-            {/* Micro-UI Proof: Live Audit Trail Snippet */}
+            {/* Micro-UI Proof: Live Audit Trail Snippet (Clean, no dots in status text) */}
             <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-2.5 shadow-2xs">
               <table className="w-full text-[10px]">
                 <thead>
@@ -279,19 +258,19 @@ export const NonprofitSecuritySection: React.FC = () => {
                     <td className="py-1 text-slate-500 font-mono">10:24 AM</td>
                     <td className="py-1 font-bold text-slate-800">Query</td>
                     <td className="py-1 text-slate-600">j.smith</td>
-                    <td className="py-1 text-right text-[#118f00] font-semibold">● Success</td>
+                    <td className="py-1 text-right text-[#118f00] font-semibold">Logged</td>
                   </tr>
                   <tr>
                     <td className="py-1 text-slate-500 font-mono">09:17 AM</td>
                     <td className="py-1 font-bold text-slate-800">Report</td>
                     <td className="py-1 text-slate-600">m.lee</td>
-                    <td className="py-1 text-right text-[#118f00] font-semibold">● Success</td>
+                    <td className="py-1 text-right text-[#118f00] font-semibold">Logged</td>
                   </tr>
                   <tr>
                     <td className="py-1 text-slate-500 font-mono">08:43 AM</td>
                     <td className="py-1 font-bold text-slate-800">Search</td>
                     <td className="py-1 text-slate-600">a.patel</td>
-                    <td className="py-1 text-right text-[#118f00] font-semibold">● Success</td>
+                    <td className="py-1 text-right text-[#118f00] font-semibold">Logged</td>
                   </tr>
                 </tbody>
               </table>
@@ -299,8 +278,8 @@ export const NonprofitSecuritySection: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Link to Security Standards */}
-        <div className="mt-12 text-center sm:text-left">
+        {/* Center-aligned link to security standards */}
+        <div className="mt-14 text-center">
           <a
             href="https://sjinnovation.com/security"
             target="_blank"

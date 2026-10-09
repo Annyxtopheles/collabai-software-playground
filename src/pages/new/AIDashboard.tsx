@@ -49,17 +49,14 @@ import agentBanner5 from "@/assets/agents/agent-banner-5.png";
 
 import { DASHBOARD_AGENTS, type DashboardAgent } from "@/data/dashboardAgentsData";
 
-// Curated preview mapping distributing banners across different agent cards
+// Curated preview mapping: First 6 cards receive the 6 banners in sequence
 const AGENT_BANNER_MAP: Record<string, string> = {
   "deal-coach": dealCoachBanner,
-  "pipeline-hygiene": agentBanner1,
-  "meeting-intelligence": agentBanner2,
-  "project-analyzer": agentBanner3,
-  "weekly-status": agentBanner4,
-  "subtask-planner": agentBanner5,
-  "donor-retention": agentBanner4,
-  "cross-system-knowledge-search": agentBanner5,
-  "contract-risk-reviewer": agentBanner3,
+  "client-research": agentBanner1,
+  "pipeline-hygiene": agentBanner2,
+  "meeting-intelligence": agentBanner3,
+  "follow-up-drafter": agentBanner4,
+  "project-analyzer": agentBanner5,
 };
 
 const AgentBannerPreview = ({ agent }: { agent: DashboardAgent }) => {

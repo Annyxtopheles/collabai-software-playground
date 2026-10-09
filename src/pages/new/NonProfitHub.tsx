@@ -41,6 +41,7 @@ import queensChamberLogo from "@/assets/clients/queens-chamber.png";
 // Section Visuals & Components
 import NonprofitIntegrationsBeam from "@/components/new/nonprofit/NonprofitIntegrationsBeam";
 import WhatYouCanDoSection from "@/components/new/nonprofit/WhatYouCanDoSection";
+import NonprofitSecuritySection from "@/components/new/nonprofit/NonprofitSecuritySection";
 import problemScatteredDonors from "@/assets/nonprofit/problem-scattered-donors.png";
 import problemReportingTime from "@/assets/nonprofit/problem-reporting-time.jpg";
 import problemManualWork from "@/assets/nonprofit/problem-manual-work.png";
@@ -1122,88 +1123,9 @@ const NonProfitHub = () => {
 
       {/* ========================================================
           10. SECURITY & DATA CONTROL
-          Plain language trust & security statements.
+          Option 1: Structured Grid with Micro-UI Proof Elements.
       ======================================================== */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto max-w-6xl px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
-              Privacy & Protection
-            </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
-              <span className="block">Your Data Is Private,</span>
-              <span className="block">Protected and&nbsp;Secure</span>
-            </h2>
-            <p className="mt-4 text-base text-slate-600 sm:text-lg text-pretty max-w-2xl mx-auto">
-              The Nonprofit Control Tower is designed for organizations that want
-              the benefits of AI without giving up control of sensitive donor,
-              member, financial or organizational&nbsp;information.
-            </p>
-          </div>
-
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Private by design",
-                desc: "Your data stays isolated in your dedicated organization environment, completely private from other entities.",
-                icon: ShieldCheck,
-              },
-              {
-                title: "Role-based access",
-                desc: "Granular permission locks ensure staff, leadership, and board members only see information intended for their role.",
-                icon: Lock,
-              },
-              {
-                title: "Encrypted in transit & at rest",
-                desc: "Enterprise-grade TLS 1.3 in transit and AES-256 encryption at rest protect every file, transcript, and record.",
-                icon: Database,
-              },
-              {
-                title: "Never used to train public models",
-                desc: "Your donor records and private organizational knowledge are never fed into public AI training datasets.",
-                icon: CheckCircle2,
-              },
-              {
-                title: "Self-hosting available",
-                desc: "Run on your own infrastructure or cloud for total organizational control over data residency and compliance.",
-                icon: Server,
-              },
-              {
-                title: "Auditable AI activity",
-                desc: "Comprehensive logs record every AI interaction, search query, and automated action for complete governance oversight.",
-                icon: Layers,
-              },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl border border-slate-200/80 bg-slate-50/40 p-6 transition-all hover:bg-white hover:border-[#14a800]/30 hover:shadow-sm"
-              >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
-                  <item.icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 text-lg font-bold text-[#0c180a]">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600 text-pretty">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <a
-              href="https://sjinnovation.com/security"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#14a800] hover:underline"
-            >
-              Learn more about SJ Innovation security standards
-              <ExternalLink className="h-3 w-3" />
-            </a>
-          </div>
-        </div>
-      </section>
+      <NonprofitSecuritySection />
 
       {/* ========================================================
           11. DEPLOYMENT / PRICING

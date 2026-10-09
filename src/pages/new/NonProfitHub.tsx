@@ -926,74 +926,121 @@ const NonProfitHub = () => {
           </div>
 
           <div className="mt-14 grid gap-8 md:grid-cols-3">
-            {/* Step 1 */}
-            <div className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-8 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
-              <div>
-                <div className="flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e7f5e3] text-[#14a800]">
-                    <Database className="h-6 w-6" />
-                  </div>
-                  <span className="text-2xl font-black text-[#14a800]/40 group-hover:text-[#14a800] transition-colors">
-                    01
-                  </span>
-                </div>
-                <h3 className="mt-6 text-xl font-bold text-[#0c180a]">Connect</h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                  Connect the CRM, finance, documents, meetings and other systems
-                  you already&nbsp;use.
+            {/* Step 1: Connect */}
+            <div className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-[#0c6600] p-8 sm:p-9 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+              <div className="relative z-10 max-w-[85%]">
+                <h3 className="text-2xl font-extrabold tracking-tight text-white">
+                  Connect
+                </h3>
+                <p className="mt-4 text-sm sm:text-base leading-relaxed text-white/90 text-pretty">
+                  Connect the CRM, finance, documents, meetings and other systems you already use.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-[#14a800]">
-                <Check className="h-4 w-4" />
-                <span>Zero tool migrations</span>
+
+              {/* Decorative Corner SVG Illustration: Interconnecting network hubs */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-6 -right-6 select-none transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-x-1 group-hover:-translate-y-1"
+              >
+                <svg
+                  width="160"
+                  height="160"
+                  viewBox="0 0 160 160"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="text-white/15"
+                >
+                  <circle cx="110" cy="110" r="34" fill="currentColor" fillOpacity="0.8" />
+                  <circle cx="45" cy="110" r="16" fill="currentColor" fillOpacity="0.5" />
+                  <circle cx="110" cy="45" r="16" fill="currentColor" fillOpacity="0.5" />
+                  <path
+                    d="M61 110 H76 M110 61 V76"
+                    stroke="currentColor"
+                    strokeWidth="8"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M58 97 L96 59"
+                    stroke="currentColor"
+                    strokeWidth="6"
+                    strokeDasharray="4 4"
+                  />
+                </svg>
               </div>
             </div>
 
-            {/* Step 2 */}
-            <div className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-8 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
-              <div>
-                <div className="flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e7f5e3] text-[#14a800]">
-                    <Layers className="h-6 w-6" />
-                  </div>
-                  <span className="text-2xl font-black text-[#14a800]/40 group-hover:text-[#14a800] transition-colors">
-                    02
-                  </span>
-                </div>
-                <h3 className="mt-6 text-xl font-bold text-[#0c180a]">Configure</h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                  Set permissions, workflows, dashboards and AI assistants around
-                  your&nbsp;organization.
+            {/* Step 2: Configure */}
+            <div className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-[#118f00] p-8 sm:p-9 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+              <div className="relative z-10 max-w-[85%]">
+                <h3 className="text-2xl font-extrabold tracking-tight text-white">
+                  Configure
+                </h3>
+                <p className="mt-4 text-sm sm:text-base leading-relaxed text-white/90 text-pretty">
+                  Set permissions, workflows, dashboards and AI assistants around your organization.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-[#14a800]">
-                <Check className="h-4 w-4" />
-                <span>Custom team roles & policies</span>
+
+              {/* Decorative Corner SVG Illustration: Precision engineering gear */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-6 -right-6 select-none transition-transform duration-500 ease-out group-hover:rotate-45 group-hover:scale-110"
+              >
+                <svg
+                  width="170"
+                  height="170"
+                  viewBox="0 0 170 170"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="text-white/20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M85 40C88.866 40 92 43.134 92 47V51.3537C96.4449 52.6845 100.627 54.7788 104.351 57.5312L107.502 54.3802C110.236 51.6465 114.668 51.6465 117.402 54.3802L122.619 59.5979C125.353 62.3316 125.353 66.7638 122.619 69.4975L119.469 72.6485C122.221 76.3727 124.316 80.5551 125.646 85H130C133.866 85 137 88.134 137 92V99.3787C137 103.245 133.866 106.379 130 106.379H125.646C124.316 110.824 122.221 115.006 119.469 118.73L122.619 121.881C125.353 124.615 125.353 129.047 122.619 131.781L117.402 136.998C114.668 139.732 110.236 139.732 107.502 136.998L104.351 133.848C100.627 136.6 96.4449 138.694 92 140.025V144.379C92 148.245 88.866 151.379 85 151.379H77.6213C73.7553 151.379 70.6213 148.245 70.6213 144.379V140.025C66.1764 138.694 61.994 136.6 58.2698 133.848L55.1188 136.998C52.3851 139.732 47.953 139.732 45.2193 136.998L40.0016 131.781C37.2679 129.047 37.2679 124.615 40.0016 121.881L43.1526 118.73C40.4002 115.006 38.3059 110.824 36.9751 106.379H32.6213C28.7553 106.379 25.6213 103.245 25.6213 99.3787V92C25.6213 88.134 28.7553 85 32.6213 85H36.9751C38.3059 80.5551 40.4002 76.3727 43.1526 72.6485L40.0016 69.4975C37.2679 66.7638 37.2679 62.3316 40.0016 59.5979L45.2193 54.3802C47.953 51.6465 52.3851 51.6465 55.1188 54.3802L58.2698 57.5312C61.994 54.7788 66.1764 52.6845 70.6213 51.3537V47C70.6213 43.134 73.7553 40 77.6213 40H85ZM81.3107 72C70.265 72 61.3107 80.9543 61.3107 92C61.3107 103.046 70.265 112 81.3107 112C92.3564 112 101.311 103.046 101.311 92C101.311 80.9543 92.3564 72 81.3107 72Z"
+                    fill="currentColor"
+                  />
+                </svg>
               </div>
             </div>
 
-            {/* Step 3 */}
-            <div className="group relative flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-white p-8 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
-              <div>
-                <div className="flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#e7f5e3] text-[#14a800]">
-                    <Sparkles className="h-6 w-6" />
-                  </div>
-                  <span className="text-2xl font-black text-[#14a800]/40 group-hover:text-[#14a800] transition-colors">
-                    03
-                  </span>
-                </div>
-                <h3 className="mt-6 text-xl font-bold text-[#0c180a]">
+            {/* Step 3: Put Your Data to Work */}
+            <div className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-[#0a5200] p-8 sm:p-9 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
+              <div className="relative z-10 max-w-[85%]">
+                <h3 className="text-2xl font-extrabold tracking-tight text-white">
                   Put Your Data to&nbsp;Work
                 </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                  Ask questions, automate repetitive work and give every role the
-                  information it&nbsp;needs.
+                <p className="mt-4 text-sm sm:text-base leading-relaxed text-white/90 text-pretty">
+                  Ask questions, automate repetitive work and give every role the information it needs.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-1.5 text-xs font-semibold text-[#14a800]">
-                <Check className="h-4 w-4" />
-                <span>Measurable hours saved weekly</span>
+
+              {/* Decorative Corner SVG Illustration: Active analytics chart & intelligence sparks */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-5 -right-5 select-none transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-x-1 group-hover:-translate-y-1"
+              >
+                <svg
+                  width="160"
+                  height="160"
+                  viewBox="0 0 160 160"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="text-white/15"
+                >
+                  {/* Ascending Chart Bars */}
+                  <rect x="35" y="105" width="18" height="35" rx="5" fill="currentColor" fillOpacity="0.4" />
+                  <rect x="62" y="85" width="18" height="55" rx="5" fill="currentColor" fillOpacity="0.6" />
+                  <rect x="89" y="60" width="18" height="80" rx="5" fill="currentColor" fillOpacity="0.8" />
+                  <rect x="116" y="40" width="18" height="100" rx="5" fill="currentColor" />
+                  {/* Spark Line */}
+                  <path
+                    d="M38 95 L68 75 L95 50 L125 30"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                  />
+                  <circle cx="125" cy="30" r="5" fill="currentColor" />
+                </svg>
               </div>
             </div>
           </div>

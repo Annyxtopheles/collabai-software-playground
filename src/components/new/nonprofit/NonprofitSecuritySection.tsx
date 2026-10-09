@@ -23,8 +23,7 @@ export const NonprofitSecuritySection: React.FC = () => {
             Your Data Is Private, Protected and Secure
           </h2>
           <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-600 text-pretty">
-            Get the benefits of AI without giving up control of your organization’s sensitive donor,
-            member, financial or operational information.
+            The Nonprofit Control Tower is designed for organizations that want the benefits of AI without giving up control of sensitive donor, member, financial or organizational information.
           </p>
         </div>
 

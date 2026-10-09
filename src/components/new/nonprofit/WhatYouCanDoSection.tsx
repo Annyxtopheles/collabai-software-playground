@@ -26,16 +26,16 @@ const OUTCOME_CARDS: WhatYouCanDoCardItem[] = [
     theme: "green",
     badge: "CRM & Giving",
     title: "Donor Intelligence",
-    subheader: "Understand donors, history & engagement",
+    subheader: "Understand donors, history, engagement and next actions in one place.",
     description:
-      "Connect fragmented donor lists, offline gifts and CRM records into unified profiles. Surface giving patterns, renewal timelines and high-impact outreach recommendations automatically.",
+      "Understand donors, history, engagement and next actions in one place.",
     videoTitle: "Donor Intelligence Walkthrough",
     previewSnippet: {
-      title: "Major Gifts & Retention",
-      status: "Synced · 12 Systems",
-      metricLabel: "YTD Retention",
-      metricValue: "84.2%",
-      subtext: "14 priority follow-ups drafted",
+      title: "Donor Intelligence",
+      status: "Connected",
+      metricLabel: "Donor History",
+      metricValue: "Unified",
+      subtext: "Engagement & next actions in one place",
     },
   },
   {
@@ -43,84 +43,84 @@ const OUTCOME_CARDS: WhatYouCanDoCardItem[] = [
     theme: "light",
     badge: "Grants & Funding",
     title: "Grant Management",
-    subheader: "Research, drafting, reporting & follow-up",
+    subheader: "Use existing organizational information to support grant research, drafting, reporting and follow-up.",
     description:
-      "Tap your existing organizational archive to automatically synthesize past applications, program KPIs and expenditure reports for grant proposals in minutes instead of weeks.",
-    videoTitle: "Grant Management & Auto-Drafting Demo",
+      "Use existing organizational information to support grant research, drafting, reporting and follow-up.",
+    videoTitle: "Grant Management Demo",
     previewSnippet: {
-      title: "Q3 Federal Grant Proposal",
-      status: "Draft Ready",
-      metricLabel: "Staff Saved",
-      metricValue: "~18 hrs",
-      subtext: "Matched 9 compliance criteria",
+      title: "Grant Management",
+      status: "Ready",
+      metricLabel: "Grant Research",
+      metricValue: "Automated",
+      subtext: "Drafting, reporting & follow-up",
     },
   },
   {
     id: "program-operations",
     theme: "light",
-    badge: "Operations Command",
+    badge: "Operations",
     title: "Program & Operations Visibility",
-    subheader: "Activities, outcomes & operations together",
+    subheader: "See activities, outcomes and operational information together instead of across disconnected systems.",
     description:
-      "Eliminate manual spreadsheet consolidation. Real-time telemetry connects fieldwork, volunteer hours and budget burn across all branches in one central executive dashboard.",
+      "See activities, outcomes and operational information together instead of across disconnected systems.",
     videoTitle: "Program & Operations Visibility Overview",
     previewSnippet: {
-      title: "Unified Program Telemetry",
-      status: "Live Stream",
-      metricLabel: "Active Programs",
-      metricValue: "24",
-      subtext: "100% operational coverage",
+      title: "Operations Visibility",
+      status: "Live",
+      metricLabel: "Activities & Outcomes",
+      metricValue: "Connected",
+      subtext: "One operational view across systems",
     },
   },
   {
     id: "board-governance",
     theme: "green",
-    badge: "Governance & Trustee",
+    badge: "Governance",
     title: "Board Governance",
-    subheader: "Minutes, policies & board packets organized",
+    subheader: "Organize minutes, policies, board documents, packets and institutional knowledge.",
     description:
-      "Transform disorganized email threads and shared drives into an executive-ready board hub. Compile meeting packets, resolutions and institutional knowledge with verified citations.",
-    videoTitle: "Board Governance & Packet Generator",
+      "Organize minutes, policies, board documents, packets and institutional knowledge.",
+    videoTitle: "Board Governance Walkthrough",
     previewSnippet: {
-      title: "Board Meeting Packet",
-      status: "Compiled",
-      metricLabel: "Resolutions",
-      metricValue: "6 Passed",
-      subtext: "Audited & cited across 4 docs",
+      title: "Board Governance",
+      status: "Organized",
+      metricLabel: "Board Packets",
+      metricValue: "Compiled",
+      subtext: "Minutes, policies & institutional knowledge",
     },
   },
   {
     id: "meeting-intelligence",
     theme: "green",
-    badge: "Executive Sync",
+    badge: "Meetings",
     title: "Meeting Intelligence",
-    subheader: "Summaries, decisions & action items captured",
+    subheader: "Capture meeting summaries, decisions and action items so important follow-up does not get lost.",
     description:
-      "Never lose an important post-meeting decision or volunteer assignment. Integrates with Zoom and Teams to produce clean action-item matrices with owner assignments automatically.",
-    videoTitle: "Meeting Intelligence & Action Capture",
+      "Capture meeting summaries, decisions and action items so important follow-up does not get lost.",
+    videoTitle: "Meeting Intelligence Demo",
     previewSnippet: {
-      title: "Executive Committee Sync",
-      status: "Processed",
+      title: "Meeting Intelligence",
+      status: "Captured",
       metricLabel: "Action Items",
-      metricValue: "11 Assigned",
-      subtext: "Synced to calendar & reminders",
+      metricValue: "Assigned",
+      subtext: "Summaries & decisions tracked",
     },
   },
   {
     id: "ai-assistants",
     theme: "light",
-    badge: "Private Organization AI",
+    badge: "AI Assistants",
     title: "AI Assistants",
-    subheader: "Ask questions across your entire knowledge base",
+    subheader: "Ask questions across your organization’s information instead of searching through files, inboxes and systems manually.",
     description:
-      "Empower your staff to ask questions in plain English across files, annual reports and meeting archives without manual file scouring — private by design with zero model training.",
-    videoTitle: "Private Organization AI Assistant Demo",
+      "Ask questions across your organization’s information instead of searching through files, inboxes and systems manually.",
+    videoTitle: "AI Assistants Demo",
     previewSnippet: {
-      title: "Operational Assistant",
-      status: "Private · Zero Training",
-      metricLabel: "Query Resolution",
-      metricValue: "< 2 sec",
-      subtext: "Sourced across 8,400+ files",
+      title: "AI Assistants",
+      status: "Private",
+      metricLabel: "Organization Q&A",
+      metricValue: "Instant",
+      subtext: "Search across files & systems in plain English",
     },
   },
 ];
@@ -137,11 +137,10 @@ export const WhatYouCanDoSection: React.FC = () => {
             Everyday Outcomes
           </span>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
-            Powerful features made refreshingly easy to use
+            What You Can Do
           </h2>
           <p className="mt-4 text-base text-slate-600 sm:text-lg text-balance max-w-2xl mx-auto">
-            Transform daily nonprofit operations across every department with private,
-            mission-aligned intelligence.
+            Translate the platform into everyday nonprofit outcomes.
           </p>
         </div>
 
@@ -169,13 +168,6 @@ export const WhatYouCanDoSection: React.FC = () => {
                     >
                       {card.title}
                     </h3>
-                    <p
-                      className={`mt-1 text-sm sm:text-base font-semibold ${
-                        isGreen ? "text-[#e7f5e3]" : "text-[#14a800]"
-                      }`}
-                    >
-                      {card.subheader}
-                    </p>
                   </div>
 
                   {/* Play Button Trigger */}

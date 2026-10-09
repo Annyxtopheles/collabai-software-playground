@@ -148,7 +148,7 @@ const NonProfitHub = () => {
               {/* Supporting Copy */}
               <p className="mt-6 max-w-2xl text-base text-slate-600 sm:text-lg sm:leading-relaxed text-pretty">
                 Connect your donors, grants, programs, meetings, documents and board
-                operations in one private AI-powered Nonprofit Control Tower without
+                operations in one private AI-powered <strong className="font-bold text-slate-900">Nonprofit Control Tower</strong> without
                 replacing the tools you already&nbsp;use.
               </p>
 
@@ -277,7 +277,7 @@ const NonProfitHub = () => {
                 ISO/IEC 27001:2022
               </div>
               <div className="mt-0.5 text-xs font-medium text-slate-500">
-                Certified security
+                Certified
               </div>
             </div>
           </div>
@@ -440,13 +440,12 @@ const NonProfitHub = () => {
               <span className="block">and run your nonprofit.</span>
             </h2>
             
-            {/* Fluid, relaxed editorial copy replacing rigid narrow paragraphs */}
             <div className="mt-6 mx-auto max-w-3xl space-y-4 text-base sm:text-lg leading-relaxed text-slate-600">
               <p className="text-pretty">
-                The <strong className="font-semibold text-slate-900">Nonprofit Control Tower</strong> sits across the tools you already rely on — turning scattered donor spreadsheets, grant files, and meeting minutes into one clear, real-time operational view for your staff, leadership, and board.
+                The <strong className="font-semibold text-slate-900">Nonprofit Control Tower</strong> sits across the systems you already use and turns scattered information into a clear operational view for your team, leadership and board.
               </p>
-              <p className="text-pretty text-slate-500 text-sm sm:text-base">
-                Connect data seamlessly, surface immediate answers, and automate repetitive busywork — keeping everyone aligned without forcing your organization to replace a single tool you already know.
+              <p className="text-pretty text-slate-600 text-base sm:text-lg">
+                It helps your organization connect data, surface answers, automate repetitive work and keep everyone aligned without forcing your team to replace the tools they already know.
               </p>
             </div>
           </div>
@@ -741,7 +740,7 @@ const NonProfitHub = () => {
               <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <BookFreeDemoBtn variant="white" />
                 <span className="text-xs font-medium text-white/80">
-                  Focused on your organization’s actual workflows & priorities.
+                  We will focus the demo on your organization’s actual workflows and your priorities.
                 </span>
               </div>
             </div>
@@ -920,10 +919,6 @@ const NonProfitHub = () => {
               <span className="block">Keep your tools.</span>
               <span className="block">Connect your operations.</span>
             </h2>
-            <p className="mt-4 text-base text-slate-600 sm:text-lg text-pretty">
-              No long, risky software transitions. We bring the intelligence to
-              the data you already&nbsp;possess.
-            </p>
           </div>
 
           <div className="mt-14 grid gap-8 md:grid-cols-3">
@@ -1144,7 +1139,7 @@ const NonProfitHub = () => {
                 Self-Hosted
               </div>
               <h3 className="mt-3 text-2xl font-bold text-[#0c180a]">
-                Host on Your Own&nbsp;Infrastructure
+                Host It on Your Own&nbsp;Infrastructure
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
                 Your organization can run the Nonprofit Control Tower within its
@@ -1202,8 +1197,7 @@ const NonProfitHub = () => {
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
                 Prefer not to manage the hosting yourself? We can host the
-                Nonprofit Control Tower for your organization so you never worry
-                about&nbsp;servers.
+                Nonprofit Control Tower for your organization for $1,500 per&nbsp;year.
               </p>
 
               <div className="my-6 border-y border-slate-100 py-6">

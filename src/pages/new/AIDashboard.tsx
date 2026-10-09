@@ -489,19 +489,19 @@ const AgentLightboxModal = ({
             </h4>
             <ul className="mt-2.5 space-y-2 text-xs leading-relaxed text-brand-primary">
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
                 <span>
                   <strong>{agent.speedupMultiplier}</strong> faster execution turnaround compared to manual workflow.
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
                 <span>
                   Saves an estimated <strong>{agent.timeSaved}</strong> by eliminating repetitive manual review steps.
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
                 <span>
                   Connects directly into <strong>{agent.integrations.join(", ")}</strong> without requiring context-switching.
                 </span>
@@ -555,7 +555,7 @@ const AgentLightboxModal = ({
               type="button"
               onClick={prevSlide}
               aria-label="Previous screenshot"
-              className="absolute left-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 shadow-sm transition-all hover:bg-white hover:text-slate-900 active:scale-95"
+              className="absolute left-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 shadow-sm transition-all hover:border-blue-600 hover:bg-blue-600 hover:text-white active:scale-95"
             >
               <ChevronLeft className="h-4 w-4" />
             </button>
@@ -565,7 +565,7 @@ const AgentLightboxModal = ({
               type="button"
               onClick={nextSlide}
               aria-label="Next screenshot"
-              className="absolute right-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 shadow-sm transition-all hover:bg-white hover:text-slate-900 active:scale-95"
+              className="absolute right-3 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 shadow-sm transition-all hover:border-blue-600 hover:bg-blue-600 hover:text-white active:scale-95"
             >
               <ChevronRight className="h-4 w-4" />
             </button>

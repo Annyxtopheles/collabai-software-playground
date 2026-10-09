@@ -48,8 +48,23 @@ import paypal from "@/assets/logos/paypal.svg";
 import inituitquickbooks from "@/assets/logos/intuitquickbooks.svg";
 import eventbrite from "@/assets/logos/eventbrite.svg";
 import givebutter from "@/assets/logos/givebutter.svg";
-import onecause from "@/assets/logos/onecause.svg";
 import mailchimp from "@/assets/logos/mailchimp.svg";
+import linkedin from "@/assets/integrations/linkedin-colored.svg";
+import clearbit from "@/assets/logos/clearbit.svg";
+import googledocs from "@/assets/logos/googledocs.svg";
+import googlesheets from "@/assets/logos/googlesheets.svg";
+import gmail from "@/assets/integrations/gmail-colored.svg";
+import googlecalendar from "@/assets/integrations/google-calendar-colored.svg";
+import excel from "@/assets/logos/excel.svg";
+import activecollab from "@/assets/integrations/active-collab.png";
+import sharepoint from "@/assets/integrations/sharepoint-colored.svg";
+import googleads from "@/assets/logos/google-ads.svg";
+import metaads from "@/assets/logos/meta-ads.svg";
+import wordpress from "@/assets/logos/wordpress.svg";
+import linear from "@/assets/logos/linear.svg";
+import xero from "@/assets/logos/xero.svg";
+import bamboohr from "@/assets/logos/bamboohr.svg";
+import emailIcon from "@/assets/logos/email.svg";
 export type LogoItem = {
   id: string;
   name: string;
@@ -113,6 +128,23 @@ export const LOGOS = [
   { id: "onecause", name: "OneCause", src: onecause },
   { id: "mailchimp", name: "Mailchimp", src: mailchimp },
   { id: "kindfull", name: "Kindfull", src: kindfull },
+  { id: "linkedin", name: "LinkedIn", src: linkedin },
+  { id: "clearbit", name: "Clearbit", src: clearbit },
+  { id: "googledocs", name: "Google Docs", src: googledocs },
+  { id: "googlesheets", name: "Google Sheets", src: googlesheets },
+  { id: "gmail", name: "Gmail", src: gmail },
+  { id: "googlecalendar", name: "Google Calendar", src: googlecalendar },
+  { id: "excel", name: "Excel", src: excel },
+  { id: "activecollab", name: "ActiveCollab", src: activecollab },
+  { id: "sharepoint", name: "SharePoint", src: sharepoint },
+  { id: "googleads", name: "Google Ads", src: googleads },
+  { id: "metaads", name: "Meta Ads", src: metaads },
+  { id: "wordpress", name: "WordPress", src: wordpress },
+  { id: "linear", name: "Linear", src: linear },
+  { id: "xero", name: "Xero", src: xero },
+  { id: "bamboohr", name: "BambooHR", src: bamboohr },
+  { id: "email", name: "Email", src: emailIcon },
+  { id: "controltower", name: "Control Tower", src: "/lovable-uploads/aed406e1-e3d5-4045-9238-c551bc2ca3a4.png" },
 ] as const satisfies readonly LogoItem[];
 
 export type LogoId = (typeof LOGOS)[number]["id"];

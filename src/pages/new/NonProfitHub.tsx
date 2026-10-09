@@ -1048,16 +1048,6 @@ const NonProfitHub = () => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
-                  {/* Glowing Operational Star / Apex Node */}
-                  <circle cx="126" cy="34" r="7" fill="currentColor" className="transition-transform duration-500 group-hover:scale-125 origin-center" />
-                  <path
-                    d="M126 18 V26 M126 42 V50 M110 34 H118 M134 34 H142"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeOpacity="0.7"
-                    className="transition-transform duration-500 group-hover:rotate-45 origin-center"
-                  />
                 </svg>
               </div>
             </div>

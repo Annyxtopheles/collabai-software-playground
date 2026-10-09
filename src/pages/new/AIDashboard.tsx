@@ -41,18 +41,40 @@ import LogoStrip from "@/components/LogoStrip";
 import { LOGOS, type LogoItem } from "@/data/logos";
 import { agentTeams } from "@/data/agentTeams";
 import dealCoachBanner from "@/assets/agents/deal-coach-banner.png";
+import agentBanner1 from "@/assets/agents/agent-banner-1.png";
+import agentBanner2 from "@/assets/agents/agent-banner-2.png";
+import agentBanner3 from "@/assets/agents/agent-banner-3.jpg";
+import agentBanner4 from "@/assets/agents/agent-banner-4.jpg";
+import agentBanner5 from "@/assets/agents/agent-banner-5.png";
 
 import { DASHBOARD_AGENTS, type DashboardAgent } from "@/data/dashboardAgentsData";
 
+// Curated preview mapping distributing banners across different agent cards
+const AGENT_BANNER_MAP: Record<string, string> = {
+  "deal-coach": dealCoachBanner,
+  "pipeline-hygiene": agentBanner1,
+  "meeting-intelligence": agentBanner2,
+  "project-analyzer": agentBanner3,
+  "weekly-status": agentBanner4,
+  "subtask-planner": agentBanner5,
+  "donor-retention": agentBanner4,
+  "cross-system-knowledge-search": agentBanner5,
+  "contract-risk-reviewer": agentBanner3,
+};
+
 const AgentBannerPreview = ({ agent }: { agent: DashboardAgent }) => {
-  if (agent.bannerImage || agent.id === "deal-coach" || agent.id.startsWith("deal-coach")) {
-    const bannerUrl = agent.bannerImage || dealCoachBanner;
+  const bannerUrl =
+    agent.bannerImage ||
+    AGENT_BANNER_MAP[agent.id] ||
+    (agent.id.startsWith("deal-coach") ? dealCoachBanner : undefined);
+
+  if (bannerUrl) {
     return (
-      <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-50 flex items-center justify-center select-none">
+      <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100 flex items-center justify-center select-none border-b border-slate-100">
         <img
           src={bannerUrl}
           alt={agent.name}
-          className="h-full w-full object-contain"
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
       </div>
     );
@@ -726,7 +748,6 @@ const AIDashboard = () => {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-8 py-3 text-sm font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-[hsl(var(--brand-secondary))] hover:bg-[hsl(var(--brand-secondary))] hover:text-white active:translate-y-[2px]"
               >
-                <Play className="h-4 w-4 text-[hsl(var(--brand-secondary))] fill-[hsl(var(--brand-secondary))] transition-colors group-hover:text-white group-hover:fill-white" />
                 <span>Launch Live Demo</span>
                 <ExternalLink className="h-3.5 w-3.5 text-slate-400 transition-colors group-hover:text-white" />
               </a>
@@ -916,16 +937,16 @@ const AIDashboard = () => {
               hideHeading
               aria-label="Agent Integration Stack"
               logos={[
-                "hubspot",
-                "zoom",
-                "google-workspace",
+                "ms365",
                 "slack",
-                "monday",
+                "jira",
                 "notion",
                 "github",
+                "monday",
+                "google-workspace",
                 "salesforce",
-                "ms365",
-                "jira",
+                "hubspot",
+                "zoom",
                 "zapier",
                 "docusign",
               ]}
@@ -941,7 +962,9 @@ const AIDashboard = () => {
             Put Your AI Workforce to Work Today.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-white/80">
-            Self-hosted in your private cloud or managed by us. Bring your own model keys with zero token markups.
+            Self-hosted in your private cloud or managed by us.
+            <br />
+            Bring your own model keys with zero token markups.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link

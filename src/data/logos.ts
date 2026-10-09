@@ -21,6 +21,7 @@ import googledrive from "@/assets/logos/googledrive.svg";
 import googlemeet from "@/assets/logos/googlemeet.svg";
 import lendingpad from "@/assets/logos/lendingpad.svg";
 import ms365 from "@/assets/logos/ms365.svg";
+import jira from "@/assets/logos/jira.svg";
 import msteams from "@/assets/logos/msteams.svg";
 import n8n from "@/assets/logos/n8n.svg";
 import stedi from "@/assets/logos/stedi.svg";
@@ -82,6 +83,7 @@ export const LOGOS = [
   { id: "googlemeet", name: "Google Meet", src: googlemeet },
   { id: "lendingpad", name: "LendingPad", src: lendingpad },
   { id: "ms365", name: "Microsoft 365", src: ms365 },
+  { id: "jira", name: "Jira", src: jira },
   { id: "msteams", name: "Microsoft Teams", src: msteams },
   { id: "n8n", name: "n8n", src: n8n },
   { id: "stedi", name: "Stedi", src: stedi },

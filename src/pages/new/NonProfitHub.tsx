@@ -82,7 +82,7 @@ const BookFreeDemoBtn = ({
 
   const variants = {
     primary:
-      "bg-[#14a800] text-white hover:bg-[#118f00] shadow-[0_4px_18px_rgba(20,168,0,0.28)] hover:shadow-[0_6px_24px_rgba(20,168,0,0.38)]",
+      "bg-[#14a800] text-white hover:bg-[#118f00] shadow-none hover:shadow-lg hover:shadow-[#14a800]/25",
     secondary:
       "border border-[#14a800]/30 bg-[#e7f5e3]/60 text-[#118f00] hover:bg-[#e7f5e3] hover:border-[#14a800]/50",
     white:
@@ -246,8 +246,40 @@ const NonProfitHub = () => {
             Built on 22 years of technology delivery experience from SJ Innovation
           </p>
 
+          {/* Client Logos Strip */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-10 md:gap-16">
+            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
+              <img
+                src={iaaboLogo}
+                alt="IAABO"
+                className="h-14 md:h-16 w-auto object-contain"
+              />
+            </div>
+            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
+              <img
+                src={bspLogo}
+                alt="BSP"
+                className="h-14 md:h-16 w-auto object-contain"
+              />
+            </div>
+            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
+              <img
+                src={theOptimistsLogo}
+                alt="The Optimists"
+                className="h-12 md:h-14 w-auto object-contain"
+              />
+            </div>
+            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
+              <img
+                src={queensChamberLogo}
+                alt="Queens Chamber of Commerce"
+                className="h-12 md:h-14 w-auto object-contain"
+              />
+            </div>
+          </div>
+
           {/* Key Credibility Stats */}
-          <div className="mt-6 grid grid-cols-2 gap-4 text-center md:grid-cols-4 md:gap-8">
+          <div className="mt-10 grid grid-cols-2 gap-4 text-center md:grid-cols-4 md:gap-8">
             <div className="rounded-xl border border-slate-100 bg-white p-3.5 shadow-xs">
               <div className="text-2xl font-extrabold text-[#14a800] md:text-3xl">
                 22 Years
@@ -279,38 +311,6 @@ const NonProfitHub = () => {
               <div className="mt-0.5 text-xs font-medium text-slate-500">
                 Certified
               </div>
-            </div>
-          </div>
-
-          {/* Client Logos Strip */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-10 md:gap-16">
-            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
-              <img
-                src={iaaboLogo}
-                alt="IAABO"
-                className="h-14 md:h-16 w-auto object-contain"
-              />
-            </div>
-            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
-              <img
-                src={bspLogo}
-                alt="BSP"
-                className="h-14 md:h-16 w-auto object-contain"
-              />
-            </div>
-            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
-              <img
-                src={theOptimistsLogo}
-                alt="The Optimists"
-                className="h-12 md:h-14 w-auto object-contain"
-              />
-            </div>
-            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
-              <img
-                src={queensChamberLogo}
-                alt="Queens Chamber of Commerce"
-                className="h-12 md:h-14 w-auto object-contain"
-              />
             </div>
           </div>
         </div>
@@ -465,48 +465,27 @@ const NonProfitHub = () => {
       <section className="border-t border-slate-100 bg-[#fbfdfa] py-16 md:py-24">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
-              Real-World Proof
-            </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+            <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
               <span className="block">Built for organizations</span>
               <span className="block">doing real&nbsp;work.</span>
             </h2>
-            <p className="mt-4 text-base text-slate-600 sm:text-lg text-pretty">
-              Real implementations delivering measurable operational time back to
-              nonprofit&nbsp;teams.
-            </p>
           </div>
 
           <div className="mt-14 grid gap-8 md:grid-cols-2">
             {/* Case 1: IAABO */}
             <div className="flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-5">
+              <div className="border-b border-slate-100 pb-5">
                 <img
                   src={iaaboLogo}
                   alt="IAABO"
                   className="h-12 w-auto object-contain"
                 />
-                <span className="rounded-full border border-[#14a800]/20 bg-[#e7f5e3] px-3 py-1 text-xs font-bold text-[#118f00]">
-                  16,000+ Officials
-                </span>
               </div>
               <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
                 AI learning for 16,000+ basketball&nbsp;officials
               </h3>
 
-              {/* Mini Result Metric Card */}
-              <div className="my-4 rounded-2xl border border-slate-100 bg-[#fbfdfa] p-3.5 flex items-center justify-between">
-                <div>
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Impact Metric</div>
-                  <div className="text-sm font-extrabold text-[#14a800]">100% Automated Testing & Certification</div>
-                </div>
-                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
-                  <CheckCircle2 className="h-4 w-4" />
-                </div>
-              </div>
-
-              <div className="space-y-3 text-sm text-slate-600">
+              <div className="mt-4 space-y-3 text-sm text-slate-600">
                 <div>
                   <span className="font-semibold text-slate-900">Challenge: </span>
                   IAABO needed one place to train, test and certify officials
@@ -521,7 +500,7 @@ const NonProfitHub = () => {
                   question-level analytics.
                 </div>
               </div>
-              <div className="mt-6 pt-5 border-t border-slate-100">
+              <div className="mt-auto pt-6 border-t border-slate-100">
                 <div className="inline-flex items-center gap-2 rounded-lg bg-[#e7f5e3] px-3.5 py-2 text-xs font-bold text-[#118f00]">
                   <CheckCircle2 className="h-4 w-4" />
                   Launched September 2026 | Supporting 16,000+ officials
@@ -531,32 +510,18 @@ const NonProfitHub = () => {
 
             {/* Case 2: BSP */}
             <div className="flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-5">
+              <div className="border-b border-slate-100 pb-5">
                 <img
                   src={bspLogo}
                   alt="BSP"
                   className="h-12 w-auto object-contain"
                 />
-                <span className="rounded-full border border-[#14a800]/20 bg-[#e7f5e3] px-3 py-1 text-xs font-bold text-[#118f00]">
-                  Community Operations
-                </span>
               </div>
               <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
                 From a placeholder site to a live nonprofit Control&nbsp;Tower
               </h3>
 
-              {/* Mini Result Metric Card */}
-              <div className="my-4 rounded-2xl border border-slate-100 bg-[#fbfdfa] p-3.5 flex items-center justify-between">
-                <div>
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Impact Metric</div>
-                  <div className="text-sm font-extrabold text-[#14a800]">Unified Forms, Events & Donations</div>
-                </div>
-                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
-                  <CheckCircle2 className="h-4 w-4" />
-                </div>
-              </div>
-
-              <div className="space-y-3 text-sm text-slate-600">
+              <div className="mt-4 space-y-3 text-sm text-slate-600">
                 <div>
                   <span className="font-semibold text-slate-900">Challenge: </span>
                   A volunteer-run community group needed online sign-ups and a
@@ -571,7 +536,7 @@ const NonProfitHub = () => {
                   while online forms feed directly into the dashboard.
                 </div>
               </div>
-              <div className="mt-6 pt-5 border-t border-slate-100">
+              <div className="mt-auto pt-6 border-t border-slate-100">
                 <div className="inline-flex items-center gap-2 rounded-lg bg-[#e7f5e3] px-3.5 py-2 text-xs font-bold text-[#118f00]">
                   <CheckCircle2 className="h-4 w-4" />
                   Website + operations + forms connected in one system
@@ -581,32 +546,18 @@ const NonProfitHub = () => {
 
             {/* Case 3: The Optimists */}
             <div className="flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-5">
+              <div className="border-b border-slate-100 pb-5">
                 <img
                   src={theOptimistsLogo}
                   alt="The Optimists"
                   className="h-10 w-auto object-contain"
                 />
-                <span className="rounded-full border border-[#14a800]/20 bg-[#e7f5e3] px-3 py-1 text-xs font-bold text-[#118f00]">
-                  Legacy Modernization
-                </span>
               </div>
               <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
                 Modernizing a 12-year-old nonprofit&nbsp;platform
               </h3>
 
-              {/* Mini Result Metric Card */}
-              <div className="my-4 rounded-2xl border border-slate-100 bg-[#fbfdfa] p-3.5 flex items-center justify-between">
-                <div>
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Impact Metric</div>
-                  <div className="text-sm font-extrabold text-[#14a800]">Zero Downtime Migration to Live Ops</div>
-                </div>
-                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
-                  <CheckCircle2 className="h-4 w-4" />
-                </div>
-              </div>
-
-              <div className="space-y-3 text-sm text-slate-600">
+              <div className="mt-4 space-y-3 text-sm text-slate-600">
                 <div>
                   <span className="font-semibold text-slate-900">Challenge: </span>
                   An outdated WordPress site and admin panel were slowing the
@@ -620,7 +571,7 @@ const NonProfitHub = () => {
                   Optimists Control Tower connected to live data.
                 </div>
               </div>
-              <div className="mt-6 pt-5 border-t border-slate-100">
+              <div className="mt-auto pt-6 border-t border-slate-100">
                 <div className="inline-flex items-center gap-2 rounded-lg bg-[#e7f5e3] px-3.5 py-2 text-xs font-bold text-[#118f00]">
                   <CheckCircle2 className="h-4 w-4" />
                   Modernized infrastructure + live operational data
@@ -630,32 +581,18 @@ const NonProfitHub = () => {
 
             {/* Case 4: Queens Chamber of Commerce */}
             <div className="flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-5">
+              <div className="border-b border-slate-100 pb-5">
                 <img
                   src={queensChamberLogo}
                   alt="Queens Chamber of Commerce"
                   className="h-10 w-auto object-contain"
                 />
-                <span className="rounded-full border border-[#14a800]/20 bg-[#e7f5e3] px-3 py-1 text-xs font-bold text-[#118f00]">
-                  Community AI Infrastructure
-                </span>
               </div>
               <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
                 AI for a whole business&nbsp;community
               </h3>
 
-              {/* Mini Result Metric Card */}
-              <div className="my-4 rounded-2xl border border-slate-100 bg-[#fbfdfa] p-3.5 flex items-center justify-between">
-                <div>
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Impact Metric</div>
-                  <div className="text-sm font-extrabold text-[#14a800]">Board Portal & Member AI Ecosystem</div>
-                </div>
-                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
-                  <CheckCircle2 className="h-4 w-4" />
-                </div>
-              </div>
-
-              <div className="space-y-3 text-sm text-slate-600">
+              <div className="mt-4 space-y-3 text-sm text-slate-600">
                 <div>
                   <span className="font-semibold text-slate-900">Challenge: </span>
                   The Chamber needed practical AI infrastructure for its own team
@@ -671,7 +608,7 @@ const NonProfitHub = () => {
                   toolkit.
                 </div>
               </div>
-              <div className="mt-6 pt-5 border-t border-slate-100">
+              <div className="mt-auto pt-6 border-t border-slate-100">
                 <div className="inline-flex items-center gap-2 rounded-lg bg-[#e7f5e3] px-3.5 py-2 text-xs font-bold text-[#118f00]">
                   <CheckCircle2 className="h-4 w-4" />
                   Board operations + document intelligence + member AI tools

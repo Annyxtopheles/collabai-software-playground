@@ -324,10 +324,7 @@ const NonProfitHub = () => {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
-              Operational Reality
-            </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+            <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
               <span className="block">Your mission should not be buried</span>
               <span className="block">under operational busywork.</span>
             </h2>
@@ -409,7 +406,7 @@ const NonProfitHub = () => {
                   Leadership lacks one clear&nbsp;view.
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600 text-pretty">
-                  When an Executive Director asks, “Where do we stand?” The answer
+                  When an Executive Director asks, <strong className="font-bold text-slate-900">“Where do we stand?”</strong> The answer
                   should not require five systems and three&nbsp;spreadsheets.
                 </p>
               </div>
@@ -432,9 +429,6 @@ const NonProfitHub = () => {
       <section className="border-t border-slate-100 bg-[#f9fbf8] py-16 md:py-24">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto max-w-4xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
-              The Unified Solution
-            </span>
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
               <span className="block">One place to understand</span>
               <span className="block">and run your nonprofit.</span>
@@ -731,17 +725,16 @@ const NonProfitHub = () => {
               </h2>
 
               <p className="mt-5 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-white/90 text-pretty">
-                Every nonprofit operates differently. In a free demo, we’ll show you
-                how the Nonprofit Control Tower can connect with your existing
-                systems, reduce manual work and support the workflows that matter
-                most to your&nbsp;team.
+                Every nonprofit operates differently.
+                <br />
+                In a free demo, we’ll show you how the Nonprofit Control Tower can connect with your existing systems, reduce manual work and support the workflows that matter most to your&nbsp;team.
               </p>
 
-              <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="mt-8 flex flex-col items-start gap-3">
                 <BookFreeDemoBtn variant="white" />
-                <span className="text-xs font-medium text-white/80">
+                <p className="text-xs font-medium text-white/80">
                   We will focus the demo on your organization’s actual workflows and your priorities.
-                </span>
+                </p>
               </div>
             </div>
 
@@ -912,10 +905,7 @@ const NonProfitHub = () => {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
-              Simple Implementation
-            </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+            <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
               <span className="block">Keep your tools.</span>
               <span className="block">Connect your operations.</span>
             </h2>
@@ -1057,9 +1047,6 @@ const NonProfitHub = () => {
       <section className="border-t border-slate-100 bg-[#fbfdfa] py-16 md:py-24">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
-              Zero Vendor Lock-in
-            </span>
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
               <span className="block">Keep the tools your team</span>
               <span className="block">already&nbsp;knows.</span>
@@ -1120,10 +1107,7 @@ const NonProfitHub = () => {
       <section className="border-t border-slate-100 bg-[#fbfdfa] py-16 md:py-24">
         <div className="container mx-auto max-w-5xl px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
-              Clear, Honest Pricing
-            </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+            <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
               Flexible Hosting Options
             </h2>
             <p className="mt-4 text-base text-slate-600 sm:text-lg text-pretty">

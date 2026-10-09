@@ -133,15 +133,9 @@ export const WhatYouCanDoSection: React.FC = () => {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#14a800]">
-            Everyday Outcomes
-          </span>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
-            What You Can Do
+          <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+            What We Can Do
           </h2>
-          <p className="mt-4 text-base text-slate-600 sm:text-lg text-balance max-w-2xl mx-auto">
-            Translate the platform into everyday nonprofit outcomes.
-          </p>
         </div>
 
         {/* 6 High-Contrast Outcome Cards with Peeking Corner UI & Play Buttons */}
@@ -158,9 +152,9 @@ export const WhatYouCanDoSection: React.FC = () => {
                     : "bg-white text-[#0c180a] border-2 border-emerald-100/90 shadow-[0_12px_32px_rgba(0,0,0,0.06)] hover:border-[#14a800]/50"
                 }`}
               >
-                {/* Top Row: Title + Play Lightbox Trigger */}
+                {/* Top Row: Title + Subheading + Play Lightbox Trigger */}
                 <div className="flex items-start justify-between gap-4">
-                  <div>
+                  <div className="max-w-md">
                     <h3
                       className={`text-2xl sm:text-3xl font-extrabold tracking-tight ${
                         isGreen ? "text-white" : "text-[#0c180a]"
@@ -168,6 +162,13 @@ export const WhatYouCanDoSection: React.FC = () => {
                     >
                       {card.title}
                     </h3>
+                    <p
+                      className={`mt-3 text-sm sm:text-base leading-relaxed ${
+                        isGreen ? "text-white/90" : "text-slate-600"
+                      }`}
+                    >
+                      {card.subheader}
+                    </p>
                   </div>
 
                   {/* Play Button Trigger */}
@@ -183,30 +184,6 @@ export const WhatYouCanDoSection: React.FC = () => {
                   >
                     <Play className="h-5 w-5 sm:h-6 sm:w-6 fill-current ml-0.5" />
                   </button>
-                </div>
-
-                {/* Body Description */}
-                <p
-                  className={`mt-5 max-w-md text-sm sm:text-base leading-relaxed ${
-                    isGreen ? "text-white/90" : "text-slate-600"
-                  }`}
-                >
-                  {card.description}
-                </p>
-
-                {/* Bottom Row: Find Out More Link */}
-                <div className="mt-8 pt-2">
-                  <a
-                    href="#how-it-works"
-                    className={`inline-flex items-center gap-1.5 text-sm sm:text-base font-bold underline underline-offset-4 decoration-2 transition-colors duration-200 ${
-                      isGreen
-                        ? "text-white hover:text-[#e7f5e3] decoration-white/60 hover:decoration-white"
-                        : "text-[#118f00] hover:text-[#0c6600] decoration-[#14a800]/50 hover:decoration-[#14a800]"
-                    }`}
-                  >
-                    <span>Find out more</span>
-                    <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </a>
                 </div>
 
                 {/* Peeking Corner UI Element (Smoothly moves towards center on card hover) */}

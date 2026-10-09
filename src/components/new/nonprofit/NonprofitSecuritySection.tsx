@@ -16,10 +16,7 @@ export const NonprofitSecuritySection: React.FC = () => {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header Block: Centered, clean hierarchy with subtitle directly under title, no arbitrary divider lines */}
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#14a800]">
-            Privacy &amp; Protection
-          </span>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+          <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
             Your Data Is Private, Protected and Secure
           </h2>
           <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-600 text-pretty">

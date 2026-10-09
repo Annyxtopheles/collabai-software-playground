@@ -97,6 +97,54 @@ const BookFreeDemoBtn = ({
       <span>Book Free Demo</span>
     </Link>
   );
+const CLIENT_CASE_CARDS = [
+  {
+    id: "case-iaabo",
+    name: "IAABO",
+    subtitle: "Basketball Officials Association",
+    logo: iaaboLogo,
+    logoHeight: "h-14 sm:h-16",
+    summary: "AI learning, configurable training rules, secure exams and automated certification for 16,000+ officials.",
+    metric: "16,000+ Officials",
+  },
+  {
+    id: "case-bsp",
+    name: "BSP",
+    subtitle: "Community Organization",
+    logo: bspLogo,
+    logoHeight: "h-12 sm:h-14",
+    summary: "New website, event registration, donations and operations unified into a single live dashboard.",
+    metric: "Community Ops",
+  },
+  {
+    id: "case-optimists",
+    name: "The Optimists",
+    subtitle: "Youth & Community Non-Profit",
+    logo: theOptimistsLogo,
+    logoHeight: "h-11 sm:h-12",
+    summary: "Modernized 12-year-old platform with zero downtime, updated admin panel and live operational data.",
+    metric: "Platform Migration",
+  },
+  {
+    id: "case-queens-chamber",
+    name: "Queens Chamber of Commerce",
+    subtitle: "Civic & Business Community",
+    logo: queensChamberLogo,
+    logoHeight: "h-10 sm:h-12",
+    summary: "Board portal, document Q&A, automatic meeting summaries and AI tools for member businesses.",
+    metric: "Board & Member AI",
+  },
+];
+
+const scrollToCase = (targetId: string) => {
+  const el = document.getElementById(targetId);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    el.classList.add("ring-4", "ring-[#14a800]", "ring-offset-4", "transition-all", "duration-500");
+    setTimeout(() => {
+      el.classList.remove("ring-4", "ring-[#14a800]", "ring-offset-4");
+    }, 2500);
+  }
 };
 
 const NonProfitHub = () => {
@@ -246,36 +294,80 @@ const NonProfitHub = () => {
             Built on 22 years of technology delivery experience from SJ Innovation
           </p>
 
-          {/* Client Logos Strip */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-10 md:gap-16">
-            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
-              <img
-                src={iaaboLogo}
-                alt="IAABO"
-                className="h-14 md:h-16 w-auto object-contain"
-              />
-            </div>
-            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
-              <img
-                src={bspLogo}
-                alt="BSP"
-                className="h-14 md:h-16 w-auto object-contain"
-              />
-            </div>
-            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
-              <img
-                src={theOptimistsLogo}
-                alt="The Optimists"
-                className="h-12 md:h-14 w-auto object-contain"
-              />
-            </div>
-            <div className="flex h-16 items-center justify-center grayscale transition-all hover:grayscale-0 opacity-80 hover:opacity-100">
-              <img
-                src={queensChamberLogo}
-                alt="Queens Chamber of Commerce"
-                className="h-12 md:h-14 w-auto object-contain"
-              />
-            </div>
+          {/* 4 Interactive Client Case Study Flip Cards */}
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+            {CLIENT_CASE_CARDS.map((client) => (
+              <div
+                key={client.id}
+                role="button"
+                tabIndex={0}
+                onClick={() => scrollToCase(client.id)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    scrollToCase(client.id);
+                  }
+                }}
+                className="group h-[235px] [perspective:1000px] cursor-pointer select-none focus:outline-hidden"
+                aria-label={`View ${client.name} success story`}
+              >
+                <div className="relative h-full w-full rounded-2xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xs hover:shadow-xl">
+                  {/* FRONT FACE: Logo Banner + Title Name */}
+                  <div className="absolute inset-0 h-full w-full rounded-2xl border border-slate-200/90 bg-white p-4 flex flex-col justify-between [backface-visibility:hidden]">
+                    {/* Top Banner with Client Logo */}
+                    <div className="w-full h-28 rounded-xl bg-gradient-to-b from-[#f8faf6] to-[#edf5eb]/60 border border-slate-100 flex items-center justify-center p-3 relative overflow-hidden">
+                      <img
+                        src={client.logo}
+                        alt={client.name}
+                        className={`${client.logoHeight} w-auto object-contain transition-transform duration-300 group-hover:scale-105`}
+                      />
+                    </div>
+
+                    {/* Title Name & Category */}
+                    <div className="text-center w-full px-1 py-1">
+                      <h4 className="text-sm sm:text-base font-bold text-slate-900 tracking-tight line-clamp-1">
+                        {client.name}
+                      </h4>
+                      <p className="text-[11px] text-slate-500 font-medium mt-0.5 line-clamp-1">
+                        {client.subtitle}
+                      </p>
+                    </div>
+
+                    {/* Subtle Flip Cue */}
+                    <div className="flex items-center justify-center gap-1.5 text-[11px] font-semibold text-[#14a800]">
+                      <span>Hover to explore</span>
+                      <ArrowRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5" />
+                    </div>
+                  </div>
+
+                  {/* BACK FACE: Clean Flipped Preview with Navigation Link */}
+                  <div className="absolute inset-0 h-full w-full rounded-2xl border border-[#14a800]/40 bg-gradient-to-br from-[#0c6600] via-[#118f00] to-[#0a5200] p-5 text-white flex flex-col justify-between [transform:rotateY(180deg)] [backface-visibility:hidden] shadow-lg">
+                    <div className="flex items-center justify-between border-b border-white/20 pb-2">
+                      <span className="text-[10px] font-extrabold uppercase tracking-wider bg-white/20 text-[#e7f5e3] px-2.5 py-0.5 rounded-full">
+                        {client.metric}
+                      </span>
+                      <span className="text-[10px] text-white/70 font-medium">Click to view</span>
+                    </div>
+
+                    <div className="my-auto py-1">
+                      <h4 className="text-sm sm:text-base font-extrabold text-white tracking-tight line-clamp-1">
+                        {client.name}
+                      </h4>
+                      <p className="mt-1 text-xs text-white/90 leading-relaxed line-clamp-3">
+                        {client.summary}
+                      </p>
+                    </div>
+
+                    <div className="pt-2 border-t border-white/20 flex items-center justify-between text-xs font-bold text-white">
+                      <span className="underline underline-offset-4 decoration-white/60">Read Success Story</span>
+                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-[#118f00] shadow-xs">
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Key Credibility Stats */}
@@ -473,7 +565,7 @@ const NonProfitHub = () => {
 
           <div className="mt-14 grid gap-8 md:grid-cols-2">
             {/* Case 1: IAABO */}
-            <div className="flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
+            <div id="case-iaabo" className="scroll-mt-28 flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
               <div className="border-b border-slate-100 pb-5">
                 <img
                   src={iaaboLogo}
@@ -509,7 +601,7 @@ const NonProfitHub = () => {
             </div>
 
             {/* Case 2: BSP */}
-            <div className="flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
+            <div id="case-bsp" className="scroll-mt-28 flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
               <div className="border-b border-slate-100 pb-5">
                 <img
                   src={bspLogo}
@@ -545,7 +637,7 @@ const NonProfitHub = () => {
             </div>
 
             {/* Case 3: The Optimists */}
-            <div className="flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
+            <div id="case-optimists" className="scroll-mt-28 flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
               <div className="border-b border-slate-100 pb-5">
                 <img
                   src={theOptimistsLogo}
@@ -580,7 +672,7 @@ const NonProfitHub = () => {
             </div>
 
             {/* Case 4: Queens Chamber of Commerce */}
-            <div className="flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
+            <div id="case-queens-chamber" className="scroll-mt-28 flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
               <div className="border-b border-slate-100 pb-5">
                 <img
                   src={queensChamberLogo}

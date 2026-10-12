@@ -37,25 +37,14 @@ import theOptimistsLogo from "@/assets/clients/the-optimists.png";
 import queensChamberLogo from "@/assets/clients/queens-chamber.png";
 
 // Section Visuals & Components
+import SmoothImage from "@/components/ui/SmoothImage";
 import NonprofitProblemInfographics from "@/components/new/nonprofit/NonprofitProblemInfographics";
 import NonprofitIntegrationsBeam from "@/components/new/nonprofit/NonprofitIntegrationsBeam";
-import NonprofitSecuritySection from "@/components/new/nonprofit/NonprofitSecuritySection";
 import heroCommunityImpact from "@/assets/nonprofit/hero-community-impact.jpg";
-
-// Integration Logos
-import salesforceLogo from "@/assets/logos/salesforce.svg";
-import blackbaudLogo from "@/assets/logos/blackbaud.svg";
-import bloomerangLogo from "@/assets/logos/bloomerang.svg";
-import quickbooksLogo from "@/assets/logos/intuitquickbooks.svg";
-import hubspotLogo from "@/assets/logos/hubspot.svg";
-import stripeLogo from "@/assets/logos/stripe.svg";
-import paypalLogo from "@/assets/logos/paypal.svg";
-import eventbriteLogo from "@/assets/logos/eventbrite.svg";
-import ms365Logo from "@/assets/logos/ms365.svg";
-import googleWorkspaceLogo from "@/assets/logos/google-workspace.svg";
-import zoomLogo from "@/assets/logos/zoom.svg";
-import mailchimpLogo from "@/assets/logos/mailchimp.svg";
 import iso27001CertifiedLogo from "@/assets/logos/iso-27001-certified.png";
+import easyArt from "@/assets/why-act/easy-to-use.svg.asset.json";
+import privacyArt from "@/assets/why-act/data-privacy.svg.asset.json";
+import costArt from "@/assets/why-act/cost-effective.svg.asset.json";
 
 const nonprofitFaqs = getVertical("non-profit")!.faqs;
 
@@ -819,118 +808,154 @@ const NonProfitHub = () => {
       </section>
 
       {/* ========================================================
-          9. WORKS WITH YOUR EXISTING TOOLS
-          12 Tool logos in clean grid. "Keep your tools" objection handler.
+          9. 3 REASONS TO CHOOSE NON-PROFIT CONTROL TOWER
+          Merged Keep Your Existing Tools, Protect Your Private Data, and Flexible Hosting Options
+          in a 3-card horizontal row matching AgencyWhyAct design.
       ======================================================== */}
-      <section className="border-t border-slate-100 bg-[#fbfdfa] py-16 md:py-24">
+      <section className="border-y border-slate-100 bg-[#fbfdfa] py-16 md:py-20">
         <div className="container mx-auto max-w-6xl px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
-              <span className="block">Keep the tools your team</span>
-              <span className="block">already&nbsp;knows.</span>
-            </h2>
-            <p className="mt-4 text-base text-slate-600 sm:text-lg text-pretty max-w-2xl mx-auto">
-              The Nonprofit Control Tower adds an intelligence and automation
-              layer across your existing systems instead of forcing you to
-              rebuild your technology&nbsp;stack.
-            </p>
-          </div>
-
-          <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-            {[
-              { name: "Salesforce", logo: salesforceLogo },
-              { name: "Blackbaud", logo: blackbaudLogo },
-              { name: "Bloomerang", logo: bloomerangLogo },
-              { name: "QuickBooks", logo: quickbooksLogo },
-              { name: "HubSpot", logo: hubspotLogo },
-              { name: "Stripe", logo: stripeLogo },
-              { name: "PayPal", logo: paypalLogo },
-              { name: "Eventbrite", logo: eventbriteLogo },
-              { name: "Microsoft 365", logo: ms365Logo },
-              { name: "Google Workspace", logo: googleWorkspaceLogo },
-              { name: "Zoom", logo: zoomLogo },
-              { name: "Mailchimp", logo: mailchimpLogo },
-            ].map((tool, idx) => (
-              <div
-                key={idx}
-                className="group flex flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-5 transition-all duration-150 hover:border-[#14a800]/30 hover:shadow-sm"
-              >
-                <div className="flex h-10 w-full items-center justify-center">
-                  <img
-                    src={tool.logo}
-                    alt={tool.name}
-                    className="max-h-8 max-w-[100px] object-contain transition-transform group-hover:scale-105"
-                  />
-                </div>
-                <span className="mt-3 text-xs font-semibold text-slate-700">
-                  {tool.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          10. SECURITY & DATA CONTROL
-          Option 1: Structured Grid with Micro-UI Proof Elements.
-      ======================================================== */}
-      <NonprofitSecuritySection />
-
-      {/* ========================================================
-          11. DEPLOYMENT / PRICING
-          Self-hosted ($0 open source) vs Managed ($1,500/yr).
-          CTA must say "Book Free Demo".
-      ======================================================== */}
-      <section className="border-t border-slate-100 bg-[#fbfdfa] py-16 md:py-24">
-        <div className="container mx-auto max-w-5xl px-4">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
-              Flexible Hosting Options
+              3 Reasons to Choose Non-Profit Control Tower
             </h2>
-            <p className="mt-4 text-base text-slate-600 sm:text-lg text-pretty">
-              Choose where you want your Nonprofit Control Tower to&nbsp;run.
-            </p>
           </div>
 
-          <div className="mt-14 grid gap-8 md:grid-cols-2">
-            {/* Option 1: Host It on Your Own Infrastructure */}
-            <div className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-8 shadow-xs">
-              <div>
-                <h3 className="text-2xl font-bold text-[#0c180a]">
-                  Host It on Your Own&nbsp;Infrastructure
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
-                  Your organization can run the Nonprofit Control Tower within its
-                  own hosting environment, giving you greater control over your
-                  infrastructure and&nbsp;data.
-                </p>
-              </div>
-
-              <div className="mt-8">
-                <BookFreeDemoBtn
-                  variant="secondary"
-                  className="w-full text-center"
+          <div className="mt-14 grid items-stretch gap-6 md:grid-cols-3 lg:gap-8">
+            {/* Card 1: Keep Your Existing Tools */}
+            <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800]/50 hover:shadow-md">
+              <div className="-mx-7 -mt-7 mb-5">
+                <SmoothImage
+                  src={easyArt.url}
+                  alt="Keep Your Existing Tools"
+                  wrapperClassName="aspect-[3/2] w-full overflow-hidden bg-transparent"
+                  className="h-full w-full object-cover"
                 />
               </div>
-            </div>
 
-            {/* Option 2: Let Us Host It for You */}
-            <div className="relative flex flex-col justify-between rounded-3xl border-2 border-[#14a800] bg-white p-8 shadow-xl">
-              <div>
-                <h3 className="text-2xl font-bold text-[#0c180a]">
-                  Let Us Host It for&nbsp;You
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
-                  Prefer not to manage the hosting yourself? We can host the
-                  Nonprofit Control Tower for your organization for $1,500 per&nbsp;year
+              <h3 className="text-2xl font-bold text-[#0c180a]">
+                Keep Your Existing Tools
+              </h3>
+
+              <div className="my-5 h-px bg-slate-200/80" />
+
+              <div className="flex-1">
+                <p className="text-sm leading-relaxed text-slate-600">
+                  The Nonprofit Control Tower adds an intelligence and automation layer across your existing systems instead of forcing you to rebuild your technology stack.
                 </p>
+
+                <ul className="mt-5 space-y-3 text-sm text-slate-600">
+                  {[
+                    "No new tools to learn",
+                    "No need to replace anything",
+                    "Reduce repetitive work",
+                    "Connect your operations in one place",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#e7f5e3]">
+                        <Check className="h-3 w-3 text-[#14a800]" strokeWidth={3} />
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+
+            {/* Card 2: Protect Your Private Data */}
+            <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800]/50 hover:shadow-md">
+              <div className="-mx-7 -mt-7 mb-5">
+                <SmoothImage
+                  src={privacyArt.url}
+                  alt="Protect Your Private Data"
+                  wrapperClassName="aspect-[3/2] w-full overflow-hidden bg-transparent"
+                  className="h-full w-full object-cover"
+                />
               </div>
 
-              <div className="mt-8">
-                <BookFreeDemoBtn className="w-full text-center" />
+              <h3 className="text-2xl font-bold text-[#0c180a]">
+                Protect Your Private Data
+              </h3>
+
+              <div className="my-5 h-px bg-slate-200/80" />
+
+              <div className="flex-1">
+                <p className="text-sm leading-relaxed text-slate-600">
+                  Get benefits of AI without giving up control of sensitive donor, member, financial or organizational information.
+                </p>
+
+                <ul className="mt-5 space-y-3 text-sm text-slate-600">
+                  {[
+                    "Private by design",
+                    "Role-based access",
+                    "Encrypted in transit and at rest",
+                    "Your data is not used to train public AI models",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#e7f5e3]">
+                        <Check className="h-3 w-3 text-[#14a800]" strokeWidth={3} />
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
+            </article>
+
+            {/* Card 3: Flexible Hosting Options */}
+            <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800]/50 hover:shadow-md">
+              <div className="-mx-7 -mt-7 mb-5">
+                <SmoothImage
+                  src={costArt.url}
+                  alt="Flexible Hosting Options"
+                  wrapperClassName="aspect-[3/2] w-full overflow-hidden bg-transparent"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              <h3 className="text-2xl font-bold text-[#0c180a]">
+                Flexible Hosting Options
+              </h3>
+
+              <div className="my-5 h-px bg-slate-200/80" />
+
+              <div className="flex-1">
+                <p className="text-sm leading-relaxed text-slate-600">
+                  Choose where you want your Nonprofit Control Tower to run
+                </p>
+
+                <ul className="mt-5 space-y-4 text-sm text-slate-600">
+                  <li className="flex items-start gap-2.5">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#e7f5e3]">
+                      <Check className="h-3 w-3 text-[#14a800]" strokeWidth={3} />
+                    </span>
+                    <div>
+                      <span className="font-semibold text-[#0c180a] block">
+                        Host It on Your Own Infrastructure
+                      </span>
+                      <span className="mt-1 block leading-relaxed">
+                        Your organization can run the Nonprofit Control Tower within its own hosting environment, giving you greater control over your infrastructure and data.
+                      </span>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#e7f5e3]">
+                      <Check className="h-3 w-3 text-[#14a800]" strokeWidth={3} />
+                    </span>
+                    <div>
+                      <span className="font-semibold text-[#0c180a] block">
+                        Let Us Host It for You
+                      </span>
+                      <span className="mt-1 block leading-relaxed">
+                        Prefer not to manage the hosting yourself?
+                      </span>
+                      <span className="mt-1 block leading-relaxed">
+                        We can host the Nonprofit Control Tower for your organization for $1,500 per year
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </article>
           </div>
         </div>
       </section>

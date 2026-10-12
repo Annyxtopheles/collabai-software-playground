@@ -5,7 +5,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
     <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto max-w-6xl px-4">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl font-extrabold leading-[1.12] tracking-tight text-[#0c180a] sm:text-5xl xl:text-[54px] text-balance">
+          <h2 className="text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
             <span className="block">Your mission should not be buried</span>
             <span className="block">under operational busywork.</span>
           </h2>

@@ -340,7 +340,7 @@ export const WhatYouCanDoSection: React.FC = () => {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+          <h2 className="text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
             What We Can Do
           </h2>
         </div>

@@ -419,7 +419,7 @@ const NonProfitHub = () => {
       <section className="border-t border-slate-100 bg-[#f9fbf8] py-16 md:py-24">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+            <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
               <span className="block">One place to understand</span>
               <span className="block">and run your nonprofit.</span>
             </h2>
@@ -455,7 +455,7 @@ const NonProfitHub = () => {
       <section className="border-t border-slate-100 bg-[#fbfdfa] py-16 md:py-24">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+            <h2 className="text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
               <span className="block">Built for organizations</span>
               <span className="block">doing real&nbsp;work.</span>
             </h2>
@@ -647,7 +647,7 @@ const NonProfitHub = () => {
           <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12">
             {/* Left Column: Left-aligned Content */}
             <div className="text-left lg:col-span-7">
-              <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl lg:text-[2.65rem] leading-[1.18] text-balance">
+              <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl leading-[1.18] text-balance">
                 See What the Nonprofit Control Tower Could Do for Your Organization
               </h2>
 
@@ -832,7 +832,7 @@ const NonProfitHub = () => {
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+            <h2 className="text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
               <span className="block">Keep your tools.</span>
               <span className="block">Connect your operations.</span>
             </h2>
@@ -974,7 +974,7 @@ const NonProfitHub = () => {
       <section className="border-t border-slate-100 bg-[#fbfdfa] py-16 md:py-24">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+            <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
               <span className="block">Keep the tools your team</span>
               <span className="block">already&nbsp;knows.</span>
             </h2>
@@ -1034,7 +1034,7 @@ const NonProfitHub = () => {
       <section className="border-t border-slate-100 bg-[#fbfdfa] py-16 md:py-24">
         <div className="container mx-auto max-w-5xl px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+            <h2 className="text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
               Flexible Hosting Options
             </h2>
             <p className="mt-4 text-base text-slate-600 sm:text-lg text-pretty">
@@ -1100,7 +1100,7 @@ const NonProfitHub = () => {
           }}
         />
         <div className="container mx-auto max-w-4xl px-4">
-          <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl md:text-5xl text-balance">
+          <h2 className="text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
             <span className="block">Give your team more time</span>
             <span className="block">for the work that&nbsp;matters.</span>
           </h2>

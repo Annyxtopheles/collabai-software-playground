@@ -33,7 +33,7 @@ const FaqSection = React.forwardRef<HTMLElement, FaqSectionProps>(
           <div className="max-w-3xl mx-auto">
             {/* Header */}
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-4">
+              <h2 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl lg:text-4xl mb-4">
                 {title}
               </h2>
               {description && (

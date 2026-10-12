@@ -62,6 +62,7 @@ import ms365Logo from "@/assets/logos/ms365.svg";
 import googleWorkspaceLogo from "@/assets/logos/google-workspace.svg";
 import zoomLogo from "@/assets/logos/zoom.svg";
 import mailchimpLogo from "@/assets/logos/mailchimp.svg";
+import isoLogo from "@/assets/logos/iso-logo.svg";
 
 const seo = {
   title: "Nonprofit Control Tower — AI Operations for Nonprofits & Boards",
@@ -267,17 +268,19 @@ const NonProfitHub = () => {
                   </div>
                 </div>
 
-                {/* Floating Card 1: Top Right Pill with smooth floating motion */}
+                {/* Floating Card 1: Top Right Pill with smooth sub-pixel GPU floating motion */}
                 <motion.div
                   animate={{
                     y: [-6, 6, -6],
+                    rotate: [-1, 1, -1],
                   }}
                   transition={{
                     duration: 5,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-2.5 shadow-xl backdrop-blur-xs"
+                  style={{ willChange: "transform" }}
+                  className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 z-20 flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white px-4 py-2.5 shadow-[0_12px_28px_rgba(0,0,0,0.12)] transform-gpu"
                 >
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
                     <ShieldCheck className="h-4 w-4" />
@@ -288,17 +291,19 @@ const NonProfitHub = () => {
                   </div>
                 </motion.div>
 
-                {/* Floating Card 2: Bottom Left Badge with smooth counter floating motion */}
+                {/* Floating Card 2: Bottom Left Badge with smooth sub-pixel GPU counter floating motion */}
                 <motion.div
                   animate={{
                     y: [6, -6, 6],
+                    rotate: [1, -1, 1],
                   }}
                   transition={{
-                    duration: 5.6,
+                    duration: 6,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white/95 px-4 py-2.5 shadow-xl backdrop-blur-xs"
+                  style={{ willChange: "transform" }}
+                  className="absolute -bottom-3 -left-3 sm:-bottom-4 sm:-left-4 z-20 flex items-center gap-2.5 rounded-2xl border border-slate-200/90 bg-white px-4 py-2.5 shadow-[0_12px_28px_rgba(0,0,0,0.12)] transform-gpu"
                 >
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e7f5e3] text-[#14a800]">
                     <CheckCircle2 className="h-4 w-4 text-[#14a800]" />
@@ -342,7 +347,7 @@ const NonProfitHub = () => {
                 className="group h-[235px] [perspective:1000px] cursor-pointer select-none focus:outline-hidden"
                 aria-label={`View ${client.name} success story`}
               >
-                <div className="relative h-full w-full rounded-2xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] shadow-xs hover:shadow-xl">
+                <div className="relative h-full w-full rounded-2xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                   {/* FRONT FACE: Logo Banner + Title Name */}
                   <div className="absolute inset-0 h-full w-full rounded-2xl border border-slate-200/90 bg-white p-4 flex flex-col justify-between [backface-visibility:hidden]">
                     {/* Top Banner with Client Logo */}
@@ -366,7 +371,7 @@ const NonProfitHub = () => {
                   </div>
 
                   {/* BACK FACE: Clean Flipped Preview with Navigation Link */}
-                  <div className="absolute inset-0 h-full w-full rounded-2xl border border-[#14a800]/40 bg-gradient-to-br from-[#0c6600] via-[#118f00] to-[#0a5200] p-5 text-white flex flex-col justify-between [transform:rotateY(180deg)] [backface-visibility:hidden] shadow-lg">
+                  <div className="absolute inset-0 h-full w-full rounded-2xl border border-[#14a800]/40 bg-gradient-to-br from-[#0c6600] via-[#118f00] to-[#0a5200] p-5 text-white flex flex-col justify-between [transform:rotateY(180deg)] [backface-visibility:hidden]">
                     <div className="flex items-center justify-between border-b border-white/20 pb-2">
                       <span className="text-[10px] font-extrabold uppercase tracking-wider bg-white/20 text-[#e7f5e3] px-2.5 py-0.5 rounded-full">
                         {client.metric}
@@ -383,7 +388,7 @@ const NonProfitHub = () => {
                     </div>
 
                     <div className="pt-2 border-t border-white/20">
-                      <div className="inline-flex w-full items-center justify-between rounded-xl bg-white/15 px-3.5 py-2 text-xs font-bold text-white backdrop-blur-xs transition-all duration-200 group-hover:bg-white group-hover:text-[#0c6600] shadow-2xs">
+                      <div className="inline-flex w-full items-center justify-between rounded-xl bg-white/15 px-3.5 py-2 text-xs font-bold text-white backdrop-blur-xs transition-all duration-200 group-hover:bg-white group-hover:text-[#0c6600]">
                         <span>Read Success Story</span>
                         <ArrowDown className="h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" />
                       </div>
@@ -396,7 +401,7 @@ const NonProfitHub = () => {
 
           {/* Key Credibility Stats */}
           <div className="mt-10 grid grid-cols-2 gap-4 text-center md:grid-cols-4 md:gap-8">
-            <div className="rounded-xl border border-slate-100 bg-white p-3.5 shadow-xs">
+            <div className="rounded-xl border border-slate-100 bg-white p-3.5 shadow-xs flex flex-col items-center justify-center">
               <div className="text-2xl font-extrabold text-[#14a800] md:text-3xl">
                 22 Years
               </div>
@@ -404,7 +409,7 @@ const NonProfitHub = () => {
                 Technology delivery
               </div>
             </div>
-            <div className="rounded-xl border border-slate-100 bg-white p-3.5 shadow-xs">
+            <div className="rounded-xl border border-slate-100 bg-white p-3.5 shadow-xs flex flex-col items-center justify-center">
               <div className="text-2xl font-extrabold text-[#14a800] md:text-3xl">
                 500+
               </div>
@@ -412,7 +417,7 @@ const NonProfitHub = () => {
                 Clients served
               </div>
             </div>
-            <div className="rounded-xl border border-slate-100 bg-white p-3.5 shadow-xs">
+            <div className="rounded-xl border border-slate-100 bg-white p-3.5 shadow-xs flex flex-col items-center justify-center">
               <div className="text-2xl font-extrabold text-[#14a800] md:text-3xl">
                 1,000+
               </div>
@@ -420,9 +425,16 @@ const NonProfitHub = () => {
                 Projects delivered
               </div>
             </div>
-            <div className="rounded-xl border border-slate-100 bg-white p-3.5 shadow-xs">
-              <div className="text-lg font-bold text-[#14a800] md:text-xl">
-                ISO/IEC 27001:2022
+            <div className="rounded-xl border border-slate-100 bg-white p-3.5 shadow-xs flex flex-col items-center justify-center">
+              <div className="flex items-center justify-center gap-2">
+                <img
+                  src={isoLogo}
+                  alt="ISO Official Logo"
+                  className="h-6 sm:h-7 w-auto object-contain rounded-[2px]"
+                />
+                <div className="text-base sm:text-lg font-bold text-[#14a800] md:text-xl">
+                  ISO/IEC 27001:2022
+                </div>
               </div>
               <div className="mt-0.5 text-xs font-medium text-slate-500">
                 Certified

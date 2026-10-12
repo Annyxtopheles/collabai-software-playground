@@ -40,13 +40,10 @@ import theOptimistsLogo from "@/assets/clients/the-optimists.png";
 import queensChamberLogo from "@/assets/clients/queens-chamber.png";
 
 // Section Visuals & Components
+import NonprofitProblemInfographics from "@/components/new/nonprofit/NonprofitProblemInfographics";
 import NonprofitIntegrationsBeam from "@/components/new/nonprofit/NonprofitIntegrationsBeam";
 import WhatYouCanDoSection from "@/components/new/nonprofit/WhatYouCanDoSection";
 import NonprofitSecuritySection from "@/components/new/nonprofit/NonprofitSecuritySection";
-import problemScatteredDonors from "@/assets/nonprofit/problem-scattered-donors.png";
-import problemReportingTime from "@/assets/nonprofit/problem-reporting-time.jpg";
-import problemManualWork from "@/assets/nonprofit/problem-manual-work.png";
-import problemLeadershipView from "@/assets/nonprofit/problem-leadership-view.jpg";
 import heroCommunityImpact from "@/assets/nonprofit/hero-community-impact.jpg";
 
 // Integration Logos
@@ -443,109 +440,9 @@ const NonProfitHub = () => {
 
       {/* ========================================================
           3. THE PROBLEM
-          H1 headline style + infographic representation for subheaders.
-          Inspired by Agency CT landing page structure.
+          H1 headline style + Agency-style infographic representation for subheaders.
       ======================================================== */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto max-w-5xl px-4">
-          <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-4xl font-extrabold leading-[1.12] tracking-tight text-[#0c180a] sm:text-5xl xl:text-[54px] text-balance">
-              <span className="block">Your mission should not be buried</span>
-              <span className="block">under operational busywork.</span>
-            </h2>
-          </div>
-
-          {/* Infographic Problem Cards — 2 rows of 2 cards */}
-          <div className="mt-14 grid gap-8 md:grid-cols-2">
-            {/* Card 1 */}
-            <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
-              <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-50/70 border-b border-slate-100 flex items-center justify-center p-4">
-                <img
-                  src={problemScatteredDonors}
-                  alt="Scattered donor data across spreadsheets, CRM, and files"
-                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6 sm:p-7 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-[#0c180a]">
-                  Your donor information is&nbsp;scattered.
-                </h3>
-                <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-slate-600 text-pretty">
-                  CRM, spreadsheets, email, accounting software and event platforms
-                  all hold different pieces of the&nbsp;story.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
-              <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-50/70 border-b border-slate-100 flex items-center justify-center p-4">
-                <img
-                  src={problemReportingTime}
-                  alt="Reporting takes too long with stacks of binders and hourglass"
-                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6 sm:p-7 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-[#0c180a]">
-                  Reporting takes too&nbsp;long.
-                </h3>
-                <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-slate-600 text-pretty">
-                  Staff spend hours gathering information before leadership or
-                  board&nbsp;meetings.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
-              <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-50/70 border-b border-slate-100 flex items-center justify-center p-4">
-                <img
-                  src={problemManualWork}
-                  alt="Too much work is still manual with repetitive task cycles"
-                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6 sm:p-7 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-[#0c180a]">
-                  Too much work is still&nbsp;manual.
-                </h3>
-                <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-slate-600 text-pretty">
-                  Follow-ups, summaries, grant reporting, meeting actions and data
-                  cleanup consume valuable staff&nbsp;time.
-                </p>
-              </div>
-            </div>
-
-            {/* Card 4 */}
-            <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-lg">
-              <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-50/70 border-b border-slate-100 flex items-center justify-center p-4">
-                <img
-                  src={problemLeadershipView}
-                  alt="Leadership lacks one clear view across disparate dashboards"
-                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6 sm:p-7 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-[#0c180a]">
-                  Leadership lacks one clear&nbsp;view.
-                </h3>
-                <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-slate-600 text-pretty">
-                  When an Executive Director asks, <strong className="font-bold text-slate-900">“Where do we stand?”</strong> The answer
-                  should not require five systems and three&nbsp;spreadsheets.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Impactful Guiding Statement */}
-          <div className="mt-14 sm:mt-16 text-center">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-[#0c180a]">
-              That is where the <span className="text-[#14a800]">Nonprofit Control Tower</span> comes in.
-            </h3>
-          </div>
-        </div>
-      </section>
+      <NonprofitProblemInfographics />
 
       {/* ========================================================
           4. THE NONPROFIT CONTROL TOWER SOLUTION

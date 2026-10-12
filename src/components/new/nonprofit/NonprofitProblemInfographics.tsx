@@ -200,7 +200,7 @@ const StepArtwork = ({ icon }: { icon: ProblemIconKey }) => {
 const IconTile = ({ icon }: { icon: ProblemIconKey }) => (
   <span
     aria-hidden
-    className="flex h-[44px] w-[44px] shrink-0 items-center justify-center"
+    className="flex h-[34px] w-[34px] shrink-0 items-center justify-center"
   >
     <StepArtwork icon={icon} />
   </span>
@@ -226,29 +226,29 @@ const problemCards: ProblemCardData[] = [
   {
     title: "Your donor information is\u00a0scattered.",
     triggerLabel: "Reality",
-    triggerText: "Every tool holds a different piece of the donor record",
+    triggerText: "Every tool holds a different piece",
     steps: [
       {
         tag: "CRM",
-        label: "Donor profiles & pledge history live in one database",
+        label: "Donor profiles & pledge history",
         icon: "database",
         nodeIcon: Database,
       },
       {
-        tag: "SPREADSHEETS",
-        label: "Event check-ins & custom lists sit in offline sheets",
+        tag: "SHEETS",
+        label: "Event check-ins & custom lists",
         icon: "spreadsheet",
         nodeIcon: FileSpreadsheet,
       },
       {
-        tag: "EMAIL & FINANCE",
-        label: "Gift threads & accounting entries tracked separately",
+        tag: "FINANCE",
+        label: "Gift threads & accounting entries",
         icon: "mail",
         nodeIcon: Layers,
       },
       {
-        tag: "EVENT PLATFORMS",
-        label: "Ticket sales & attendance disconnected from giving",
+        tag: "EVENTS",
+        label: "Ticket sales & attendance logs",
         icon: "calendar-ticket",
         nodeIcon: AlertCircle,
       },
@@ -264,29 +264,29 @@ const problemCards: ProblemCardData[] = [
   {
     title: "Reporting takes too\u00a0long.",
     triggerLabel: "Trigger",
-    triggerText: "Leadership or board meeting approaching",
+    triggerText: "Leadership or board meeting ahead",
     steps: [
       {
         tag: "STAFF",
-        label: "Pull raw CSV exports from CRM, finance & program folders",
+        label: "Pull raw CSV exports across tools",
         icon: "doc-export",
         nodeIcon: Users,
       },
       {
         tag: "STAFF",
-        label: "Cross-check and reconcile mismatched numbers by hand",
+        label: "Cross-check mismatched numbers",
         icon: "checklist",
         nodeIcon: RefreshCw,
       },
       {
         tag: "STAFF",
-        label: "Format spreadsheets & charts into board-ready packets",
+        label: "Format sheets & charts into packets",
         icon: "bar-chart",
         nodeIcon: FileSpreadsheet,
       },
       {
         tag: "DELAY",
-        label: "Hours spent gathering data before every single meeting",
+        label: "Hours lost before every meeting",
         icon: "hourglass",
         nodeIcon: Clock,
       },
@@ -306,25 +306,25 @@ const problemCards: ProblemCardData[] = [
     steps: [
       {
         tag: "SUMMARIES",
-        label: "Typing meeting notes & chasing action items manually",
+        label: "Typing notes & chasing action items",
         icon: "doc-sparkle",
         nodeIcon: RefreshCw,
       },
       {
         tag: "FOLLOW-UPS",
-        label: "Drafting individual donor & committee follow-up emails",
+        label: "Drafting donor & committee emails",
         icon: "mail",
         nodeIcon: Users,
       },
       {
-        tag: "GRANT REPORTING",
-        label: "Copy-pasting program metrics across funder templates",
+        tag: "GRANTS",
+        label: "Copy-pasting metrics for reports",
         icon: "grant-doc",
         nodeIcon: FileSpreadsheet,
       },
       {
-        tag: "DATA CLEANUP",
-        label: "Fixing duplicate records & outdated entries by hand",
+        tag: "CLEANUP",
+        label: "Fixing duplicate records by hand",
         icon: "cleanup",
         nodeIcon: Clock,
       },
@@ -340,29 +340,29 @@ const problemCards: ProblemCardData[] = [
   {
     title: "Leadership lacks one clear\u00a0view.",
     triggerLabel: "Trigger",
-    triggerText: "Executive Director asks: “Where do we stand?”",
+    triggerText: "ED asks: “Where do we stand?”",
     steps: [
       {
         tag: "5 SYSTEMS",
-        label: "Log into CRM, finance, grants, email & events separately",
+        label: "Log into 5 separate tools",
         icon: "five-systems",
         nodeIcon: Layers,
       },
       {
-        tag: "3 SPREADSHEETS",
-        label: "Stitch together offline departmental trackers & tabs",
+        tag: "3 SHEETS",
+        label: "Stitch 3 offline trackers together",
         icon: "three-sheets",
         nodeIcon: FileSpreadsheet,
       },
       {
         tag: "WAITING",
-        label: "Wait on multiple leads to confirm their latest figures",
+        label: "Wait on leads to confirm figures",
         icon: "people-eye",
         nodeIcon: Users,
       },
       {
-        tag: "FRAGMENTED",
-        label: "No single real-time view across the organization",
+        tag: "SILOED",
+        label: "No single real-time view",
         icon: "target",
         nodeIcon: AlertCircle,
       },
@@ -402,30 +402,30 @@ const ProblemInfographicCard = ({
   const railProgress = total === 0 ? 0 : Math.min(revealed / total, 1);
 
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-md">
-      <h3 className="text-lg sm:text-xl font-bold text-[#0c180a]">
+    <div className="flex h-full flex-col rounded-2xl border border-slate-200/90 bg-white p-5 shadow-xs transition-all duration-200 hover:border-[#14a800]/40 hover:shadow-md">
+      <h3 className="text-base sm:text-lg font-bold text-[#0c180a] leading-snug min-h-[2.75rem]">
         {card.title}
       </h3>
 
-      <div className="mt-3.5 flex flex-wrap items-center gap-2.5">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#14a800]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#14a800]">
-          <Zap className="h-3.5 w-3.5" /> {card.triggerLabel}
+      <div className="mt-3 flex flex-wrap items-center gap-2">
+        <span className="inline-flex items-center gap-1 rounded-full bg-[#14a800]/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#14a800]">
+          <Zap className="h-3 w-3" /> {card.triggerLabel}
         </span>
-        <span className="text-xs sm:text-sm font-medium text-slate-700">
+        <span className="text-xs font-medium text-slate-600">
           {card.triggerText}
         </span>
       </div>
 
-      <div className="relative mt-6 pl-8 flex-1">
-        <div className="absolute left-[11px] top-2 h-[calc(100%-1rem)] w-[2px] rounded bg-slate-200" />
+      <div className="relative mt-5 pl-7 flex-1">
+        <div className="absolute left-[9px] top-2 h-[calc(100%-1rem)] w-[2px] rounded bg-slate-200" />
         <motion.div
-          className="absolute left-[11px] top-2 w-[2px] rounded bg-[#14a800]"
+          className="absolute left-[9px] top-2 w-[2px] rounded bg-[#14a800]"
           initial={false}
           animate={{ height: `calc((100% - 1rem) * ${railProgress})` }}
           transition={{ duration: reduceMotion ? 0 : 0.35, ease: "easeOut" }}
         />
 
-        <ol className="space-y-4">
+        <ol className="space-y-3">
           {card.steps.map((s, i) => {
             const NodeIcon = s.nodeIcon;
             const isDone = i < revealed - 1 || (showOutcome && i < revealed);
@@ -435,16 +435,16 @@ const ProblemInfographicCard = ({
             return (
               <li key={`${card.title}-${i}`} className="relative">
                 <span
-                  className={`absolute -left-8 top-1.5 flex h-6 w-6 items-center justify-center rounded-full border-2 transition-colors ${
+                  className={`absolute -left-7 top-1.5 flex h-5 w-5 items-center justify-center rounded-full border-2 transition-colors ${
                     isVisible
                       ? "border-[#14a800] bg-[#14a800] text-white"
                       : "border-slate-200 bg-white text-slate-400"
                   }`}
                 >
                   {isDone ? (
-                    <Check className="h-3.5 w-3.5" />
+                    <Check className="h-3 w-3" />
                   ) : (
-                    <NodeIcon className="h-3.5 w-3.5" />
+                    <NodeIcon className="h-3 w-3" />
                   )}
                 </span>
 
@@ -455,18 +455,20 @@ const ProblemInfographicCard = ({
                     x: isVisible ? 0 : reduceMotion ? 0 : 6,
                   }}
                   transition={{ duration: reduceMotion ? 0 : 0.3 }}
-                  className={`flex items-center gap-3 rounded-xl border px-3 py-2.5 transition-colors ${
+                  className={`flex items-center gap-2.5 rounded-xl border px-2.5 py-2 transition-colors ${
                     isActive
                       ? "border-[#14a800]/50 bg-[#14a800]/5"
                       : "border-slate-200/90 bg-white"
                   }`}
                 >
                   <IconTile icon={s.icon} />
-                  <span className="min-w-0 [text-wrap:pretty]">
-                    <span className="mr-2 inline-block rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-slate-600">
+                  <span className="min-w-0 leading-snug [text-wrap:pretty]">
+                    <span className="mr-1.5 inline-block rounded bg-slate-100 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-slate-600">
                       {s.tag}
                     </span>
-                    <span className="text-sm text-[#0c180a]">{s.label}</span>
+                    <span className="text-xs font-medium text-[#0c180a]">
+                      {s.label}
+                    </span>
                   </span>
                 </motion.div>
               </li>
@@ -476,13 +478,10 @@ const ProblemInfographicCard = ({
       </div>
 
       {/* Bottom Callout Box containing the exact copy sentence */}
-      <div className="mt-6 rounded-xl border border-[#14a800]/30 bg-[#14a800]/5 px-4 py-3.5">
-        <div className="flex items-center gap-3">
-          <IconTile icon={card.outcomeIcon} />
-          <p className="text-sm leading-relaxed text-slate-700 [text-wrap:pretty]">
-            {card.copyContent}
-          </p>
-        </div>
+      <div className="mt-5 rounded-xl border border-[#14a800]/30 bg-[#14a800]/5 px-3.5 py-3">
+        <p className="text-xs sm:text-[13px] leading-relaxed text-slate-700 [text-wrap:pretty]">
+          {card.copyContent}
+        </p>
       </div>
     </div>
   );
@@ -507,7 +506,7 @@ export const NonprofitProblemInfographics = () => {
 
   return (
     <section ref={sectionRef} className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto max-w-5xl px-4">
+      <div className="container mx-auto max-w-[1400px] px-4 sm:px-6">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-extrabold leading-[1.12] tracking-tight text-[#0c180a] sm:text-5xl xl:text-[54px] text-balance">
             <span className="block">Your mission should not be buried</span>
@@ -515,8 +514,8 @@ export const NonprofitProblemInfographics = () => {
           </h2>
         </div>
 
-        {/* 2×2 Agency-Style Infographic Cards */}
-        <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
+        {/* 4 Side-by-Side (1 Row) Agency-Style Infographic Cards */}
+        <div className="mx-auto mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {problemCards.map((card) => (
             <ProblemInfographicCard
               key={card.title}

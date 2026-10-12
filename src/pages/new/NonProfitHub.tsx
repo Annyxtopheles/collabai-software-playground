@@ -241,9 +241,6 @@ const NonProfitHub = () => {
                   <div className="text-sm font-bold text-[#0c180a]">
                     500+ Organizations & Boards
                   </div>
-                  <div className="text-xs text-slate-500 font-medium">
-                    Supported across North America & Global Missions
-                  </div>
                 </div>
               </div>
             </div>
@@ -1181,49 +1178,20 @@ const NonProfitHub = () => {
           </div>
 
           <div className="mt-14 grid gap-8 md:grid-cols-2">
-            {/* Option 1: Self-Hosted */}
-            <div className="flex flex-col rounded-3xl border border-slate-200 bg-white p-8 shadow-xs">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500">
-                <Server className="h-4 w-4 text-[#14a800]" />
-                Self-Hosted
-              </div>
-              <h3 className="mt-3 text-2xl font-bold text-[#0c180a]">
-                Host It on Your Own&nbsp;Infrastructure
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
-                Your organization can run the Nonprofit Control Tower within its
-                own hosting environment, giving you greater control over your
-                infrastructure and&nbsp;data.
-              </p>
-
-              <div className="my-6 border-y border-slate-100 py-6">
-                <div className="text-3xl font-extrabold text-[#0c180a]">
-                  $0{" "}
-                  <span className="text-sm font-semibold text-slate-500">
-                    license cost (MIT)
-                  </span>
-                </div>
-                <p className="mt-1 text-xs text-slate-500">
-                  Open-source core — deploy anywhere you choose.
+            {/* Option 1: Host It on Your Own Infrastructure */}
+            <div className="flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-8 shadow-xs">
+              <div>
+                <h3 className="text-2xl font-bold text-[#0c180a]">
+                  Host It on Your Own&nbsp;Infrastructure
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
+                  Your organization can run the Nonprofit Control Tower within its
+                  own hosting environment, giving you greater control over your
+                  infrastructure and&nbsp;data.
                 </p>
               </div>
 
-              <ul className="mb-8 space-y-3 text-sm text-slate-600">
-                <li className="flex items-start gap-2.5">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#14a800]" />
-                  <span>Full control of server & data residency</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#14a800]" />
-                  <span>Community updates and GitHub source access</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#14a800]" />
-                  <span>Managed by your internal IT or contractor</span>
-                </li>
-              </ul>
-
-              <div className="mt-auto">
+              <div className="mt-8">
                 <BookFreeDemoBtn
                   variant="secondary"
                   className="w-full text-center"
@@ -1231,52 +1199,19 @@ const NonProfitHub = () => {
               </div>
             </div>
 
-            {/* Option 2: Turnkey Managed Hosting (Featured) */}
-            <div className="relative flex flex-col rounded-3xl border-2 border-[#14a800] bg-white p-8 shadow-xl">
-              <div className="absolute -top-3.5 right-8 rounded-full bg-[#14a800] px-4 py-1 text-xs font-bold uppercase tracking-wider text-white">
-                Most Popular
-              </div>
-
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#14a800]">
-                <Cloud className="h-4 w-4 text-[#14a800]" />
-                Fully Managed
-              </div>
-              <h3 className="mt-3 text-2xl font-bold text-[#0c180a]">
-                Let Us Host It for&nbsp;You
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
-                Prefer not to manage the hosting yourself? We can host the
-                Nonprofit Control Tower for your organization for $1,500 per&nbsp;year.
-              </p>
-
-              <div className="my-6 border-y border-slate-100 py-6">
-                <div className="text-4xl font-extrabold text-[#0c180a]">
-                  $1,500{" "}
-                  <span className="text-sm font-semibold text-slate-500">
-                    / year
-                  </span>
-                </div>
-                <p className="mt-1 text-xs text-slate-500">
-                  Turnkey management, infrastructure, and ongoing support.
+            {/* Option 2: Let Us Host It for You */}
+            <div className="relative flex flex-col justify-between rounded-3xl border-2 border-[#14a800] bg-white p-8 shadow-xl">
+              <div>
+                <h3 className="text-2xl font-bold text-[#0c180a]">
+                  Let Us Host It for&nbsp;You
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 text-pretty">
+                  Prefer not to manage the hosting yourself? We can host the
+                  Nonprofit Control Tower for your organization for $1,500 per&nbsp;year
                 </p>
               </div>
 
-              <ul className="mb-8 space-y-3 text-sm text-slate-600">
-                <li className="flex items-start gap-2.5">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#14a800]" />
-                  <span>Isolated cloud infrastructure & automated backups</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#14a800]" />
-                  <span>Continuous software updates and security patches</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#14a800]" />
-                  <span>Dedicated setup support from SJ Innovation engineers</span>
-                </li>
-              </ul>
-
-              <div className="mt-auto">
+              <div className="mt-8">
                 <BookFreeDemoBtn className="w-full text-center" />
               </div>
             </div>
@@ -1321,21 +1256,13 @@ const NonProfitHub = () => {
 
       {/* ========================================================
           13. FAQS - LAST SECTION DIRECTLY ABOVE FOOTER
-          Answers common objections clearly and briefly before departure.
       ======================================================== */}
       <section className="border-t border-slate-100 bg-[#fbfdfa] py-16 md:py-24">
         <div className="container mx-auto max-w-4xl px-4">
           <div className="text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#14a800]">
-              Got Questions?
-            </span>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl text-balance">
+            <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl text-balance">
               Frequently Asked Questions
             </h2>
-            <p className="mt-3 text-sm text-slate-500 text-pretty">
-              Everything you need to know about getting started with the
-              Nonprofit Control&nbsp;Tower.
-            </p>
           </div>
 
           <div className="mt-12">
@@ -1345,14 +1272,10 @@ const NonProfitHub = () => {
                 className="rounded-2xl border border-slate-200 bg-white px-6 shadow-2xs"
               >
                 <AccordionTrigger className="text-left font-bold text-slate-900 hover:no-underline hover:text-[#14a800]">
-                  Is it really free to get started?
+                  Is it really free?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm leading-relaxed text-slate-600">
-                  Yes, if you self-host. The Nonprofit Control Tower is open
-                  source under the MIT License — zero license cost to run on your
-                  own infrastructure. If you prefer not to manage the servers
-                  yourself, we offer turnkey managed hosting, maintenance, and
-                  updates for $1,500 per year.
+                  Yes, if you self-host. Both products are open source under the MIT License — zero license cost to run on your own infrastructure. If you want us to host and manage it for you, that starts at $1,500/yr covering hosting, updates, and support.
                 </AccordionContent>
               </AccordionItem>
 
@@ -1361,14 +1284,10 @@ const NonProfitHub = () => {
                 className="rounded-2xl border border-slate-200 bg-white px-6 shadow-2xs"
               >
                 <AccordionTrigger className="text-left font-bold text-slate-900 hover:no-underline hover:text-[#14a800]">
-                  Do we have to replace the software tools we already use?
+                  Do we need engineers to run it?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm leading-relaxed text-slate-600">
-                  No. The Nonprofit Control Tower is designed specifically to sit
-                  across your existing CRM, accounting, document, and meeting tools
-                  (like Salesforce NPSP, Bloomerang, QuickBooks, Google
-                  Workspace, and Microsoft 365) as an intelligence and automation
-                  layer without forcing your staff to learn a new replacement stack.
+                  Self-hosting takes a technically-comfortable IT person or contractor. Or we can host it for you for a small support fee — your data still stays isolated and exportable.
                 </AccordionContent>
               </AccordionItem>
 
@@ -1377,13 +1296,10 @@ const NonProfitHub = () => {
                 className="rounded-2xl border border-slate-200 bg-white px-6 shadow-2xs"
               >
                 <AccordionTrigger className="text-left font-bold text-slate-900 hover:no-underline hover:text-[#14a800]">
-                  Will the AI train on our donor or financial records?
+                  How does it work with our CRM and finance system?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm leading-relaxed text-slate-600">
-                  Never. Your data remains strictly isolated within your private
-                  instance. We enforce zero public model training, end-to-end
-                  encryption in transit and at rest, and strict role-based access
-                  controls so donor confidentiality is always preserved.
+                  Pre-built integrations for Salesforce NPSP, Bloomerang, QuickBooks, and others. You connect what you have — the agents read across and surface insights.
                 </AccordionContent>
               </AccordionItem>
 
@@ -1392,14 +1308,10 @@ const NonProfitHub = () => {
                 className="rounded-2xl border border-slate-200 bg-white px-6 shadow-2xs"
               >
                 <AccordionTrigger className="text-left font-bold text-slate-900 hover:no-underline hover:text-[#14a800]">
-                  Do we need an internal engineering or IT team to run this?
+                  Will the AI train on our donor data?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm leading-relaxed text-slate-600">
-                  Not if you choose our managed hosting option. Our engineering
-                  team at SJ Innovation manages server provisioning, automated
-                  backups, security updates, and daily operational support so your
-                  nonprofit staff can simply use the platform with zero DevOps
-                  burden.
+                  No. Your donor data never trains AI models. Data stays in your instance, your residency, your control.
                 </AccordionContent>
               </AccordionItem>
 
@@ -1408,29 +1320,10 @@ const NonProfitHub = () => {
                 className="rounded-2xl border border-slate-200 bg-white px-6 shadow-2xs"
               >
                 <AccordionTrigger className="text-left font-bold text-slate-900 hover:no-underline hover:text-[#14a800]">
-                  How does the platform support board governance?
+                  What's the difference between the two products?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm leading-relaxed text-slate-600">
-                  It centralizes board minutes, policies, and committee documents
-                  into a private document intelligence portal. Board members can
-                  ask plain-English questions to locate past decisions instantly,
-                  and meeting summaries and action items are automatically
-                  generated after each session.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem
-                value="faq-6"
-                className="rounded-2xl border border-slate-200 bg-white px-6 shadow-2xs"
-              >
-                <AccordionTrigger className="text-left font-bold text-slate-900 hover:no-underline hover:text-[#14a800]">
-                  How quickly can we get up and running?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-relaxed text-slate-600">
-                  Because it connects to your existing tools via pre-built
-                  connectors, initial setup typically takes just a few business
-                  days. Book a free demo and we’ll show you how it works with your
-                  organization’s exact workflows.
+                  Board Governance handles meeting automation, document Q&A, task tracking, and governance workflows. Nonprofit Control Tower handles daily operations — donor 360, grants, programs, role-specific dashboards.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

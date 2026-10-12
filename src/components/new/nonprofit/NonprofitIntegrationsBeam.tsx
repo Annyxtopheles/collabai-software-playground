@@ -184,9 +184,6 @@ const NonprofitIntegrationsBeam = () => {
       >
         {/* Left: Existing Tools */}
         <div className="flex flex-col items-center gap-2.5 lg:items-end">
-          <div className="mb-1 text-xs font-bold uppercase tracking-wider text-slate-400">
-            Your Existing Tools
-          </div>
           {tools.map((tool, i) => (
             <Tile
               key={tool.id}
@@ -210,9 +207,6 @@ const NonprofitIntegrationsBeam = () => {
 
         {/* Center: The Nonprofit Control Tower Hub (Clean & Focused) */}
         <div className="flex flex-col items-center justify-center">
-          <div className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-400 lg:hidden">
-            Unified Hub
-          </div>
           <Tile
             ref={hubRef}
             className="w-full max-w-xs sm:w-60 flex-col items-center justify-center gap-2 rounded-2xl border-2 border-[#14a800] bg-white p-6 text-center shadow-[0_0_50px_-12px_rgba(20,168,0,0.35)] sm:py-8"
@@ -230,9 +224,6 @@ const NonprofitIntegrationsBeam = () => {
 
         {/* Right: Connected Outcomes & System Capabilities */}
         <div className="flex flex-col items-center gap-2.5 lg:items-start">
-          <div className="mb-1 text-xs font-bold uppercase tracking-wider text-slate-400">
-            Delivered Outcomes
-          </div>
           {outputs.map((output, i) => {
             const Icon = output.icon;
             return (
@@ -283,10 +274,6 @@ const NonprofitIntegrationsBeam = () => {
           ))}
         </svg>
       </div>
-
-      <p className="mt-8 text-center text-sm font-medium text-slate-500">
-        One operating picture for leadership, staff, and your board.
-      </p>
     </div>
   );
 };

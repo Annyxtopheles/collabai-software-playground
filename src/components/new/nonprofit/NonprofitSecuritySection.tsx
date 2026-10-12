@@ -30,10 +30,6 @@ export const NonprofitSecuritySection: React.FC = () => {
           <div className="group flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#fbfdfa] p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:bg-white hover:shadow-lg">
             <div>
               <h3 className="text-xl font-bold text-[#0c180a]">Private by design</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                Your data stays isolated in your dedicated organization environment, completely private from
-                other entities.
-              </p>
             </div>
 
             {/* Micro-UI Proof: Isolated Tenant Graphic (Clean, no pulsing dots) */}
@@ -67,10 +63,6 @@ export const NonprofitSecuritySection: React.FC = () => {
           <div className="group flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#fbfdfa] p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:bg-white hover:shadow-lg">
             <div>
               <h3 className="text-xl font-bold text-[#0c180a]">Role-based access</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                Granular permission locks ensure staff, leadership, and board members only see information
-                intended for their role.
-              </p>
             </div>
 
             {/* Micro-UI Proof: Permission Matrix Table */}
@@ -126,14 +118,10 @@ export const NonprofitSecuritySection: React.FC = () => {
             </div>
           </div>
 
-          {/* Card 3: Encrypted in transit & at rest */}
+          {/* Card 3: Encrypted in transit and at rest */}
           <div className="group flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#fbfdfa] p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:bg-white hover:shadow-lg">
             <div>
-              <h3 className="text-xl font-bold text-[#0c180a]">Encrypted in transit &amp; at rest</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                Enterprise-grade TLS 1.3 in transit and AES-256 encryption at rest protect every file,
-                transcript, and record.
-              </p>
+              <h3 className="text-xl font-bold text-[#0c180a]">Encrypted in transit and at rest</h3>
             </div>
 
             {/* Micro-UI Proof: Dual Encryption Badges */}
@@ -160,16 +148,12 @@ export const NonprofitSecuritySection: React.FC = () => {
             </div>
           </div>
 
-          {/* Card 4: Never used to train public models */}
+          {/* Card 4: Your data is not used to train public AI models */}
           <div className="group flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#fbfdfa] p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:bg-white hover:shadow-lg">
             <div>
               <h3 className="text-xl font-bold text-[#0c180a]">
-                Never used to train public models
+                Your data is not used to train public AI models
               </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                Your donor records and private organizational knowledge are never fed into public AI
-                training datasets.
-              </p>
             </div>
 
             {/* Micro-UI Proof: Blocked Data Pipeline Graphic */}
@@ -206,10 +190,6 @@ export const NonprofitSecuritySection: React.FC = () => {
           <div className="group flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#fbfdfa] p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:bg-white hover:shadow-lg">
             <div>
               <h3 className="text-xl font-bold text-[#0c180a]">Self-hosting available</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                Run on your own infrastructure or cloud for total organizational control over data residency
-                and compliance.
-              </p>
             </div>
 
             {/* Micro-UI Proof: Infrastructure Choice (Clean, no extra dots) */}
@@ -232,10 +212,6 @@ export const NonprofitSecuritySection: React.FC = () => {
           <div className="group flex flex-col justify-between rounded-3xl border border-slate-200/90 bg-[#fbfdfa] p-7 transition-all duration-200 hover:border-[#14a800]/40 hover:bg-white hover:shadow-lg">
             <div>
               <h3 className="text-xl font-bold text-[#0c180a]">Auditable AI activity</h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-slate-600 text-pretty">
-                Comprehensive logs record every AI interaction, search query, and automated action for
-                complete governance oversight.
-              </p>
             </div>
 
             {/* Micro-UI Proof: Live Audit Trail Snippet (Clean, no dots in status text) */}

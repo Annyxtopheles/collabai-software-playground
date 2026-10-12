@@ -32,14 +32,13 @@ import { getVertical } from "@/data/verticals";
 // Client Logos & SJ Innovation Logo
 import sjInnovationLogo from "@/assets/sj-innovation-logo.svg";
 import iaaboLogo from "@/assets/clients/iaabo.png";
-import bspLogo from "@/assets/clients/bsp.png";
+import bspLogo from "@/assets/clients/bsp-logo.svg";
 import theOptimistsLogo from "@/assets/clients/the-optimists.png";
 import queensChamberLogo from "@/assets/clients/queens-chamber.png";
 
 // Section Visuals & Components
 import NonprofitProblemInfographics from "@/components/new/nonprofit/NonprofitProblemInfographics";
 import NonprofitIntegrationsBeam from "@/components/new/nonprofit/NonprofitIntegrationsBeam";
-import WhatYouCanDoSection from "@/components/new/nonprofit/WhatYouCanDoSection";
 import NonprofitSecuritySection from "@/components/new/nonprofit/NonprofitSecuritySection";
 import heroCommunityImpact from "@/assets/nonprofit/hero-community-impact.jpg";
 
@@ -221,10 +220,10 @@ const NonProfitHub = () => {
 
                 {/* Primary Photo Card */}
                 <div className="relative overflow-hidden rounded-3xl border border-[#14a800]/25 bg-white p-2.5 shadow-[0_20px_50px_rgba(20,168,0,0.12)]">
-                  <div className="relative overflow-hidden rounded-2xl aspect-[4/3] sm:aspect-[1/1] w-full">
+                  <div className="relative overflow-hidden rounded-2xl aspect-[4/3] w-full">
                     <img
                       src={heroCommunityImpact}
-                      alt="Dedicated nonprofit volunteers and community members working together in a fresh food distribution program"
+                      alt="Nonprofit team collaborating around a laptop and operational dashboard screen"
                       className="h-full w-full object-cover object-center"
                     />
                   </div>
@@ -424,12 +423,9 @@ const NonProfitHub = () => {
               <span className="block">and run your nonprofit.</span>
             </h2>
             
-            <div className="mt-6 mx-auto max-w-3xl space-y-4 text-base sm:text-lg leading-relaxed text-slate-600">
+            <div className="mt-6 mx-auto max-w-3xl text-base sm:text-lg leading-relaxed text-slate-600">
               <p className="text-pretty">
                 The <strong className="font-semibold text-slate-900">Nonprofit Control Tower</strong> sits across the systems you already use and turns scattered information into a clear operational view for your team, leadership and board.
-              </p>
-              <p className="text-pretty text-slate-600 text-base sm:text-lg">
-                It helps your organization connect data, surface answers, automate repetitive work and keep everyone aligned without forcing your team to replace the tools they already know.
               </p>
             </div>
           </div>
@@ -438,14 +434,12 @@ const NonProfitHub = () => {
           <div className="mt-14">
             <NonprofitIntegrationsBeam />
           </div>
+
+          <p className="mt-12 mx-auto max-w-3xl text-center text-pretty text-slate-600 text-base sm:text-lg leading-relaxed">
+            It helps your organization connect data, surface answers, automate repetitive work and keep everyone aligned without forcing your team to replace the tools they already know.
+          </p>
         </div>
       </section>
-
-      {/* ========================================================
-          5. WHAT YOU CAN DO
-          Donorbox-inspired alternating cards with video trigger & peeking corner UI.
-      ======================================================== */}
-      <WhatYouCanDoSection />
 
       {/* ========================================================
           6. SUCCESS STORIES
@@ -456,24 +450,23 @@ const NonProfitHub = () => {
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
-              <span className="block">Built for organizations</span>
-              <span className="block">doing real&nbsp;work.</span>
+              Client Success Stories
             </h2>
           </div>
 
           <div className="mt-14 grid gap-8 md:grid-cols-2">
             {/* Case 1: IAABO */}
             <div id="case-iaabo" className="scroll-mt-28 flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
-              <div className="border-b border-slate-100 pb-5">
+              <div className="flex items-center gap-4 border-b border-slate-100 pb-5">
                 <img
                   src={iaaboLogo}
                   alt="IAABO"
-                  className="h-12 w-auto object-contain"
+                  className="h-12 w-auto shrink-0 object-contain"
                 />
+                <h3 className="text-lg sm:text-xl font-bold text-[#0c180a] leading-snug">
+                  AI learning for 16,000+ basketball&nbsp;officials
+                </h3>
               </div>
-              <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
-                AI learning for 16,000+ basketball&nbsp;officials
-              </h3>
 
               <div className="mt-4 space-y-3 text-sm text-slate-600">
                 <div>
@@ -500,16 +493,16 @@ const NonProfitHub = () => {
 
             {/* Case 2: BSP */}
             <div id="case-bsp" className="scroll-mt-28 flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
-              <div className="border-b border-slate-100 pb-5">
+              <div className="flex items-center gap-4 border-b border-slate-100 pb-5">
                 <img
                   src={bspLogo}
                   alt="BSP"
-                  className="h-12 w-auto object-contain"
+                  className="h-12 w-auto shrink-0 object-contain"
                 />
+                <h3 className="text-lg sm:text-xl font-bold text-[#0c180a] leading-snug">
+                  From a placeholder site to a live nonprofit Control&nbsp;Tower
+                </h3>
               </div>
-              <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
-                From a placeholder site to a live nonprofit Control&nbsp;Tower
-              </h3>
 
               <div className="mt-4 space-y-3 text-sm text-slate-600">
                 <div>
@@ -536,16 +529,16 @@ const NonProfitHub = () => {
 
             {/* Case 3: The Optimists */}
             <div id="case-optimists" className="scroll-mt-28 flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
-              <div className="border-b border-slate-100 pb-5">
+              <div className="flex items-center gap-4 border-b border-slate-100 pb-5">
                 <img
                   src={theOptimistsLogo}
                   alt="The Optimists"
-                  className="h-10 w-auto object-contain"
+                  className="h-10 w-auto shrink-0 object-contain"
                 />
+                <h3 className="text-lg sm:text-xl font-bold text-[#0c180a] leading-snug">
+                  Modernizing a 12-year-old nonprofit&nbsp;platform
+                </h3>
               </div>
-              <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
-                Modernizing a 12-year-old nonprofit&nbsp;platform
-              </h3>
 
               <div className="mt-4 space-y-3 text-sm text-slate-600">
                 <div>
@@ -571,16 +564,16 @@ const NonProfitHub = () => {
 
             {/* Case 4: Queens Chamber of Commerce */}
             <div id="case-queens-chamber" className="scroll-mt-28 flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
-              <div className="border-b border-slate-100 pb-5">
+              <div className="flex items-center gap-4 border-b border-slate-100 pb-5">
                 <img
                   src={queensChamberLogo}
                   alt="Queens Chamber of Commerce"
-                  className="h-10 w-auto object-contain"
+                  className="h-10 w-auto shrink-0 object-contain"
                 />
+                <h3 className="text-lg sm:text-xl font-bold text-[#0c180a] leading-snug">
+                  AI for a whole business&nbsp;community
+                </h3>
               </div>
-              <h3 className="mt-5 text-xl font-bold text-[#0c180a]">
-                AI for a whole business&nbsp;community
-              </h3>
 
               <div className="mt-4 space-y-3 text-sm text-slate-600">
                 <div>
@@ -820,148 +813,6 @@ const NonProfitHub = () => {
                   <div className="text-[10px] text-[#e7f5e3] font-medium">Keep your existing stack</div>
                 </div>
               </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          8. HOW IT WORKS
-          Simple 3-step outcome-oriented flow to eliminate anxiety.
-      ======================================================== */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto max-w-6xl px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
-              <span className="block">Keep your tools.</span>
-              <span className="block">Connect your operations.</span>
-            </h2>
-          </div>
-
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
-            {/* Step 1: Connect */}
-            <div className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-[#0c6600] p-8 sm:p-9 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-              <div className="relative z-10 max-w-[85%]">
-                <h3 className="text-2xl font-extrabold tracking-tight text-white">
-                  Connect
-                </h3>
-                <p className="mt-4 text-sm sm:text-base leading-relaxed text-white/90 text-pretty">
-                  Connect the CRM, finance, documents, meetings and other systems you already use.
-                </p>
-              </div>
-
-              {/* Decorative Corner SVG Illustration: Multi-ring converging orbital network */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -bottom-7 -right-7 select-none transition-all duration-500 ease-out group-hover:scale-115 group-hover:-translate-x-2 group-hover:-translate-y-2"
-              >
-                <svg
-                  width="180"
-                  height="180"
-                  viewBox="0 0 180 180"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="text-white/20"
-                >
-                  {/* Concentric Signal Radar Rings */}
-                  <circle cx="120" cy="120" r="70" stroke="currentColor" strokeWidth="2" strokeDasharray="6 6" className="transition-transform duration-700 ease-out group-hover:scale-105 origin-center" />
-                  <circle cx="120" cy="120" r="48" stroke="currentColor" strokeWidth="2" strokeOpacity="0.8" />
-                  <circle cx="120" cy="120" r="28" fill="currentColor" fillOpacity="0.3" stroke="currentColor" strokeWidth="3" />
-                  <circle cx="120" cy="120" r="12" fill="currentColor" />
-
-                  {/* Satellite Interconnecting Nodes with Dynamic Hover Translation */}
-                  <g className="transition-transform duration-500 ease-out group-hover:translate-x-1 group-hover:translate-y-1">
-                    <circle cx="48" cy="120" r="14" fill="currentColor" fillOpacity="0.5" />
-                    <line x1="62" y1="120" x2="92" y2="120" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-                  </g>
-
-                  <g className="transition-transform duration-500 ease-out group-hover:-translate-x-1 group-hover:translate-y-1">
-                    <circle cx="120" cy="48" r="14" fill="currentColor" fillOpacity="0.5" />
-                    <line x1="120" y1="62" x2="120" y2="92" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-                  </g>
-
-                  <g className="transition-transform duration-500 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1">
-                    <circle cx="70" cy="70" r="10" fill="currentColor" fillOpacity="0.6" />
-                    <line x1="78" y1="78" x2="100" y2="100" stroke="currentColor" strokeWidth="3" strokeDasharray="3 3" />
-                  </g>
-                </svg>
-              </div>
-            </div>
-
-            {/* Step 2: Configure */}
-            <div className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-[#118f00] p-8 sm:p-9 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-              <div className="relative z-10 max-w-[85%]">
-                <h3 className="text-2xl font-extrabold tracking-tight text-white">
-                  Configure
-                </h3>
-                <p className="mt-4 text-sm sm:text-base leading-relaxed text-white/90 text-pretty">
-                  Set permissions, workflows, dashboards and AI assistants around your organization.
-                </p>
-              </div>
-
-              {/* Decorative Corner SVG Illustration: Precision engineering gear */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -bottom-6 -right-6 select-none transition-transform duration-500 ease-out group-hover:rotate-45 group-hover:scale-110"
-              >
-                <svg
-                  width="170"
-                  height="170"
-                  viewBox="0 0 170 170"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="text-white/20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M85 40C88.866 40 92 43.134 92 47V51.3537C96.4449 52.6845 100.627 54.7788 104.351 57.5312L107.502 54.3802C110.236 51.6465 114.668 51.6465 117.402 54.3802L122.619 59.5979C125.353 62.3316 125.353 66.7638 122.619 69.4975L119.469 72.6485C122.221 76.3727 124.316 80.5551 125.646 85H130C133.866 85 137 88.134 137 92V99.3787C137 103.245 133.866 106.379 130 106.379H125.646C124.316 110.824 122.221 115.006 119.469 118.73L122.619 121.881C125.353 124.615 125.353 129.047 122.619 131.781L117.402 136.998C114.668 139.732 110.236 139.732 107.502 136.998L104.351 133.848C100.627 136.6 96.4449 138.694 92 140.025V144.379C92 148.245 88.866 151.379 85 151.379H77.6213C73.7553 151.379 70.6213 148.245 70.6213 144.379V140.025C66.1764 138.694 61.994 136.6 58.2698 133.848L55.1188 136.998C52.3851 139.732 47.953 139.732 45.2193 136.998L40.0016 131.781C37.2679 129.047 37.2679 124.615 40.0016 121.881L43.1526 118.73C40.4002 115.006 38.3059 110.824 36.9751 106.379H32.6213C28.7553 106.379 25.6213 103.245 25.6213 99.3787V92C25.6213 88.134 28.7553 85 32.6213 85H36.9751C38.3059 80.5551 40.4002 76.3727 43.1526 72.6485L40.0016 69.4975C37.2679 66.7638 37.2679 62.3316 40.0016 59.5979L45.2193 54.3802C47.953 51.6465 52.3851 51.6465 55.1188 54.3802L58.2698 57.5312C61.994 54.7788 66.1764 52.6845 70.6213 51.3537V47C70.6213 43.134 73.7553 40 77.6213 40H85ZM81.3107 72C70.265 72 61.3107 80.9543 61.3107 92C61.3107 103.046 70.265 112 81.3107 112C92.3564 112 101.311 103.046 101.311 92C101.311 80.9543 92.3564 72 81.3107 72Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </div>
-            </div>
-
-            {/* Step 3: Put Your Data to Work */}
-            <div className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-[#0a5200] p-8 sm:p-9 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
-              <div className="relative z-10 max-w-[85%]">
-                <h3 className="text-2xl font-extrabold tracking-tight text-white">
-                  Put Your Data to&nbsp;Work
-                </h3>
-                <p className="mt-4 text-sm sm:text-base leading-relaxed text-white/90 text-pretty">
-                  Ask questions, automate repetitive work and give every role the information it needs.
-                </p>
-              </div>
-
-              {/* Decorative Corner SVG Illustration: Dynamic ascending operational surge & pulse rays */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -bottom-6 -right-6 select-none transition-all duration-500 ease-out group-hover:scale-115 group-hover:-translate-x-1 group-hover:-translate-y-1"
-              >
-                <svg
-                  width="180"
-                  height="180"
-                  viewBox="0 0 180 180"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="text-white/20"
-                >
-                  {/* Stepped Surge Bars with Staggered Hover Elevation */}
-                  <rect x="36" y="125" width="18" height="35" rx="6" fill="currentColor" fillOpacity="0.35" className="transition-transform duration-300 group-hover:-translate-y-1" />
-                  <rect x="64" y="102" width="18" height="58" rx="6" fill="currentColor" fillOpacity="0.5" className="transition-transform duration-400 group-hover:-translate-y-2" />
-                  <rect x="92" y="74" width="18" height="86" rx="6" fill="currentColor" fillOpacity="0.75" className="transition-transform duration-500 group-hover:-translate-y-3" />
-                  <rect x="120" y="44" width="18" height="116" rx="6" fill="currentColor" className="transition-transform duration-600 group-hover:-translate-y-4" />
-
-                  {/* Dynamic Trajectory Vector */}
-                  <path
-                    d="M38 116 L66 92 L94 65 L126 34"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
             </div>
           </div>
         </div>

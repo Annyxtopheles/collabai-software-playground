@@ -26,14 +26,11 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import PageSeoHead from "@/components/PageSeoHead";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { FaqSection } from "@/components/ui/faq-section";
+import { getVertical } from "@/data/verticals";
 
-// Client Logos
+// Client Logos & SJ Innovation Logo
+import sjInnovationLogo from "@/assets/sj-innovation-logo.svg";
 import iaaboLogo from "@/assets/clients/iaabo.png";
 import bspLogo from "@/assets/clients/bsp.png";
 import theOptimistsLogo from "@/assets/clients/the-optimists.png";
@@ -60,6 +57,8 @@ import googleWorkspaceLogo from "@/assets/logos/google-workspace.svg";
 import zoomLogo from "@/assets/logos/zoom.svg";
 import mailchimpLogo from "@/assets/logos/mailchimp.svg";
 import isoLogo from "@/assets/logos/iso-logo.svg";
+
+const nonprofitFaqs = getVertical("non-profit")!.faqs;
 
 const seo = {
   title: "Nonprofit Control Tower — AI Operations for Nonprofits & Boards",
@@ -205,40 +204,9 @@ const NonProfitHub = () => {
                 See what your nonprofit could run from one connected&nbsp;system.
               </p>
 
-              {/* Primary CTA + Reassurance */}
+              {/* Primary CTA */}
               <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
                 <BookFreeDemoBtn />
-              </div>
-
-              {/* Social Proof Strip with real leadership images */}
-              <div className="mt-10 flex items-center gap-4 pt-6 border-t border-slate-200/70">
-                <div className="flex -space-x-2.5 overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80"
-                    alt="Executive Director"
-                    className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover object-center shadow-xs"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
-                    alt="Board Member"
-                    className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover object-center shadow-xs"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80"
-                    alt="Operations Leader"
-                    className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover object-center shadow-xs"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80"
-                    alt="Program Director"
-                    className="inline-block h-9 w-9 rounded-full ring-2 ring-white object-cover object-center shadow-xs"
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-[#0c180a]">
-                    500+ Organizations & Boards
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -315,123 +283,131 @@ const NonProfitHub = () => {
 
       {/* ========================================================
           2. TRUST BAR
-          Credible proof strip: 22 years, 500+ clients, 1,000+ projects,
-          ISO/IEC 27001:2022 Certified, and 4 client logos.
+          H2 title with SJ Innovation logo + horizontal split:
+          4 client logo cards on the left, 4 metrics on the right.
       ======================================================== */}
-      <section className="border-y border-slate-100 bg-[#fbfdfa] py-8">
+      <section className="border-y border-slate-100 bg-[#fbfdfa] py-14 md:py-16">
         <div className="container mx-auto max-w-6xl px-4">
-          <p className="text-center text-xs font-semibold uppercase tracking-wider text-slate-500">
-            Built on 22 years of technology delivery experience from SJ Innovation
-          </p>
+          <h2 className="flex flex-wrap items-center justify-center gap-3 text-center text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl">
+            <span>Built on 22 years of technology delivery experience from</span>
+            <img
+              src={sjInnovationLogo}
+              alt="SJ Innovation"
+              className="inline-block h-9 sm:h-11 w-auto object-contain"
+            />
+          </h2>
 
-          {/* 4 Interactive Client Case Study Flip Cards */}
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-            {CLIENT_CASE_CARDS.map((client) => (
-              <div
-                key={client.id}
-                role="button"
-                tabIndex={0}
-                onClick={() => scrollToCase(client.id)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    scrollToCase(client.id);
-                  }
-                }}
-                className="group h-[235px] [perspective:1000px] cursor-pointer select-none focus:outline-hidden"
-                aria-label={`View ${client.name} success story`}
-              >
-                <div className="relative h-full w-full rounded-2xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                  {/* FRONT FACE: Logo Banner + Title Name */}
-                  <div className="absolute inset-0 h-full w-full rounded-2xl border border-slate-200/90 bg-white p-4 flex flex-col justify-between [backface-visibility:hidden]">
-                    {/* Top Banner with Client Logo */}
-                    <div className="w-full h-32 rounded-xl bg-gradient-to-b from-[#f8faf6] to-[#edf5eb]/60 border border-slate-100 flex items-center justify-center p-3 relative overflow-hidden">
-                      <img
-                        src={client.logo}
-                        alt={client.name}
-                        className={`${client.logoHeight} w-auto object-contain transition-transform duration-300 group-hover:scale-105`}
-                      />
+          {/* Horizontal 2-Column Split: 4 Client Logo Cards (Left) + 4 Metrics (Right) */}
+          <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+            {/* Left Side: 4 Interactive Client Case Study Flip Cards (2x2) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {CLIENT_CASE_CARDS.map((client) => (
+                <div
+                  key={client.id}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => scrollToCase(client.id)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      scrollToCase(client.id);
+                    }
+                  }}
+                  className="group h-[215px] [perspective:1000px] cursor-pointer select-none focus:outline-hidden"
+                  aria-label={`View ${client.name} success story`}
+                >
+                  <div className="relative h-full w-full rounded-2xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    {/* FRONT FACE: Logo Banner + Title Name */}
+                    <div className="absolute inset-0 h-full w-full rounded-2xl border border-slate-200/90 bg-white p-3.5 flex flex-col justify-between [backface-visibility:hidden]">
+                      {/* Top Banner with Client Logo */}
+                      <div className="w-full h-28 rounded-xl bg-gradient-to-b from-[#f8faf6] to-[#edf5eb]/60 border border-slate-100 flex items-center justify-center p-3 relative overflow-hidden">
+                        <img
+                          src={client.logo}
+                          alt={client.name}
+                          className={`${client.logoHeight} w-auto object-contain transition-transform duration-300 group-hover:scale-105`}
+                        />
+                      </div>
+
+                      {/* Title Name & Category */}
+                      <div className="text-center w-full px-1 py-1">
+                        <h4 className="text-sm sm:text-base font-bold text-slate-900 tracking-tight line-clamp-1">
+                          {client.name}
+                        </h4>
+                        <p className="text-[11px] text-slate-500 font-medium mt-0.5 line-clamp-1">
+                          {client.subtitle}
+                        </p>
+                      </div>
                     </div>
 
-                    {/* Title Name & Category */}
-                    <div className="text-center w-full px-1 py-1">
-                      <h4 className="text-sm sm:text-base font-bold text-slate-900 tracking-tight line-clamp-1">
-                        {client.name}
-                      </h4>
-                      <p className="text-[11px] text-slate-500 font-medium mt-0.5 line-clamp-1">
-                        {client.subtitle}
-                      </p>
-                    </div>
-                  </div>
+                    {/* BACK FACE: Clean Flipped Preview with Navigation Link */}
+                    <div className="absolute inset-0 h-full w-full rounded-2xl border border-[#14a800]/40 bg-gradient-to-br from-[#0c6600] via-[#118f00] to-[#0a5200] p-4 text-white flex flex-col justify-between [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                      <div className="flex items-center justify-between border-b border-white/20 pb-1.5">
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider bg-white/20 text-[#e7f5e3] px-2.5 py-0.5 rounded-full">
+                          {client.metric}
+                        </span>
+                      </div>
 
-                  {/* BACK FACE: Clean Flipped Preview with Navigation Link */}
-                  <div className="absolute inset-0 h-full w-full rounded-2xl border border-[#14a800]/40 bg-gradient-to-br from-[#0c6600] via-[#118f00] to-[#0a5200] p-5 text-white flex flex-col justify-between [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                    <div className="flex items-center justify-between border-b border-white/20 pb-2">
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider bg-white/20 text-[#e7f5e3] px-2.5 py-0.5 rounded-full">
-                        {client.metric}
-                      </span>
-                    </div>
+                      <div className="my-auto py-1">
+                        <h4 className="text-sm font-extrabold text-white tracking-tight line-clamp-1">
+                          {client.name}
+                        </h4>
+                        <p className="mt-1 text-xs text-white/90 leading-relaxed line-clamp-3">
+                          {client.summary}
+                        </p>
+                      </div>
 
-                    <div className="my-auto py-1">
-                      <h4 className="text-sm sm:text-base font-extrabold text-white tracking-tight line-clamp-1">
-                        {client.name}
-                      </h4>
-                      <p className="mt-1 text-xs text-white/90 leading-relaxed line-clamp-3">
-                        {client.summary}
-                      </p>
-                    </div>
-
-                    <div className="pt-2 border-t border-white/20">
-                      <div className="inline-flex w-full items-center justify-between rounded-xl bg-white/15 px-3.5 py-2 text-xs font-bold text-white backdrop-blur-xs transition-all duration-200 group-hover:bg-white group-hover:text-[#0c6600]">
-                        <span>Read Success Story</span>
-                        <ArrowDown className="h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5" />
+                      <div className="pt-1.5 border-t border-white/20">
+                        <div className="inline-flex w-full items-center justify-between rounded-xl bg-white/15 px-3 py-1.5 text-xs font-bold text-white backdrop-blur-xs transition-all duration-200 group-hover:bg-white group-hover:text-[#0c6600]">
+                          <span>Read Success Story</span>
+                          <ArrowDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-y-0.5" />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          {/* Key Credibility Stats */}
-          <div className="mt-10 grid grid-cols-2 gap-4 text-center md:grid-cols-4 md:gap-8">
-            <div className="rounded-xl border border-slate-100 bg-white p-3.5 shadow-xs flex flex-col items-center justify-center">
-              <div className="text-2xl font-extrabold text-[#14a800] md:text-3xl">
-                22 Years
-              </div>
-              <div className="mt-0.5 text-xs font-medium text-slate-500">
-                Technology delivery
-              </div>
-            </div>
-            <div className="rounded-xl border border-slate-100 bg-white p-3.5 shadow-xs flex flex-col items-center justify-center">
-              <div className="text-2xl font-extrabold text-[#14a800] md:text-3xl">
-                500+
-              </div>
-              <div className="mt-0.5 text-xs font-medium text-slate-500">
-                Clients served
-              </div>
-            </div>
-            <div className="rounded-xl border border-slate-100 bg-white p-3.5 shadow-xs flex flex-col items-center justify-center">
-              <div className="text-2xl font-extrabold text-[#14a800] md:text-3xl">
-                1,000+
-              </div>
-              <div className="mt-0.5 text-xs font-medium text-slate-500">
-                Projects delivered
-              </div>
-            </div>
-            <div className="rounded-xl border border-slate-100 bg-white p-3.5 shadow-xs flex flex-col items-center justify-center">
-              <div className="flex items-center justify-center gap-2">
-                <img
-                  src={isoLogo}
-                  alt="ISO Official Logo"
-                  className="h-6 sm:h-7 w-auto object-contain rounded-[2px]"
-                />
-                <div className="text-base sm:text-lg font-bold text-[#14a800] md:text-xl">
-                  ISO/IEC 27001:2022
+            {/* Right Side: 4 Key Credibility Stats (2x2 matching height) */}
+            <div className="grid grid-cols-2 gap-4 text-center">
+              <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs flex flex-col items-center justify-center min-h-[160px] lg:h-[215px]">
+                <div className="text-3xl font-extrabold text-[#14a800] sm:text-4xl">
+                  22 Years
+                </div>
+                <div className="mt-1.5 text-xs sm:text-sm font-medium text-slate-500">
+                  Technology delivery
                 </div>
               </div>
-              <div className="mt-0.5 text-xs font-medium text-slate-500">
-                Certified
+              <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs flex flex-col items-center justify-center min-h-[160px] lg:h-[215px]">
+                <div className="text-3xl font-extrabold text-[#14a800] sm:text-4xl">
+                  500+
+                </div>
+                <div className="mt-1.5 text-xs sm:text-sm font-medium text-slate-500">
+                  Clients served
+                </div>
+              </div>
+              <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs flex flex-col items-center justify-center min-h-[160px] lg:h-[215px]">
+                <div className="text-3xl font-extrabold text-[#14a800] sm:text-4xl">
+                  1,000+
+                </div>
+                <div className="mt-1.5 text-xs sm:text-sm font-medium text-slate-500">
+                  Projects delivered
+                </div>
+              </div>
+              <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs flex flex-col items-center justify-center min-h-[160px] lg:h-[215px]">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
+                  <img
+                    src={isoLogo}
+                    alt="ISO Official Logo"
+                    className="h-7 sm:h-8 w-auto object-contain rounded-[2px]"
+                  />
+                  <div className="text-lg sm:text-xl font-extrabold text-[#14a800] md:text-2xl">
+                    ISO/IEC 27001:2022
+                  </div>
+                </div>
+                <div className="mt-1.5 text-xs sm:text-sm font-medium text-slate-500">
+                  Certified
+                </div>
               </div>
             </div>
           </div>
@@ -1154,79 +1130,11 @@ const NonProfitHub = () => {
       {/* ========================================================
           13. FAQS - LAST SECTION DIRECTLY ABOVE FOOTER
       ======================================================== */}
-      <section className="border-t border-slate-100 bg-[#fbfdfa] py-16 md:py-24">
-        <div className="container mx-auto max-w-4xl px-4">
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-[#0c180a] sm:text-4xl text-balance">
-              Frequently Asked Questions
-            </h2>
-          </div>
-
-          <div className="mt-12">
-            <Accordion type="single" collapsible className="w-full space-y-4">
-              <AccordionItem
-                value="faq-1"
-                className="rounded-2xl border border-slate-200 bg-white px-6 shadow-2xs"
-              >
-                <AccordionTrigger className="text-left font-bold text-slate-900 hover:no-underline hover:text-[#14a800]">
-                  Is it really free?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-relaxed text-slate-600">
-                  Yes, if you self-host. Both products are open source under the MIT License — zero license cost to run on your own infrastructure. If you want us to host and manage it for you, that starts at $1,500/yr covering hosting, updates, and support.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem
-                value="faq-2"
-                className="rounded-2xl border border-slate-200 bg-white px-6 shadow-2xs"
-              >
-                <AccordionTrigger className="text-left font-bold text-slate-900 hover:no-underline hover:text-[#14a800]">
-                  Do we need engineers to run it?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-relaxed text-slate-600">
-                  Self-hosting takes a technically-comfortable IT person or contractor. Or we can host it for you for a small support fee — your data still stays isolated and exportable.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem
-                value="faq-3"
-                className="rounded-2xl border border-slate-200 bg-white px-6 shadow-2xs"
-              >
-                <AccordionTrigger className="text-left font-bold text-slate-900 hover:no-underline hover:text-[#14a800]">
-                  How does it work with our CRM and finance system?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-relaxed text-slate-600">
-                  Pre-built integrations for Salesforce NPSP, Bloomerang, QuickBooks, and others. You connect what you have — the agents read across and surface insights.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem
-                value="faq-4"
-                className="rounded-2xl border border-slate-200 bg-white px-6 shadow-2xs"
-              >
-                <AccordionTrigger className="text-left font-bold text-slate-900 hover:no-underline hover:text-[#14a800]">
-                  Will the AI train on our donor data?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-relaxed text-slate-600">
-                  No. Your donor data never trains AI models. Data stays in your instance, your residency, your control.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem
-                value="faq-5"
-                className="rounded-2xl border border-slate-200 bg-white px-6 shadow-2xs"
-              >
-                <AccordionTrigger className="text-left font-bold text-slate-900 hover:no-underline hover:text-[#14a800]">
-                  What's the difference between the two products?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-relaxed text-slate-600">
-                  Board Governance handles meeting automation, document Q&A, task tracking, and governance workflows. Nonprofit Control Tower handles daily operations — donor 360, grants, programs, role-specific dashboards.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </div>
-      </section>
+      <FaqSection
+        title="Frequently Asked Questions"
+        items={nonprofitFaqs}
+        className="border-t border-slate-100 bg-[#fbfdfa]"
+      />
 
       {/* 14. FOOTER: Handled by layout automatically */}
     </div>

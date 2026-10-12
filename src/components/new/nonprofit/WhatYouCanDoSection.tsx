@@ -335,8 +335,6 @@ const renderCornerWidget = (card: WhatYouCanDoCardItem) => {
 };
 
 export const WhatYouCanDoSection: React.FC = () => {
-  const [activeVideo, setActiveVideo] = useState<{ title: string; url?: string } | null>(null);
-
   return (
     <section className="py-20 md:py-28 bg-[#fbfdfa] relative overflow-hidden">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -347,7 +345,7 @@ export const WhatYouCanDoSection: React.FC = () => {
           </h2>
         </div>
 
-        {/* 6 High-Contrast Outcome Cards with Varied Peeking Corner UI & Play Buttons */}
+        {/* 6 High-Contrast Outcome Cards with Varied Peeking Corner UI */}
         <div className="mt-14 md:mt-16 grid gap-7 md:gap-8 md:grid-cols-2 lg:grid-cols-2">
           {OUTCOME_CARDS.map((card) => {
             const isGreen = card.theme === "green";
@@ -361,38 +359,22 @@ export const WhatYouCanDoSection: React.FC = () => {
                     : "bg-white text-[#0c180a] border-2 border-emerald-100/90 hover:border-[#14a800]/50 hover:shadow-[0_20px_50px_rgba(20,168,0,0.18)]"
                 }`}
               >
-                {/* Top Row: Title + Subheading + Play Lightbox Trigger */}
-                <div className="flex items-start justify-between gap-4">
-                  <div className="max-w-[70%] sm:max-w-[62%] md:max-w-[60%]">
-                    <h3
-                      className={`text-2xl sm:text-3xl font-extrabold tracking-tight ${
-                        isGreen ? "text-white" : "text-[#0c180a]"
-                      }`}
-                    >
-                      {card.title}
-                    </h3>
-                    <p
-                      className={`mt-3 text-sm sm:text-base leading-relaxed ${
-                        isGreen ? "text-white/90" : "text-slate-600"
-                      }`}
-                    >
-                      {card.subheader}
-                    </p>
-                  </div>
-
-                  {/* Play Button Trigger */}
-                  <button
-                    type="button"
-                    onClick={() => setActiveVideo({ title: card.videoTitle, url: card.videoUrl })}
-                    aria-label={`Watch video preview for ${card.title}`}
-                    className={`relative shrink-0 flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 rounded-full transition-transform duration-300 group-hover:scale-110 active:scale-95 shadow-md ${
-                      isGreen
-                        ? "bg-white/20 text-white hover:bg-white/30 backdrop-blur-md border border-white/30"
-                        : "bg-[#14a800] text-white hover:bg-[#118f00] shadow-[#14a800]/25"
+                {/* Top Row: Title + Subheading */}
+                <div className="max-w-[80%] sm:max-w-[72%] md:max-w-[68%]">
+                  <h3
+                    className={`text-2xl sm:text-3xl font-extrabold tracking-tight ${
+                      isGreen ? "text-white" : "text-[#0c180a]"
                     }`}
                   >
-                    <Play className="h-5 w-5 sm:h-6 sm:w-6 fill-current ml-0.5" />
-                  </button>
+                    {card.title}
+                  </h3>
+                  <p
+                    className={`mt-3 text-sm sm:text-base leading-relaxed ${
+                      isGreen ? "text-white/90" : "text-slate-600"
+                    }`}
+                  >
+                    {card.subheader}
+                  </p>
                 </div>
 
                 {/* Peeking Corner UI Element (Anchored to bottom-right corner with extra bottom/right bleed so seams never show) */}
@@ -404,39 +386,6 @@ export const WhatYouCanDoSection: React.FC = () => {
           })}
         </div>
       </div>
-
-      {/* Video Lightbox Modal */}
-      <Dialog open={!!activeVideo} onOpenChange={(open) => !open && setActiveVideo(null)}>
-        <DialogContent className="max-w-3xl p-0 overflow-hidden bg-black border-slate-800 text-white sm:rounded-2xl">
-          <div className="relative aspect-video w-full bg-slate-950 flex flex-col items-center justify-center p-6 text-center">
-            {activeVideo?.url ? (
-              <iframe
-                src={activeVideo.url}
-                title={activeVideo.title}
-                className="h-full w-full border-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            ) : (
-              <div className="flex flex-col items-center justify-center space-y-4 max-w-md mx-auto">
-                <div className="h-16 w-16 rounded-full bg-[#14a800]/20 border border-[#14a800]/40 flex items-center justify-center text-[#14a800]">
-                  <Play className="h-8 w-8 fill-current ml-1" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-white">{activeVideo?.title}</h4>
-                  <p className="mt-2 text-sm text-slate-400">
-                    Feature demonstration video will play directly here once uploaded.
-                  </p>
-                </div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs text-white/80">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-[#14a800]" />
-                  <span>Nonprofit Control Tower Feature Walkthrough</span>
-                </div>
-              </div>
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };

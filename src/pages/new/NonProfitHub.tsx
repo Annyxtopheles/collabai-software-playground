@@ -56,7 +56,7 @@ import ms365Logo from "@/assets/logos/ms365.svg";
 import googleWorkspaceLogo from "@/assets/logos/google-workspace.svg";
 import zoomLogo from "@/assets/logos/zoom.svg";
 import mailchimpLogo from "@/assets/logos/mailchimp.svg";
-import isoLogo from "@/assets/logos/iso-logo.svg";
+import iso27001CertifiedLogo from "@/assets/logos/iso-27001-certified.png";
 
 const nonprofitFaqs = getVertical("non-profit")!.faqs;
 
@@ -286,7 +286,7 @@ const NonProfitHub = () => {
           H2 title with SJ Innovation logo + horizontal split:
           4 client logo cards on the left, 4 metrics on the right.
       ======================================================== */}
-      <section className="border-y border-slate-100 bg-[#fbfdfa] py-14 md:py-16">
+      <section className="border-y border-slate-100 bg-[#fbfdfa] py-10 md:py-12">
         <div className="container mx-auto max-w-6xl px-4">
           <h2 className="flex flex-wrap items-center justify-center gap-3 text-center text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl">
             <span>Built on 22 years of technology delivery experience from</span>
@@ -298,9 +298,9 @@ const NonProfitHub = () => {
           </h2>
 
           {/* Horizontal 2-Column Split: 4 Client Logo Cards (Left) + 4 Metrics (Right) */}
-          <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+          <div className="mt-7 grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-7 items-stretch">
             {/* Left Side: 4 Interactive Client Case Study Flip Cards (2x2) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               {CLIENT_CASE_CARDS.map((client) => (
                 <div
                   key={client.id}
@@ -313,14 +313,14 @@ const NonProfitHub = () => {
                       scrollToCase(client.id);
                     }
                   }}
-                  className="group h-[215px] [perspective:1000px] cursor-pointer select-none focus:outline-hidden"
+                  className="group h-[180px] [perspective:1000px] cursor-pointer select-none focus:outline-hidden"
                   aria-label={`View ${client.name} success story`}
                 >
                   <div className="relative h-full w-full rounded-2xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
                     {/* FRONT FACE: Logo Banner + Title Name */}
-                    <div className="absolute inset-0 h-full w-full rounded-2xl border border-slate-200/90 bg-white p-3.5 flex flex-col justify-between [backface-visibility:hidden]">
+                    <div className="absolute inset-0 h-full w-full rounded-2xl border border-slate-200/90 bg-white p-3 flex flex-col justify-between [backface-visibility:hidden]">
                       {/* Top Banner with Client Logo */}
-                      <div className="w-full h-28 rounded-xl bg-gradient-to-b from-[#f8faf6] to-[#edf5eb]/60 border border-slate-100 flex items-center justify-center p-3 relative overflow-hidden">
+                      <div className="w-full h-24 rounded-xl bg-gradient-to-b from-[#f8faf6] to-[#edf5eb]/60 border border-slate-100 flex items-center justify-center p-2.5 relative overflow-hidden">
                         <img
                           src={client.logo}
                           alt={client.name}
@@ -329,8 +329,8 @@ const NonProfitHub = () => {
                       </div>
 
                       {/* Title Name & Category */}
-                      <div className="text-center w-full px-1 py-1">
-                        <h4 className="text-sm sm:text-base font-bold text-slate-900 tracking-tight line-clamp-1">
+                      <div className="text-center w-full px-1 py-0.5">
+                        <h4 className="text-sm font-bold text-slate-900 tracking-tight line-clamp-1">
                           {client.name}
                         </h4>
                         <p className="text-[11px] text-slate-500 font-medium mt-0.5 line-clamp-1">
@@ -340,24 +340,24 @@ const NonProfitHub = () => {
                     </div>
 
                     {/* BACK FACE: Clean Flipped Preview with Navigation Link */}
-                    <div className="absolute inset-0 h-full w-full rounded-2xl border border-[#14a800]/40 bg-gradient-to-br from-[#0c6600] via-[#118f00] to-[#0a5200] p-4 text-white flex flex-col justify-between [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                      <div className="flex items-center justify-between border-b border-white/20 pb-1.5">
-                        <span className="text-[10px] font-extrabold uppercase tracking-wider bg-white/20 text-[#e7f5e3] px-2.5 py-0.5 rounded-full">
+                    <div className="absolute inset-0 h-full w-full rounded-2xl border border-[#14a800]/40 bg-gradient-to-br from-[#0c6600] via-[#118f00] to-[#0a5200] p-3.5 text-white flex flex-col justify-between [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                      <div className="flex items-center justify-between border-b border-white/20 pb-1">
+                        <span className="text-[10px] font-extrabold uppercase tracking-wider bg-white/20 text-[#e7f5e3] px-2 py-0.5 rounded-full">
                           {client.metric}
                         </span>
                       </div>
 
-                      <div className="my-auto py-1">
-                        <h4 className="text-sm font-extrabold text-white tracking-tight line-clamp-1">
+                      <div className="my-auto py-0.5">
+                        <h4 className="text-xs sm:text-sm font-extrabold text-white tracking-tight line-clamp-1">
                           {client.name}
                         </h4>
-                        <p className="mt-1 text-xs text-white/90 leading-relaxed line-clamp-3">
+                        <p className="mt-0.5 text-[11px] text-white/90 leading-snug line-clamp-3">
                           {client.summary}
                         </p>
                       </div>
 
-                      <div className="pt-1.5 border-t border-white/20">
-                        <div className="inline-flex w-full items-center justify-between rounded-xl bg-white/15 px-3 py-1.5 text-xs font-bold text-white backdrop-blur-xs transition-all duration-200 group-hover:bg-white group-hover:text-[#0c6600]">
+                      <div className="pt-1 border-t border-white/20">
+                        <div className="inline-flex w-full items-center justify-between rounded-lg bg-white/15 px-2.5 py-1 text-[11px] font-bold text-white backdrop-blur-xs transition-all duration-200 group-hover:bg-white group-hover:text-[#0c6600]">
                           <span>Read Success Story</span>
                           <ArrowDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-y-0.5" />
                         </div>
@@ -368,46 +368,38 @@ const NonProfitHub = () => {
               ))}
             </div>
 
-            {/* Right Side: 4 Key Credibility Stats (2x2 matching height) */}
-            <div className="grid grid-cols-2 gap-4 text-center">
-              <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs flex flex-col items-center justify-center min-h-[160px] lg:h-[215px]">
-                <div className="text-3xl font-extrabold text-[#14a800] sm:text-4xl">
+            {/* Right Side: 4 Key Credibility Stats (2x2 matching compact height) */}
+            <div className="grid grid-cols-2 gap-3.5 text-center">
+              <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-xs flex flex-col items-center justify-center min-h-[140px] lg:h-[180px]">
+                <div className="text-2xl font-extrabold text-[#14a800] sm:text-3xl">
                   22 Years
                 </div>
-                <div className="mt-1.5 text-xs sm:text-sm font-medium text-slate-500">
+                <div className="mt-1 text-xs font-medium text-slate-500">
                   Technology delivery
                 </div>
               </div>
-              <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs flex flex-col items-center justify-center min-h-[160px] lg:h-[215px]">
-                <div className="text-3xl font-extrabold text-[#14a800] sm:text-4xl">
+              <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-xs flex flex-col items-center justify-center min-h-[140px] lg:h-[180px]">
+                <div className="text-2xl font-extrabold text-[#14a800] sm:text-3xl">
                   500+
                 </div>
-                <div className="mt-1.5 text-xs sm:text-sm font-medium text-slate-500">
+                <div className="mt-1 text-xs font-medium text-slate-500">
                   Clients served
                 </div>
               </div>
-              <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs flex flex-col items-center justify-center min-h-[160px] lg:h-[215px]">
-                <div className="text-3xl font-extrabold text-[#14a800] sm:text-4xl">
+              <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-xs flex flex-col items-center justify-center min-h-[140px] lg:h-[180px]">
+                <div className="text-2xl font-extrabold text-[#14a800] sm:text-3xl">
                   1,000+
                 </div>
-                <div className="mt-1.5 text-xs sm:text-sm font-medium text-slate-500">
+                <div className="mt-1 text-xs font-medium text-slate-500">
                   Projects delivered
                 </div>
               </div>
-              <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs flex flex-col items-center justify-center min-h-[160px] lg:h-[215px]">
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
-                  <img
-                    src={isoLogo}
-                    alt="ISO Official Logo"
-                    className="h-7 sm:h-8 w-auto object-contain rounded-[2px]"
-                  />
-                  <div className="text-lg sm:text-xl font-extrabold text-[#14a800] md:text-2xl">
-                    ISO/IEC 27001:2022
-                  </div>
-                </div>
-                <div className="mt-1.5 text-xs sm:text-sm font-medium text-slate-500">
-                  Certified
-                </div>
+              <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-xs flex flex-col items-center justify-center min-h-[140px] lg:h-[180px]">
+                <img
+                  src={iso27001CertifiedLogo}
+                  alt="ISO/IEC 27001:2022 Certified"
+                  className="h-14 sm:h-16 w-auto object-contain"
+                />
               </div>
             </div>
           </div>

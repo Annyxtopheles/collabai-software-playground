@@ -40,6 +40,7 @@ import queensChamberLogo from "@/assets/clients/queens-chamber.png";
 import SmoothImage from "@/components/ui/SmoothImage";
 import NonprofitProblemInfographics from "@/components/new/nonprofit/NonprofitProblemInfographics";
 import NonprofitIntegrationsBeam from "@/components/new/nonprofit/NonprofitIntegrationsBeam";
+import HeroMeetingIllustration from "@/components/new/nonprofit/HeroMeetingIllustration";
 import heroIllustration from "@/assets/nonprofit/collaborative-green-office-meeting.svg";
 import iso27001CertifiedLogo from "@/assets/logos/iso-27001-certified.png";
 import easyArt from "@/assets/why-act/easy-to-use.svg.asset.json";
@@ -201,11 +202,7 @@ const NonProfitHub = () => {
             {/* Right Column: Open SVG Illustration with Floating Modern Badges */}
             <div className="relative lg:col-span-5 flex justify-center">
               <div className="relative w-full max-w-[520px]">
-                <img
-                  src={heroIllustration}
-                  alt="Collaborative green office meeting illustration"
-                  className="w-full h-auto object-contain select-none"
-                />
+                <HeroMeetingIllustration className="w-full h-auto select-none" />
 
                 {/* Floating Card 1: Top Right Pill with smooth sub-pixel GPU floating motion */}
                 <motion.div

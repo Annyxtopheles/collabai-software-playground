@@ -40,7 +40,7 @@ import queensChamberLogo from "@/assets/clients/queens-chamber.png";
 import SmoothImage from "@/components/ui/SmoothImage";
 import NonprofitProblemInfographics from "@/components/new/nonprofit/NonprofitProblemInfographics";
 import NonprofitIntegrationsBeam from "@/components/new/nonprofit/NonprofitIntegrationsBeam";
-import heroCommunityImpact from "@/assets/nonprofit/hero-community-impact.jpg";
+import heroIllustration from "@/assets/nonprofit/collaborative-green-office-meeting.svg";
 import iso27001CertifiedLogo from "@/assets/logos/iso-27001-certified.png";
 import easyArt from "@/assets/why-act/easy-to-use.svg.asset.json";
 import privacyArt from "@/assets/why-act/data-privacy.svg.asset.json";
@@ -198,25 +198,14 @@ const NonProfitHub = () => {
               </div>
             </div>
 
-            {/* Right Column: Authentic Community Impact Photo with Floating Modern Badges */}
+            {/* Right Column: Open SVG Illustration with Floating Modern Badges */}
             <div className="relative lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-[480px]">
-                {/* Backing Ambient Decorative Glow */}
-                <div
-                  aria-hidden="true"
-                  className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-[#14a800]/20 via-[#e7f5e3]/50 to-transparent blur-xl -z-10"
+              <div className="relative w-full max-w-[520px]">
+                <img
+                  src={heroIllustration}
+                  alt="Collaborative green office meeting illustration"
+                  className="w-full h-auto object-contain select-none"
                 />
-
-                {/* Primary Photo Card */}
-                <div className="relative overflow-hidden rounded-3xl border border-[#14a800]/25 bg-white p-2.5 shadow-[0_20px_50px_rgba(20,168,0,0.12)]">
-                  <div className="relative overflow-hidden rounded-2xl aspect-[4/3] w-full">
-                    <img
-                      src={heroCommunityImpact}
-                      alt="Nonprofit team collaborating around a laptop and operational dashboard screen"
-                      className="h-full w-full object-cover object-center"
-                    />
-                  </div>
-                </div>
 
                 {/* Floating Card 1: Top Right Pill with smooth sub-pixel GPU floating motion */}
                 <motion.div

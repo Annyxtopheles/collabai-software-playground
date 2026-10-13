@@ -41,7 +41,8 @@ import SmoothImage from "@/components/ui/SmoothImage";
 import NonprofitProblemInfographics from "@/components/new/nonprofit/NonprofitProblemInfographics";
 import NonprofitIntegrationsBeam from "@/components/new/nonprofit/NonprofitIntegrationsBeam";
 import HeroMeetingIllustration from "@/components/new/nonprofit/HeroMeetingIllustration";
-import heroIllustration from "@/assets/nonprofit/collaborative-green-office-meeting.svg";
+// Original static SVG preserved for easy revert:
+// import heroIllustration from "@/assets/nonprofit/collaborative-green-office-meeting.svg";
 import iso27001CertifiedLogo from "@/assets/logos/iso-27001-certified.png";
 import easyArt from "@/assets/why-act/easy-to-use.svg.asset.json";
 import privacyArt from "@/assets/why-act/data-privacy.svg.asset.json";

@@ -266,7 +266,7 @@ const NonProfitHub = () => {
       <section className="border-y border-slate-100 bg-[#fbfdfa] py-10 md:py-12">
         <div className="container mx-auto max-w-6xl px-4">
           <h2 className="flex flex-wrap items-center justify-center gap-3 text-center text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl">
-            <span>Built on 22 years of technology delivery experience from</span>
+            <span>Built on 22 Years of Technology Delivery Experience from</span>
             <img
               src={sjInnovationLogo}
               alt="SJ Innovation"
@@ -397,8 +397,8 @@ const NonProfitHub = () => {
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
-              <span className="block">One place to understand</span>
-              <span className="block">and run your nonprofit.</span>
+              <span className="block">One Place to Understand</span>
+              <span className="block">and Run Your Nonprofit.</span>
             </h2>
             
             <div className="mt-6 mx-auto max-w-3xl text-base sm:text-lg leading-relaxed text-slate-600">
@@ -442,7 +442,7 @@ const NonProfitHub = () => {
                   className="h-12 w-auto shrink-0 object-contain"
                 />
                 <h3 className="text-lg sm:text-xl font-bold text-[#0c180a] leading-snug">
-                  AI learning for 16,000+ basketball&nbsp;officials
+                  AI Learning for 16,000+ Basketball&nbsp;Officials
                 </h3>
               </div>
 
@@ -478,7 +478,7 @@ const NonProfitHub = () => {
                   className="h-12 w-auto shrink-0 object-contain"
                 />
                 <h3 className="text-lg sm:text-xl font-bold text-[#0c180a] leading-snug">
-                  From a placeholder site to a live nonprofit Control&nbsp;Tower
+                  From a Placeholder Site to a Live Nonprofit Control&nbsp;Tower
                 </h3>
               </div>
 
@@ -514,7 +514,7 @@ const NonProfitHub = () => {
                   className="h-10 w-auto shrink-0 object-contain"
                 />
                 <h3 className="text-lg sm:text-xl font-bold text-[#0c180a] leading-snug">
-                  Modernizing a 12-year-old nonprofit&nbsp;platform
+                  Modernizing a 12-Year-Old Nonprofit&nbsp;Platform
                 </h3>
               </div>
 
@@ -549,7 +549,7 @@ const NonProfitHub = () => {
                   className="h-10 w-auto shrink-0 object-contain"
                 />
                 <h3 className="text-lg sm:text-xl font-bold text-[#0c180a] leading-snug">
-                  AI for a whole business&nbsp;community
+                  AI for a Whole Business&nbsp;Community
                 </h3>
               </div>
 
@@ -966,8 +966,8 @@ const NonProfitHub = () => {
         />
         <div className="container mx-auto max-w-4xl px-4">
           <h2 className="text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
-            <span className="block">Give your team more time</span>
-            <span className="block">for the work that&nbsp;matters.</span>
+            <span className="block">Give Your Team More Time</span>
+            <span className="block">for the Work That&nbsp;Matters.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg text-pretty">
             See how your donor data, programs, board operations and everyday

@@ -6,8 +6,8 @@ export const NonprofitProblemInfographics: React.FC = () => {
       <div className="container mx-auto max-w-6xl px-4">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl text-balance">
-            <span className="block">Your mission should not be buried</span>
-            <span className="block">under operational busywork.</span>
+            <span className="block">Your Mission Should Not Be Buried</span>
+            <span className="block">Under Operational Busywork.</span>
           </h2>
         </div>
 
@@ -19,7 +19,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
           <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-emerald-300/80 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
             <div className="relative z-10 flex-1 max-w-full sm:max-w-[56%] md:max-w-[58%] text-left">
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0c180a]">
-                Your donor information is&nbsp;scattered.
+                Your Donor Information Is&nbsp;Scattered.
               </h3>
               <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-slate-600 text-pretty">
                 CRM, spreadsheets, email, accounting software and event platforms
@@ -156,7 +156,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
           <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-emerald-300/80 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
             <div className="relative z-10 flex-1 max-w-full sm:max-w-[56%] md:max-w-[58%] text-left">
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0c180a]">
-                Reporting takes too&nbsp;long.
+                Reporting Takes Too&nbsp;Long.
               </h3>
               <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-slate-600 text-pretty">
                 Staff spend hours gathering information before leadership or
@@ -311,7 +311,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
           <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-emerald-300/80 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
             <div className="relative z-10 flex-1 max-w-full sm:max-w-[56%] md:max-w-[58%] text-left">
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0c180a]">
-                Too much work is still&nbsp;manual.
+                Too Much Work Is Still&nbsp;Manual.
               </h3>
               <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-slate-600 text-pretty">
                 Follow-ups, summaries, grant reporting, meeting actions and data
@@ -466,7 +466,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
           <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-emerald-300/80 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
             <div className="relative z-10 flex-1 max-w-full sm:max-w-[56%] md:max-w-[58%] text-left">
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0c180a]">
-                Leadership lacks one clear&nbsp;view.
+                Leadership Lacks One Clear&nbsp;View.
               </h3>
               <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-slate-600 text-pretty">
                 When an Executive Director asks,{" "}
@@ -626,9 +626,9 @@ export const NonprofitProblemInfographics: React.FC = () => {
         {/* Impactful Guiding Statement */}
         <div className="mt-14 sm:mt-16 text-center">
           <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-[#0c180a]">
-            That is where the{" "}
+            That Is Where the{" "}
             <span className="text-[#14a800]">Nonprofit Control Tower</span>{" "}
-            comes in.
+            Comes In.
           </h3>
         </div>
       </div>

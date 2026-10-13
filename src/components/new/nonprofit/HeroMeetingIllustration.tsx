@@ -20,66 +20,6 @@ export const HeroMeetingIllustration: React.FC<HeroMeetingIllustrationProps> = (
   return (
     <div className={`hero-meeting-container relative ${className}`}>
       <style>{`
-        /* Continuous looping hot coffee steam */
-        @keyframes steamFloat1 {
-          0% {
-            transform: translateY(0) scaleX(1);
-            opacity: 0;
-          }
-          20% {
-            opacity: 0.75;
-          }
-          60% {
-            opacity: 0.45;
-          }
-          100% {
-            transform: translateY(-38px) scaleX(1.25);
-            opacity: 0;
-          }
-        }
-        @keyframes steamFloat2 {
-          0% {
-            transform: translateY(0) scaleX(1);
-            opacity: 0;
-          }
-          25% {
-            opacity: 0.7;
-          }
-          65% {
-            opacity: 0.4;
-          }
-          100% {
-            transform: translateY(-44px) scaleX(0.85);
-            opacity: 0;
-          }
-        }
-        @keyframes steamFloat3 {
-          0% {
-            transform: translateY(0) scaleX(0.9);
-            opacity: 0;
-          }
-          30% {
-            opacity: 0.65;
-          }
-          70% {
-            opacity: 0.35;
-          }
-          100% {
-            transform: translateY(-34px) scaleX(1.15);
-            opacity: 0;
-          }
-        }
-
-        .hero-steam-trail-1 {
-          animation: steamFloat1 3.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-        }
-        .hero-steam-trail-2 {
-          animation: steamFloat2 4.0s cubic-bezier(0.4, 0, 0.2, 1) 0.9s infinite;
-        }
-        .hero-steam-trail-3 {
-          animation: steamFloat3 3.6s cubic-bezier(0.4, 0, 0.2, 1) 1.8s infinite;
-        }
-
         /* Smooth, glitch-free hover motion without silhouette tearing */
         .hero-left-figure {
           transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
@@ -323,34 +263,6 @@ export const HeroMeetingIllustration: React.FC<HeroMeetingIllustrationProps> = (
               {/* Hot Coffee Liquid Surface */}
               <ellipse cx="660" cy="698" rx="13" ry="4.5" fill="#282829" />
               <ellipse cx="660" cy="698" rx="10" ry="3" fill="#3D2817" />
-
-              {/* Steam Trails Rising from Mug 1 */}
-              <g className="hero-steam-group-left">
-                <path
-                  className="hero-steam-trail-1"
-                  d="M656 693 C652 679, 664 668, 658 654 C653 642, 661 630, 656 618"
-                  fill="none"
-                  stroke="#64748B"
-                  strokeWidth="2.4"
-                  strokeLinecap="round"
-                />
-                <path
-                  className="hero-steam-trail-2"
-                  d="M663 692 C667 678, 658 666, 664 651 C669 638, 662 626, 666 614"
-                  fill="none"
-                  stroke="#94A3B8"
-                  strokeWidth="2.0"
-                  strokeLinecap="round"
-                />
-                <path
-                  className="hero-steam-trail-3"
-                  d="M660 690 C657 676, 663 664, 659 650"
-                  fill="none"
-                  stroke="#CBD5E1"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                />
-              </g>
             </g>
 
             {/* Mug 2: Right Table (in front of the right woman) */}
@@ -380,34 +292,6 @@ export const HeroMeetingIllustration: React.FC<HeroMeetingIllustrationProps> = (
               {/* Hot Coffee Liquid Surface */}
               <ellipse cx="918" cy="714" rx="12" ry="4" fill="#282829" />
               <ellipse cx="918" cy="714" rx="9" ry="2.6" fill="#3D2817" />
-
-              {/* Steam Trails Rising from Mug 2 */}
-              <g className="hero-steam-group-right">
-                <path
-                  className="hero-steam-trail-2"
-                  d="M914 709 C910 696, 921 685, 916 671 C912 659, 919 648, 915 636"
-                  fill="none"
-                  stroke="#64748B"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                />
-                <path
-                  className="hero-steam-trail-1"
-                  d="M921 708 C925 694, 917 682, 922 668 C926 656, 920 644, 924 632"
-                  fill="none"
-                  stroke="#94A3B8"
-                  strokeWidth="2.0"
-                  strokeLinecap="round"
-                />
-                <path
-                  className="hero-steam-trail-3"
-                  d="M918 706 C915 692, 921 681, 917 668"
-                  fill="none"
-                  stroke="#CBD5E1"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                />
-              </g>
             </g>
           </g>
         </g>

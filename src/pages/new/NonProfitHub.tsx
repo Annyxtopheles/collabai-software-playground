@@ -263,14 +263,19 @@ const NonProfitHub = () => {
       ======================================================== */}
       <section className="border-y border-slate-100 bg-[#fbfdfa] py-10 md:py-12">
         <div className="container mx-auto max-w-6xl px-4">
-          <h2 className="flex flex-wrap items-center justify-center gap-3.5 text-center text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl">
-            <img
-              src={sjInnovationLogo}
-              alt="SJ Innovation"
-              className="inline-block h-9 sm:h-11 w-auto object-contain"
-            />
-            <span>Built on 22 Years of Technology Delivery Experience</span>
-          </h2>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="shrink-0">
+              <img
+                src={sjInnovationLogo}
+                alt="SJ Innovation"
+                className="h-9 sm:h-11 md:h-12 w-auto object-contain"
+              />
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#0c180a] leading-tight text-left sm:text-right">
+              <span className="block">Built on 22 Years of</span>
+              <span className="block">Technology Delivery Experience</span>
+            </h2>
+          </div>
 
           {/* Horizontal 2-Column Split: 4 Client Logo Cards (Left) + 4 Metrics (Right) */}
           <div className="mt-7 grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-7 items-stretch">

@@ -43,7 +43,7 @@ import NonprofitIntegrationsBeam from "@/components/new/nonprofit/NonprofitInteg
 import HeroMeetingIllustration from "@/components/new/nonprofit/HeroMeetingIllustration";
 // Original static SVG preserved for easy revert:
 // import heroIllustration from "@/assets/nonprofit/collaborative-green-office-meeting.svg";
-import iso27001CertifiedLogo from "@/assets/logos/iso-27001-certified.png";
+import iso27001CertifiedLogo from "@/assets/logos/iso-27001-certified.svg";
 
 // 3 Reasons to Choose SVG Illustrations (bundled with base path support)
 import techWorkflowOrbitImg from "@/assets/nonprofit/tech-workflow-orbit.svg";

@@ -45,10 +45,10 @@ import HeroMeetingIllustration from "@/components/new/nonprofit/HeroMeetingIllus
 // import heroIllustration from "@/assets/nonprofit/collaborative-green-office-meeting.svg";
 import iso27001CertifiedLogo from "@/assets/logos/iso-27001-certified.png";
 
-// 3 Reasons to Choose SVG Illustrations from public/images
-const techWorkflowOrbitImg = "/images/Tech%20Workflow%20Orbit%20Illustration%201.svg";
-const secureDataLaptopImg = "/images/Secure%20Data%20Laptop%20Dashboard%201.svg";
-const handsServerModuleImg = "/images/Hands%20Installing%20a%20Server%20Module%201%20%5BVectorized%5D.svg";
+// 3 Reasons to Choose SVG Illustrations (bundled with base path support)
+import techWorkflowOrbitImg from "@/assets/nonprofit/tech-workflow-orbit.svg";
+import secureDataLaptopImg from "@/assets/nonprofit/secure-data-laptop.svg";
+import handsServerModuleImg from "@/assets/nonprofit/hands-server-module.svg";
 
 const nonprofitFaqs = getVertical("non-profit")!.faqs;
 

@@ -16,7 +16,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
           {/* ========================================================
               Card 1: Scattered donor information
           ======================================================== */}
-          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-[#14a800]/30 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
+          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-[#14a800]/30 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20">
             <div className="relative z-10 flex-1 max-w-full sm:max-w-[56%] md:max-w-[58%] text-left">
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0c180a]">
                 Your Donor Information Is&nbsp;Scattered.
@@ -153,7 +153,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
           {/* ========================================================
               Card 2: Reporting takes too long
           ======================================================== */}
-          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-[#14a800]/30 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
+          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-[#14a800]/30 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20">
             <div className="relative z-10 flex-1 max-w-full sm:max-w-[56%] md:max-w-[58%] text-left">
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0c180a]">
                 Reporting Takes Too&nbsp;Long.
@@ -308,7 +308,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
           {/* ========================================================
               Card 3: Too much work is still manual
           ======================================================== */}
-          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-[#14a800]/30 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
+          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-[#14a800]/30 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20">
             <div className="relative z-10 flex-1 max-w-full sm:max-w-[56%] md:max-w-[58%] text-left">
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0c180a]">
                 Too Much Work Is Still&nbsp;Manual.
@@ -463,7 +463,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
           {/* ========================================================
               Card 4: Leadership lacks one clear view
           ======================================================== */}
-          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-[#14a800]/30 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
+          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-[#14a800]/30 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20">
             <div className="relative z-10 flex-1 max-w-full sm:max-w-[56%] md:max-w-[58%] text-left">
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0c180a]">
                 Leadership Lacks One Clear&nbsp;View.

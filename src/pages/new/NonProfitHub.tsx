@@ -263,13 +263,13 @@ const NonProfitHub = () => {
       ======================================================== */}
       <section className="border-y border-slate-100 bg-[#fbfdfa] py-10 md:py-12">
         <div className="container mx-auto max-w-6xl px-4">
-          <h2 className="flex flex-wrap items-center justify-center gap-3 text-center text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl">
-            <span>Built on 22 Years of Technology Delivery Experience from</span>
+          <h2 className="flex flex-wrap items-center justify-center gap-3.5 text-center text-2xl font-extrabold tracking-tight text-[#0c180a] sm:text-3xl lg:text-4xl">
             <img
               src={sjInnovationLogo}
               alt="SJ Innovation"
               className="inline-block h-9 sm:h-11 w-auto object-contain"
             />
+            <span>Built on 22 Years of Technology Delivery Experience</span>
           </h2>
 
           {/* Horizontal 2-Column Split: 4 Client Logo Cards (Left) + 4 Metrics (Right) */}
@@ -291,9 +291,9 @@ const NonProfitHub = () => {
                   className="group h-[180px] [perspective:1000px] cursor-pointer select-none focus:outline-hidden"
                   aria-label={`View ${client.name} success story`}
                 >
-                  <div className="relative h-full w-full rounded-2xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                  <div className="relative h-full w-full rounded-2xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-hover:shadow-lg group-hover:shadow-[#14a800]/20">
                     {/* FRONT FACE: Logo Banner + Title Name */}
-                    <div className="absolute inset-0 h-full w-full rounded-2xl border border-slate-200/90 bg-white p-3 flex flex-col justify-between [backface-visibility:hidden]">
+                    <div className="absolute inset-0 h-full w-full rounded-2xl border border-[#14a800]/30 bg-white p-3 flex flex-col justify-between [backface-visibility:hidden] transition-colors duration-300 group-hover:border-[#14a800]">
                       {/* Top Banner with Client Logo */}
                       <div className="w-full h-24 rounded-xl bg-gradient-to-b from-[#f8faf6] to-[#edf5eb]/60 border border-slate-100 flex items-center justify-center p-2.5 relative overflow-hidden">
                         <img
@@ -315,7 +315,7 @@ const NonProfitHub = () => {
                     </div>
 
                     {/* BACK FACE: Clean Flipped Preview with Navigation Link */}
-                    <div className="absolute inset-0 h-full w-full rounded-2xl border border-[#14a800]/40 bg-gradient-to-br from-[#0c6600] via-[#118f00] to-[#0a5200] p-3.5 text-white flex flex-col justify-between [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                    <div className="absolute inset-0 h-full w-full rounded-2xl border border-[#14a800] bg-gradient-to-br from-[#0c6600] via-[#118f00] to-[#0a5200] p-3.5 text-white flex flex-col justify-between [transform:rotateY(180deg)] [backface-visibility:hidden] shadow-lg shadow-[#14a800]/20">
                       <div className="flex items-center justify-between border-b border-white/20 pb-1">
                         <span className="text-[10px] font-extrabold uppercase tracking-wider bg-white/20 text-[#e7f5e3] px-2 py-0.5 rounded-full">
                           {client.metric}
@@ -345,7 +345,7 @@ const NonProfitHub = () => {
 
             {/* Right Side: 4 Key Credibility Stats (2x2 matching compact height) */}
             <div className="grid grid-cols-2 gap-3.5 text-center">
-              <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-xs flex flex-col items-center justify-center min-h-[140px] lg:h-[180px]">
+              <div className="rounded-2xl border border-[#14a800]/30 bg-white p-4 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20 flex flex-col items-center justify-center min-h-[140px] lg:h-[180px]">
                 <div className="text-2xl font-extrabold text-[#14a800] sm:text-3xl">
                   22 Years
                 </div>
@@ -353,7 +353,7 @@ const NonProfitHub = () => {
                   Technology delivery
                 </div>
               </div>
-              <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-xs flex flex-col items-center justify-center min-h-[140px] lg:h-[180px]">
+              <div className="rounded-2xl border border-[#14a800]/30 bg-white p-4 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20 flex flex-col items-center justify-center min-h-[140px] lg:h-[180px]">
                 <div className="text-2xl font-extrabold text-[#14a800] sm:text-3xl">
                   500+
                 </div>
@@ -361,7 +361,7 @@ const NonProfitHub = () => {
                   Clients served
                 </div>
               </div>
-              <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-xs flex flex-col items-center justify-center min-h-[140px] lg:h-[180px]">
+              <div className="rounded-2xl border border-[#14a800]/30 bg-white p-4 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20 flex flex-col items-center justify-center min-h-[140px] lg:h-[180px]">
                 <div className="text-2xl font-extrabold text-[#14a800] sm:text-3xl">
                   1,000+
                 </div>
@@ -369,7 +369,7 @@ const NonProfitHub = () => {
                   Projects delivered
                 </div>
               </div>
-              <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-xs flex flex-col items-center justify-center min-h-[140px] lg:h-[180px]">
+              <div className="rounded-2xl border border-[#14a800]/30 bg-white p-4 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20 flex flex-col items-center justify-center min-h-[140px] lg:h-[180px]">
                 <img
                   src={iso27001CertifiedLogo}
                   alt="ISO/IEC 27001:2022 Certified"
@@ -432,7 +432,7 @@ const NonProfitHub = () => {
 
           <div className="mt-14 grid gap-8 md:grid-cols-2">
             {/* Case 1: IAABO */}
-            <div id="case-iaabo" className="scroll-mt-28 flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
+            <div id="case-iaabo" className="scroll-mt-28 flex flex-col rounded-3xl border border-[#14a800]/30 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20 md:p-8">
               <div className="flex items-center gap-4 border-b border-slate-100 pb-5">
                 <img
                   src={iaaboLogo}
@@ -468,7 +468,7 @@ const NonProfitHub = () => {
             </div>
 
             {/* Case 2: BSP */}
-            <div id="case-bsp" className="scroll-mt-28 flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
+            <div id="case-bsp" className="scroll-mt-28 flex flex-col rounded-3xl border border-[#14a800]/30 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20 md:p-8">
               <div className="flex items-center gap-4 border-b border-slate-100 pb-5">
                 <img
                   src={bspLogo}
@@ -504,7 +504,7 @@ const NonProfitHub = () => {
             </div>
 
             {/* Case 3: The Optimists */}
-            <div id="case-optimists" className="scroll-mt-28 flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
+            <div id="case-optimists" className="scroll-mt-28 flex flex-col rounded-3xl border border-[#14a800]/30 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20 md:p-8">
               <div className="flex items-center gap-4 border-b border-slate-100 pb-5">
                 <img
                   src={theOptimistsLogo}
@@ -539,7 +539,7 @@ const NonProfitHub = () => {
             </div>
 
             {/* Case 4: Queens Chamber of Commerce */}
-            <div id="case-queens-chamber" className="scroll-mt-28 flex flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:border-[#14a800]/40 hover:shadow-lg md:p-8">
+            <div id="case-queens-chamber" className="scroll-mt-28 flex flex-col rounded-3xl border border-[#14a800]/30 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20 md:p-8">
               <div className="flex items-center gap-4 border-b border-slate-100 pb-5">
                 <img
                   src={queensChamberLogo}
@@ -809,7 +809,7 @@ const NonProfitHub = () => {
 
           <div className="mt-14 grid items-stretch gap-6 md:grid-cols-3 lg:gap-8">
             {/* Card 1: Keep Your Existing Tools */}
-            <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800]/50 hover:shadow-md">
+            <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#14a800]/30 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20">
               <div className="-mx-7 -mt-7 mb-5">
                 <SmoothImage
                   src={easyArt.url}
@@ -849,7 +849,7 @@ const NonProfitHub = () => {
             </article>
 
             {/* Card 2: Protect Your Private Data */}
-            <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800]/50 hover:shadow-md">
+            <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#14a800]/30 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20">
               <div className="-mx-7 -mt-7 mb-5">
                 <SmoothImage
                   src={privacyArt.url}
@@ -889,7 +889,7 @@ const NonProfitHub = () => {
             </article>
 
             {/* Card 3: Flexible Hosting Options */}
-            <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800]/50 hover:shadow-md">
+            <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#14a800]/30 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20">
               <div className="-mx-7 -mt-7 mb-5">
                 <SmoothImage
                   src={costArt.url}

@@ -16,7 +16,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
           {/* ========================================================
               Card 1: Scattered donor information
           ======================================================== */}
-          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-emerald-300/80 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
+          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-[#14a800]/30 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
             <div className="relative z-10 flex-1 max-w-full sm:max-w-[56%] md:max-w-[58%] text-left">
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0c180a]">
                 Your Donor Information Is&nbsp;Scattered.
@@ -41,7 +41,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                 {/* Soft Mint Organic Background Aura Blob */}
                 <path
                   d="M 38 78 C 30 38, 88 18, 134 26 C 176 34, 188 78, 172 118 C 154 154, 94 158, 54 138 C 34 122, 44 98, 38 78 Z"
-                  fill="#e8f7e5"
+                  fill="#e7f5e3"
                 />
 
                 {/* Tilted Green Spreadsheet (Top Right) */}
@@ -52,7 +52,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                     width="46"
                     height="56"
                     rx="8"
-                    fill="#8ae274"
+                    fill="#c8f0be"
                     stroke="#1c3422"
                     strokeWidth="2.4"
                     transform="rotate(10 139 50)"
@@ -75,7 +75,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                     width="48"
                     height="52"
                     rx="9"
-                    fill="#6ed356"
+                    fill="#14a800"
                     stroke="#1c3422"
                     strokeWidth="2.4"
                     transform="rotate(-5 138 118)"
@@ -103,7 +103,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                   />
                   {/* Circular Green Donor Stamp & Text Lines */}
                   <g transform="rotate(-10 81 79)">
-                    <circle cx="66" cy="58" r="6" fill="#16a34a" stroke="#1c3422" strokeWidth="2" />
+                    <circle cx="66" cy="58" r="6" fill="#14a800" stroke="#1c3422" strokeWidth="2" />
                     <line x1="64" y1="74" x2="98" y2="74" stroke="#1c3422" strokeWidth="2.4" strokeLinecap="round" />
                     <line x1="64" y1="84" x2="96" y2="84" stroke="#1c3422" strokeWidth="2.4" strokeLinecap="round" />
                     <line x1="64" y1="94" x2="88" y2="94" stroke="#1c3422" strokeWidth="2.4" strokeLinecap="round" />
@@ -153,7 +153,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
           {/* ========================================================
               Card 2: Reporting takes too long
           ======================================================== */}
-          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-emerald-300/80 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
+          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-[#14a800]/30 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
             <div className="relative z-10 flex-1 max-w-full sm:max-w-[56%] md:max-w-[58%] text-left">
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0c180a]">
                 Reporting Takes Too&nbsp;Long.
@@ -178,7 +178,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                 {/* Soft Mint Organic Background Aura Blob */}
                 <path
                   d="M 36 82 C 26 42, 82 22, 130 28 C 172 34, 186 76, 174 116 C 158 152, 102 158, 56 142 C 38 126, 42 102, 36 82 Z"
-                  fill="#e8f7e5"
+                  fill="#e7f5e3"
                 />
 
                 {/* Back Report Page with Metric Sparkline (Top Right) */}
@@ -189,7 +189,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                     width="54"
                     height="66"
                     rx="8"
-                    fill="#8ae274"
+                    fill="#c8f0be"
                     stroke="#1c3422"
                     strokeWidth="2.4"
                     transform="rotate(8 133 57)"
@@ -228,7 +228,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                     width="62"
                     height="18"
                     rx="5"
-                    fill="#6ed356"
+                    fill="#14a800"
                     stroke="#1c3422"
                     strokeWidth="2.4"
                     transform="rotate(-4 79 133)"
@@ -246,7 +246,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                     width="12"
                     height="8"
                     rx="3"
-                    fill="#16a34a"
+                    fill="#14a800"
                     stroke="#1c3422"
                     strokeWidth="2.2"
                   />
@@ -290,7 +290,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                       strokeWidth="2.4"
                       strokeLinecap="round"
                     />
-                    <circle cx="114" cy="92" r="3.5" fill="#16a34a" stroke="#1c3422" strokeWidth="1.8" />
+                    <circle cx="114" cy="92" r="3.5" fill="#14a800" stroke="#1c3422" strokeWidth="1.8" />
                   </g>
                 </g>
 
@@ -308,7 +308,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
           {/* ========================================================
               Card 3: Too much work is still manual
           ======================================================== */}
-          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-emerald-300/80 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
+          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-[#14a800]/30 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
             <div className="relative z-10 flex-1 max-w-full sm:max-w-[56%] md:max-w-[58%] text-left">
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0c180a]">
                 Too Much Work Is Still&nbsp;Manual.
@@ -333,7 +333,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                 {/* Soft Mint Organic Background Aura Blob */}
                 <path
                   d="M 40 78 C 28 36, 86 16, 132 24 C 174 32, 188 74, 174 116 C 158 152, 98 158, 56 138 C 36 122, 46 98, 40 78 Z"
-                  fill="#e8f7e5"
+                  fill="#e7f5e3"
                 />
 
                 {/* Backing Green Clipboard Frame */}
@@ -344,7 +344,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                     width="72"
                     height="92"
                     rx="12"
-                    fill="#74d95b"
+                    fill="#14a800"
                     stroke="#1c3422"
                     strokeWidth="2.4"
                     transform="rotate(-5 92 78)"
@@ -384,22 +384,22 @@ export const NonprofitProblemInfographics: React.FC = () => {
                   />
 
                   {/* Checklist Row 1 */}
-                  <rect x="74" y="56" width="11" height="11" rx="3" fill="#16a34a" stroke="#1c3422" strokeWidth="1.8" />
+                  <rect x="74" y="56" width="11" height="11" rx="3" fill="#14a800" stroke="#1c3422" strokeWidth="1.8" />
                   <path d="M 76 61.5 L 78.5 64 L 83 58.5" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                   <line x1="92" y1="62" x2="118" y2="62" stroke="#1c3422" strokeWidth="2.2" strokeLinecap="round" />
 
                   {/* Checklist Row 2 */}
-                  <rect x="74" y="74" width="11" height="11" rx="3" fill="#16a34a" stroke="#1c3422" strokeWidth="1.8" />
+                  <rect x="74" y="74" width="11" height="11" rx="3" fill="#14a800" stroke="#1c3422" strokeWidth="1.8" />
                   <path d="M 76 79.5 L 78.5 82 L 83 76.5" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                   <line x1="92" y1="80" x2="116" y2="80" stroke="#1c3422" strokeWidth="2.2" strokeLinecap="round" />
 
                   {/* Checklist Row 3 */}
-                  <rect x="74" y="92" width="11" height="11" rx="3" fill="#16a34a" stroke="#1c3422" strokeWidth="1.8" />
+                  <rect x="74" y="92" width="11" height="11" rx="3" fill="#14a800" stroke="#1c3422" strokeWidth="1.8" />
                   <path d="M 76 97.5 L 78.5 100 L 83 94.5" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                   <line x1="92" y1="98" x2="112" y2="98" stroke="#1c3422" strokeWidth="2.2" strokeLinecap="round" />
 
                   {/* Checklist Row 4 (In Progress / Pending) */}
-                  <rect x="74" y="110" width="11" height="11" rx="3" fill="#e8f7e5" stroke="#1c3422" strokeWidth="1.8" />
+                  <rect x="74" y="110" width="11" height="11" rx="3" fill="#e7f5e3" stroke="#1c3422" strokeWidth="1.8" />
                   <line x1="92" y1="116" x2="108" y2="116" stroke="#1c3422" strokeWidth="2.2" strokeLinecap="round" />
                 </g>
 
@@ -411,7 +411,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                     width="12"
                     height="58"
                     rx="4"
-                    fill="#8ae274"
+                    fill="#c8f0be"
                     stroke="#1c3422"
                     strokeWidth="2.2"
                     transform="rotate(32 142 79)"
@@ -437,16 +437,16 @@ export const NonprofitProblemInfographics: React.FC = () => {
                   />
                 </g>
 
-                {/* Repetitive Loop Arc Indicator (Top Right) */}
-                <g className="transition-transform duration-700 ease-out group-hover:rotate-180 origin-[145px_36px]">
+                {/* Repetitive Loop Arc Indicator (Top Right) - Balanced, logical rotation along the cycle arc */}
+                <g className="transition-transform duration-500 ease-out group-hover:rotate-[28deg] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 origin-[145px_36px]">
                   <path
                     d="M 136 32 C 144 26, 154 30, 156 38"
-                    stroke="#16a34a"
-                    strokeWidth="2.2"
+                    stroke="#14a800"
+                    strokeWidth="2.4"
                     strokeLinecap="round"
                     fill="none"
                   />
-                  <polygon points="159,34 156,41 151,37" fill="#16a34a" />
+                  <polygon points="159,34 156,41 151,37" fill="#14a800" />
                 </g>
 
                 {/* Action Rays */}
@@ -463,7 +463,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
           {/* ========================================================
               Card 4: Leadership lacks one clear view
           ======================================================== */}
-          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-emerald-300/80 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
+          <div className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden rounded-3xl border border-[#14a800]/30 bg-white p-6 sm:p-7 md:p-8 min-h-[220px] shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg">
             <div className="relative z-10 flex-1 max-w-full sm:max-w-[56%] md:max-w-[58%] text-left">
               <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#0c180a]">
                 Leadership Lacks One Clear&nbsp;View.
@@ -492,7 +492,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                 {/* Soft Mint Organic Background Aura Blob */}
                 <path
                   d="M 36 80 C 26 40, 84 20, 130 26 C 172 32, 186 74, 172 114 C 158 152, 100 158, 54 138 C 36 122, 44 98, 36 80 Z"
-                  fill="#e8f7e5"
+                  fill="#e7f5e3"
                 />
 
                 {/* Tilted Green App Window 1 (Top Right) */}
@@ -503,7 +503,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                     width="54"
                     height="44"
                     rx="7"
-                    fill="#8ae274"
+                    fill="#c8f0be"
                     stroke="#1c3422"
                     strokeWidth="2.4"
                     transform="rotate(8 137 46)"
@@ -527,7 +527,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                     width="58"
                     height="46"
                     rx="7"
-                    fill="#6ed356"
+                    fill="#14a800"
                     stroke="#1c3422"
                     strokeWidth="2.4"
                     transform="rotate(-6 77 111)"
@@ -559,11 +559,11 @@ export const NonprofitProblemInfographics: React.FC = () => {
                   <circle cx="98" cy="54" r="2.2" fill="#1c3422" />
                   <line x1="76" y1="60" x2="142" y2="60" stroke="#1c3422" strokeWidth="2" />
                   {/* Split metric boxes inside */}
-                  <rect x="82" y="66" width="24" height="26" rx="4" fill="#e8f7e5" stroke="#1c3422" strokeWidth="1.8" />
-                  <rect x="112" y="66" width="24" height="26" rx="4" fill="#e8f7e5" stroke="#1c3422" strokeWidth="1.8" />
+                  <rect x="82" y="66" width="24" height="26" rx="4" fill="#e7f5e3" stroke="#1c3422" strokeWidth="1.8" />
+                  <rect x="112" y="66" width="24" height="26" rx="4" fill="#e7f5e3" stroke="#1c3422" strokeWidth="1.8" />
                   <line x1="86" y1="74" x2="102" y2="74" stroke="#1c3422" strokeWidth="2" strokeLinecap="round" />
                   <line x1="86" y1="82" x2="98" y2="82" stroke="#1c3422" strokeWidth="2" strokeLinecap="round" />
-                  <circle cx="124" cy="79" r="6" fill="#16a34a" />
+                  <circle cx="124" cy="79" r="6" fill="#14a800" />
                 </g>
 
                 {/* Focus Magnifying Glass with Question Mark (Bottom Right / Center) */}
@@ -582,8 +582,8 @@ export const NonprofitProblemInfographics: React.FC = () => {
                     cx="122"
                     cy="94"
                     r="14"
-                    fill="#e8f7e5"
-                    stroke="#16a34a"
+                    fill="#e7f5e3"
+                    stroke="#14a800"
                     strokeWidth="1.8"
                     strokeDasharray="3 3"
                   />
@@ -592,7 +592,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
                     x="122"
                     y="100"
                     textAnchor="middle"
-                    fill="#15803d"
+                    fill="#118f00"
                     fontSize="16"
                     fontWeight="900"
                     fontFamily="sans-serif"

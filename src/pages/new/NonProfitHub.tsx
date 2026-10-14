@@ -44,9 +44,11 @@ import HeroMeetingIllustration from "@/components/new/nonprofit/HeroMeetingIllus
 // Original static SVG preserved for easy revert:
 // import heroIllustration from "@/assets/nonprofit/collaborative-green-office-meeting.svg";
 import iso27001CertifiedLogo from "@/assets/logos/iso-27001-certified.png";
-import easyArt from "@/assets/why-act/easy-to-use.svg.asset.json";
-import privacyArt from "@/assets/why-act/data-privacy.svg.asset.json";
-import costArt from "@/assets/why-act/cost-effective.svg.asset.json";
+
+// 3 Reasons to Choose SVG Illustrations from public/images
+const techWorkflowOrbitImg = "/images/Tech%20Workflow%20Orbit%20Illustration%201.svg";
+const secureDataLaptopImg = "/images/Secure%20Data%20Laptop%20Dashboard%201.svg";
+const handsServerModuleImg = "/images/Hands%20Installing%20a%20Server%20Module%201%20%5BVectorized%5D.svg";
 
 const nonprofitFaqs = getVertical("non-profit")!.faqs;
 
@@ -815,12 +817,12 @@ const NonProfitHub = () => {
           <div className="mt-14 grid items-stretch gap-6 md:grid-cols-3 lg:gap-8">
             {/* Card 1: Keep Your Existing Tools */}
             <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#14a800]/30 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20">
-              <div className="-mx-7 -mt-7 mb-5">
+              <div className="-mx-7 -mt-7 mb-5 overflow-hidden">
                 <SmoothImage
-                  src={easyArt.url}
+                  src={techWorkflowOrbitImg}
                   alt="Keep Your Existing Tools"
                   wrapperClassName="aspect-[3/2] w-full overflow-hidden bg-transparent"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                 />
               </div>
 
@@ -855,12 +857,12 @@ const NonProfitHub = () => {
 
             {/* Card 2: Protect Your Private Data */}
             <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#14a800]/30 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20">
-              <div className="-mx-7 -mt-7 mb-5">
+              <div className="-mx-7 -mt-7 mb-5 overflow-hidden">
                 <SmoothImage
-                  src={privacyArt.url}
+                  src={secureDataLaptopImg}
                   alt="Protect Your Private Data"
                   wrapperClassName="aspect-[3/2] w-full overflow-hidden bg-transparent"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                 />
               </div>
 
@@ -895,12 +897,12 @@ const NonProfitHub = () => {
 
             {/* Card 3: Flexible Hosting Options */}
             <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#14a800]/30 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#14a800] hover:shadow-lg hover:shadow-[#14a800]/20">
-              <div className="-mx-7 -mt-7 mb-5">
+              <div className="-mx-7 -mt-7 mb-5 overflow-hidden">
                 <SmoothImage
-                  src={costArt.url}
+                  src={handsServerModuleImg}
                   alt="Flexible Hosting Options"
                   wrapperClassName="aspect-[3/2] w-full overflow-hidden bg-transparent"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                 />
               </div>
 

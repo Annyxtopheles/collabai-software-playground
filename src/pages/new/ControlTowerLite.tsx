@@ -6,7 +6,6 @@ import {
   ArrowRight,
   ArrowDown,
   CheckCircle2,
-  ExternalLink,
   ShieldCheck,
   Building2,
   Users,
@@ -17,21 +16,17 @@ import {
   Lightbulb,
   Rocket,
   Check,
-  Award,
-  Layers,
-  ChevronRight,
   Boxes,
-  Compass,
   ArrowUpRight,
   Activity,
   HeartPulse,
   HeartHandshake,
   Landmark,
   KeyRound,
-  TrendingUp,
   LineChart,
   Megaphone,
   UserCheck,
+  Lock,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -48,7 +43,7 @@ import iso27001Logo from "@/assets/logos/iso-27001-certified.svg";
 interface LiteSolution {
   id: string;
   name: string;
-  badge?: string;
+  badge: string;
   category: "agency" | "industry" | "growth";
   problem: string;
   description: string[];
@@ -57,7 +52,6 @@ interface LiteSolution {
   targetHref: string;
   lovableRemixUrl: string;
   icon: typeof Building2;
-  accentColor: string;
 }
 
 const LITE_SOLUTIONS: LiteSolution[] = [
@@ -83,7 +77,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     targetHref: "/agency",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-agency-lite",
     icon: Building2,
-    accentColor: "from-blue-500/20 to-indigo-500/20 text-blue-400 border-blue-500/30",
   },
   {
     id: "healthhub-lite",
@@ -107,11 +100,10 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     targetHref: "/healthcare",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-healthhub-lite",
     icon: HeartPulse,
-    accentColor: "from-emerald-500/20 to-teal-500/20 text-emerald-400 border-emerald-500/30",
   },
   {
     id: "nonprofit-lite",
-    name: "Nonprofit Control Tower Lite",
+    name: "Nonprofit Board Control Tower Lite",
     badge: "Presenting · Nonprofits",
     category: "industry",
     problem: "Board Information Buried Across Emails, Files and Folders?",
@@ -131,7 +123,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     targetHref: "/non-profit",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-nonprofit-lite",
     icon: HeartHandshake,
-    accentColor: "from-purple-500/20 to-pink-500/20 text-purple-400 border-purple-500/30",
   },
   {
     id: "mortgage-lite",
@@ -154,7 +145,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     targetHref: "/mortgage-bank",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-mortgage-lite",
     icon: Landmark,
-    accentColor: "from-cyan-500/20 to-blue-500/20 text-cyan-400 border-cyan-500/30",
   },
   {
     id: "realtorhelp-lite",
@@ -178,7 +168,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     targetHref: "/book-demo?solution=realtorhelp-lite",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-realtorhelp-lite",
     icon: KeyRound,
-    accentColor: "from-amber-500/20 to-orange-500/20 text-amber-400 border-amber-500/30",
   },
   {
     id: "marketing-lite",
@@ -202,7 +191,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     targetHref: "/book-demo?solution=marketing-lite",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-marketing-lite",
     icon: Megaphone,
-    accentColor: "from-rose-500/20 to-red-500/20 text-rose-400 border-rose-500/30",
   },
   {
     id: "client-success-lite",
@@ -226,7 +214,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     targetHref: "/book-demo?solution=client-success-lite",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-clientsuccess-lite",
     icon: UserCheck,
-    accentColor: "from-violet-500/20 to-purple-500/20 text-violet-400 border-violet-500/30",
   },
   {
     id: "ghl-lite",
@@ -251,7 +238,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     targetHref: "/agency?addon=ghl-lite",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-ghl-lite",
     icon: Activity,
-    accentColor: "from-sky-500/20 to-indigo-500/20 text-sky-400 border-sky-500/30",
   },
 ];
 
@@ -283,7 +269,7 @@ const ControlTowerLite = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-white text-slate-900 selection:bg-blue-100 selection:text-blue-900">
       <Helmet>
         <title>Control Tower Lite — Practical AI Solutions for Real Business Workflows | CollabAI</title>
         <meta
@@ -294,69 +280,77 @@ const ControlTowerLite = () => {
       </Helmet>
 
       {/* =========================================================================
-          1. HERO - FIRST FOLD (Clean, bold editorial style as referenced)
+          1. HERO - FIRST FOLD (CollabAI Clean Editorial Style)
          ========================================================================= */}
-      <section className="relative overflow-hidden border-b border-slate-800/80 bg-gradient-to-b from-slate-950 via-slate-900/60 to-slate-950 pt-16 pb-20 sm:pt-24 sm:pb-28">
-        {/* Subtle background glow */}
-        <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-blue-600/10 blur-[130px]" />
-        <div className="pointer-events-none absolute top-1/2 -right-40 -z-10 h-[400px] w-[500px] rounded-full bg-cyan-500/10 blur-[120px]" />
+      <section className="relative overflow-hidden pt-12 pb-16 md:pt-20 md:pb-24 lg:pt-24 lg:pb-28">
+        {/* Soft background ambient gradient meshes matching CollabAI design system */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 15% 30%, rgba(14, 165, 233, 0.05) 0%, transparent 40%),
+              radial-gradient(circle at 85% 30%, rgba(37, 99, 235, 0.05) 0%, transparent 40%)
+            `,
+          }}
+        />
 
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
+        <div className="container mx-auto max-w-5xl px-4 text-center">
           {/* Eyebrow badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-blue-300 backdrop-blur">
-            <Sparkles className="h-3.5 w-3.5 text-blue-400" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/25 bg-blue-50/90 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-blue-700 shadow-2xs">
+            <Sparkles className="h-3.5 w-3.5 text-blue-600" />
             <span>INTRODUCING LITE</span>
-            <span className="text-slate-500">·</span>
-            <span className="text-slate-300">Designed to make Your First Step Easier</span>
+            <span className="text-slate-300">·</span>
+            <span className="text-slate-600 font-medium normal-case tracking-normal">Designed to make Your First Step Easier</span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="mt-8 text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-            You Don’t Need the Biggest AI System.
-            <br />
-            <span className="bg-gradient-to-r from-blue-400 via-sky-300 to-teal-300 bg-clip-text text-transparent">
+          <h1 className="mt-8 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-slate-950 leading-[1.08] text-balance">
+            <span>You Don’t Need the Biggest AI System.</span>
+            <span className="block mt-2 text-blue-600">
               You Need the Right Starting Point.
             </span>
           </h1>
 
           {/* Subheading */}
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-slate-300 sm:text-xl md:text-2xl font-normal leading-relaxed">
+          <p className="mx-auto mt-6 max-w-2xl text-lg sm:text-xl text-slate-600 font-normal leading-relaxed text-pretty">
             AI projects often become complicated because businesses try to solve everything at once.
           </p>
 
-          {/* CTAs */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          {/* CTAs following CollabAI button system */}
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5">
             <Button
               size="lg"
               onClick={scrollToSolutions}
-              className="h-13 px-8 text-base font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="group rounded-full border border-slate-900 bg-slate-950 px-8 py-3.5 text-center font-semibold text-white shadow-sm transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[2px]"
             >
-              Explore Lite Now
-              <ArrowDown className="ml-2 h-4 w-4" />
+              <span>Explore Lite Now</span>
+              <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               onClick={() => setSelectedSolution(LITE_SOLUTIONS[0])}
-              className="h-13 px-8 text-base font-semibold border-slate-700 bg-slate-900/80 text-slate-200 hover:bg-slate-800 hover:text-white transition-all"
+              className="rounded-full border border-slate-300 bg-white px-8 py-3.5 font-semibold text-slate-800 shadow-2xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-50 hover:text-slate-950 active:translate-y-[2px]"
             >
-              <Sparkles className="mr-2 h-4 w-4 text-amber-400" />
-              Lovable Remix (Instant Buy)
+              <Sparkles className="mr-2 h-4 w-4 text-amber-500" />
+              <span>Lovable Remix (Instant Buy)</span>
             </Button>
           </div>
 
-          {/* Industries Supported Band */}
-          <div className="mt-16 pt-10 border-t border-slate-800/80">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 mb-5">
+          {/* Supported Audience Strip */}
+          <div className="mt-14 pt-8 border-t border-slate-100">
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-4">
               AI solutions purpose-built for:
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-2.5 max-w-4xl mx-auto">
+            <div className="flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto">
               {INDUSTRIES_TICKER.map((industry) => (
                 <span
                   key={industry}
-                  className="inline-flex items-center rounded-full border border-slate-800 bg-slate-900/90 px-3.5 py-1.5 text-xs font-medium text-slate-300 shadow-sm"
+                  className="inline-flex items-center rounded-full border border-slate-200/80 bg-white px-3.5 py-1.5 text-xs font-medium text-slate-700 shadow-2xs"
                 >
-                  <CheckCircle2 className="mr-1.5 h-3 w-3 text-blue-400" />
+                  <CheckCircle2 className="mr-1.5 h-3.5 w-3.5 text-blue-600" />
                   {industry}
                 </span>
               ))}
@@ -368,64 +362,63 @@ const ControlTowerLite = () => {
       {/* =========================================================================
           2. WHAT “LITE” ACTUALLY MEANS
          ========================================================================= */}
-      <section className="relative border-b border-slate-800/80 bg-slate-950 py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <Badge variant="outline" className="border-blue-500/40 text-blue-400 bg-blue-500/10 mb-4 px-3 py-1">
-              THE PHILOSOPHY
-            </Badge>
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+      <section className="border-t border-slate-100 bg-[#f8fafc] py-16 md:py-24">
+        <div className="container mx-auto max-w-6xl px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center space-x-2 bg-blue-500/10 text-blue-700 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
+              The Philosophy
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-950">
               A Smaller Starting Point.
-              <br />
-              <span className="text-slate-400">Not Just Another AI Demo.</span>
+              <span className="block text-slate-500 font-semibold mt-1">Not Just Another AI Demo.</span>
             </h2>
-            <p className="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed">
+            <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed text-pretty">
               Our Lite products are focused versions of larger AI platforms and industry solutions. Instead of asking you to commit to a large system before you know how it fits your business, Lite gives you a practical way to start with the workflows that matter most.
             </p>
           </div>
 
-          {/* 4 Step Pillars */}
+          {/* 4 Cards following the 4 cards token */}
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="relative rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur transition-all hover:border-slate-700 hover:bg-slate-900/80">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 mb-5">
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/15">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 mb-5 border border-blue-100">
                 <Target className="h-5 w-5" />
               </div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-blue-400 mb-1">Step 01</div>
-              <h3 className="text-lg font-bold text-white mb-2">Start With One Need</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <div className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-1">Step 01</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Start With One Need</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Choose the area where your team is losing time, missing opportunities or doing too much work manually.
               </p>
             </div>
 
-            <div className="relative rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur transition-all hover:border-slate-700 hover:bg-slate-900/80">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 mb-5">
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/15">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 text-sky-600 mb-5 border border-sky-100">
                 <Workflow className="h-5 w-5" />
               </div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-sky-400 mb-1">Step 02</div>
-              <h3 className="text-lg font-bold text-white mb-2">Experience the Workflow</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <div className="text-xs font-bold uppercase tracking-wider text-sky-600 mb-1">Step 02</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Experience the Workflow</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
                 See AI working inside an actual business process instead of watching a generic presentation.
               </p>
             </div>
 
-            <div className="relative rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur transition-all hover:border-slate-700 hover:bg-slate-900/80">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 mb-5">
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/15">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 text-teal-600 mb-5 border border-teal-100">
                 <Lightbulb className="h-5 w-5" />
               </div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-teal-400 mb-1">Step 03</div>
-              <h3 className="text-lg font-bold text-white mb-2">Learn What Works for You</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <div className="text-xs font-bold uppercase tracking-wider text-teal-600 mb-1">Step 03</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Learn What Works for You</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Understand where AI creates real value before expanding your investment.
               </p>
             </div>
 
-            <div className="relative rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur transition-all hover:border-slate-700 hover:bg-slate-900/80">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 mb-5">
+            <div className="rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/15">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-purple-50 text-purple-600 mb-5 border border-purple-100">
                 <Rocket className="h-5 w-5" />
               </div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-purple-400 mb-1">Step 04</div>
-              <h3 className="text-lg font-bold text-white mb-2">Scale When You Are Ready</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <div className="text-xs font-bold uppercase tracking-wider text-purple-600 mb-1">Step 04</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Scale When You Are Ready</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Move into a larger annual solution, additional workflows or a customized system when the business case is clear.
               </p>
             </div>
@@ -434,19 +427,18 @@ const ControlTowerLite = () => {
       </section>
 
       {/* =========================================================================
-          3–6. CHOOSE YOUR LITE SOLUTION (Product Folds - 8 Cards)
-          Design Reference: Sleek dark cards with glowing borders & Instant Buy
+          3–6. CHOOSE YOUR LITE SOLUTION (All 8 Cards following CollabAI Token)
          ========================================================================= */}
-      <section id="choose-lite" className="relative border-b border-slate-800/80 bg-slate-950 py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <Badge variant="outline" className="border-blue-500/40 text-blue-400 bg-blue-500/10 mb-3 px-3 py-1">
-              PRODUCTION-READY EDITIONS
-            </Badge>
-            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl uppercase">
+      <section id="choose-lite" className="border-t border-slate-100 bg-white py-16 md:py-24">
+        <div className="container mx-auto max-w-6xl px-4">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="inline-flex items-center space-x-2 bg-blue-500/10 text-blue-700 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
+              Production-Ready Editions
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-950 uppercase">
               CHOOSE YOUR LITE SOLUTION
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-400">
+            <p className="mt-4 text-base sm:text-lg text-slate-600 text-pretty">
               Every Lite solution is fully pre-configured, production-ready, and available for instant deployment or 1-click Lovable remix.
             </p>
 
@@ -456,7 +448,7 @@ const ControlTowerLite = () => {
                 variant={filterCategory === "all" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setFilterCategory("all")}
-                className={filterCategory === "all" ? "bg-blue-600 text-white" : "border-slate-800 text-slate-400 hover:text-white hover:bg-slate-900"}
+                className={filterCategory === "all" ? "rounded-full bg-slate-950 text-white font-semibold" : "rounded-full border-slate-200 text-slate-600 hover:text-slate-950 hover:bg-slate-50"}
               >
                 All Solutions (8)
               </Button>
@@ -464,15 +456,15 @@ const ControlTowerLite = () => {
                 variant={filterCategory === "agency" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setFilterCategory("agency")}
-                className={filterCategory === "agency" ? "bg-blue-600 text-white" : "border-slate-800 text-slate-400 hover:text-white hover:bg-slate-900"}
+                className={filterCategory === "agency" ? "rounded-full bg-slate-950 text-white font-semibold" : "rounded-full border-slate-200 text-slate-600 hover:text-slate-950 hover:bg-slate-50"}
               >
-                Agencies & Ops
+                Agencies & Operations
               </Button>
               <Button
                 variant={filterCategory === "industry" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setFilterCategory("industry")}
-                className={filterCategory === "industry" ? "bg-blue-600 text-white" : "border-slate-800 text-slate-400 hover:text-white hover:bg-slate-900"}
+                className={filterCategory === "industry" ? "rounded-full bg-slate-950 text-white font-semibold" : "rounded-full border-slate-200 text-slate-600 hover:text-slate-950 hover:bg-slate-50"}
               >
                 Healthcare, Nonprofits, Mortgage
               </Button>
@@ -480,7 +472,7 @@ const ControlTowerLite = () => {
                 variant={filterCategory === "growth" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setFilterCategory("growth")}
-                className={filterCategory === "growth" ? "bg-blue-600 text-white" : "border-slate-800 text-slate-400 hover:text-white hover:bg-slate-900"}
+                className={filterCategory === "growth" ? "rounded-full bg-slate-950 text-white font-semibold" : "rounded-full border-slate-200 text-slate-600 hover:text-slate-950 hover:bg-slate-50"}
               >
                 Real Estate, Marketing & CS
               </Button>
@@ -488,56 +480,53 @@ const ControlTowerLite = () => {
           </div>
 
           {/* Cards Grid */}
-          <div className="mt-14 grid gap-8 md:grid-cols-2">
+          <div className="mt-14 grid gap-7 md:grid-cols-2">
             {filteredSolutions.map((solution) => {
               const Icon = solution.icon;
               return (
                 <div
                   key={solution.id}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-800/90 bg-gradient-to-b from-slate-900/90 to-slate-950 p-7 sm:p-8 shadow-xl transition-all duration-300 hover:border-slate-700 hover:shadow-2xl hover:shadow-blue-900/10"
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-xs transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/15"
                 >
-                  {/* Glowing subtle top bar */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
                   <div>
-                    {/* Header: Badge & Category */}
+                    {/* Header: Badge & Status */}
                     <div className="flex items-center justify-between gap-3 mb-5">
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-700/80 bg-slate-800/60 px-3 py-1 text-xs font-semibold text-slate-200">
-                        <Icon className="h-3.5 w-3.5 text-blue-400" />
-                        {solution.badge || solution.name}
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">
+                        <Icon className="h-3.5 w-3.5 text-blue-600" />
+                        {solution.badge}
                       </span>
-                      <span className="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-2.5 py-0.5">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-2.5 py-0.5">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                         Instant Deploy
                       </span>
                     </div>
 
                     {/* Problem Hook Question */}
-                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-2 leading-snug">
+                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mb-2 leading-snug">
                       {solution.problem}
                     </h3>
 
                     {/* Product Name Label */}
-                    <div className="text-sm font-semibold uppercase tracking-wider text-blue-400 mb-4">
+                    <div className="text-sm font-bold uppercase tracking-wider text-blue-600 mb-4">
                       {solution.name}
                     </div>
 
                     {/* Description Paragraphs */}
-                    <div className="space-y-1 text-sm text-slate-300 mb-6">
+                    <div className="space-y-1.5 text-sm text-slate-600 mb-6 leading-relaxed">
                       {solution.description.map((line, idx) => (
                         <p key={idx}>{line}</p>
                       ))}
                     </div>
 
                     {/* What It Helps With */}
-                    <div className="mb-6 rounded-2xl border border-slate-800/80 bg-slate-950/60 p-4">
-                      <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
+                    <div className="mb-6 rounded-2xl border border-slate-100 bg-[#f8fafc] p-4.5">
+                      <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
                         What It Helps With:
                       </div>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700 font-medium">
                         {solution.helpsWith.map((item, idx) => (
                           <li key={idx} className="flex items-center gap-2">
-                            <CheckCircle2 className="h-3.5 w-3.5 text-blue-400 shrink-0" />
+                            <CheckCircle2 className="h-3.5 w-3.5 text-blue-600 shrink-0" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -545,17 +534,17 @@ const ControlTowerLite = () => {
                     </div>
 
                     {/* Outcome Highlight Box */}
-                    <div className="mb-7 rounded-xl border border-blue-500/20 bg-blue-500/5 p-4 text-xs sm:text-sm text-blue-200">
-                      <span className="font-bold text-blue-400 uppercase tracking-wide mr-1.5">Outcome:</span>
+                    <div className="mb-7 rounded-2xl border border-blue-100 bg-blue-50/80 p-4 text-xs sm:text-sm text-blue-950 font-medium">
+                      <span className="font-bold text-blue-700 uppercase tracking-wide mr-1.5">Outcome:</span>
                       {solution.outcome}
                     </div>
                   </div>
 
                   {/* Action Buttons: Explore + Lovable Remix */}
-                  <div className="pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row gap-3 items-stretch">
+                  <div className="pt-5 border-t border-slate-100 flex flex-col sm:flex-row gap-3 items-stretch">
                     <Button
                       asChild
-                      className="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-md"
+                      className="flex-1 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-xs"
                     >
                       <Link to={solution.targetHref}>
                         Explore {solution.name}
@@ -565,9 +554,9 @@ const ControlTowerLite = () => {
                     <Button
                       variant="outline"
                       onClick={() => setSelectedSolution(solution)}
-                      className="border-slate-700 bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white font-semibold text-sm"
+                      className="rounded-xl border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm"
                     >
-                      <Sparkles className="mr-1.5 h-3.5 w-3.5 text-amber-400" />
+                      <Sparkles className="mr-1.5 h-3.5 w-3.5 text-amber-500" />
                       Lovable Remix (Instant Buy)
                     </Button>
                   </div>
@@ -579,141 +568,153 @@ const ControlTowerLite = () => {
       </section>
 
       {/* =========================================================================
-          7. BENEFITS (Design Reference: Image 3 - High Contrast / Vibrant Cards)
+          7. BENEFITS (WHAT YOU GET)
          ========================================================================= */}
-      <section className="relative border-b border-slate-800/80 bg-slate-950 py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <Badge variant="outline" className="border-blue-500/40 text-blue-400 bg-blue-500/10 mb-3 px-3 py-1">
+      <section className="border-t border-slate-100 bg-[#f8fafc] py-16 md:py-24">
+        <div className="container mx-auto max-w-6xl px-4">
+          <div className="mx-auto max-w-3xl text-center mb-14">
+            <div className="inline-flex items-center space-x-2 bg-blue-500/10 text-blue-700 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
               WHAT YOU GET
-            </Badge>
-            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl uppercase">
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-950 uppercase">
               More Output From the Workday You Already Have.
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-400">
-              Clear outcomes, zero fluff. Built to unlock focus and strip away manual busywork.
+            <p className="mt-4 text-base sm:text-lg text-slate-600">
+              Clear outcomes, zero fluff. Built to eliminate manual busywork and unlock focus.
             </p>
           </div>
 
-          {/* 6 High-Contrast Cards inspired by the vibrant PayPal cards reference */}
+          {/* 6 Benefit Cards following CollabAI Card Token */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {/* Card 1: Save Time */}
-            <div className="relative overflow-hidden rounded-3xl bg-[#f59e0b] p-7 sm:p-8 text-slate-950 shadow-xl transition-all duration-300 hover:scale-[1.02]">
-              <div className="flex items-center justify-between mb-8">
-                <span className="text-xs font-black uppercase tracking-wider text-slate-900 border-b-2 border-slate-950/40 pb-0.5">
+            <div className="group rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/10">
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-2.5 py-0.5">
                   EFFICIENCY
                 </span>
-                <Clock className="h-6 w-6 text-slate-950" />
+                <div className="h-10 w-10 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600">
+                  <Clock className="h-5 w-5" />
+                </div>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mb-2">
                 Save Time.
               </h3>
-              <p className="text-base font-medium text-slate-900 leading-relaxed mb-6">
+              <p className="text-sm text-slate-600 leading-relaxed mb-6">
                 Reduce repetitive everyday work across your team.
               </p>
-              <div className="pt-4 border-t border-slate-950/20 text-xs font-bold uppercase tracking-wider text-slate-950/80 flex items-center justify-between">
+              <div className="pt-4 border-t border-slate-100 text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center justify-between">
                 <span>Outcome-Driven</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-slate-900 transition-colors" />
               </div>
             </div>
 
             {/* Card 2: Increase Productivity */}
-            <div className="relative overflow-hidden rounded-3xl bg-[#f97316] p-7 sm:p-8 text-white shadow-xl transition-all duration-300 hover:scale-[1.02]">
-              <div className="flex items-center justify-between mb-8">
-                <span className="text-xs font-black uppercase tracking-wider text-white border-b-2 border-white/40 pb-0.5">
+            <div className="group rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/10">
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-orange-700 bg-orange-50 border border-orange-200 rounded-full px-2.5 py-0.5">
                   CAPACITY
                 </span>
-                <Zap className="h-6 w-6 text-white" />
+                <div className="h-10 w-10 rounded-xl bg-orange-50 flex items-center justify-center text-orange-600">
+                  <Zap className="h-5 w-5" />
+                </div>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mb-2">
                 Increase Productivity.
               </h3>
-              <p className="text-base font-medium text-white/95 leading-relaxed mb-6">
+              <p className="text-sm text-slate-600 leading-relaxed mb-6">
                 Help your team complete more without adding unnecessary manual steps.
               </p>
-              <div className="pt-4 border-t border-white/20 text-xs font-bold uppercase tracking-wider text-white/80 flex items-center justify-between">
+              <div className="pt-4 border-t border-slate-100 text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center justify-between">
                 <span>Higher Throughput</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-slate-900 transition-colors" />
               </div>
             </div>
 
             {/* Card 3: Respond Faster */}
-            <div className="relative overflow-hidden rounded-3xl bg-[#ec4899] p-7 sm:p-8 text-white shadow-xl transition-all duration-300 hover:scale-[1.02]">
-              <div className="flex items-center justify-between mb-8">
-                <span className="text-xs font-black uppercase tracking-wider text-white border-b-2 border-white/40 pb-0.5">
+            <div className="group rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-pink-500 hover:shadow-lg hover:shadow-pink-500/10">
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-pink-700 bg-pink-50 border border-pink-200 rounded-full px-2.5 py-0.5">
                   SPEED
                 </span>
-                <Rocket className="h-6 w-6 text-white" />
+                <div className="h-10 w-10 rounded-xl bg-pink-50 flex items-center justify-center text-pink-600">
+                  <Rocket className="h-5 w-5" />
+                </div>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mb-2">
                 Respond Faster.
               </h3>
-              <p className="text-base font-medium text-white/95 leading-relaxed mb-6">
+              <p className="text-sm text-slate-600 leading-relaxed mb-6">
                 Keep customers, leads and important tasks moving without delay.
               </p>
-              <div className="pt-4 border-t border-white/20 text-xs font-bold uppercase tracking-wider text-white/80 flex items-center justify-between">
+              <div className="pt-4 border-t border-slate-100 text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center justify-between">
                 <span>Zero Stalled Leads</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-slate-900 transition-colors" />
               </div>
             </div>
 
             {/* Card 4: See What Matters */}
-            <div className="relative overflow-hidden rounded-3xl bg-[#6366f1] p-7 sm:p-8 text-white shadow-xl transition-all duration-300 hover:scale-[1.02]">
-              <div className="flex items-center justify-between mb-8">
-                <span className="text-xs font-black uppercase tracking-wider text-white border-b-2 border-white/40 pb-0.5">
+            <div className="group rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/10">
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200 rounded-full px-2.5 py-0.5">
                   VISIBILITY
                 </span>
-                <Target className="h-6 w-6 text-white" />
+                <div className="h-10 w-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600">
+                  <Target className="h-5 w-5" />
+                </div>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mb-2">
                 See What Matters.
               </h3>
-              <p className="text-base font-medium text-white/95 leading-relaxed mb-6">
+              <p className="text-sm text-slate-600 leading-relaxed mb-6">
                 Surface priorities without digging through multiple disconnected systems.
               </p>
-              <div className="pt-4 border-t border-white/20 text-xs font-bold uppercase tracking-wider text-white/80 flex items-center justify-between">
+              <div className="pt-4 border-t border-slate-100 text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center justify-between">
                 <span>Instant Clarity</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-slate-900 transition-colors" />
               </div>
             </div>
 
             {/* Card 5: Stay Organized */}
-            <div className="relative overflow-hidden rounded-3xl bg-[#10b981] p-7 sm:p-8 text-slate-950 shadow-xl transition-all duration-300 hover:scale-[1.02]">
-              <div className="flex items-center justify-between mb-8">
-                <span className="text-xs font-black uppercase tracking-wider text-slate-900 border-b-2 border-slate-950/40 pb-0.5">
+            <div className="group rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10">
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-2.5 py-0.5">
                   STRUCTURE
                 </span>
-                <Boxes className="h-6 w-6 text-slate-950" />
+                <div className="h-10 w-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+                  <Boxes className="h-5 w-5" />
+                </div>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mb-2">
                 Stay Organized.
               </h3>
-              <p className="text-base font-medium text-slate-900 leading-relaxed mb-6">
+              <p className="text-sm text-slate-600 leading-relaxed mb-6">
                 Keep important information and everyday work easy to manage and find.
               </p>
-              <div className="pt-4 border-t border-slate-950/20 text-xs font-bold uppercase tracking-wider text-slate-950/80 flex items-center justify-between">
+              <div className="pt-4 border-t border-slate-100 text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center justify-between">
                 <span>Unified Governance</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-slate-900 transition-colors" />
               </div>
             </div>
 
             {/* Card 6: Make Better Decisions */}
-            <div className="relative overflow-hidden rounded-3xl bg-[#0ea5e9] p-7 sm:p-8 text-slate-950 shadow-xl transition-all duration-300 hover:scale-[1.02]">
-              <div className="flex items-center justify-between mb-8">
-                <span className="text-xs font-black uppercase tracking-wider text-slate-900 border-b-2 border-slate-950/40 pb-0.5">
+            <div className="group rounded-3xl border border-slate-200/90 bg-white p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/10">
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200 rounded-full px-2.5 py-0.5">
                   INTELLIGENCE
                 </span>
-                <LineChart className="h-6 w-6 text-slate-950" />
+                <div className="h-10 w-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
+                  <LineChart className="h-5 w-5" />
+                </div>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 mb-2">
                 Make Better Decisions.
               </h3>
-              <p className="text-base font-medium text-slate-900 leading-relaxed mb-6">
+              <p className="text-sm text-slate-600 leading-relaxed mb-6">
                 Turn business information into useful insights and clearer next actions.
               </p>
-              <div className="pt-4 border-t border-slate-950/20 text-xs font-bold uppercase tracking-wider text-slate-950/80 flex items-center justify-between">
+              <div className="pt-4 border-t border-slate-100 text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center justify-between">
                 <span>Actionable Insight</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-slate-900 transition-colors" />
               </div>
             </div>
           </div>
@@ -723,51 +724,50 @@ const ControlTowerLite = () => {
       {/* =========================================================================
           9. EXPLAINING WHY (Built for Work. Not Just Prompts.)
          ========================================================================= */}
-      <section className="relative border-b border-slate-800/80 bg-slate-950 py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <section className="border-t border-slate-100 bg-white py-16 md:py-24">
+        <div className="container mx-auto max-w-6xl px-4">
           <div className="max-w-3xl mb-14">
-            <Badge variant="outline" className="border-blue-500/40 text-blue-400 bg-blue-500/10 mb-3 px-3 py-1">
+            <div className="inline-flex items-center space-x-2 bg-blue-500/10 text-blue-700 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
               WHY THESE AI SOLUTIONS?
-            </Badge>
-            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-950">
               Built for Work.
-              <br />
-              <span className="text-slate-400">Not Just Prompts.</span>
+              <span className="block text-slate-500 font-semibold mt-1">Not Just Prompts.</span>
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
+            <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
               Generic AI gives you a blank box. These solutions are built around actual business workflows.
             </p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-              <div className="text-xs font-bold uppercase tracking-wider text-blue-400 mb-2">01 · Purpose-Built</div>
-              <h3 className="text-lg font-bold text-white mb-2">Purpose-Built</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+            <div className="rounded-2xl border border-slate-200/90 bg-[#f8fafc] p-6">
+              <div className="text-xs font-bold uppercase tracking-wider text-blue-600 mb-2">01 · Purpose-Built</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Purpose-Built</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Designed for specific teams and industries — not a one-size-fits-all experiment.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-              <div className="text-xs font-bold uppercase tracking-wider text-sky-400 mb-2">02 · Practical</div>
-              <h3 className="text-lg font-bold text-white mb-2">Practical</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+            <div className="rounded-2xl border border-slate-200/90 bg-[#f8fafc] p-6">
+              <div className="text-xs font-bold uppercase tracking-wider text-sky-600 mb-2">02 · Practical</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Practical</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Focused on everyday work your team already handles so adoption happens naturally.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-              <div className="text-xs font-bold uppercase tracking-wider text-teal-400 mb-2">03 · Action-Oriented</div>
-              <h3 className="text-lg font-bold text-white mb-2">Action-Oriented</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+            <div className="rounded-2xl border border-slate-200/90 bg-[#f8fafc] p-6">
+              <div className="text-xs font-bold uppercase tracking-wider text-teal-600 mb-2">03 · Action-Oriented</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Action-Oriented</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
                 Built to help surface what needs attention next and guide immediate execution.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
-              <div className="text-xs font-bold uppercase tracking-wider text-purple-400 mb-2">04 · Easy to Use</div>
-              <h3 className="text-lg font-bold text-white mb-2">Easy to Use</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+            <div className="rounded-2xl border border-slate-200/90 bg-[#f8fafc] p-6">
+              <div className="text-xs font-bold uppercase tracking-wider text-purple-600 mb-2">04 · Easy to Use</div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Easy to Use</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">
                 AI fits into the workflow instead of becoming another complicated system to manage.
               </p>
             </div>
@@ -778,64 +778,63 @@ const ControlTowerLite = () => {
       {/* =========================================================================
           10. BUILT AROUND THE WAY YOU WORK
          ========================================================================= */}
-      <section className="relative border-b border-slate-800/80 bg-slate-900/50 py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <section className="border-t border-slate-100 bg-[#f8fafc] py-16 md:py-24">
+        <div className="container mx-auto max-w-6xl px-4">
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <Badge variant="outline" className="border-blue-500/40 text-blue-400 bg-blue-500/10 mb-3 px-3 py-1">
+            <div className="inline-flex items-center space-x-2 bg-blue-500/10 text-blue-700 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
               OPERATIONAL FLOW
-            </Badge>
-            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-950">
               Your Tools Should Work Together —
-              <br />
-              <span className="text-slate-400">Not Create More Work.</span>
+              <span className="block text-slate-500 font-semibold mt-1">Not Create More Work.</span>
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-300">
+            <p className="mt-4 text-base sm:text-lg text-slate-600">
               These AI solutions are designed to work around real business operations.
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
-            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6 text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600/10 text-blue-400 mx-auto mb-4">
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 text-center shadow-xs">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 mx-auto mb-4 border border-blue-100">
                 <Boxes className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-bold text-white mb-2">Bring Information Together</h3>
-              <p className="text-xs text-slate-400">Consolidates fragmented files, chats, and CRMs into one context.</p>
+              <h3 className="text-base font-bold text-slate-900 mb-2">Bring Information Together</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">Consolidates fragmented files, chats, and CRMs into one context.</p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6 text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-600/10 text-sky-400 mx-auto mb-4">
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 text-center shadow-xs">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50 text-sky-600 mx-auto mb-4 border border-sky-100">
                 <Clock className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-bold text-white mb-2">Reduce Repeated Tasks</h3>
-              <p className="text-xs text-slate-400">Automates follow-ups, agenda creation, and status summaries.</p>
+              <h3 className="text-base font-bold text-slate-900 mb-2">Reduce Repeated Tasks</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">Automates follow-ups, agenda creation, and status summaries.</p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6 text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-600/10 text-teal-400 mx-auto mb-4">
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 text-center shadow-xs">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-600 mx-auto mb-4 border border-teal-100">
                 <Target className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-bold text-white mb-2">Surface Priorities</h3>
-              <p className="text-xs text-slate-400">Flags risks, bottlenecks, and misses before they become critical.</p>
+              <h3 className="text-base font-bold text-slate-900 mb-2">Surface Priorities</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">Flags risks, bottlenecks, and misses before they become critical.</p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6 text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600/10 text-indigo-400 mx-auto mb-4">
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 text-center shadow-xs">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 mx-auto mb-4 border border-indigo-100">
                 <ArrowRight className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-bold text-white mb-2">Information → Action Faster</h3>
-              <p className="text-xs text-slate-400">Empowers your team to execute immediately with pre-drafted steps.</p>
+              <h3 className="text-base font-bold text-slate-900 mb-2">Information → Action Faster</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">Empowers your team to execute immediately with pre-drafted steps.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          11. CONCLUSION - NEED SOMETHING MORE?
+          11. CONCLUSION - NEED SOMETHING MORE? (CollabAI Navy CTA Card)
          ========================================================================= */}
-      <section className="relative border-b border-slate-800/80 bg-slate-950 py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-8 sm:p-12 lg:p-16">
+      <section className="border-t border-slate-100 bg-white py-16 md:py-24">
+        <div className="container mx-auto max-w-6xl px-4">
+          <div className="rounded-3xl bg-slate-950 text-white p-8 sm:p-12 lg:p-16 shadow-xl border border-slate-800">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-400 mb-3">
                 <Sparkles className="h-3.5 w-3.5" />
@@ -843,17 +842,14 @@ const ControlTowerLite = () => {
               </div>
               <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
                 When Your Needs Go Beyond Lite,
-                <br />
-                <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                  We Can Go Further.
-                </span>
+                <span className="block text-blue-400 mt-1">We Can Go Further.</span>
               </h2>
               <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
-                Need AI across more workflows, teams or systems? We also provide annual AI services and custom-built solutions tailored directly around your enterprise business model.
+                Need AI across more workflows, teams or systems? We also provide annual AI services and custom-built solutions around your business.
               </p>
 
               {/* 8 Feature Chips */}
-              <div className="mt-8 flex flex-wrap gap-2.5">
+              <div className="mt-8 flex flex-wrap gap-2">
                 {[
                   "Custom AI workflows",
                   "Deeper system integrations",
@@ -866,7 +862,7 @@ const ControlTowerLite = () => {
                 ].map((chip) => (
                   <span
                     key={chip}
-                    className="inline-flex items-center rounded-lg border border-slate-700/80 bg-slate-800/60 px-3.5 py-1.5 text-xs font-semibold text-slate-200"
+                    className="inline-flex items-center rounded-lg border border-slate-700/80 bg-slate-900/80 px-3.5 py-1.5 text-xs font-semibold text-slate-200"
                   >
                     <Check className="mr-1.5 h-3.5 w-3.5 text-blue-400" />
                     {chip}
@@ -874,14 +870,14 @@ const ControlTowerLite = () => {
                 ))}
               </div>
 
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-10 flex flex-wrap gap-3.5">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-blue-600 hover:bg-blue-500 text-white font-semibold shadow-lg shadow-blue-600/20"
+                  className="rounded-full border border-white bg-white px-8 py-3.5 font-bold text-slate-950 shadow-md hover:bg-slate-100"
                 >
                   <Link to="/collabai-platform">
-                    Explore Full & Custom AI Solutions
+                    <span>Explore Full & Custom AI Solutions</span>
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
@@ -889,7 +885,7 @@ const ControlTowerLite = () => {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-slate-700 bg-slate-900 text-slate-200 hover:bg-slate-800 hover:text-white"
+                  className="rounded-full border border-slate-700 bg-slate-900/80 text-white hover:bg-slate-800 hover:text-white px-8 py-3.5 font-semibold"
                 >
                   <Link to="/book-demo">
                     Schedule Private Architecture Review
@@ -902,124 +898,134 @@ const ControlTowerLite = () => {
       </section>
 
       {/* =========================================================================
-          12. BUILT AND BROUGHT TO YOU BY SJ INNOVATION (Image 4 Design Reference)
+          12. BUILT AND BROUGHT TO YOU BY SJ INNOVATION (Matches CollabAI Trust Section)
          ========================================================================= */}
-      <section className="relative border-b border-slate-800/80 bg-slate-950 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border border-slate-800/90 bg-slate-900/40 p-8 sm:p-10 backdrop-blur">
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-slate-800">
-              <div className="flex items-center gap-5">
-                <img
-                  src={sjInnovationLogo}
-                  alt="SJ Innovation"
-                  className="h-10 w-auto object-contain brightness-0 invert opacity-90"
-                />
-                <div className="h-8 w-px bg-slate-800" />
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                    BUILT AND BROUGHT TO YOU BY SJ INNOVATION
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">
-                    22+ Years of Proven Technology Delivery.
-                  </h3>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
+      <section className="border-t border-slate-100 bg-[#fbfdfa] py-12 md:py-16">
+        <div className="container mx-auto max-w-6xl px-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-8 border-b border-slate-200/80">
+            <div className="flex items-center gap-4">
+              <img
+                src={sjInnovationLogo}
+                alt="SJ Innovation"
+                className="h-10 sm:h-12 w-auto object-contain"
+              />
+              <div className="h-8 w-px bg-slate-200" />
+              <div className="flex items-center gap-2.5">
                 <img
                   src={iso27001Logo}
                   alt="ISO 27001 Certified"
-                  className="h-9 w-auto object-contain opacity-90"
+                  className="h-8 sm:h-9 w-auto object-contain"
                 />
-                <span className="text-xs font-semibold text-slate-400 max-w-[160px] leading-tight">
+                <span className="text-xs font-semibold text-slate-500 max-w-[150px] leading-tight hidden md:inline-block">
                   ISO/IEC 27001:2022 Certified Information Security
                 </span>
               </div>
             </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-slate-950 leading-tight text-left sm:text-right">
+              <span className="block">Built on 22 Years of</span>
+              <span className="block text-blue-600">Technology Delivery Experience</span>
+            </h2>
+          </div>
 
-            {/* Stats Row (matches Screenshot 4) */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 text-center border-b border-slate-800">
-              <div>
-                <div className="text-3xl sm:text-4xl font-extrabold text-amber-500">500+</div>
-                <div className="mt-1 text-xs sm:text-sm font-medium text-slate-300">Professionals On Board</div>
+          {/* Stats Grid matching CollabAI Trust Style */}
+          <div className="mt-8 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center">
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs">
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#f97316]">
+                500+
               </div>
-              <div>
-                <div className="text-3xl sm:text-4xl font-extrabold text-amber-500">22</div>
-                <div className="mt-1 text-xs sm:text-sm font-medium text-slate-300">Years Of Market Experience</div>
-              </div>
-              <div>
-                <div className="text-3xl sm:text-4xl font-extrabold text-amber-500">1000+</div>
-                <div className="mt-1 text-xs sm:text-sm font-medium text-slate-300">Successful Projects</div>
-              </div>
-              <div>
-                <div className="text-3xl sm:text-4xl font-extrabold text-amber-500">4</div>
-                <div className="mt-1 text-xs sm:text-sm font-medium text-slate-300">Offices Worldwide</div>
+              <div className="mt-1 text-xs sm:text-sm font-medium text-slate-600">
+                Professionals On Board
               </div>
             </div>
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs">
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#f97316]">
+                22
+              </div>
+              <div className="mt-1 text-xs sm:text-sm font-medium text-slate-600">
+                Years Of Market Experience
+              </div>
+            </div>
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs">
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#f97316]">
+                1,000+
+              </div>
+              <div className="mt-1 text-xs sm:text-sm font-medium text-slate-600">
+                Successful Projects
+              </div>
+            </div>
+            <div className="rounded-2xl border border-slate-200/90 bg-white p-6 shadow-xs">
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#f97316]">
+                4
+              </div>
+              <div className="mt-1 text-xs sm:text-sm font-medium text-slate-600">
+                Offices Worldwide
+              </div>
+            </div>
+          </div>
 
-            {/* Recognition Bar (matches Screenshot 4) */}
-            <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="font-semibold text-slate-300">Recognition:</span>
-                <span className="rounded bg-slate-800/80 px-2 py-0.5 text-slate-200">Inc. 5000</span>
-                <span>·</span>
-                <span className="rounded bg-slate-800/80 px-2 py-0.5 text-slate-200">Clutch Recognized</span>
-                <span>·</span>
-                <span className="rounded bg-slate-800/80 px-2 py-0.5 text-slate-200">Certified NYC MBE</span>
-              </div>
-              <div>
-                Delivered across enterprise software, mobile, cloud, and AI automation.
-              </div>
+          {/* Recognition Bar */}
+          <div className="mt-7 pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+            <div className="flex flex-wrap items-center gap-2.5">
+              <span className="font-semibold text-slate-800">Recognition:</span>
+              <span className="rounded-md bg-slate-100 border border-slate-200 px-2 py-0.5 text-slate-700 font-medium">Inc. 5000</span>
+              <span>·</span>
+              <span className="rounded-md bg-slate-100 border border-slate-200 px-2 py-0.5 text-slate-700 font-medium">Clutch Recognized</span>
+              <span>·</span>
+              <span className="rounded-md bg-slate-100 border border-slate-200 px-2 py-0.5 text-slate-700 font-medium">Certified NYC MBE</span>
+            </div>
+            <div className="text-slate-500">
+              Delivered across enterprise software, mobile, cloud, and AI automation.
             </div>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          INTERACTIVE LOVABLE REMIX / INSTANT BUY DIALOG MODAL
+          INTERACTIVE LOVABLE REMIX / INSTANT BUY DIALOG MODAL (CollabAI Light Theme)
          ========================================================================= */}
       <Dialog open={!!selectedSolution} onOpenChange={(open) => !open && setSelectedSolution(null)}>
-        <DialogContent className="max-w-lg border-slate-800 bg-slate-950 text-slate-100 p-6 sm:p-7 sm:rounded-2xl">
+        <DialogContent className="max-w-lg border-slate-200 bg-white text-slate-900 p-6 sm:p-7 sm:rounded-3xl shadow-xl">
           {selectedSolution && (
             <>
               <DialogHeader>
-                <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 mb-1">
-                  <Sparkles className="h-3.5 w-3.5 text-amber-400" />
+                <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 mb-1">
+                  <Sparkles className="h-3.5 w-3.5 text-amber-500" />
                   INSTANT BUY & LOVABLE REMIX
                 </div>
-                <DialogTitle className="text-2xl font-bold text-white">
+                <DialogTitle className="text-2xl font-bold text-slate-950">
                   {selectedSolution.name}
                 </DialogTitle>
-                <DialogDescription className="text-slate-400 text-sm">
+                <DialogDescription className="text-slate-600 text-sm">
                   {selectedSolution.outcome}
                 </DialogDescription>
               </DialogHeader>
 
               <div className="mt-4 space-y-4">
-                <div className="rounded-xl border border-slate-800 bg-slate-900/70 p-4">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
+                <div className="rounded-2xl border border-slate-100 bg-[#f8fafc] p-4.5">
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
                     Included in Lite Edition:
                   </div>
-                  <ul className="space-y-1.5 text-xs text-slate-300">
+                  <ul className="space-y-2 text-xs text-slate-700 font-medium">
                     {selectedSolution.helpsWith.map((item, idx) => (
                       <li key={idx} className="flex items-center gap-2">
-                        <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                        <Check className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-3.5 text-xs text-emerald-300 flex items-center justify-between">
+                <div className="rounded-xl border border-emerald-200 bg-emerald-50/80 p-3.5 text-xs text-emerald-900 flex items-center justify-between font-medium">
                   <span>Pre-configured template with Zero Lock-In</span>
-                  <Badge variant="outline" className="border-emerald-400/40 text-emerald-300 bg-emerald-400/10 text-[10px]">
+                  <Badge variant="outline" className="border-emerald-300 text-emerald-700 bg-white text-[10px]">
                     Production Ready
                   </Badge>
                 </div>
 
-                <div className="space-y-2 pt-2">
+                <div className="space-y-2.5 pt-2">
                   <Button
                     asChild
-                    className="w-full h-11 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-md"
+                    className="w-full h-11 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-sm"
                   >
                     <a
                       href={selectedSolution.lovableRemixUrl}
@@ -1034,7 +1040,7 @@ const ControlTowerLite = () => {
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full h-11 border-slate-700 bg-slate-900 text-slate-200 hover:bg-slate-800 hover:text-white font-medium text-sm"
+                    className="w-full h-11 rounded-xl border-slate-200 bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm"
                   >
                     <Link to={selectedSolution.targetHref}>
                       View Dedicated Solution Guide

@@ -16,6 +16,7 @@ import collabAiLogo from "@/assets/collabai-logo.png";
 
 const platformItems = [
   { label: "Overview", to: "/control-tower" },
+  { label: "Control Tower Lite", to: "/control-tower-lite" },
   { label: "How It Works", to: "/control-tower/how-it-works" },
   { label: "Operational Dashboards", to: "/control-tower/dashboards" },
   { label: "AI Workforce Dashboard", to: "/ai-dashboard" },

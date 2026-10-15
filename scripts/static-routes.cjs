@@ -22,6 +22,9 @@ module.exports = [
 
   // Control Tower
   { path: "/control-tower", title: "Control Tower — Private AI Ops | CollabAI", description: "Control Tower is a private, agentic AI platform with 100+ specialized agents, role-based dashboards, and built-in security for regulated industries." },
+  { path: "/control-tower-lite", title: "Control Tower Lite — Practical AI Solutions | CollabAI", description: "You don't need the biggest AI system. You need the right starting point. Explore Control Tower Lite for agencies, healthcare, nonprofits, and growth." },
+  { path: "/control-tower/lite", title: "Control Tower Lite — Practical AI Solutions | CollabAI", description: "You don't need the biggest AI system. You need the right starting point. Explore Control Tower Lite for agencies, healthcare, nonprofits, and growth." },
+  { path: "/lite", title: "Control Tower Lite — Practical AI Solutions | CollabAI", description: "You don't need the biggest AI system. You need the right starting point. Explore Control Tower Lite for agencies, healthcare, nonprofits, and growth." },
   { path: "/control-tower/how-it-works", title: "How Control Tower Works — From Data to Production in 4 Weeks", description: "A four-week deployment path for Control Tower: connect data, configure agents, pilot, and roll out — with audit trail at every step." },
   { path: "/control-tower/dashboards", title: "Control Tower Dashboards — Role-based Live Views", description: "Live dashboards for executives, ops, and field teams. Pipeline, meetings, agent runs — one view per role." },
   { path: "/control-tower/ai-agents", title: "AI Agents in Control Tower — 100+ Specialized Agents Across 6 Teams", description: "Sales, Operations, Marketing, HR, Finance, Engineering — every team has its own AI workforce inside Control Tower." },

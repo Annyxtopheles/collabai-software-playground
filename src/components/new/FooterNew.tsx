@@ -87,6 +87,7 @@ const FooterNew = () => (
         </div>
         {col("Product", [
           { label: "Control Tower", to: "/control-tower" },
+          { label: "Control Tower Lite", to: "/control-tower-lite" },
           { label: "CollabAI Platform", to: "/collabai-platform" },
           { label: "Dashboards", to: "/control-tower/dashboards" },
           { label: "AI Agents", to: "/control-tower/ai-agents" },

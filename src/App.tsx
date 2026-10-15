@@ -57,6 +57,7 @@ const NewAIReadiness = lazy(() => import("./pages/new/AIReadiness"));
 const NewApi = lazy(() => import("./pages/new/Api"));
 const NewDevelopers = lazy(() => import("./pages/new/Developers"));
 const NewAIDashboard = lazy(() => import("./pages/new/AIDashboard"));
+const NewControlTowerLite = lazy(() => import("./pages/new/ControlTowerLite"));
 
 // Niche hubs + sub-pages (flat root URLs: /agency, /mortgage-bank, /healthcare, /non-profit, /touring)
 const NicheHub = lazy(() => import("./pages/niches/NicheRouter").then((m) => ({ default: m.NicheHub })));
@@ -89,6 +90,9 @@ export const AppRoutes = () => (
               <Route path="/" element={<NewHome />} />
               {/* Control Tower product */}
               <Route path="/control-tower" element={<NewControlTower />} />
+              <Route path="/control-tower-lite" element={<NewControlTowerLite />} />
+              <Route path="/control-tower/lite" element={<Navigate to="/control-tower-lite" replace />} />
+              <Route path="/lite" element={<NewControlTowerLite />} />
               <Route path="/control-tower/how-it-works" element={<NewCTHowItWorks />} />
               <Route path="/control-tower/dashboards" element={<NewCTDashboards />} />
               <Route path="/control-tower/ai-agents" element={<NewCTAgents />} />

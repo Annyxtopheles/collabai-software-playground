@@ -46,10 +46,15 @@ import pipelineHygieneBanner from "@/assets/agents/pipeline-hygiene-banner.png";
 import meetingIntelligenceBanner from "@/assets/agents/meeting-intelligence-banner.png";
 import followUpDrafterBanner from "@/assets/agents/follow-up-drafter-banner.png";
 import projectAnalyzerBanner from "@/assets/agents/project-analyzer-banner.png";
+import weeklyStatusBanner from "@/assets/agents/weekly-status-banner.png";
+import taskAiChatBanner from "@/assets/agents/task-ai-chat-banner.png";
+import subtaskPlannerBanner from "@/assets/agents/subtask-planner-banner.png";
+import eosTriageAssistantBanner from "@/assets/agents/eos-triage-assistant-banner.png";
+import l10AgendaBuilderBanner from "@/assets/agents/l10-agenda-builder-banner.png";
 
 import { DASHBOARD_AGENTS, type DashboardAgent } from "@/data/dashboardAgentsData";
 
-// Curated preview mapping: First 6 cards receive the 6 banners in sequence
+// Curated preview mapping: Curated banners for top agents
 const AGENT_BANNER_MAP: Record<string, string> = {
   "deal-coach": dealCoachBanner,
   "client-research": clientResearchBanner,
@@ -57,6 +62,11 @@ const AGENT_BANNER_MAP: Record<string, string> = {
   "meeting-intelligence": meetingIntelligenceBanner,
   "follow-up-drafter": followUpDrafterBanner,
   "project-analyzer": projectAnalyzerBanner,
+  "weekly-status": weeklyStatusBanner,
+  "task-ai-chat": taskAiChatBanner,
+  "subtask-planner": subtaskPlannerBanner,
+  "eos-triage-assistant": eosTriageAssistantBanner,
+  "l10-agenda-builder": l10AgendaBuilderBanner,
 };
 
 const AgentBannerPreview = ({ agent }: { agent: DashboardAgent }) => {

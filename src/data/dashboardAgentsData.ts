@@ -5,6 +5,11 @@ import pipelineHygieneBanner from "@/assets/agents/pipeline-hygiene-banner.png";
 import meetingIntelligenceBanner from "@/assets/agents/meeting-intelligence-banner.png";
 import followUpDrafterBanner from "@/assets/agents/follow-up-drafter-banner.png";
 import projectAnalyzerBanner from "@/assets/agents/project-analyzer-banner.png";
+import weeklyStatusBanner from "@/assets/agents/weekly-status-banner.png";
+import taskAiChatBanner from "@/assets/agents/task-ai-chat-banner.png";
+import subtaskPlannerBanner from "@/assets/agents/subtask-planner-banner.png";
+import eosTriageAssistantBanner from "@/assets/agents/eos-triage-assistant-banner.png";
+import l10AgendaBuilderBanner from "@/assets/agents/l10-agenda-builder-banner.png";
 
 export interface DashboardAgent {
   id: string;
@@ -204,6 +209,7 @@ export const DASHBOARD_AGENTS: DashboardAgent[] = [
   {
     "id": "weekly-status",
     "name": "Weekly Status Composer",
+    "bannerImage": weeklyStatusBanner,
     "team": "Project Management",
     "teamSlug": "project-management",
     "category": "operations",
@@ -232,6 +238,7 @@ export const DASHBOARD_AGENTS: DashboardAgent[] = [
   {
     "id": "task-ai-chat",
     "name": "Task AI Assistant",
+    "bannerImage": taskAiChatBanner,
     "team": "Project Management",
     "teamSlug": "tasks",
     "category": "operations",
@@ -259,6 +266,7 @@ export const DASHBOARD_AGENTS: DashboardAgent[] = [
   {
     "id": "subtask-planner",
     "name": "Subtask Decomposition Planner",
+    "bannerImage": subtaskPlannerBanner,
     "team": "Project Management",
     "teamSlug": "tasks",
     "category": "operations",
@@ -286,6 +294,7 @@ export const DASHBOARD_AGENTS: DashboardAgent[] = [
   {
     "id": "eos-triage-assistant",
     "name": "EOS Triage Assistant",
+    "bannerImage": eosTriageAssistantBanner,
     "team": "EOS & Leadership",
     "teamSlug": "eos",
     "category": "operations",
@@ -313,6 +322,7 @@ export const DASHBOARD_AGENTS: DashboardAgent[] = [
   {
     "id": "l10-agenda-builder",
     "name": "L10 Agenda Builder",
+    "bannerImage": l10AgendaBuilderBanner,
     "team": "EOS & Leadership",
     "teamSlug": "eos",
     "category": "operations",

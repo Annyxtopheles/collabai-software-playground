@@ -626,7 +626,7 @@ export const NonprofitProblemInfographics: React.FC = () => {
         {/* Impactful Guiding Statement */}
         <div className="mt-14 sm:mt-16 text-center">
           <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-[#0c180a]">
-            That Is Where the{" "}
+            That is Where the{" "}
             <span className="text-[#14a800]">Nonprofit Control Tower</span>{" "}
             Comes In.
           </h3>

@@ -1,5 +1,10 @@
 // Auto-generated production agents dataset incorporating CollabAI Marketplace listings
 import dealCoachBanner from "@/assets/agents/deal-coach-banner.png";
+import clientResearchBanner from "@/assets/agents/client-research-banner.png";
+import pipelineHygieneBanner from "@/assets/agents/pipeline-hygiene-banner.png";
+import meetingIntelligenceBanner from "@/assets/agents/meeting-intelligence-banner.png";
+import followUpDrafterBanner from "@/assets/agents/follow-up-drafter-banner.png";
+import projectAnalyzerBanner from "@/assets/agents/project-analyzer-banner.png";
 
 export interface DashboardAgent {
   id: string;
@@ -56,6 +61,7 @@ export const DASHBOARD_AGENTS: DashboardAgent[] = [
   {
     "id": "client-research",
     "name": "Client Research Agent",
+    "bannerImage": clientResearchBanner,
     "team": "Sales & CRM",
     "teamSlug": "sales-crm",
     "category": "operations",
@@ -84,6 +90,7 @@ export const DASHBOARD_AGENTS: DashboardAgent[] = [
   {
     "id": "pipeline-hygiene",
     "name": "Pipeline Hygiene Sentinel",
+    "bannerImage": pipelineHygieneBanner,
     "team": "Sales & CRM",
     "teamSlug": "sales-crm",
     "category": "operations",
@@ -111,6 +118,7 @@ export const DASHBOARD_AGENTS: DashboardAgent[] = [
   {
     "id": "meeting-intelligence",
     "name": "Meeting Intelligence",
+    "bannerImage": meetingIntelligenceBanner,
     "team": "Meetings & Comms",
     "teamSlug": "meetings",
     "category": "operations",
@@ -139,6 +147,7 @@ export const DASHBOARD_AGENTS: DashboardAgent[] = [
   {
     "id": "follow-up-drafter",
     "name": "Follow-Up Drafter",
+    "bannerImage": followUpDrafterBanner,
     "team": "Meetings & Comms",
     "teamSlug": "meetings",
     "category": "operations",
@@ -166,6 +175,7 @@ export const DASHBOARD_AGENTS: DashboardAgent[] = [
   {
     "id": "project-analyzer",
     "name": "AI Project Analyzer",
+    "bannerImage": projectAnalyzerBanner,
     "team": "Project Management",
     "teamSlug": "project-management",
     "category": "operations",

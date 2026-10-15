@@ -41,22 +41,22 @@ import LogoStrip from "@/components/LogoStrip";
 import { LOGOS, type LogoItem } from "@/data/logos";
 import { agentTeams } from "@/data/agentTeams";
 import dealCoachBanner from "@/assets/agents/deal-coach-banner.png";
-import agentBanner1 from "@/assets/agents/agent-banner-1.png";
-import agentBanner2 from "@/assets/agents/agent-banner-2.png";
-import agentBanner3 from "@/assets/agents/agent-banner-3.jpg";
-import agentBanner4 from "@/assets/agents/agent-banner-4.jpg";
-import agentBanner5 from "@/assets/agents/agent-banner-5.png";
+import clientResearchBanner from "@/assets/agents/client-research-banner.png";
+import pipelineHygieneBanner from "@/assets/agents/pipeline-hygiene-banner.png";
+import meetingIntelligenceBanner from "@/assets/agents/meeting-intelligence-banner.png";
+import followUpDrafterBanner from "@/assets/agents/follow-up-drafter-banner.png";
+import projectAnalyzerBanner from "@/assets/agents/project-analyzer-banner.png";
 
 import { DASHBOARD_AGENTS, type DashboardAgent } from "@/data/dashboardAgentsData";
 
 // Curated preview mapping: First 6 cards receive the 6 banners in sequence
 const AGENT_BANNER_MAP: Record<string, string> = {
   "deal-coach": dealCoachBanner,
-  "client-research": agentBanner1,
-  "pipeline-hygiene": agentBanner2,
-  "meeting-intelligence": agentBanner3,
-  "follow-up-drafter": agentBanner4,
-  "project-analyzer": agentBanner5,
+  "client-research": clientResearchBanner,
+  "pipeline-hygiene": pipelineHygieneBanner,
+  "meeting-intelligence": meetingIntelligenceBanner,
+  "follow-up-drafter": followUpDrafterBanner,
+  "project-analyzer": projectAnalyzerBanner,
 };
 
 const AgentBannerPreview = ({ agent }: { agent: DashboardAgent }) => {

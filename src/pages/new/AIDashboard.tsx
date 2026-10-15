@@ -51,6 +51,7 @@ import taskAiChatBanner from "@/assets/agents/task-ai-chat-banner.png";
 import subtaskPlannerBanner from "@/assets/agents/subtask-planner-banner.png";
 import eosTriageAssistantBanner from "@/assets/agents/eos-triage-assistant-banner.png";
 import l10AgendaBuilderBanner from "@/assets/agents/l10-agenda-builder-banner.png";
+import podWeeklySummaryBanner from "@/assets/agents/pod-weekly-summary-banner.png";
 
 import { DASHBOARD_AGENTS, type DashboardAgent } from "@/data/dashboardAgentsData";
 
@@ -67,6 +68,7 @@ const AGENT_BANNER_MAP: Record<string, string> = {
   "subtask-planner": subtaskPlannerBanner,
   "eos-triage-assistant": eosTriageAssistantBanner,
   "l10-agenda-builder": l10AgendaBuilderBanner,
+  "pod-weekly-ai-summary": podWeeklySummaryBanner,
 };
 
 const AgentBannerPreview = ({ agent }: { agent: DashboardAgent }) => {

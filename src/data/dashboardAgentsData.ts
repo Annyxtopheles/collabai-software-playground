@@ -10,6 +10,7 @@ import taskAiChatBanner from "@/assets/agents/task-ai-chat-banner.png";
 import subtaskPlannerBanner from "@/assets/agents/subtask-planner-banner.png";
 import eosTriageAssistantBanner from "@/assets/agents/eos-triage-assistant-banner.png";
 import l10AgendaBuilderBanner from "@/assets/agents/l10-agenda-builder-banner.png";
+import podWeeklySummaryBanner from "@/assets/agents/pod-weekly-summary-banner.png";
 
 export interface DashboardAgent {
   id: string;
@@ -350,6 +351,7 @@ export const DASHBOARD_AGENTS: DashboardAgent[] = [
   {
     "id": "pod-weekly-ai-summary",
     "name": "Pod Weekly Summary Agent",
+    "bannerImage": podWeeklySummaryBanner,
     "team": "HR & People",
     "teamSlug": "team-productivity",
     "category": "operations",

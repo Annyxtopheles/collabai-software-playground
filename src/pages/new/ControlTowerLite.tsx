@@ -1,17 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   Sparkles,
   ArrowRight,
   ArrowDown,
   CheckCircle,
-  ShieldCheck,
   Building2,
   Clock,
   Zap,
   Target,
-  Workflow,
-  Lightbulb,
   Rocket,
   Check,
   Boxes,
@@ -25,9 +23,7 @@ import {
   Megaphone,
   UserCheck,
   Lock,
-  ChevronRight,
-  HelpCircle,
-  Layers,
+  Workflow,
 } from "lucide-react";
 import PageSeoHead from "@/components/PageSeoHead";
 import { Button } from "@/components/ui/button";
@@ -41,6 +37,268 @@ import {
 import sjInnovationLogo from "@/assets/sj-innovation-logo.svg";
 import iso27001Logo from "@/assets/logos/iso-27001-certified.svg";
 import { DEFAULT_OG_IMAGE, breadcrumbSchema } from "@/lib/seoSchema";
+
+// =========================================================================
+// RESPONSIVE-TO-HOVER ANIMATED VECTOR ILLUSTRATIONS (Top-Right of Cards)
+// =========================================================================
+
+/** 1. Start With One Need: Focus / Target / Radar Lock Illustration */
+const TargetFocusIllustration = () => (
+  <div
+    aria-hidden="true"
+    className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 select-none overflow-visible"
+  >
+    <svg
+      viewBox="0 0 80 80"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-full w-full overflow-visible"
+    >
+      {/* Ambient Aura Blob */}
+      <circle
+        cx="40"
+        cy="40"
+        r="34"
+        fill="#eff6ff"
+        className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
+      />
+
+      {/* Outer Dashed Precision Ring that rotates on hover */}
+      <circle
+        cx="40"
+        cy="40"
+        r="28"
+        stroke="#93c5fd"
+        strokeWidth="1.5"
+        strokeDasharray="4 4"
+        className="origin-center transition-transform duration-700 ease-out group-hover:rotate-90 group-hover:stroke-[#315EFF]"
+      />
+
+      {/* Middle Target Concentric Ring */}
+      <circle
+        cx="40"
+        cy="40"
+        r="20"
+        stroke="#3b82f6"
+        strokeWidth="2"
+        className="origin-center transition-transform duration-500 ease-out group-hover:scale-105"
+      />
+
+      {/* Crosshair Lines that lock in on hover */}
+      <g className="origin-center transition-transform duration-500 group-hover:scale-110">
+        <line x1="40" y1="12" x2="40" y2="24" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
+        <line x1="40" y1="56" x2="40" y2="68" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
+        <line x1="12" y1="40" x2="24" y2="40" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
+        <line x1="56" y1="40" x2="68" y2="40" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
+      </g>
+
+      {/* Glowing Focal Core Pip */}
+      <circle
+        cx="40"
+        cy="40"
+        r="5"
+        fill="#315EFF"
+        className="origin-center transition-all duration-300 group-hover:scale-125 group-hover:fill-[#1e40af]"
+      />
+      <circle
+        cx="40"
+        cy="40"
+        r="2"
+        fill="#ffffff"
+      />
+    </svg>
+  </div>
+);
+
+/** 2. Experience the Workflow: Connected Nodes Pipeline Flow Illustration */
+const WorkflowPipelineIllustration = () => (
+  <div
+    aria-hidden="true"
+    className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 select-none overflow-visible"
+  >
+    <svg
+      viewBox="0 0 80 80"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-full w-full overflow-visible"
+    >
+      {/* Ambient Aura Blob */}
+      <circle
+        cx="40"
+        cy="40"
+        r="34"
+        fill="#eff6ff"
+        className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
+      />
+
+      {/* S-Curved Connecting Pipeline */}
+      <path
+        d="M 22 52 C 34 52, 30 28, 44 28 C 54 28, 54 44, 62 44"
+        stroke="#93c5fd"
+        strokeWidth="3"
+        strokeLinecap="round"
+        fill="none"
+        className="transition-colors duration-500 group-hover:stroke-[#315EFF]"
+      />
+
+      {/* Animated Flow Pulse Along Path */}
+      <path
+        d="M 22 52 C 34 52, 30 28, 44 28 C 54 28, 54 44, 62 44"
+        stroke="#315EFF"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeDasharray="6 12"
+        fill="none"
+        className="opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      />
+
+      {/* Node 1 (Start) */}
+      <g className="origin-center transition-transform duration-300 group-hover:-translate-y-1">
+        <circle cx="22" cy="52" r="9" fill="#ffffff" stroke="#1d4ed8" strokeWidth="2.5" />
+        <circle cx="22" cy="52" r="4" fill="#315EFF" />
+      </g>
+
+      {/* Node 2 (Transform / Logic) */}
+      <g className="origin-center transition-transform duration-300 group-hover:scale-110">
+        <circle cx="44" cy="28" r="10" fill="#315EFF" stroke="#1e40af" strokeWidth="2" />
+        <path d="M 40 28 L 48 28 M 44 24 L 44 32" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+      </g>
+
+      {/* Node 3 (Output / Delivery) */}
+      <g className="origin-center transition-transform duration-300 group-hover:translate-x-1">
+        <circle cx="62" cy="44" r="8" fill="#ffffff" stroke="#1d4ed8" strokeWidth="2" />
+        <circle cx="62" cy="44" r="3.5" fill="#3b82f6" />
+      </g>
+    </svg>
+  </div>
+);
+
+/** 3. Learn What Works for You: Insight Spark / Radiant Bulb Illustration */
+const InsightValueIllustration = () => (
+  <div
+    aria-hidden="true"
+    className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 select-none overflow-visible"
+  >
+    <svg
+      viewBox="0 0 80 80"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-full w-full overflow-visible"
+    >
+      {/* Ambient Aura Blob */}
+      <circle
+        cx="40"
+        cy="40"
+        r="34"
+        fill="#eff6ff"
+        className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
+      />
+
+      {/* Radiant Glow Rays that burst on hover */}
+      <g className="origin-center transition-all duration-500 ease-out opacity-60 group-hover:opacity-100 group-hover:scale-115">
+        <line x1="40" y1="12" x2="40" y2="18" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
+        <line x1="20" y1="20" x2="25" y2="25" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
+        <line x1="60" y1="20" x2="55" y2="25" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
+        <line x1="14" y1="40" x2="20" y2="40" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
+        <line x1="66" y1="40" x2="60" y2="40" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
+      </g>
+
+      {/* Modern Bulb Silhouette */}
+      <g className="origin-center transition-transform duration-300 group-hover:-translate-y-1">
+        <path
+          d="M 30 38 C 30 31, 34 26, 40 26 C 46 26, 50 31, 50 38 C 50 42, 47 45, 46 48 L 34 48 C 33 45, 30 42, 30 38 Z"
+          fill="#ffffff"
+          stroke="#1d4ed8"
+          strokeWidth="2.5"
+          className="transition-colors duration-300 group-hover:fill-[#ffffff]"
+        />
+        {/* Bulb Base */}
+        <rect x="35" y="49" width="10" height="3" rx="1.5" fill="#93c5fd" />
+        <rect x="37" y="53" width="6" height="2" rx="1" fill="#60a5fa" />
+
+        {/* Dynamic Filament Core */}
+        <path
+          d="M 36 38 Q 40 33, 44 38"
+          stroke="#315EFF"
+          strokeWidth="2"
+          strokeLinecap="round"
+          className="transition-all duration-300 group-hover:stroke-[#2563eb] group-hover:scale-110"
+        />
+      </g>
+    </svg>
+  </div>
+);
+
+/** 4. Scale When You Are Ready: Ascending Rocket / Trajectory Illustration */
+const ScaleRocketIllustration = () => (
+  <div
+    aria-hidden="true"
+    className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 select-none overflow-visible"
+  >
+    <svg
+      viewBox="0 0 80 80"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-full w-full overflow-visible"
+    >
+      {/* Ambient Aura Blob */}
+      <circle
+        cx="40"
+        cy="40"
+        r="34"
+        fill="#eff6ff"
+        className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
+      />
+
+      {/* Trajectory Guide Arc */}
+      <path
+        d="M 18 64 Q 28 50, 48 24"
+        stroke="#93c5fd"
+        strokeWidth="2"
+        strokeDasharray="3 3"
+        fill="none"
+        className="transition-colors duration-500 group-hover:stroke-[#315EFF]"
+      />
+
+      {/* Rocket Vessel (Lifts up and right on hover) */}
+      <g className="origin-center transition-transform duration-500 ease-out group-hover:translate-x-2 group-hover:-translate-y-2">
+        {/* Rocket Flame */}
+        <path
+          d="M 31 53 L 26 62 L 35 57 Z"
+          fill="#f59e0b"
+          className="transition-transform duration-300 group-hover:scale-125"
+        />
+        <path
+          d="M 32 54 L 29 60 L 34 56 Z"
+          fill="#ef4444"
+        />
+
+        {/* Rocket Left & Right Fins */}
+        <path d="M 32 44 L 26 50 L 33 53 Z" fill="#1e40af" />
+        <path d="M 44 32 L 50 38 L 47 45 Z" fill="#1e40af" />
+
+        {/* Rocket Body */}
+        <path
+          d="M 33 52 C 34 44, 42 34, 54 22 C 42 34, 32 42, 24 54 C 27 54, 30 53, 33 52 Z"
+          fill="#315EFF"
+          stroke="#1e3a8a"
+          strokeWidth="2"
+        />
+        {/* White Cockpit Nose Cap */}
+        <path
+          d="M 47 29 C 50 25, 52 23, 54 22 C 53 24, 51 26, 47 29 Z"
+          fill="#ffffff"
+        />
+        {/* Cockpit Window */}
+        <circle cx="42" cy="34" r="3" fill="#ffffff" stroke="#1e3a8a" strokeWidth="1" />
+      </g>
+    </svg>
+  </div>
+);
+
+// =========================================================================
+// DATA STRUCTURES
+// =========================================================================
 
 interface LiteSolution {
   id: string;
@@ -406,7 +664,7 @@ const ControlTowerLite = () => {
       </section>
 
       {/* =========================================================================
-          2. WHAT “LITE” ACTUALLY MEANS (4 Pillar Process Cards)
+          2. WHAT “LITE” ACTUALLY MEANS (Interactive Hover Illustrations, No Steps)
          ========================================================================= */}
       <section className="py-24 bg-slate-light border-b border-border">
         <div className="container mx-auto px-4">
@@ -424,64 +682,68 @@ const ControlTowerLite = () => {
             </p>
           </div>
 
-          {/* 4 Cards following CollabAI card tokens */}
+          {/* 4 Cards with responsive-to-hover animated vector illustrations on top-right */}
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
-                <Target className="h-5 w-5" />
+            {/* Card 1: Start With One Need */}
+            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-brand-primary leading-snug">
+                    Start With One Need
+                  </h3>
+                </div>
+                {/* Top-Right Responsive Animated Illustration */}
+                <TargetFocusIllustration />
               </div>
-              <div className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))] mb-1">
-                Step 01
-              </div>
-              <h3 className="text-lg font-semibold text-brand-primary mb-2">
-                Start With One Need
-              </h3>
-              <p className="text-sm text-slate-secondary leading-relaxed">
+              <p className="text-sm text-slate-secondary leading-relaxed mt-2">
                 Choose the area where your team is losing time, missing opportunities or doing too much work manually.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
-                <Workflow className="h-5 w-5" />
+            {/* Card 2: Experience the Workflow */}
+            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-brand-primary leading-snug">
+                    Experience the Workflow
+                  </h3>
+                </div>
+                {/* Top-Right Responsive Animated Illustration */}
+                <WorkflowPipelineIllustration />
               </div>
-              <div className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))] mb-1">
-                Step 02
-              </div>
-              <h3 className="text-lg font-semibold text-brand-primary mb-2">
-                Experience the Workflow
-              </h3>
-              <p className="text-sm text-slate-secondary leading-relaxed">
+              <p className="text-sm text-slate-secondary leading-relaxed mt-2">
                 See AI working inside an actual business process instead of watching a generic presentation.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
-                <Lightbulb className="h-5 w-5" />
+            {/* Card 3: Learn What Works for You */}
+            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-brand-primary leading-snug">
+                    Learn What Works for You
+                  </h3>
+                </div>
+                {/* Top-Right Responsive Animated Illustration */}
+                <InsightValueIllustration />
               </div>
-              <div className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))] mb-1">
-                Step 03
-              </div>
-              <h3 className="text-lg font-semibold text-brand-primary mb-2">
-                Learn What Works for You
-              </h3>
-              <p className="text-sm text-slate-secondary leading-relaxed">
+              <p className="text-sm text-slate-secondary leading-relaxed mt-2">
                 Understand where AI creates real value before expanding your investment.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
-                <Rocket className="h-5 w-5" />
+            {/* Card 4: Scale When You Are Ready */}
+            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-brand-primary leading-snug">
+                    Scale When You Are Ready
+                  </h3>
+                </div>
+                {/* Top-Right Responsive Animated Illustration */}
+                <ScaleRocketIllustration />
               </div>
-              <div className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))] mb-1">
-                Step 04
-              </div>
-              <h3 className="text-lg font-semibold text-brand-primary mb-2">
-                Scale When You Are Ready
-              </h3>
-              <p className="text-sm text-slate-secondary leading-relaxed">
+              <p className="text-sm text-slate-secondary leading-relaxed mt-2">
                 Move into a larger annual solution, additional workflows or a customized system when the business case is clear.
               </p>
             </div>
@@ -505,51 +767,51 @@ const ControlTowerLite = () => {
               Focused versions of our enterprise Control Tower platforms. Zero vendor lock-in, immediate workflow value, and 1-click remix buy options.
             </p>
 
-            {/* Filter Pills matching site selectors */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+            {/* 4 Toggles in ONE Single Row on all screens */}
+            <div className="mt-8 flex flex-nowrap items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar py-2 max-w-full">
               <button
                 type="button"
                 onClick={() => setFilterCategory("all")}
-                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
+                className={`whitespace-nowrap shrink-0 rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
                   filterCategory === "all"
                     ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
                     : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
                 }`}
               >
-                All Lite Solutions (8)
+                All Solutions (8)
               </button>
               <button
                 type="button"
                 onClick={() => setFilterCategory("agency")}
-                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
+                className={`whitespace-nowrap shrink-0 rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
                   filterCategory === "agency"
                     ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
                     : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
                 }`}
               >
-                Agencies &amp; HighLevel
+                Agencies &amp; Operations
               </button>
               <button
                 type="button"
                 onClick={() => setFilterCategory("industry")}
-                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
+                className={`whitespace-nowrap shrink-0 rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
                   filterCategory === "industry"
                     ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
                     : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
                 }`}
               >
-                Healthcare, Nonprofits &amp; Mortgage
+                Healthcare, Nonprofits, Mortgage
               </button>
               <button
                 type="button"
                 onClick={() => setFilterCategory("growth")}
-                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
+                className={`whitespace-nowrap shrink-0 rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
                   filterCategory === "growth"
                     ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
                     : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
                 }`}
               >
-                Realtors, Marketing &amp; CS
+                Real Estate, Marketing &amp; CS
               </button>
             </div>
           </div>
@@ -802,65 +1064,71 @@ const ControlTowerLite = () => {
       </section>
 
       {/* =========================================================================
-          9. EXPLAINING WHY (Built for Work. Not Just Prompts.)
+          9. EXPLAINING WHY (Centered Layout Matching Rest of the Site)
          ========================================================================= */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-5xl rounded-3xl border border-border bg-slate-light p-8 sm:p-12 lg:p-16">
-            <div className="grid items-start gap-10 lg:grid-cols-[1.1fr_1fr]">
-              <div>
-                <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
-                  WHY THESE AI SOLUTIONS?
-                </span>
-                <h2 className="mt-5 text-3xl font-bold tracking-tight text-brand-primary lg:text-4xl">
-                  Built for Work.
-                  <span className="block text-slate-secondary font-medium mt-1">Not Just Prompts.</span>
-                </h2>
-                <p className="mt-4 text-base text-slate-secondary leading-relaxed">
-                  Generic AI gives you a blank box. These solutions are built around actual business workflows.
-                </p>
+          {/* Centered Heading Layout (Fixed Left-Alignment) */}
+          <div className="mx-auto max-w-3xl text-center mb-14">
+            <div className="inline-flex items-center space-x-2 bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+              WHY THESE AI SOLUTIONS?
+            </div>
+            <h2 className="mt-6 text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight">
+              Built for Work.
+              <span className="block text-slate-secondary font-medium mt-1">Not Just Prompts.</span>
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-slate-secondary leading-relaxed max-w-2xl mx-auto">
+              Generic AI gives you a blank box. These solutions are built around actual business workflows.
+            </p>
+          </div>
+
+          {/* 4 Focused Feature Cards in Balanced 4-Column Grid */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="grid h-11 w-11 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
+                <Target className="h-5 w-5" />
               </div>
+              <h3 className="text-lg font-bold text-brand-primary mb-2">Purpose-Built</h3>
+              <p className="text-sm text-slate-secondary leading-relaxed">
+                Designed for specific teams and industries.
+              </p>
+            </div>
 
-              <div className="grid gap-4">
-                <div className="flex gap-4 rounded-2xl border border-border bg-card p-5">
-                  <Target className="mt-0.5 h-6 w-6 shrink-0 text-[hsl(var(--brand-secondary))]" />
-                  <div>
-                    <h3 className="text-base font-semibold text-brand-primary">Purpose-Built</h3>
-                    <p className="mt-1 text-sm text-slate-secondary">Designed for specific teams and industries.</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 rounded-2xl border border-border bg-card p-5">
-                  <Workflow className="mt-0.5 h-6 w-6 shrink-0 text-[hsl(var(--brand-secondary))]" />
-                  <div>
-                    <h3 className="text-base font-semibold text-brand-primary">Practical</h3>
-                    <p className="mt-1 text-sm text-slate-secondary">Focused on everyday work your team already handles.</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 rounded-2xl border border-border bg-card p-5">
-                  <Zap className="mt-0.5 h-6 w-6 shrink-0 text-[hsl(var(--brand-secondary))]" />
-                  <div>
-                    <h3 className="text-base font-semibold text-brand-primary">Action-Oriented</h3>
-                    <p className="mt-1 text-sm text-slate-secondary">Built to help surface what needs attention next.</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4 rounded-2xl border border-border bg-card p-5">
-                  <CheckCircle className="mt-0.5 h-6 w-6 shrink-0 text-[hsl(var(--brand-secondary))]" />
-                  <div>
-                    <h3 className="text-base font-semibold text-brand-primary">Easy to Use</h3>
-                    <p className="mt-1 text-sm text-slate-secondary">AI fits into the workflow instead of becoming another complicated system to manage.</p>
-                  </div>
-                </div>
+            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="grid h-11 w-11 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
+                <Workflow className="h-5 w-5" />
               </div>
+              <h3 className="text-lg font-bold text-brand-primary mb-2">Practical</h3>
+              <p className="text-sm text-slate-secondary leading-relaxed">
+                Focused on everyday work your team already handles.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="grid h-11 w-11 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
+                <Zap className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-bold text-brand-primary mb-2">Action-Oriented</h3>
+              <p className="text-sm text-slate-secondary leading-relaxed">
+                Built to help surface what needs attention next.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="grid h-11 w-11 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
+                <CheckCircle className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-bold text-brand-primary mb-2">Easy to Use</h3>
+              <p className="text-sm text-slate-secondary leading-relaxed">
+                AI fits into the workflow instead of becoming another complicated system to manage.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          10. BUILT AROUND THE WAY YOU WORK
+          10. BUILT AROUND THE WAY YOU WORK (Divider Cleaned Up)
          ========================================================================= */}
       <section className="py-24 bg-slate-light border-y border-border">
         <div className="container mx-auto px-4">
@@ -868,8 +1136,9 @@ const ControlTowerLite = () => {
             <div className="inline-flex items-center space-x-2 bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
               OPERATIONAL FLOW
             </div>
+            {/* Cleaned-up heading without awkward floating dash/divider */}
             <h2 className="mt-6 text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight">
-              Your Tools Should Work Together —
+              <span>Your Tools Should Work Together,</span>
               <span className="block text-slate-secondary font-medium mt-1">Not Create More Work.</span>
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-secondary">
@@ -922,25 +1191,57 @@ const ControlTowerLite = () => {
       </section>
 
       {/* =========================================================================
-          11. CONCLUSION - NEED SOMETHING MORE? (CollabAI Brand Navy CTA Box)
+          11. CONCLUSION - NEED SOMETHING MORE?
+          (Transformed into Full-Bleed Section in CollabAI Brand Blue, matching Nonprofit Hub)
          ========================================================================= */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-5xl rounded-3xl border border-slate-800 bg-[hsl(var(--brand-primary))] text-background p-8 sm:p-12 lg:p-16 shadow-xl">
-            <div className="max-w-3xl">
-              <span className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[hsl(var(--signal-live))]">
-                NEED SOMETHING MORE?
-              </span>
-              <h2 className="mt-5 text-3xl font-bold lg:text-4xl text-white tracking-tight">
-                When Your Needs Go Beyond Lite,
-                <span className="block text-[hsl(var(--brand-secondary))] mt-1">We Can Go Further.</span>
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#091b4d] via-[#1d4ed8] to-[#1e3a8a] py-16 sm:py-20 md:py-24 text-white shadow-inner">
+        {/* Ambient deep mesh background lighting in brand blue tones */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-0 opacity-40"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 82% 40%, rgba(255, 255, 255, 0.25) 0%, transparent 45%),
+              radial-gradient(circle at 95% 85%, rgba(49, 94, 255, 0.6) 0%, transparent 50%),
+              radial-gradient(circle at 20% 90%, rgba(0, 0, 0, 0.3) 0%, transparent 60%)
+            `,
+          }}
+        />
+
+        {/* Animated aura pulse */}
+        <motion.div
+          animate={{
+            scale: [1, 1.15, 1],
+            opacity: [0.2, 0.35, 0.2],
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 h-[520px] w-[520px] rounded-full bg-radial from-white/30 via-[#dbeafe]/10 to-transparent blur-3xl -z-0"
+        />
+
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12">
+            {/* Left Column: Headline, Copy, 8 Feature Tags, and Action Buttons */}
+            <div className="text-left lg:col-span-7">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white shadow-xs mb-5">
+                <Sparkles className="h-3.5 w-3.5 text-[hsl(var(--signal-live))]" />
+                <span>NEED SOMETHING MORE?</span>
+              </div>
+
+              <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl xl:text-5xl leading-[1.15] text-balance">
+                <span>When Your Needs Go Beyond Lite,</span>
+                <span className="block mt-1 text-white/95">We Can Go Further.</span>
               </h2>
-              <p className="mt-4 text-base sm:text-lg text-background/80 leading-relaxed">
-                Need AI across more workflows, teams or systems? We also provide annual AI services and custom-built solutions around your business.
+
+              <p className="mt-5 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-white/90 text-pretty">
+                Need AI across more workflows, teams or systems? We also provide annual AI services and custom-built solutions tailored directly around your business.
               </p>
 
               {/* 8 Feature Chips */}
-              <div className="mt-8 flex flex-wrap gap-2.5">
+              <div className="mt-7 flex flex-wrap gap-2 max-w-xl">
                 {[
                   "Custom AI workflows",
                   "Deeper system integrations",
@@ -953,7 +1254,7 @@ const ControlTowerLite = () => {
                 ].map((chip) => (
                   <span
                     key={chip}
-                    className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 text-xs font-medium text-white/90"
+                    className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-medium text-white shadow-2xs backdrop-blur-xs"
                   >
                     <Check className="mr-1.5 h-3.5 w-3.5 text-[hsl(var(--signal-live))]" />
                     {chip}
@@ -961,12 +1262,12 @@ const ControlTowerLite = () => {
                 ))}
               </div>
 
-              {/* CollabAI Style CTAs */}
-              <div className="mt-10 flex flex-wrap gap-3.5">
+              {/* Action Buttons: White Button + Frosted Secondary Button */}
+              <div className="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3.5">
                 <Button
                   asChild
                   size="lg"
-                  className="rounded-full border border-white bg-white px-8 py-3 text-sm font-bold text-slate-950 shadow-md transition-all duration-150 hover:bg-slate-100 hover:text-black active:translate-y-[2px]"
+                  className="rounded-full bg-white px-8 py-3 text-sm font-bold text-[#091b4d] shadow-md hover:bg-slate-100 hover:text-black transition-all active:translate-y-[1px]"
                 >
                   <Link to="/collabai-platform">
                     <span>Explore Full &amp; Custom AI Solutions</span>
@@ -977,13 +1278,120 @@ const ControlTowerLite = () => {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="rounded-full border border-white/35 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all duration-150 hover:border-white/60 hover:bg-white/20 hover:text-white active:translate-y-[2px]"
+                  className="rounded-full border border-white/35 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all duration-150 hover:border-white/60 hover:bg-white/20 hover:text-white active:translate-y-[1px]"
                 >
                   <Link to="/book-demo">
                     Schedule Private Architecture Review
                   </Link>
                 </Button>
               </div>
+            </div>
+
+            {/* Right Column: Animated Frosted Ribbon Canvas in Brand Blue Palette */}
+            <div className="relative lg:col-span-5 h-[280px] sm:h-[340px] w-full flex items-center justify-center">
+              <svg
+                viewBox="0 0 460 320"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute inset-0 h-full w-full pointer-events-none overflow-visible select-none"
+              >
+                <defs>
+                  {/* Primary Frosted Blue/White Ribbon Gradient */}
+                  <linearGradient id="liteRibbonGlowA" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#ffffff" stopOpacity="0.85" />
+                    <stop offset="45%" stopColor="#93c5fd" stopOpacity="0.4" />
+                    <stop offset="85%" stopColor="#ffffff" stopOpacity="0.75" />
+                    <stop offset="100%" stopColor="#315EFF" stopOpacity="0.1" />
+                  </linearGradient>
+
+                  {/* Secondary Intersecting Ribbon Gradient */}
+                  <linearGradient id="liteRibbonGlowB" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#ffffff" stopOpacity="0.75" />
+                    <stop offset="50%" stopColor="#60a5fa" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#ffffff" stopOpacity="0.6" />
+                  </linearGradient>
+
+                  {/* Diffuse Soft Shadow */}
+                  <filter id="liteSoftGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="8" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                </defs>
+
+                {/* Ribbon Track 1: Sweeping Upward Helix with Wave Motion */}
+                <motion.path
+                  d="M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140"
+                  stroke="url(#liteRibbonGlowA)"
+                  strokeWidth="38"
+                  strokeLinecap="round"
+                  fill="none"
+                  filter="url(#liteSoftGlow)"
+                  animate={{
+                    d: [
+                      "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
+                      "M 20 230 C 120 270, 160 90, 255 105 C 335 120, 385 200, 450 120",
+                      "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
+                    ],
+                  }}
+                  transition={{
+                    duration: 7.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+
+                {/* Ribbon Track 2: Intersecting Counter Wave */}
+                <motion.path
+                  d="M 40 90 C 130 90, 160 260, 260 240 C 350 220, 380 70, 450 190"
+                  stroke="url(#liteRibbonGlowB)"
+                  strokeWidth="28"
+                  strokeLinecap="round"
+                  fill="none"
+                  filter="url(#liteSoftGlow)"
+                  animate={{
+                    d: [
+                      "M 40 90 C 130 90, 160 260, 260 240 C 350 220, 380 70, 450 190",
+                      "M 40 110 C 140 70, 170 240, 255 220 C 345 200, 390 90, 450 210",
+                      "M 40 90 C 130 90, 160 260, 260 240 C 350 220, 380 70, 450 190",
+                    ],
+                  }}
+                  transition={{
+                    duration: 8.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+
+                {/* Precision Stream lines */}
+                <motion.path
+                  d="M 10 210 Q 150 40, 280 180 T 450 110"
+                  stroke="#ffffff"
+                  strokeWidth="2"
+                  strokeDasharray="4 6"
+                  strokeDashoffset={0}
+                  fill="none"
+                  animate={{
+                    strokeDashoffset: [0, -40],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                />
+
+                {/* Telemetry Node 1 */}
+                <circle cx="250" cy="85" r="5" fill="#ffffff" filter="url(#liteSoftGlow)" />
+                <circle cx="250" cy="85" r="2" fill="#315EFF" />
+
+                {/* Telemetry Node 2 */}
+                <circle cx="340" cy="100" r="4" fill="#ffffff" filter="url(#liteSoftGlow)" />
+                <circle cx="340" cy="100" r="1.5" fill="#315EFF" />
+
+                {/* Telemetry Node 3 */}
+                <circle cx="160" cy="240" r="4.5" fill="#ffffff" filter="url(#liteSoftGlow)" />
+                <circle cx="160" cy="240" r="1.8" fill="#315EFF" />
+              </svg>
             </div>
           </div>
         </div>

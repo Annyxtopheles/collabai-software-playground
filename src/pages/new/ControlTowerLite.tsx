@@ -5,7 +5,6 @@ import {
   Sparkles,
   ArrowRight,
   ArrowDown,
-  CheckCircle,
   Building2,
   Clock,
   Zap,
@@ -54,7 +53,6 @@ const TargetFocusIllustration = () => (
       xmlns="http://www.w3.org/2000/svg"
       className="h-full w-full overflow-visible"
     >
-      {/* Ambient Aura Blob */}
       <circle
         cx="40"
         cy="40"
@@ -62,8 +60,6 @@ const TargetFocusIllustration = () => (
         fill="#eff6ff"
         className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
       />
-
-      {/* Outer Dashed Precision Ring that rotates on hover */}
       <circle
         cx="40"
         cy="40"
@@ -73,8 +69,6 @@ const TargetFocusIllustration = () => (
         strokeDasharray="4 4"
         className="origin-center transition-transform duration-700 ease-out group-hover:rotate-90 group-hover:stroke-[#315EFF]"
       />
-
-      {/* Middle Target Concentric Ring */}
       <circle
         cx="40"
         cy="40"
@@ -83,16 +77,12 @@ const TargetFocusIllustration = () => (
         strokeWidth="2"
         className="origin-center transition-transform duration-500 ease-out group-hover:scale-105"
       />
-
-      {/* Crosshair Lines that lock in on hover */}
       <g className="origin-center transition-transform duration-500 group-hover:scale-110">
         <line x1="40" y1="12" x2="40" y2="24" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
         <line x1="40" y1="56" x2="40" y2="68" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
         <line x1="12" y1="40" x2="24" y2="40" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
         <line x1="56" y1="40" x2="68" y2="40" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
       </g>
-
-      {/* Glowing Focal Core Pip */}
       <circle
         cx="40"
         cy="40"
@@ -100,12 +90,7 @@ const TargetFocusIllustration = () => (
         fill="#315EFF"
         className="origin-center transition-all duration-300 group-hover:scale-125 group-hover:fill-[#1e40af]"
       />
-      <circle
-        cx="40"
-        cy="40"
-        r="2"
-        fill="#ffffff"
-      />
+      <circle cx="40" cy="40" r="2" fill="#ffffff" />
     </svg>
   </div>
 );
@@ -122,7 +107,6 @@ const WorkflowPipelineIllustration = () => (
       xmlns="http://www.w3.org/2000/svg"
       className="h-full w-full overflow-visible"
     >
-      {/* Ambient Aura Blob */}
       <circle
         cx="40"
         cy="40"
@@ -130,8 +114,6 @@ const WorkflowPipelineIllustration = () => (
         fill="#eff6ff"
         className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
       />
-
-      {/* S-Curved Connecting Pipeline */}
       <path
         d="M 22 52 C 34 52, 30 28, 44 28 C 54 28, 54 44, 62 44"
         stroke="#93c5fd"
@@ -140,8 +122,6 @@ const WorkflowPipelineIllustration = () => (
         fill="none"
         className="transition-colors duration-500 group-hover:stroke-[#315EFF]"
       />
-
-      {/* Animated Flow Pulse Along Path */}
       <path
         d="M 22 52 C 34 52, 30 28, 44 28 C 54 28, 54 44, 62 44"
         stroke="#315EFF"
@@ -151,20 +131,14 @@ const WorkflowPipelineIllustration = () => (
         fill="none"
         className="opacity-0 transition-opacity duration-300 group-hover:opacity-100"
       />
-
-      {/* Node 1 (Start) */}
       <g className="origin-center transition-transform duration-300 group-hover:-translate-y-1">
         <circle cx="22" cy="52" r="9" fill="#ffffff" stroke="#1d4ed8" strokeWidth="2.5" />
         <circle cx="22" cy="52" r="4" fill="#315EFF" />
       </g>
-
-      {/* Node 2 (Transform / Logic) */}
       <g className="origin-center transition-transform duration-300 group-hover:scale-110">
         <circle cx="44" cy="28" r="10" fill="#315EFF" stroke="#1e40af" strokeWidth="2" />
         <path d="M 40 28 L 48 28 M 44 24 L 44 32" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
       </g>
-
-      {/* Node 3 (Output / Delivery) */}
       <g className="origin-center transition-transform duration-300 group-hover:translate-x-1">
         <circle cx="62" cy="44" r="8" fill="#ffffff" stroke="#1d4ed8" strokeWidth="2" />
         <circle cx="62" cy="44" r="3.5" fill="#3b82f6" />
@@ -185,7 +159,6 @@ const InsightValueIllustration = () => (
       xmlns="http://www.w3.org/2000/svg"
       className="h-full w-full overflow-visible"
     >
-      {/* Ambient Aura Blob */}
       <circle
         cx="40"
         cy="40"
@@ -193,8 +166,6 @@ const InsightValueIllustration = () => (
         fill="#eff6ff"
         className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
       />
-
-      {/* Radiant Glow Rays that burst on hover */}
       <g className="origin-center transition-all duration-500 ease-out opacity-60 group-hover:opacity-100 group-hover:scale-115">
         <line x1="40" y1="12" x2="40" y2="18" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
         <line x1="20" y1="20" x2="25" y2="25" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
@@ -202,21 +173,15 @@ const InsightValueIllustration = () => (
         <line x1="14" y1="40" x2="20" y2="40" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
         <line x1="66" y1="40" x2="60" y2="40" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
       </g>
-
-      {/* Modern Bulb Silhouette */}
       <g className="origin-center transition-transform duration-300 group-hover:-translate-y-1">
         <path
           d="M 30 38 C 30 31, 34 26, 40 26 C 46 26, 50 31, 50 38 C 50 42, 47 45, 46 48 L 34 48 C 33 45, 30 42, 30 38 Z"
           fill="#ffffff"
           stroke="#1d4ed8"
           strokeWidth="2.5"
-          className="transition-colors duration-300 group-hover:fill-[#ffffff]"
         />
-        {/* Bulb Base */}
         <rect x="35" y="49" width="10" height="3" rx="1.5" fill="#93c5fd" />
         <rect x="37" y="53" width="6" height="2" rx="1" fill="#60a5fa" />
-
-        {/* Dynamic Filament Core */}
         <path
           d="M 36 38 Q 40 33, 44 38"
           stroke="#315EFF"
@@ -241,7 +206,6 @@ const ScaleRocketIllustration = () => (
       xmlns="http://www.w3.org/2000/svg"
       className="h-full w-full overflow-visible"
     >
-      {/* Ambient Aura Blob */}
       <circle
         cx="40"
         cy="40"
@@ -249,8 +213,6 @@ const ScaleRocketIllustration = () => (
         fill="#eff6ff"
         className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
       />
-
-      {/* Trajectory Guide Arc */}
       <path
         d="M 18 64 Q 28 50, 48 24"
         stroke="#93c5fd"
@@ -259,37 +221,25 @@ const ScaleRocketIllustration = () => (
         fill="none"
         className="transition-colors duration-500 group-hover:stroke-[#315EFF]"
       />
-
-      {/* Rocket Vessel (Lifts up and right on hover) */}
       <g className="origin-center transition-transform duration-500 ease-out group-hover:translate-x-2 group-hover:-translate-y-2">
-        {/* Rocket Flame */}
         <path
           d="M 31 53 L 26 62 L 35 57 Z"
           fill="#f59e0b"
           className="transition-transform duration-300 group-hover:scale-125"
         />
-        <path
-          d="M 32 54 L 29 60 L 34 56 Z"
-          fill="#ef4444"
-        />
-
-        {/* Rocket Left & Right Fins */}
+        <path d="M 32 54 L 29 60 L 34 56 Z" fill="#ef4444" />
         <path d="M 32 44 L 26 50 L 33 53 Z" fill="#1e40af" />
         <path d="M 44 32 L 50 38 L 47 45 Z" fill="#1e40af" />
-
-        {/* Rocket Body */}
         <path
           d="M 33 52 C 34 44, 42 34, 54 22 C 42 34, 32 42, 24 54 C 27 54, 30 53, 33 52 Z"
           fill="#315EFF"
           stroke="#1e3a8a"
           strokeWidth="2"
         />
-        {/* White Cockpit Nose Cap */}
         <path
           d="M 47 29 C 50 25, 52 23, 54 22 C 53 24, 51 26, 47 29 Z"
           fill="#ffffff"
         />
-        {/* Cockpit Window */}
         <circle cx="42" cy="34" r="3" fill="#ffffff" stroke="#1e3a8a" strokeWidth="1" />
       </g>
     </svg>
@@ -303,7 +253,6 @@ const ScaleRocketIllustration = () => (
 interface LiteSolution {
   id: string;
   fold: number;
-  foldTitle: string;
   name: string;
   badge: string;
   category: "agency" | "industry" | "growth";
@@ -315,7 +264,6 @@ interface LiteSolution {
   ctaText: string;
   targetHref: string;
   lovableRemixUrl: string;
-  icon: typeof Building2;
 }
 
 const LITE_SOLUTIONS: LiteSolution[] = [
@@ -323,7 +271,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
   {
     id: "agency-lite",
     fold: 1,
-    foldTitle: "Product Fold 1 · Operations & Healthcare",
     name: "Agency Lite",
     badge: "Agency Operations",
     category: "agency",
@@ -344,12 +291,10 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     ctaText: "Explore Agency Lite",
     targetHref: "/agency",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-agency-lite",
-    icon: Building2,
   },
   {
     id: "healthhub-lite",
     fold: 1,
-    foldTitle: "Product Fold 1 · Operations & Healthcare",
     name: "HealthHub AI Lite",
     badge: "Healthcare Operations",
     category: "industry",
@@ -371,22 +316,19 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     ctaText: "Explore HealthHub AI Lite",
     targetHref: "/healthcare",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-healthhub-lite",
-    icon: HeartPulse,
   },
 
   // FOLD 2
   {
     id: "nonprofit-lite",
     fold: 2,
-    foldTitle: "Product Fold 2 · Governance & Lending",
-    name: "Nonprofit Control Tower Lite",
+    name: "Nonprofit Board Control Tower Lite",
     badge: "Nonprofit & Board Ops",
     category: "industry",
     problem: "Board Information Buried Across Emails, Files and Folders?",
     presentingPrefix: "Presenting",
     description: [
-      "Meeting notes are in one place.",
-      "Policies are somewhere else.",
+      "Meeting notes are in one place. Policies are somewhere else.",
       "Finding the right information takes too long.",
       "Nonprofit Board Control Tower Lite brings important board information together.",
     ],
@@ -401,12 +343,10 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     ctaText: "Explore Nonprofit Board Control Tower Lite",
     targetHref: "/non-profit",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-nonprofit-lite",
-    icon: HeartHandshake,
   },
   {
     id: "mortgage-lite",
     fold: 2,
-    foldTitle: "Product Fold 2 · Governance & Lending",
     name: "MortgageAI Lite",
     badge: "Mortgage & Banking",
     category: "industry",
@@ -427,22 +367,18 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     ctaText: "Explore MortgageAI Lite",
     targetHref: "/mortgage-bank",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-mortgage-lite",
-    icon: Landmark,
   },
 
   // FOLD 3
   {
     id: "realtor-lite",
     fold: 3,
-    foldTitle: "Product Fold 3 · Real Estate & Marketing",
     name: "RealtorHelp Lite",
     badge: "Real Estate & Brokerages",
     category: "growth",
     problem: "Leads Going Cold While You’re Busy With Everything Else?",
     description: [
-      "Follow-ups get delayed.",
-      "Old leads disappear into the CRM.",
-      "Good opportunities lose momentum.",
+      "Follow-ups get delayed. Old leads disappear into the CRM. Good opportunities lose momentum.",
       "RealtorHelp Lite helps keep conversations moving.",
     ],
     helpsWith: [
@@ -456,21 +392,17 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     ctaText: "Explore RealtorHelp Lite",
     targetHref: "/book-demo?solution=realtor-lite",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-realtor-lite",
-    icon: KeyRound,
   },
   {
     id: "marketing-lite",
     fold: 3,
-    foldTitle: "Product Fold 3 · Real Estate & Marketing",
     name: "Marketing Lite",
     badge: "Marketing Performance",
     category: "growth",
     problem: "Marketing Moving Too Slowly? Clients Slipping Away?",
     presentingPrefix: "Presenting",
     description: [
-      "Campaigns are spread across tools.",
-      "Tasks pile up.",
-      "Performance takes too long to understand.",
+      "Campaigns are spread across tools. Tasks pile up. Performance takes too long to understand.",
       "Marketing Lite brings the work and the numbers into clearer view.",
     ],
     helpsWith: [
@@ -484,23 +416,19 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     ctaText: "Explore Marketing Lite",
     targetHref: "/book-demo?solution=marketing-lite",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-marketing-lite",
-    icon: Megaphone,
   },
 
   // FOLD 4
   {
     id: "cs-lite",
     fold: 4,
-    foldTitle: "Product Fold 4 · Client Retention & HighLevel",
     name: "Client Success Lite",
     badge: "Account Retention",
     category: "growth",
     problem: "Clients Slipping Away Before You See the Warning Signs?",
     presentingPrefix: "Presenting",
     description: [
-      "Account updates are scattered.",
-      "Follow-ups get delayed.",
-      "Risk becomes visible too late.",
+      "Account updates are scattered. Follow-ups get delayed. Risk becomes visible too late.",
       "Client Success Lite helps you see who needs attention and why.",
     ],
     helpsWith: [
@@ -514,21 +442,17 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     ctaText: "Explore Client Success Lite",
     targetHref: "/book-demo?solution=client-success-lite",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-clientsuccess-lite",
-    icon: UserCheck,
   },
   {
     id: "ghl-lite",
     fold: 4,
-    foldTitle: "Product Fold 4 · Client Retention & HighLevel",
     name: "GHL Control Tower Lite",
     badge: "GoHighLevel Ecosystem",
     category: "agency",
     problem: "Too Much Happening to See What Needs Attention?",
     presentingPrefix: "Presenting",
     description: [
-      "Contacts. Conversations. Pipelines. Revenue.",
-      "The data is there.",
-      "The next action is not always obvious.",
+      "Contacts. Conversations. Pipelines. Revenue. The data is there. The next action is not always obvious.",
       "GHL Control Tower Lite turns GHL activity into clearer priorities.",
     ],
     helpsWith: [
@@ -543,7 +467,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     ctaText: "Explore GHL Control Tower Lite",
     targetHref: "/agency?addon=ghl-lite",
     lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-ghl-lite",
-    icon: Activity,
   },
 ];
 
@@ -603,7 +526,7 @@ const ControlTowerLite = () => {
             {/* Main Headline */}
             <h1 className="text-4xl font-bold leading-tight text-brand-primary sm:text-5xl lg:text-6xl tracking-tight text-balance">
               <span>You Don’t Need the Biggest AI System.</span>
-              <span className="block mt-2 bg-gradient-to-r from-trust-blue to-trust-blue-dark bg-clip-text text-transparent">
+              <span className="block mt-2 text-[hsl(var(--brand-secondary))]">
                 You Need the Right Starting Point.
               </span>
             </h1>
@@ -625,6 +548,7 @@ const ControlTowerLite = () => {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5">
               <Button
                 size="lg"
+                variant="outline"
                 onClick={scrollToSolutions}
                 className="group relative cursor-pointer overflow-hidden rounded-full border border-slate-900 bg-slate-950 px-8 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[2px]"
               >
@@ -670,7 +594,7 @@ const ControlTowerLite = () => {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-2xl text-center">
             <div className="inline-flex items-center space-x-2 bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
-              The Philosophy
+              WHAT “LITE” ACTUALLY MEANS
             </div>
             <h2 className="mt-6 text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight">
               A Smaller Starting Point.
@@ -692,7 +616,6 @@ const ControlTowerLite = () => {
                     Start With One Need
                   </h3>
                 </div>
-                {/* Top-Right Responsive Animated Illustration */}
                 <TargetFocusIllustration />
               </div>
               <p className="text-sm text-slate-secondary leading-relaxed mt-2">
@@ -708,7 +631,6 @@ const ControlTowerLite = () => {
                     Experience the Workflow
                   </h3>
                 </div>
-                {/* Top-Right Responsive Animated Illustration */}
                 <WorkflowPipelineIllustration />
               </div>
               <p className="text-sm text-slate-secondary leading-relaxed mt-2">
@@ -724,7 +646,6 @@ const ControlTowerLite = () => {
                     Learn What Works for You
                   </h3>
                 </div>
-                {/* Top-Right Responsive Animated Illustration */}
                 <InsightValueIllustration />
               </div>
               <p className="text-sm text-slate-secondary leading-relaxed mt-2">
@@ -740,7 +661,6 @@ const ControlTowerLite = () => {
                     Scale When You Are Ready
                   </h3>
                 </div>
-                {/* Top-Right Responsive Animated Illustration */}
                 <ScaleRocketIllustration />
               </div>
               <p className="text-sm text-slate-secondary leading-relaxed mt-2">
@@ -752,27 +672,24 @@ const ControlTowerLite = () => {
       </section>
 
       {/* =========================================================================
-          3–6. CHOOSE YOUR LITE SOLUTION (All 8 Product Cards Across 4 Folds)
+          3–6. CHOOSE YOUR LITE SOLUTION (Clean Single Row Toggles, Streamlined Cards)
          ========================================================================= */}
       <section id="choose-lite" className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center space-x-2 bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
-              Production-Ready Editions
+              PRODUCTION-READY EDITIONS
             </div>
-            <h2 className="mt-6 text-3xl lg:text-4xl font-bold text-brand-primary uppercase tracking-tight">
+            <h2 className="mt-4 text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight uppercase">
               CHOOSE YOUR LITE SOLUTION
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-secondary">
-              Focused versions of our enterprise Control Tower platforms. Zero vendor lock-in, immediate workflow value, and 1-click remix buy options.
-            </p>
 
-            {/* 4 Toggles in ONE Single Row on all screens */}
-            <div className="mt-8 flex flex-nowrap items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar py-2 max-w-full">
+            {/* 4 Clean Toggles in ONE Row Without ANY Horizontal Scrollbar */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
               <button
                 type="button"
                 onClick={() => setFilterCategory("all")}
-                className={`whitespace-nowrap shrink-0 rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
+                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
                   filterCategory === "all"
                     ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
                     : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
@@ -783,7 +700,7 @@ const ControlTowerLite = () => {
               <button
                 type="button"
                 onClick={() => setFilterCategory("agency")}
-                className={`whitespace-nowrap shrink-0 rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
+                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
                   filterCategory === "agency"
                     ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
                     : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
@@ -794,7 +711,7 @@ const ControlTowerLite = () => {
               <button
                 type="button"
                 onClick={() => setFilterCategory("industry")}
-                className={`whitespace-nowrap shrink-0 rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
+                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
                   filterCategory === "industry"
                     ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
                     : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
@@ -805,7 +722,7 @@ const ControlTowerLite = () => {
               <button
                 type="button"
                 onClick={() => setFilterCategory("growth")}
-                className={`whitespace-nowrap shrink-0 rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
+                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
                   filterCategory === "growth"
                     ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
                     : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
@@ -816,95 +733,86 @@ const ControlTowerLite = () => {
             </div>
           </div>
 
-          {/* Cards Grid following CollabAI's 4-card hover glow design tokens */}
+          {/* Cards Grid: Streamlined, Airy, Exact Copy Without Walls of Text */}
           <div className="mt-14 grid gap-8 md:grid-cols-2">
-            {filteredSolutions.map((solution) => {
-              const Icon = solution.icon;
-              return (
-                <div
-                  key={solution.id}
-                  className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-8 sm:p-9 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/12"
-                >
-                  <div>
-                    {/* Header: Badge & Live Indicator */}
-                    <div className="flex items-center justify-between gap-3 mb-5">
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-slate-light px-3.5 py-1 text-xs font-semibold text-brand-primary">
-                        <Icon className="h-3.5 w-3.5 text-[hsl(var(--brand-secondary))]" />
-                        {solution.badge}
-                      </span>
-                      <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-slate-secondary">
-                        <span className="inline-block h-1.5 w-1.5 rounded-full bg-[hsl(var(--signal-live))] animate-pulse" />
-                        Lite Edition
-                      </span>
-                    </div>
-
-                    {/* Problem Hook Question */}
-                    <h3 className="text-2xl font-bold tracking-tight text-brand-primary mb-3 leading-snug">
-                      {solution.problem}
-                    </h3>
-
-                    {/* Product Name with optional 'Presenting' prefix */}
-                    <div className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))] mb-4 flex items-center gap-1.5">
+            {filteredSolutions.map((solution) => (
+              <div
+                key={solution.id}
+                className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 sm:p-8 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/12"
+              >
+                <div>
+                  {/* Top Row: Product Name Eyebrow + Lite Edition Dot */}
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
                       {solution.presentingPrefix && (
-                        <span className="text-muted-foreground font-medium">{solution.presentingPrefix}</span>
+                        <span className="text-muted-foreground font-medium mr-1.5">{solution.presentingPrefix}</span>
                       )}
-                      <span>{solution.name}</span>
-                    </div>
+                      {solution.name}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-slate-500">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-[hsl(var(--signal-live))]" />
+                      Lite Edition
+                    </span>
+                  </div>
 
-                    {/* Description Paragraphs */}
-                    <div className="space-y-1.5 text-sm text-slate-secondary mb-6 leading-relaxed">
-                      {solution.description.map((line, idx) => (
-                        <p key={idx}>{line}</p>
+                  {/* Problem Hook Question */}
+                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-brand-primary mb-3 leading-snug">
+                    {solution.problem}
+                  </h3>
+
+                  {/* Description Copy */}
+                  <p className="text-sm text-slate-secondary leading-relaxed mb-5">
+                    {solution.description.join(" ")}
+                  </p>
+
+                  {/* What It Helps With: Streamlined Chip List */}
+                  <div className="mb-4">
+                    <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-2">
+                      What It Helps With:
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {solution.helpsWith.map((item, idx) => (
+                        <span
+                          key={idx}
+                          className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-2.5 py-1 text-xs text-slate-700 font-medium"
+                        >
+                          <Check className="h-3 w-3 text-[hsl(var(--brand-secondary))] shrink-0" />
+                          <span>{item}</span>
+                        </span>
                       ))}
                     </div>
-
-                    {/* What It Helps With Box */}
-                    <div className="mb-6 rounded-xl border border-border bg-slate-light p-4 sm:p-5">
-                      <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
-                        What It Helps With:
-                      </div>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-secondary font-medium">
-                        {solution.helpsWith.map((item, idx) => (
-                          <li key={idx} className="flex items-center gap-2">
-                            <CheckCircle className="h-3.5 w-3.5 text-[hsl(var(--brand-secondary))] shrink-0" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Outcome Highlight Box */}
-                    <div className="mb-7 rounded-xl border border-[hsl(var(--brand-secondary))]/25 bg-[hsl(var(--brand-secondary))]/5 p-4 text-xs sm:text-sm text-brand-primary font-medium leading-relaxed">
-                      <span className="font-bold text-[hsl(var(--brand-secondary))] uppercase tracking-wide mr-1.5">
-                        Outcome:
-                      </span>
-                      {solution.outcome}
-                    </div>
                   </div>
 
-                  {/* Action Buttons: Lovable Remix (Instant Buy) + Explore */}
-                  <div className="pt-6 border-t border-border flex flex-col sm:flex-row gap-3 items-stretch">
-                    <Button
-                      variant="outline"
-                      onClick={() => setSelectedSolution(solution)}
-                      className="flex-1 rounded-full border border-slate-900 bg-slate-950 px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[1px]"
-                    >
-                      <Sparkles className="mr-1.5 h-3.5 w-3.5 text-[hsl(var(--signal-live))]" />
-                      <span>Lovable Remix (Instant Buy)</span>
-                    </Button>
-                    <Button
-                      asChild
-                      className="rounded-full border border-slate-300 bg-white px-5 py-2.5 text-xs font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 active:translate-y-[1px]"
-                    >
-                      <Link to={solution.targetHref}>
-                        <span>{solution.ctaText}</span>
-                        <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-                      </Link>
-                    </Button>
-                  </div>
+                  {/* Outcome Highlight Line */}
+                  <p className="text-xs sm:text-sm text-slate-700 font-medium mb-6">
+                    <strong className="font-bold text-brand-primary">Outcome:</strong>{" "}
+                    {solution.outcome}
+                  </p>
                 </div>
-              );
-            })}
+
+                {/* Action Buttons: High-Contrast Legible Buttons */}
+                <div className="pt-5 border-t border-border flex flex-col sm:flex-row gap-2.5 items-stretch">
+                  <Button
+                    variant="outline"
+                    onClick={() => setSelectedSolution(solution)}
+                    className="flex-1 rounded-full border border-slate-900 bg-slate-950 px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[1px]"
+                  >
+                    <Sparkles className="mr-1.5 h-3.5 w-3.5 text-[hsl(var(--signal-live))]" />
+                    <span>Lovable Remix (Instant Buy)</span>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="rounded-full border border-slate-300 bg-white px-5 py-2.5 text-xs font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 active:translate-y-[1px]"
+                  >
+                    <Link to={solution.targetHref}>
+                      <span>{solution.ctaText}</span>
+                      <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -918,157 +826,99 @@ const ControlTowerLite = () => {
             <div className="inline-flex items-center space-x-2 bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
               WHAT YOU GET
             </div>
-            <h2 className="mt-6 text-3xl lg:text-4xl font-bold text-brand-primary uppercase tracking-tight">
+            <h2 className="mt-6 text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight">
               More Output From the Workday You Already Have.
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-secondary">
-              Clear outcomes, zero fluff. Built to eliminate manual busywork and give your team hours back every week.
-            </p>
           </div>
 
           {/* 6 Benefit Cards following CollabAI Card Token */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {/* 1: Save Time */}
             <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-center justify-between mb-5">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--brand-secondary))] bg-[hsl(var(--brand-secondary))]/10 rounded-full px-2.5 py-0.5">
-                  EFFICIENCY
-                </span>
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))]">
-                  <Clock className="h-5 w-5" />
-                </div>
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
+                <Clock className="h-5 w-5" />
               </div>
               <h3 className="text-xl font-bold text-brand-primary mb-2">
-                Save Time.
+                Save Time
               </h3>
-              <p className="text-sm text-slate-secondary leading-relaxed mb-6">
-                Reduce repetitive everyday work across your team.
+              <p className="text-sm text-slate-secondary leading-relaxed">
+                Reduce repetitive everyday work.
               </p>
-              <div className="pt-4 border-t border-border text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center justify-between">
-                <span>Outcome-Driven</span>
-                <ArrowRight className="h-4 w-4 text-[hsl(var(--brand-secondary))]" />
-              </div>
             </div>
 
             {/* 2: Increase Productivity */}
             <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-center justify-between mb-5">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--brand-secondary))] bg-[hsl(var(--brand-secondary))]/10 rounded-full px-2.5 py-0.5">
-                  CAPACITY
-                </span>
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))]">
-                  <Zap className="h-5 w-5" />
-                </div>
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
+                <Zap className="h-5 w-5" />
               </div>
               <h3 className="text-xl font-bold text-brand-primary mb-2">
-                Increase Productivity.
+                Increase Productivity
               </h3>
-              <p className="text-sm text-slate-secondary leading-relaxed mb-6">
+              <p className="text-sm text-slate-secondary leading-relaxed">
                 Help your team complete more without adding unnecessary manual steps.
               </p>
-              <div className="pt-4 border-t border-border text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center justify-between">
-                <span>Higher Throughput</span>
-                <ArrowRight className="h-4 w-4 text-[hsl(var(--brand-secondary))]" />
-              </div>
             </div>
 
             {/* 3: Respond Faster */}
             <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-center justify-between mb-5">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--brand-secondary))] bg-[hsl(var(--brand-secondary))]/10 rounded-full px-2.5 py-0.5">
-                  SPEED
-                </span>
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))]">
-                  <Rocket className="h-5 w-5" />
-                </div>
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
+                <Rocket className="h-5 w-5" />
               </div>
               <h3 className="text-xl font-bold text-brand-primary mb-2">
-                Respond Faster.
+                Respond Faster
               </h3>
-              <p className="text-sm text-slate-secondary leading-relaxed mb-6">
-                Keep customers, leads and important tasks moving without delay.
+              <p className="text-sm text-slate-secondary leading-relaxed">
+                Keep customers, leads and important tasks moving.
               </p>
-              <div className="pt-4 border-t border-border text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center justify-between">
-                <span>Zero Stalled Leads</span>
-                <ArrowRight className="h-4 w-4 text-[hsl(var(--brand-secondary))]" />
-              </div>
             </div>
 
             {/* 4: See What Matters */}
             <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-center justify-between mb-5">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--brand-secondary))] bg-[hsl(var(--brand-secondary))]/10 rounded-full px-2.5 py-0.5">
-                  VISIBILITY
-                </span>
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))]">
-                  <Target className="h-5 w-5" />
-                </div>
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
+                <Target className="h-5 w-5" />
               </div>
               <h3 className="text-xl font-bold text-brand-primary mb-2">
-                See What Matters.
+                See What Matters
               </h3>
-              <p className="text-sm text-slate-secondary leading-relaxed mb-6">
-                Surface priorities without digging through multiple disconnected systems.
+              <p className="text-sm text-slate-secondary leading-relaxed">
+                Surface priorities without digging through multiple systems.
               </p>
-              <div className="pt-4 border-t border-border text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center justify-between">
-                <span>Instant Clarity</span>
-                <ArrowRight className="h-4 w-4 text-[hsl(var(--brand-secondary))]" />
-              </div>
             </div>
 
             {/* 5: Stay Organized */}
             <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-center justify-between mb-5">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--brand-secondary))] bg-[hsl(var(--brand-secondary))]/10 rounded-full px-2.5 py-0.5">
-                  STRUCTURE
-                </span>
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))]">
-                  <Boxes className="h-5 w-5" />
-                </div>
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
+                <Boxes className="h-5 w-5" />
               </div>
               <h3 className="text-xl font-bold text-brand-primary mb-2">
-                Stay Organized.
+                Stay Organized
               </h3>
-              <p className="text-sm text-slate-secondary leading-relaxed mb-6">
-                Keep important information and everyday work easy to manage and find.
+              <p className="text-sm text-slate-secondary leading-relaxed">
+                Keep important information and work easier to manage.
               </p>
-              <div className="pt-4 border-t border-border text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center justify-between">
-                <span>Unified Governance</span>
-                <ArrowRight className="h-4 w-4 text-[hsl(var(--brand-secondary))]" />
-              </div>
             </div>
 
             {/* 6: Make Better Decisions */}
             <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-center justify-between mb-5">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[hsl(var(--brand-secondary))] bg-[hsl(var(--brand-secondary))]/10 rounded-full px-2.5 py-0.5">
-                  INTELLIGENCE
-                </span>
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))]">
-                  <LineChart className="h-5 w-5" />
-                </div>
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
+                <LineChart className="h-5 w-5" />
               </div>
               <h3 className="text-xl font-bold text-brand-primary mb-2">
-                Make Better Decisions.
+                Make Better Decisions
               </h3>
-              <p className="text-sm text-slate-secondary leading-relaxed mb-6">
+              <p className="text-sm text-slate-secondary leading-relaxed">
                 Turn business information into useful insights and clearer next actions.
               </p>
-              <div className="pt-4 border-t border-border text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center justify-between">
-                <span>Actionable Insight</span>
-                <ArrowRight className="h-4 w-4 text-[hsl(var(--brand-secondary))]" />
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          9. EXPLAINING WHY (Centered Layout Matching Rest of the Site)
+          9. EXPLAINING WHY (Clean Centered Layout Matching Exact Copy)
          ========================================================================= */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          {/* Centered Heading Layout (Fixed Left-Alignment) */}
           <div className="mx-auto max-w-3xl text-center mb-14">
             <div className="inline-flex items-center space-x-2 bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
               WHY THESE AI SOLUTIONS?
@@ -1082,12 +932,9 @@ const ControlTowerLite = () => {
             </p>
           </div>
 
-          {/* 4 Focused Feature Cards in Balanced 4-Column Grid */}
+          {/* 4 Feature Cards */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
             <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
-                <Target className="h-5 w-5" />
-              </div>
               <h3 className="text-lg font-bold text-brand-primary mb-2">Purpose-Built</h3>
               <p className="text-sm text-slate-secondary leading-relaxed">
                 Designed for specific teams and industries.
@@ -1095,9 +942,6 @@ const ControlTowerLite = () => {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
-                <Workflow className="h-5 w-5" />
-              </div>
               <h3 className="text-lg font-bold text-brand-primary mb-2">Practical</h3>
               <p className="text-sm text-slate-secondary leading-relaxed">
                 Focused on everyday work your team already handles.
@@ -1105,9 +949,6 @@ const ControlTowerLite = () => {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
-                <Zap className="h-5 w-5" />
-              </div>
               <h3 className="text-lg font-bold text-brand-primary mb-2">Action-Oriented</h3>
               <p className="text-sm text-slate-secondary leading-relaxed">
                 Built to help surface what needs attention next.
@@ -1115,9 +956,6 @@ const ControlTowerLite = () => {
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
-                <CheckCircle className="h-5 w-5" />
-              </div>
               <h3 className="text-lg font-bold text-brand-primary mb-2">Easy to Use</h3>
               <p className="text-sm text-slate-secondary leading-relaxed">
                 AI fits into the workflow instead of becoming another complicated system to manage.
@@ -1128,18 +966,14 @@ const ControlTowerLite = () => {
       </section>
 
       {/* =========================================================================
-          10. BUILT AROUND THE WAY YOU WORK (Divider Cleaned Up)
+          10. BUILT AROUND THE WAY YOU WORK (Exact User Copy)
          ========================================================================= */}
       <section className="py-24 bg-slate-light border-y border-border">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-2xl text-center mb-14">
-            <div className="inline-flex items-center space-x-2 bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
-              OPERATIONAL FLOW
-            </div>
-            {/* Cleaned-up heading without awkward floating dash/divider */}
-            <h2 className="mt-6 text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight">
-              <span>Your Tools Should Work Together,</span>
-              <span className="block text-slate-secondary font-medium mt-1">Not Create More Work.</span>
+          <div className="mx-auto max-w-3xl text-center mb-14">
+            <h2 className="text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight">
+              <span>Your Tools Should Work Together — </span>
+              <span className="text-slate-secondary font-medium">Not Create More Work.</span>
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-secondary">
               These AI solutions are designed to work around real business operations.
@@ -1151,51 +985,45 @@ const ControlTowerLite = () => {
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mx-auto mb-4">
                 <Boxes className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-semibold text-brand-primary mb-2">Bring information together</h3>
-              <p className="text-xs text-slate-secondary leading-relaxed">
-                Consolidates fragmented files, chats, CRM records, and tasks into one coherent workspace.
-              </p>
+              <h3 className="text-base font-semibold text-brand-primary">
+                Bring information together.
+              </h3>
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))]">
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mx-auto mb-4">
                 <Clock className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-semibold text-brand-primary mb-2">Reduce repeated tasks</h3>
-              <p className="text-xs text-slate-secondary leading-relaxed">
-                Automates recurring follow-ups, agendas, summaries, and status updates reliably.
-              </p>
+              <h3 className="text-base font-semibold text-brand-primary">
+                Reduce repeated tasks.
+              </h3>
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))]">
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mx-auto mb-4">
                 <Target className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-semibold text-brand-primary mb-2">Surface priorities</h3>
-              <p className="text-xs text-slate-secondary leading-relaxed">
-                Highlights at-risk accounts, pending approvals, and high-value opportunities first.
-              </p>
+              <h3 className="text-base font-semibold text-brand-primary">
+                Surface priorities.
+              </h3>
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))]">
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mx-auto mb-4">
                 <ArrowRight className="h-6 w-6" />
               </div>
-              <h3 className="text-base font-semibold text-brand-primary mb-2">Help your team move from information → action faster</h3>
-              <p className="text-xs text-slate-secondary leading-relaxed">
-                Empowers team members to execute with confidence using AI-assisted draft actions.
-              </p>
+              <h3 className="text-base font-semibold text-brand-primary">
+                Help your team move from information → action faster.
+              </h3>
             </div>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          11. CONCLUSION - NEED SOMETHING MORE?
-          (Transformed into Full-Bleed Section in CollabAI Brand Blue, matching Nonprofit Hub)
+          11. CONCLUSION - NEED SOMETHING MORE? (Brand Blue Full-Bleed Section)
          ========================================================================= */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#091b4d] via-[#1d4ed8] to-[#1e3a8a] py-16 sm:py-20 md:py-24 text-white shadow-inner">
-        {/* Ambient deep mesh background lighting in brand blue tones */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-0 opacity-40"
@@ -1208,7 +1036,6 @@ const ControlTowerLite = () => {
           }}
         />
 
-        {/* Animated aura pulse */}
         <motion.div
           animate={{
             scale: [1, 1.15, 1],
@@ -1224,7 +1051,6 @@ const ControlTowerLite = () => {
 
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12">
-            {/* Left Column: Headline, Copy, 8 Feature Tags, and Action Buttons */}
             <div className="text-left lg:col-span-7">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white shadow-xs mb-5">
                 <Sparkles className="h-3.5 w-3.5 text-[hsl(var(--signal-live))]" />
@@ -1237,7 +1063,7 @@ const ControlTowerLite = () => {
               </h2>
 
               <p className="mt-5 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-white/90 text-pretty">
-                Need AI across more workflows, teams or systems? We also provide annual AI services and custom-built solutions tailored directly around your business.
+                Need AI across more workflows, teams or systems? We also provide annual AI services and custom-built solutions around your business.
               </p>
 
               {/* 8 Feature Chips */}
@@ -1262,7 +1088,6 @@ const ControlTowerLite = () => {
                 ))}
               </div>
 
-              {/* Action Buttons: White Button + Frosted Secondary Button */}
               <div className="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3.5">
                 <Button
                   asChild
@@ -1287,7 +1112,7 @@ const ControlTowerLite = () => {
               </div>
             </div>
 
-            {/* Right Column: Animated Frosted Ribbon Canvas in Brand Blue Palette */}
+            {/* Right Column: Ribbon Animation Canvas in Blue Palette */}
             <div className="relative lg:col-span-5 h-[280px] sm:h-[340px] w-full flex items-center justify-center">
               <svg
                 viewBox="0 0 460 320"
@@ -1296,7 +1121,6 @@ const ControlTowerLite = () => {
                 className="absolute inset-0 h-full w-full pointer-events-none overflow-visible select-none"
               >
                 <defs>
-                  {/* Primary Frosted Blue/White Ribbon Gradient */}
                   <linearGradient id="liteRibbonGlowA" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#ffffff" stopOpacity="0.85" />
                     <stop offset="45%" stopColor="#93c5fd" stopOpacity="0.4" />
@@ -1304,21 +1128,18 @@ const ControlTowerLite = () => {
                     <stop offset="100%" stopColor="#315EFF" stopOpacity="0.1" />
                   </linearGradient>
 
-                  {/* Secondary Intersecting Ribbon Gradient */}
                   <linearGradient id="liteRibbonGlowB" x1="100%" y1="0%" x2="0%" y2="100%">
                     <stop offset="0%" stopColor="#ffffff" stopOpacity="0.75" />
                     <stop offset="50%" stopColor="#60a5fa" stopOpacity="0.3" />
                     <stop offset="100%" stopColor="#ffffff" stopOpacity="0.6" />
                   </linearGradient>
 
-                  {/* Diffuse Soft Shadow */}
                   <filter id="liteSoftGlow" x="-20%" y="-20%" width="140%" height="140%">
                     <feGaussianBlur stdDeviation="8" result="blur" />
                     <feComposite in="SourceGraphic" in2="blur" operator="over" />
                   </filter>
                 </defs>
 
-                {/* Ribbon Track 1: Sweeping Upward Helix with Wave Motion */}
                 <motion.path
                   d="M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140"
                   stroke="url(#liteRibbonGlowA)"
@@ -1340,7 +1161,6 @@ const ControlTowerLite = () => {
                   }}
                 />
 
-                {/* Ribbon Track 2: Intersecting Counter Wave */}
                 <motion.path
                   d="M 40 90 C 130 90, 160 260, 260 240 C 350 220, 380 70, 450 190"
                   stroke="url(#liteRibbonGlowB)"
@@ -1362,7 +1182,6 @@ const ControlTowerLite = () => {
                   }}
                 />
 
-                {/* Precision Stream lines */}
                 <motion.path
                   d="M 10 210 Q 150 40, 280 180 T 450 110"
                   stroke="#ffffff"
@@ -1380,15 +1199,12 @@ const ControlTowerLite = () => {
                   }}
                 />
 
-                {/* Telemetry Node 1 */}
                 <circle cx="250" cy="85" r="5" fill="#ffffff" filter="url(#liteSoftGlow)" />
                 <circle cx="250" cy="85" r="2" fill="#315EFF" />
 
-                {/* Telemetry Node 2 */}
                 <circle cx="340" cy="100" r="4" fill="#ffffff" filter="url(#liteSoftGlow)" />
                 <circle cx="340" cy="100" r="1.5" fill="#315EFF" />
 
-                {/* Telemetry Node 3 */}
                 <circle cx="160" cy="240" r="4.5" fill="#ffffff" filter="url(#liteSoftGlow)" />
                 <circle cx="160" cy="240" r="1.8" fill="#315EFF" />
               </svg>
@@ -1438,9 +1254,9 @@ const ControlTowerLite = () => {
                 500+
               </div>
               <div className="mt-1.5 text-xs sm:text-sm font-semibold text-brand-primary">
-                Clients Worldwide
+                Clients
               </div>
-              <div className="text-xs text-slate-secondary mt-0.5">Global Enterprise &amp; Growth Brands</div>
+              <div className="text-xs text-slate-secondary mt-0.5">Delivered across software, mobile, cloud and AI</div>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6 shadow-xs">
               <div className="text-3xl sm:text-4xl font-extrabold text-[hsl(var(--brand-secondary))]">
@@ -1449,7 +1265,7 @@ const ControlTowerLite = () => {
               <div className="mt-1.5 text-xs sm:text-sm font-semibold text-brand-primary">
                 Projects Delivered
               </div>
-              <div className="text-xs text-slate-secondary mt-0.5">Delivered across software, mobile, cloud and AI</div>
+              <div className="text-xs text-slate-secondary mt-0.5">Proven delivery track record</div>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6 shadow-xs">
               <div className="text-3xl sm:text-4xl font-extrabold text-[hsl(var(--brand-secondary))]">
@@ -1458,7 +1274,7 @@ const ControlTowerLite = () => {
               <div className="mt-1.5 text-xs sm:text-sm font-semibold text-brand-primary">
                 ISO/IEC 27001:2022 Certified
               </div>
-              <div className="text-xs text-slate-secondary mt-0.5">Information security practices backed by international standard</div>
+              <div className="text-xs text-slate-secondary mt-0.5">Information security practices backed by an internationally recognized standard</div>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6 shadow-xs">
               <div className="text-3xl sm:text-4xl font-extrabold text-[hsl(var(--brand-secondary))]">
@@ -1467,7 +1283,7 @@ const ControlTowerLite = () => {
               <div className="mt-1.5 text-xs sm:text-sm font-semibold text-brand-primary">
                 Years in Tech
               </div>
-              <div className="text-xs text-slate-secondary mt-0.5">Founded in NYC, serving global teams</div>
+              <div className="text-xs text-slate-secondary mt-0.5">Proven technology delivery</div>
             </div>
           </div>
 
@@ -1477,10 +1293,10 @@ const ControlTowerLite = () => {
               <span className="font-semibold text-brand-primary uppercase tracking-wider">Recognition:</span>
               <span className="rounded-full bg-slate-light border border-border px-3 py-1 text-brand-primary font-semibold">Inc. 5000</span>
               <span className="rounded-full bg-slate-light border border-border px-3 py-1 text-brand-primary font-semibold">Clutch Recognized</span>
-              <span className="rounded-full bg-slate-light border border-border px-3 py-1 text-brand-primary font-semibold">Certified NYC MBE</span>
+              <span className="rounded-full bg-slate-light border border-border px-3 py-1 text-brand-primary font-semibold">NYC MBE</span>
             </div>
             <div className="text-muted-foreground font-medium text-center sm:text-right">
-              Delivered across enterprise software, mobile, cloud, and AI automation.
+              Delivered across software, mobile, cloud and AI.
             </div>
           </div>
         </div>
@@ -1531,7 +1347,8 @@ const ControlTowerLite = () => {
                 <div className="space-y-2.5 pt-2">
                   <Button
                     asChild
-                    className="w-full h-11 rounded-full border border-slate-900 bg-slate-950 text-white font-semibold text-sm shadow-sm hover:border-slate-800 hover:bg-slate-800 active:translate-y-[1px]"
+                    variant="outline"
+                    className="w-full h-11 rounded-full border border-slate-900 bg-slate-950 text-white font-semibold text-sm shadow-sm hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[1px]"
                   >
                     <a
                       href={selectedSolution.lovableRemixUrl}
@@ -1546,7 +1363,7 @@ const ControlTowerLite = () => {
                   <Button
                     asChild
                     variant="outline"
-                    className="w-full h-11 rounded-full border border-slate-300 bg-white hover:bg-slate-100 text-slate-800 font-semibold text-sm"
+                    className="w-full h-11 rounded-full border border-slate-300 bg-white hover:bg-slate-100 hover:text-slate-950 text-slate-800 font-semibold text-sm"
                   >
                     <Link to={selectedSolution.targetHref}>
                       {selectedSolution.ctaText}

@@ -806,6 +806,7 @@ const ENTERPRISE_CAPABILITIES = [
 
 const ControlTowerLite = () => {
   const [activeCapabilityIndex, setActiveCapabilityIndex] = useState(0);
+  const [activeCapabilityIndex2, setActiveCapabilityIndex2] = useState(0);
   const [filterCategory, setFilterCategory] = useState<"all" | "agency" | "industry" | "growth">("all");
 
   useEffect(() => {
@@ -813,6 +814,13 @@ const ControlTowerLite = () => {
       setActiveCapabilityIndex((prev) => (prev + 1) % ENTERPRISE_CAPABILITIES.length);
     }, 3600);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer2 = setInterval(() => {
+      setActiveCapabilityIndex2((prev) => (prev + 1) % ENTERPRISE_CAPABILITIES.length);
+    }, 4000);
+    return () => clearInterval(timer2);
   }, []);
 
   const filteredSolutions =
@@ -1348,64 +1356,16 @@ const ControlTowerLite = () => {
       </section>
 
       {/* =========================================================================
-          9. EXPLAINING WHY (Exact Copy)
-         ========================================================================= */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center mb-14">
-            <div className="inline-flex items-center space-x-2 bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
-              WHY THESE AI SOLUTIONS?
-            </div>
-            <h2 className="mt-6 text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight">
-              Built for Work.
-              <span className="block text-slate-secondary font-medium mt-1">Not Just Prompts.</span>
-            </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-secondary leading-relaxed max-w-2xl mx-auto">
-              Generic AI gives you a blank box. These solutions are built around actual business workflows.
-            </p>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <h3 className="text-lg font-bold text-brand-primary mb-2">Purpose-Built</h3>
-              <p className="text-sm text-slate-secondary leading-relaxed">
-                Designed for specific teams and industries.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <h3 className="text-lg font-bold text-brand-primary mb-2">Practical</h3>
-              <p className="text-sm text-slate-secondary leading-relaxed">
-                Focused on everyday work your team already handles.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <h3 className="text-lg font-bold text-brand-primary mb-2">Action-Oriented</h3>
-              <p className="text-sm text-slate-secondary leading-relaxed">
-                Built to help surface what needs attention next.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <h3 className="text-lg font-bold text-brand-primary mb-2">Easy to Use</h3>
-              <p className="text-sm text-slate-secondary leading-relaxed">
-                AI fits into the workflow instead of becoming another complicated system to manage.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
-          10. BUILT AROUND THE WAY YOU WORK (Exact User Copy)
+          BUILT AROUND THE WAY YOU WORK (Exact User Copy)
          ========================================================================= */}
       <section className="py-24 bg-slate-light border-y border-border">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center mb-14">
+            <div className="inline-flex items-center space-x-2 bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-6">
+              BUILT AROUND THE WAY YOU WORK
+            </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight">
-              <span>Your Tools Should Work Together — </span>
-              <span className="text-slate-secondary font-medium">Not Create More Work.</span>
+              Your Tools Should Work Together - Not Create More Work.
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-secondary">
               These AI solutions are designed to work around real business operations.
@@ -1416,7 +1376,7 @@ const ControlTowerLite = () => {
             {/* Card 1: Bring information together */}
             <div className="group rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10 flex flex-col items-center justify-between">
               <BringTogetherIllustration />
-              <h3 className="text-base font-semibold text-brand-primary mt-2">
+              <h3 className="text-base font-semibold text-brand-primary mt-4">
                 Bring information together.
               </h3>
             </div>
@@ -1424,7 +1384,7 @@ const ControlTowerLite = () => {
             {/* Card 2: Reduce repeated tasks */}
             <div className="group rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10 flex flex-col items-center justify-between">
               <ReduceRepeatedTasksIllustration />
-              <h3 className="text-base font-semibold text-brand-primary mt-2">
+              <h3 className="text-base font-semibold text-brand-primary mt-4">
                 Reduce repeated tasks.
               </h3>
             </div>
@@ -1432,7 +1392,7 @@ const ControlTowerLite = () => {
             {/* Card 3: Surface priorities */}
             <div className="group rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10 flex flex-col items-center justify-between">
               <SurfacePrioritiesIllustration />
-              <h3 className="text-base font-semibold text-brand-primary mt-2">
+              <h3 className="text-base font-semibold text-brand-primary mt-4">
                 Surface priorities.
               </h3>
             </div>
@@ -1440,8 +1400,8 @@ const ControlTowerLite = () => {
             {/* Card 4: Help your team move from information → action faster */}
             <div className="group rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10 flex flex-col items-center justify-between">
               <InformationToActionIllustration />
-              <h3 className="text-base font-semibold text-brand-primary mt-2">
-                Help your team move from information → action faster.
+              <h3 className="text-base font-semibold text-brand-primary mt-4">
+                Help your team move from information &rarr; action faster.
               </h3>
             </div>
           </div>
@@ -1637,6 +1597,201 @@ const ControlTowerLite = () => {
                 </div>
                 <p className="text-[11px] font-medium text-blue-100/75 mt-3">
                   Auto-cycling through enterprise capabilities · Click any pill to inspect
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          11. DUPLICATE: WHEN YOUR NEEDS GO BEYOND LITE (DESIGN OPTION 2)
+         ========================================================================= */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0c225e] via-[#1e40af] to-[#1e3a8a] py-16 sm:py-20 md:py-24 text-white border-t border-white/15 shadow-inner">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-0 opacity-40"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 82% 40%, rgba(255, 255, 255, 0.25) 0%, transparent 45%),
+              radial-gradient(circle at 95% 85%, rgba(49, 94, 255, 0.6) 0%, transparent 50%),
+              radial-gradient(circle at 20% 90%, rgba(0, 0, 0, 0.3) 0%, transparent 60%)
+            `,
+          }}
+        />
+
+        <motion.div
+          animate={{
+            scale: [1, 1.15, 1],
+            opacity: [0.2, 0.35, 0.2],
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 h-[520px] w-[520px] rounded-full bg-radial from-white/30 via-[#dbeafe]/10 to-transparent blur-3xl -z-0"
+        />
+
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12">
+            {/* Left Column: Heading, Subhead, Single Action CTA */}
+            <div className="text-left lg:col-span-5">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white shadow-xs mb-5">
+                <Sparkles className="h-3.5 w-3.5 text-white" />
+                <span>NEED SOMETHING MORE? · OPTION 2</span>
+              </div>
+
+              <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl leading-[1.15] text-balance text-white">
+                <span>When Your Needs Go Beyond Lite,</span>
+                <span className="block mt-1 text-white/95">We Can Go Further.</span>
+              </h2>
+
+              <p className="mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-white/90 text-pretty">
+                Need AI across more workflows, teams or systems? We also provide annual AI services and custom-built solutions around your business.
+              </p>
+
+              {/* Single Primary Action Button */}
+              <div className="mt-9">
+                <Link
+                  to="/collabai-platform"
+                  className="group inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-bold text-slate-950 shadow-xl shadow-blue-950/20 transition-all duration-150 hover:bg-blue-50 active:translate-y-[1px]"
+                >
+                  <span>Explore Full &amp; Custom AI Solutions</span>
+                  <ArrowRight className="ml-2 h-4 w-4 text-slate-950 transition-transform duration-150 group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column: Dynamic Animated Graphic HUD + Indefinitely Looped Capability Pills Below */}
+            <div className="lg:col-span-7 flex flex-col">
+              {/* Dynamic Animated Graphic HUD */}
+              <div className="relative rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-6 sm:p-7 shadow-2xl overflow-hidden min-h-[280px] sm:min-h-[300px] flex flex-col justify-between">
+                {/* Ambient glowing ribbons behind HUD */}
+                <div className="pointer-events-none absolute inset-0 -z-0 opacity-40">
+                  <svg viewBox="0 0 460 320" fill="none" className="h-full w-full">
+                    <motion.path
+                      d="M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140"
+                      stroke="#ffffff"
+                      strokeWidth="28"
+                      strokeLinecap="round"
+                      fill="none"
+                      filter="drop-shadow(0 0 16px rgba(255,255,255,0.6))"
+                      animate={{
+                        d: [
+                          "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
+                          "M 20 230 C 120 270, 160 90, 255 105 C 335 120, 385 200, 450 120",
+                          "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
+                        ],
+                      }}
+                      transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                    <motion.path
+                      d="M 10 210 Q 150 40, 280 180 T 450 110"
+                      stroke="#ffffff"
+                      strokeWidth="2"
+                      strokeDasharray="4 6"
+                      strokeDashoffset={0}
+                      fill="none"
+                      animate={{ strokeDashoffset: [0, -40] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                    />
+                  </svg>
+                </div>
+
+                {/* Dynamic HUD Content with AnimatePresence */}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`opt2-${ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].id}`}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="relative z-10 flex flex-col justify-between h-full space-y-4"
+                  >
+                    {/* Top Status Bar */}
+                    <div className="flex items-center justify-between gap-3 border-b border-white/15 pb-3">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                        </span>
+                        <span>{ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].tag}</span>
+                      </span>
+                      <span className="text-[11px] font-mono tracking-widest text-blue-100/90 font-semibold">
+                        OPTION 2 · 0{activeCapabilityIndex2 + 1} / 08
+                      </span>
+                    </div>
+
+                    {/* Active Highlight Body */}
+                    <div className="my-2">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/20 text-white shadow-md backdrop-blur-xs">
+                          {(() => {
+                            const Icon = ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].icon;
+                            return <Icon className="h-5 w-5 text-white" />;
+                          })()}
+                        </div>
+                        <div>
+                          <h4 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+                            {ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].name}
+                          </h4>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-blue-200">
+                            {ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].metric}
+                          </p>
+                        </div>
+                      </div>
+                      <p className="text-sm text-white/95 leading-relaxed mt-3">
+                        {ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].description}
+                      </p>
+                    </div>
+
+                    {/* Bottom Telemetry Ticker */}
+                    <div className="pt-3 border-t border-white/15 flex flex-wrap items-center justify-between text-[11px] text-blue-100/90 gap-2">
+                      <span className="inline-flex items-center gap-1.5">
+                        <Lock className="w-3.5 h-3.5 text-blue-200" />
+                        Private Enclave Guaranteed
+                      </span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <Check className="w-3.5 h-3.5 text-blue-200" />
+                        Self-Hosted or Dedicated Cloud
+                      </span>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* The 8 Dynamic Looped Capability Pills Below Graphic */}
+              <div className="mt-6">
+                <div className="flex flex-wrap gap-2 sm:gap-2.5">
+                  {ENTERPRISE_CAPABILITIES.map((cap, idx) => {
+                    const isActive = idx === activeCapabilityIndex2;
+                    return (
+                      <button
+                        key={`opt2-btn-${cap.id}`}
+                        type="button"
+                        onClick={() => setActiveCapabilityIndex2(idx)}
+                        className={`relative inline-flex items-center gap-2 rounded-full px-3.5 sm:px-4 py-2 text-xs font-semibold transition-all duration-300 active:scale-95 ${
+                          isActive
+                            ? "border border-white bg-white text-slate-950 shadow-xl shadow-blue-950/40 scale-[1.04] ring-2 ring-white/50"
+                            : "border border-white/20 bg-white/10 text-white/80 hover:border-white/40 hover:bg-white/20 hover:text-white"
+                        }`}
+                      >
+                        {isActive ? (
+                          <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75" />
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600" />
+                          </span>
+                        ) : (
+                          <Check className="h-3 w-3 text-white/60" />
+                        )}
+                        <span>{cap.name}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+                <p className="text-[11px] font-medium text-blue-100/75 mt-3">
+                  Option 2 variant · Auto-cycling or click any pill to inspect
                 </p>
               </div>
             </div>

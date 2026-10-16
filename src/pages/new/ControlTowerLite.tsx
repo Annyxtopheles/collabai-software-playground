@@ -1428,38 +1428,37 @@ const ENTERPRISE_CAPABILITIES = [
   { id: "industry-specific", name: "Industry-specific development", icon: Building2 },
 ];
 
-// Random scattered 2D coordinates for the 8 capability pills across the canvas
+// Exact 2D spatial coordinates for the 8 capability pills matching the Figma design
 const CONSTELLATION_COORDS = [
-  { x: 20, y: 14 }, // 0: Custom AI workflows (Top Left)
-  { x: 68, y: 12 }, // 1: Deeper system integrations (Top Right)
-  { x: 38, y: 34 }, // 2: Multi-team solutions (Upper Center)
-  { x: 80, y: 38 }, // 3: Custom dashboards (Right Mid)
-  { x: 16, y: 56 }, // 4: AI automation (Left Mid)
-  { x: 58, y: 58 }, // 5: Private AI environments (Center Lower)
-  { x: 24, y: 84 }, // 6: Self-hosted solutions (Bottom Left)
-  { x: 74, y: 82 }, // 7: Industry-specific development (Bottom Right)
+  { x: 18, y: 22 }, // 0: Custom AI workflows (Top Left)
+  { x: 76, y: 20 }, // 1: Deeper system integrations (Top Right)
+  { x: 38, y: 38 }, // 2: Multi-team solutions (Upper Center-Left)
+  { x: 80, y: 41 }, // 3: Custom dashboards (Right Mid)
+  { x: 16, y: 53 }, // 4: AI automation (Left Mid - Focused in Figma)
+  { x: 58, y: 57 }, // 5: Private AI environments (Center Lower)
+  { x: 38, y: 76 }, // 6: Self-hosted solutions (Bottom Mid-Left)
+  { x: 78, y: 73 }, // 7: Industry-specific development (Bottom Right)
 ];
 
-// Coherent network edges connecting adjacent spatial neighbors
+// Coherent network edges matching the Figma design
 const CONSTELLATION_EDGES: [number, number][] = [
-  [0, 1],
-  [0, 2],
-  [1, 2],
-  [1, 3],
-  [2, 3],
-  [2, 4],
-  [2, 5],
-  [3, 5],
-  [3, 7],
-  [4, 5],
-  [4, 6],
-  [5, 6],
-  [5, 7],
-  [6, 7],
+  [0, 1], // workflows <-> integrations
+  [0, 2], // workflows <-> multi-team
+  [1, 3], // integrations <-> dashboards
+  [2, 3], // multi-team <-> dashboards
+  [2, 4], // multi-team <-> automation
+  [2, 5], // multi-team <-> private-env
+  [3, 5], // dashboards <-> private-env
+  [3, 7], // dashboards <-> industry-specific
+  [4, 6], // automation <-> self-hosted (Active illuminated line in Figma)
+  [4, 5], // automation <-> private-env
+  [5, 6], // private-env <-> self-hosted
+  [5, 7], // private-env <-> industry-specific
+  [6, 7], // self-hosted <-> industry-specific
 ];
 
-// Natural loop traversal path for the animated active pulse beam
-const CONSTELLATION_TRAVERSAL = [0, 1, 3, 7, 5, 6, 4, 2];
+// Natural loop traversal path starting at AI automation (4) and going to Self-hosted solutions (6)
+const CONSTELLATION_TRAVERSAL = [4, 6, 7, 3, 1, 0, 2, 5];
 
 const ControlTowerLite = () => {
   const [constellationStep, setConstellationStep] = useState(0);
@@ -1469,7 +1468,7 @@ const ControlTowerLite = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setConstellationStep((prev) => (prev + 1) % CONSTELLATION_TRAVERSAL.length);
-    }, 3200);
+    }, 3600);
     return () => clearInterval(timer);
   }, []);
 
@@ -2113,65 +2112,92 @@ const ControlTowerLite = () => {
             </div>
 
             {/* Right Column: Connected Organic Constellation (No Clutter, Ultra-thin Coherent Lines, Random Scattered Placement) */}
-            <div className="lg:col-span-7 relative w-full h-[520px] sm:h-[480px] select-none flex items-center justify-center">
+            {/* Right Column: Connected Organic Constellation Matching Figma Design */}
+            <div className="lg:col-span-7 relative w-full h-[540px] sm:h-[500px] select-none flex items-center justify-center">
               {/* Connecting Constellation Lines SVG Layer */}
               <svg
                 viewBox="0 0 100 100"
                 preserveAspectRatio="none"
                 className="pointer-events-none absolute inset-0 h-full w-full z-0 overflow-visible"
               >
-                {/* Static Fine Network Mesh Connecting Adjacent Nodes */}
+                <defs>
+                  {/* Dynamic Linear Gradient for the Active Line connecting curr -> next */}
+                  {(() => {
+                    const curr = CONSTELLATION_COORDS[activeCapabilityIndex];
+                    const next = CONSTELLATION_COORDS[nextCapabilityIndex];
+                    return (
+                      <linearGradient
+                        id="activeConstellationGradient"
+                        x1={curr.x}
+                        y1={curr.y}
+                        x2={next.x}
+                        y2={next.y}
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+                        <stop offset="35%" stopColor="#ffffff" stopOpacity="0.75" />
+                        <stop offset="70%" stopColor="#ffffff" stopOpacity="0.3" />
+                        <stop offset="100%" stopColor="#ffffff" stopOpacity="0.12" />
+                      </linearGradient>
+                    );
+                  })()}
+                </defs>
+
+                {/* Static Fine Network Mesh Connecting Adjacent Nodes (Subtle Hairlines) */}
                 {CONSTELLATION_EDGES.map(([fromIdx, toIdx], edgeIdx) => {
                   const p1 = CONSTELLATION_COORDS[fromIdx];
                   const p2 = CONSTELLATION_COORDS[toIdx];
                   return (
                     <line
                       key={`constellation-edge-${edgeIdx}`}
-                      x1={`${p1.x}%`}
-                      y1={`${p1.y}%`}
-                      x2={`${p2.x}%`}
-                      y2={`${p2.y}%`}
-                      stroke="rgba(255, 255, 255, 0.2)"
-                      strokeWidth="0.75"
+                      x1={p1.x}
+                      y1={p1.y}
+                      x2={p2.x}
+                      y2={p2.y}
+                      stroke="rgba(255, 255, 255, 0.12)"
+                      strokeWidth="0.8"
                     />
                   );
                 })}
 
-                {/* Active Animated Beam Traveling Along Natural Network Edge */}
+                {/* Active Line with Gradual Gradient starting from the focused pill */}
                 {(() => {
                   const curr = CONSTELLATION_COORDS[activeCapabilityIndex];
                   const next = CONSTELLATION_COORDS[nextCapabilityIndex];
                   return (
                     <g key={`active-flow-${activeCapabilityIndex}-${nextCapabilityIndex}`}>
-                      <motion.line
-                        x1={`${curr.x}%`}
-                        y1={`${curr.y}%`}
-                        x2={`${next.x}%`}
-                        y2={`${next.y}%`}
-                        stroke="rgba(255, 255, 255, 0.9)"
-                        strokeWidth="1.5"
-                        filter="drop-shadow(0 0 3px rgba(255,255,255,0.7))"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        animate={{ pathLength: 1, opacity: 1 }}
-                        transition={{ duration: 1.4, ease: "easeInOut" }}
+                      <line
+                        x1={curr.x}
+                        y1={curr.y}
+                        x2={next.x}
+                        y2={next.y}
+                        stroke="url(#activeConstellationGradient)"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        filter="drop-shadow(0 0 4px rgba(255,255,255,0.7))"
                       />
-                      {/* Subtle light comet particle along path */}
+
+                      {/* Traveling Dot: Pauses at focused pill, then glides to the next */}
                       <motion.circle
-                        r="2.5"
+                        r="4.2"
                         fill="#ffffff"
-                        filter="drop-shadow(0 0 4px #ffffff)"
+                        filter="drop-shadow(0 0 5px #ffffff) drop-shadow(0 0 10px rgba(59,130,246,0.9))"
                         animate={{
-                          cx: [`${curr.x}%`, `${next.x}%`],
-                          cy: [`${curr.y}%`, `${next.y}%`],
+                          cx: [curr.x, curr.x, next.x],
+                          cy: [curr.y, curr.y, next.y],
                         }}
-                        transition={{ duration: 1.4, ease: "easeInOut" }}
+                        transition={{
+                          duration: 3.6,
+                          times: [0, 0.35, 1],
+                          ease: ["linear", "easeInOut"],
+                        }}
                       />
                     </g>
                   );
                 })()}
               </svg>
 
-              {/* Capability Pills Placed at Random Scattered Constellation Nodes */}
+              {/* Capability Pills Placed at Exact Figma Spatial Nodes */}
               {ENTERPRISE_CAPABILITIES.map((cap, idx) => {
                 const coord = CONSTELLATION_COORDS[idx];
                 const isActive = idx === activeCapabilityIndex;
@@ -2185,16 +2211,20 @@ const ControlTowerLite = () => {
                       const step = CONSTELLATION_TRAVERSAL.indexOf(idx);
                       setConstellationStep(step !== -1 ? step : 0);
                     }}
-                    className={`group absolute -translate-x-1/2 -translate-y-1/2 rounded-full px-3.5 sm:px-4 py-2 text-xs sm:text-sm transition-all duration-300 active:scale-95 ${
+                    className={`group absolute -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-500 active:scale-95 cursor-pointer ${
                       isActive
-                        ? "bg-white text-slate-950 font-semibold shadow-[0_0_24px_rgba(255,255,255,0.85)] scale-105 ring-1 ring-white z-30"
-                        : "border border-white/20 bg-white/10 text-white/90 font-medium backdrop-blur-md hover:bg-white/20 hover:border-white/40 hover:text-white hover:scale-105 z-10"
+                        ? "border border-white bg-white/15 text-white font-medium shadow-[0_0_25px_rgba(255,255,255,0.45),0_0_50px_rgba(37,99,235,0.7)] backdrop-blur-md scale-105 z-30 px-4 py-2 text-xs sm:text-sm ring-1 ring-white/60"
+                        : "border border-white/10 bg-white/[0.04] text-white/40 font-normal backdrop-blur-xs hover:border-white/30 hover:bg-white/[0.08] hover:text-white/70 z-10 px-3.5 py-1.5 text-xs"
                     }`}
                     style={{ left: `${coord.x}%`, top: `${coord.y}%` }}
                   >
                     <div className="flex items-center gap-2 whitespace-nowrap">
-                      <Icon className={`h-3.5 w-3.5 ${isActive ? "text-slate-900" : "text-white/70 group-hover:text-white"}`} />
-                      <span>{cap.name}</span>
+                      <Icon
+                        className={`shrink-0 transition-colors duration-300 ${
+                          isActive ? "h-4 w-4 text-white" : "h-3.5 w-3.5 text-white/35 group-hover:text-white/60"
+                        }`}
+                      />
+                      <span className="tracking-tight">{cap.name}</span>
                     </div>
                   </button>
                 );

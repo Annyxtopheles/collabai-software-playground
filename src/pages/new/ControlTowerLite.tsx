@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -1583,20 +1583,248 @@ const AmbientAtmosphere = () => (
   </div>
 );
 
-const ControlTowerLite = () => {
-  const [constellationStep, setConstellationStep] = useState(0);
-  const [activeCapabilityIndex2, setActiveCapabilityIndex2] = useState(0);
-  const [filterCategory, setFilterCategory] = useState<"all" | "agency" | "industry" | "growth">("all");
+const HOP_DURATION = 3400; // ms per hop
+const TRAVEL_DURATION = 2800; // ms gliding between nodes
+
+/** Helper that computes linearGradient stops trailing behind and centered at the traveling dot */
+function getGradientStops(p: number) {
+  const clampedP = Math.max(0, Math.min(1, p));
+  const tailLen = 0.35;
+  const headLen = 0.08;
+
+  const rawStops: { offset: number; opacity: number }[] = [];
+
+  const tStart = clampedP - tailLen;
+  if (tStart > 0) {
+    rawStops.push({ offset: 0, opacity: 0.12 });
+    rawStops.push({ offset: tStart, opacity: 0.12 });
+    rawStops.push({ offset: tStart + tailLen * 0.5, opacity: 0.6 });
+  } else {
+    const frac = clampedP / tailLen;
+    const opAt0 = 1.0 - (1.0 - 0.12) * frac;
+    rawStops.push({ offset: 0, opacity: opAt0 });
+    if (clampedP > 0) {
+      rawStops.push({ offset: clampedP * 0.5, opacity: (opAt0 + 1.0) / 2 });
+    }
+  }
+
+  rawStops.push({ offset: clampedP, opacity: 1.0 });
+
+  const hEnd = clampedP + headLen;
+  if (hEnd < 1) {
+    rawStops.push({ offset: clampedP + headLen * 0.5, opacity: 0.45 });
+    rawStops.push({ offset: hEnd, opacity: 0.12 });
+    rawStops.push({ offset: 1, opacity: 0.12 });
+  } else {
+    const frac = (1 - clampedP) / headLen;
+    const opAt1 = 1.0 - (1.0 - 0.12) * frac;
+    if (clampedP < 1) {
+      rawStops.push({ offset: (clampedP + 1) / 2, opacity: (1.0 + opAt1) / 2 });
+    }
+    rawStops.push({ offset: 1, opacity: opAt1 });
+  }
+
+  rawStops.sort((a, b) => a.offset - b.offset);
+
+  const cleanStops: { offset: string; opacity: number }[] = [];
+  let prevOffset = -1;
+  for (const stop of rawStops) {
+    const clampedOffset = Math.max(0, Math.min(1, stop.offset));
+    if (clampedOffset > prevOffset + 0.001 || cleanStops.length === 0) {
+      cleanStops.push({
+        offset: `${(clampedOffset * 100).toFixed(1)}%`,
+        opacity: Number(Math.max(0.12, Math.min(1, stop.opacity)).toFixed(3)),
+      });
+      prevOffset = clampedOffset;
+    }
+  }
+
+  return cleanStops;
+}
+
+/** Constellation Network visualizer with dot-following gradient & gradual focus transitions */
+const ConstellationNetwork = () => {
+  const [anim, setAnim] = useState({ step: 0, p: 0 });
+  const animRef = useRef({
+    step: 0,
+    startTime: performance.now(),
+  });
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setConstellationStep((prev) => (prev + 1) % CONSTELLATION_TRAVERSAL.length);
-    }, 3600);
-    return () => clearInterval(timer);
+    let animId: number;
+    const tick = (now: number) => {
+      const elapsed = now - animRef.current.startTime;
+      if (elapsed >= HOP_DURATION) {
+        const stepsToAdvance = Math.floor(elapsed / HOP_DURATION);
+        animRef.current.step = (animRef.current.step + stepsToAdvance) % CONSTELLATION_TRAVERSAL.length;
+        animRef.current.startTime = now - (elapsed % HOP_DURATION);
+        setAnim({ step: animRef.current.step, p: 0 });
+      } else if (elapsed <= TRAVEL_DURATION) {
+        const linearP = elapsed / TRAVEL_DURATION;
+        const easedP = 0.5 - 0.5 * Math.cos(linearP * Math.PI);
+        setAnim({ step: animRef.current.step, p: easedP });
+      } else {
+        setAnim({ step: animRef.current.step, p: 1.0 });
+      }
+      animId = requestAnimationFrame(tick);
+    };
+
+    animId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animId);
   }, []);
 
-  const activeCapabilityIndex = CONSTELLATION_TRAVERSAL[constellationStep];
-  const nextCapabilityIndex = CONSTELLATION_TRAVERSAL[(constellationStep + 1) % CONSTELLATION_TRAVERSAL.length];
+  const currIdx = CONSTELLATION_TRAVERSAL[anim.step];
+  const nextIdx = CONSTELLATION_TRAVERSAL[(anim.step + 1) % CONSTELLATION_TRAVERSAL.length];
+  const curr = CONSTELLATION_COORDS[currIdx];
+  const next = CONSTELLATION_COORDS[nextIdx];
+
+  const dotX = curr.x + (next.x - curr.x) * anim.p;
+  const dotY = curr.y + (next.y - curr.y) * anim.p;
+
+  const gradientStops = getGradientStops(anim.p);
+
+  const pillWeights = new Array(ENTERPRISE_CAPABILITIES.length).fill(0);
+  pillWeights[currIdx] = 1 - anim.p;
+  pillWeights[nextIdx] = anim.p;
+
+  const handlePillClick = (targetIdx: number) => {
+    const stepIdx = CONSTELLATION_TRAVERSAL.indexOf(targetIdx);
+    if (stepIdx !== -1) {
+      animRef.current.step = stepIdx;
+      animRef.current.startTime = performance.now() - TRAVEL_DURATION;
+      setAnim({ step: stepIdx, p: 1.0 });
+    }
+  };
+
+  return (
+    <div className="relative w-full h-full select-none flex items-center justify-center">
+      {/* Connecting Constellation Lines SVG Layer */}
+      <svg
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        className="pointer-events-none absolute inset-0 h-full w-full z-0 overflow-visible"
+      >
+        <defs>
+          <linearGradient
+            id="activeConstellationGradient"
+            x1={curr.x}
+            y1={curr.y}
+            x2={next.x}
+            y2={next.y}
+            gradientUnits="userSpaceOnUse"
+          >
+            {gradientStops.map((stop, i) => (
+              <stop
+                key={`grad-stop-${i}`}
+                offset={stop.offset}
+                stopColor="#ffffff"
+                stopOpacity={stop.opacity}
+              />
+            ))}
+          </linearGradient>
+        </defs>
+
+        {/* Static Fine Network Mesh Connecting Adjacent Nodes (Subtle Hairlines) */}
+        {CONSTELLATION_EDGES.map(([fromIdx, toIdx], edgeIdx) => {
+          const p1 = CONSTELLATION_COORDS[fromIdx];
+          const p2 = CONSTELLATION_COORDS[toIdx];
+          return (
+            <line
+              key={`constellation-edge-${edgeIdx}`}
+              x1={p1.x}
+              y1={p1.y}
+              x2={p2.x}
+              y2={p2.y}
+              stroke="rgba(255, 255, 255, 0.12)"
+              strokeWidth="0.75"
+              vectorEffect="non-scaling-stroke"
+            />
+          );
+        })}
+
+        {/* Active Line with Gradual Gradient that follows the dot */}
+        <line
+          key={`active-line-${currIdx}-${nextIdx}`}
+          x1={curr.x}
+          y1={curr.y}
+          x2={next.x}
+          y2={next.y}
+          stroke="url(#activeConstellationGradient)"
+          strokeWidth="1.2"
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+          filter="drop-shadow(0 0 2px rgba(255,255,255,0.7))"
+        />
+      </svg>
+
+      {/* Pinpoint Glowing Dot: positioned exactly at the gradient peak, gliding from node to node */}
+      <div
+        className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-white z-20"
+        style={{
+          left: `${dotX}%`,
+          top: `${dotY}%`,
+          width: "3px",
+          height: "3px",
+          boxShadow: "0 0 4px #ffffff, 0 0 8px rgba(255, 255, 255, 0.9), 0 0 12px rgba(59, 130, 246, 0.8)",
+        }}
+      />
+
+      {/* Capability Pills Placed at Exact Figma Spatial Nodes with Continuous Focus Weight */}
+      {ENTERPRISE_CAPABILITIES.map((cap, idx) => {
+        const coord = CONSTELLATION_COORDS[idx];
+        const w = pillWeights[idx];
+        const Icon = cap.icon;
+
+        const textAlpha = 0.4 + 0.6 * w;
+        const bgAlpha = 0.04 + 0.11 * w;
+        const borderAlpha = 0.1 + 0.85 * w;
+        const scale = 1 + 0.05 * w;
+        const shadowWhite = (0.45 * w).toFixed(3);
+        const shadowBlue = (0.7 * w).toFixed(3);
+        const shadowBlur1 = (25 * w).toFixed(1);
+        const shadowBlur2 = (50 * w).toFixed(1);
+
+        return (
+          <button
+            key={cap.id}
+            type="button"
+            onClick={() => handlePillClick(idx)}
+            className="group absolute rounded-full backdrop-blur-md active:scale-95 cursor-pointer px-4 py-2 text-xs sm:text-sm font-medium border transition-colors select-none"
+            style={{
+              left: `${coord.x}%`,
+              top: `${coord.y}%`,
+              transform: `translate(-50%, -50%) scale(${scale.toFixed(4)})`,
+              backgroundColor: `rgba(255, 255, 255, ${bgAlpha.toFixed(3)})`,
+              borderColor: `rgba(255, 255, 255, ${borderAlpha.toFixed(3)})`,
+              color: `rgba(255, 255, 255, ${textAlpha.toFixed(3)})`,
+              boxShadow:
+                w > 0.02
+                  ? `0 0 ${shadowBlur1}px rgba(255, 255, 255, ${shadowWhite}), 0 0 ${shadowBlur2}px rgba(37, 99, 235, ${shadowBlue}), 0 0 0 ${(1 * w).toFixed(1)}px rgba(255, 255, 255, ${(0.6 * w).toFixed(2)})`
+                  : "none",
+              zIndex: w > 0.05 ? 30 : 10,
+            }}
+          >
+            <div className="flex items-center gap-2 whitespace-nowrap">
+              <Icon
+                className="shrink-0"
+                style={{
+                  width: "15px",
+                  height: "15px",
+                  color: `rgba(255, 255, 255, ${(0.35 + 0.65 * w).toFixed(3)})`,
+                }}
+              />
+              <span className="tracking-tight">{cap.name}</span>
+            </div>
+          </button>
+        );
+      })}
+    </div>
+  );
+};
+
+const ControlTowerLite = () => {
+  const [activeCapabilityIndex2, setActiveCapabilityIndex2] = useState(0);
+  const [filterCategory, setFilterCategory] = useState<"all" | "agency" | "industry" | "growth">("all");
 
   useEffect(() => {
     const timer2 = setInterval(() => {
@@ -2171,132 +2399,7 @@ const ControlTowerLite = () => {
             {/* Right Column: Connected Organic Constellation (No Clutter, Ultra-thin Coherent Lines, Random Scattered Placement) */}
             {/* Right Column: Connected Organic Constellation Matching Figma Design */}
             <div className="lg:col-span-7 relative w-full h-[540px] sm:h-[500px] select-none flex items-center justify-center">
-              {/* Connecting Constellation Lines SVG Layer */}
-              <svg
-                viewBox="0 0 100 100"
-                preserveAspectRatio="none"
-                className="pointer-events-none absolute inset-0 h-full w-full z-0 overflow-visible"
-              >
-                <defs>
-                  {/* Dynamic Linear Gradient for the Active Line connecting curr -> next */}
-                  {(() => {
-                    const curr = CONSTELLATION_COORDS[activeCapabilityIndex];
-                    const next = CONSTELLATION_COORDS[nextCapabilityIndex];
-                    return (
-                      <linearGradient
-                        id="activeConstellationGradient"
-                        x1={curr.x}
-                        y1={curr.y}
-                        x2={next.x}
-                        y2={next.y}
-                        gradientUnits="userSpaceOnUse"
-                      >
-                        <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
-                        <stop offset="35%" stopColor="#ffffff" stopOpacity="0.75" />
-                        <stop offset="70%" stopColor="#ffffff" stopOpacity="0.3" />
-                        <stop offset="100%" stopColor="#ffffff" stopOpacity="0.12" />
-                      </linearGradient>
-                    );
-                  })()}
-                </defs>
-
-                {/* Static Fine Network Mesh Connecting Adjacent Nodes (Subtle Hairlines) */}
-                {CONSTELLATION_EDGES.map(([fromIdx, toIdx], edgeIdx) => {
-                  const p1 = CONSTELLATION_COORDS[fromIdx];
-                  const p2 = CONSTELLATION_COORDS[toIdx];
-                  return (
-                    <line
-                      key={`constellation-edge-${edgeIdx}`}
-                      x1={p1.x}
-                      y1={p1.y}
-                      x2={p2.x}
-                      y2={p2.y}
-                      stroke="rgba(255, 255, 255, 0.12)"
-                      strokeWidth="0.75"
-                      vectorEffect="non-scaling-stroke"
-                    />
-                  );
-                })}
-
-                {/* Active Line with Gradual Gradient starting from the focused pill */}
-                {(() => {
-                  const curr = CONSTELLATION_COORDS[activeCapabilityIndex];
-                  const next = CONSTELLATION_COORDS[nextCapabilityIndex];
-                  return (
-                    <line
-                      key={`active-line-${activeCapabilityIndex}-${nextCapabilityIndex}`}
-                      x1={curr.x}
-                      y1={curr.y}
-                      x2={next.x}
-                      y2={next.y}
-                      stroke="url(#activeConstellationGradient)"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                      vectorEffect="non-scaling-stroke"
-                      filter="drop-shadow(0 0 2px rgba(255,255,255,0.7))"
-                    />
-                  );
-                })()}
-              </svg>
-
-              {/* Pinpoint Glowing Dot: As small as the line width, glides from focused pill to next */}
-              {(() => {
-                const curr = CONSTELLATION_COORDS[activeCapabilityIndex];
-                const next = CONSTELLATION_COORDS[nextCapabilityIndex];
-                return (
-                  <motion.div
-                    key={`traveling-dot-${activeCapabilityIndex}-${nextCapabilityIndex}`}
-                    className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-white z-20"
-                    style={{
-                      width: "3px",
-                      height: "3px",
-                      boxShadow: "0 0 4px #ffffff, 0 0 8px rgba(255, 255, 255, 0.9), 0 0 12px rgba(59, 130, 246, 0.8)",
-                    }}
-                    animate={{
-                      left: [`${curr.x}%`, `${curr.x}%`, `${next.x}%`],
-                      top: [`${curr.y}%`, `${curr.y}%`, `${next.y}%`],
-                    }}
-                    transition={{
-                      duration: 3.6,
-                      times: [0, 0.35, 1],
-                      ease: ["linear", "easeInOut"],
-                    }}
-                  />
-                );
-              })()}
-
-              {/* Capability Pills Placed at Exact Figma Spatial Nodes */}
-              {ENTERPRISE_CAPABILITIES.map((cap, idx) => {
-                const coord = CONSTELLATION_COORDS[idx];
-                const isActive = idx === activeCapabilityIndex;
-                const Icon = cap.icon;
-
-                return (
-                  <button
-                    key={cap.id}
-                    type="button"
-                    onClick={() => {
-                      const step = CONSTELLATION_TRAVERSAL.indexOf(idx);
-                      setConstellationStep(step !== -1 ? step : 0);
-                    }}
-                    className={`group absolute -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-500 active:scale-95 cursor-pointer ${
-                      isActive
-                        ? "border border-white bg-white/15 text-white font-medium shadow-[0_0_25px_rgba(255,255,255,0.45),0_0_50px_rgba(37,99,235,0.7)] backdrop-blur-md scale-105 z-30 px-4 py-2 text-xs sm:text-sm ring-1 ring-white/60"
-                        : "border border-white/10 bg-white/[0.04] text-white/40 font-normal backdrop-blur-xs hover:border-white/30 hover:bg-white/[0.08] hover:text-white/70 z-10 px-3.5 py-1.5 text-xs"
-                    }`}
-                    style={{ left: `${coord.x}%`, top: `${coord.y}%` }}
-                  >
-                    <div className="flex items-center gap-2 whitespace-nowrap">
-                      <Icon
-                        className={`shrink-0 transition-colors duration-300 ${
-                          isActive ? "h-4 w-4 text-white" : "h-3.5 w-3.5 text-white/35 group-hover:text-white/60"
-                        }`}
-                      />
-                      <span className="tracking-tight">{cap.name}</span>
-                    </div>
-                  </button>
-                );
-              })}
+              <ConstellationNetwork />
             </div>
           </div>
         </div>

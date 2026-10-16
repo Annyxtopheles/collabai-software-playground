@@ -25,7 +25,6 @@ import {
   Workflow,
 } from "lucide-react";
 import PageSeoHead from "@/components/PageSeoHead";
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -38,209 +37,296 @@ import iso27001Logo from "@/assets/logos/iso-27001-certified.svg";
 import { DEFAULT_OG_IMAGE, breadcrumbSchema } from "@/lib/seoSchema";
 
 // =========================================================================
-// RESPONSIVE-TO-HOVER ANIMATED VECTOR ILLUSTRATIONS (Top-Right of Cards)
+// BESPOKE, RESPONSIVE-TO-HOVER VECTOR ILLUSTRATIONS (Top-Right of Cards)
+// Crafted in CollabAI Brand Blue palette (Zero yellow anywhere)
 // =========================================================================
 
-/** 1. Start With One Need: Focus / Target / Radar Lock Illustration */
+/** 1. Start With One Need: Focus / Target Workflow Layer Illustration */
 const TargetFocusIllustration = () => (
   <div
     aria-hidden="true"
-    className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 select-none overflow-visible"
+    className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible"
   >
     <svg
-      viewBox="0 0 80 80"
+      viewBox="0 0 110 88"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="h-full w-full overflow-visible"
     >
-      <circle
-        cx="40"
-        cy="40"
-        r="34"
+      {/* Soft Ambient Aura Blob */}
+      <path
+        d="M 20 44 C 18 18, 55 10, 85 16 C 105 22, 108 55, 96 72 C 80 88, 38 88, 24 74 C 16 66, 22 56, 20 44 Z"
         fill="#eff6ff"
         className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
       />
-      <circle
-        cx="40"
-        cy="40"
-        r="28"
-        stroke="#93c5fd"
+
+      {/* Background Dashboard Slate Layer */}
+      <rect
+        x="14"
+        y="18"
+        width="66"
+        height="50"
+        rx="8"
+        fill="#ffffff"
+        stroke="#cbd5e1"
         strokeWidth="1.5"
-        strokeDasharray="4 4"
-        className="origin-center transition-transform duration-700 ease-out group-hover:rotate-90 group-hover:stroke-[#315EFF]"
+        className="transition-transform duration-500 ease-out group-hover:translate-x-[-2px] group-hover:translate-y-[-2px]"
       />
-      <circle
-        cx="40"
-        cy="40"
-        r="20"
-        stroke="#3b82f6"
-        strokeWidth="2"
-        className="origin-center transition-transform duration-500 ease-out group-hover:scale-105"
-      />
-      <g className="origin-center transition-transform duration-500 group-hover:scale-110">
-        <line x1="40" y1="12" x2="40" y2="24" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
-        <line x1="40" y1="56" x2="40" y2="68" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
-        <line x1="12" y1="40" x2="24" y2="40" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
-        <line x1="56" y1="40" x2="68" y2="40" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
+      {/* Mini Table Rows on background layer */}
+      <line x1="22" y1="28" x2="48" y2="28" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round" />
+      <line x1="22" y1="36" x2="68" y2="36" stroke="#e2e8f0" strokeWidth="2" strokeLinecap="round" />
+      <line x1="22" y1="44" x2="60" y2="44" stroke="#e2e8f0" strokeWidth="2" strokeLinecap="round" />
+      <line x1="22" y1="52" x2="52" y2="52" stroke="#e2e8f0" strokeWidth="2" strokeLinecap="round" />
+
+      {/* Elevated Front Target Card with Radar Focus Reticle */}
+      <g className="origin-center transition-transform duration-500 ease-out group-hover:translate-x-1 group-hover:translate-y-[-3px]">
+        {/* Outer Rotating Precision Dashed Ring */}
+        <circle
+          cx="68"
+          cy="44"
+          r="26"
+          stroke="#93c5fd"
+          strokeWidth="1.5"
+          strokeDasharray="4 4"
+          className="origin-center transition-transform duration-700 ease-out group-hover:rotate-90 group-hover:stroke-[#315EFF]"
+        />
+        {/* Middle Solid Reticle Ring */}
+        <circle
+          cx="68"
+          cy="44"
+          r="18"
+          stroke="#3b82f6"
+          strokeWidth="2"
+          fill="#ffffff"
+          className="transition-colors duration-300 group-hover:stroke-[#1d4ed8]"
+        />
+        {/* Precision Crosshair Lines */}
+        <line x1="68" y1="20" x2="68" y2="28" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
+        <line x1="68" y1="60" x2="68" y2="68" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
+        <line x1="44" y1="44" x2="52" y2="44" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
+        <line x1="84" y1="44" x2="92" y2="44" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
+
+        {/* Center Target Lock Pip */}
+        <circle
+          cx="68"
+          cy="44"
+          r="5"
+          fill="#315EFF"
+          className="transition-transform duration-300 group-hover:scale-125"
+        />
+        <circle cx="68" cy="44" r="2" fill="#ffffff" />
       </g>
-      <circle
-        cx="40"
-        cy="40"
-        r="5"
-        fill="#315EFF"
-        className="origin-center transition-all duration-300 group-hover:scale-125 group-hover:fill-[#1e40af]"
-      />
-      <circle cx="40" cy="40" r="2" fill="#ffffff" />
     </svg>
   </div>
 );
 
-/** 2. Experience the Workflow: Connected Nodes Pipeline Flow Illustration */
+/** 2. Experience the Workflow: Dynamic Connected Pipeline Illustration */
 const WorkflowPipelineIllustration = () => (
   <div
     aria-hidden="true"
-    className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 select-none overflow-visible"
+    className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible"
   >
     <svg
-      viewBox="0 0 80 80"
+      viewBox="0 0 110 88"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="h-full w-full overflow-visible"
     >
-      <circle
-        cx="40"
-        cy="40"
-        r="34"
+      {/* Soft Ambient Aura Blob */}
+      <path
+        d="M 25 40 C 20 15, 60 8, 88 18 C 106 25, 108 58, 92 74 C 76 88, 32 86, 20 70 C 14 58, 28 50, 25 40 Z"
         fill="#eff6ff"
         className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
       />
+
+      {/* Connecting Pipeline Curves */}
       <path
-        d="M 22 52 C 34 52, 30 28, 44 28 C 54 28, 54 44, 62 44"
+        d="M 24 58 C 42 58, 38 28, 58 28 C 76 28, 72 50, 88 50"
         stroke="#93c5fd"
-        strokeWidth="3"
+        strokeWidth="3.5"
         strokeLinecap="round"
         fill="none"
         className="transition-colors duration-500 group-hover:stroke-[#315EFF]"
       />
+      {/* Pulsing Highlight Along Pipeline */}
       <path
-        d="M 22 52 C 34 52, 30 28, 44 28 C 54 28, 54 44, 62 44"
-        stroke="#315EFF"
-        strokeWidth="3"
+        d="M 24 58 C 42 58, 38 28, 58 28 C 76 28, 72 50, 88 50"
+        stroke="#1d4ed8"
+        strokeWidth="3.5"
         strokeLinecap="round"
-        strokeDasharray="6 12"
+        strokeDasharray="8 14"
         fill="none"
-        className="opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="opacity-40 transition-opacity duration-300 group-hover:opacity-100"
       />
-      <g className="origin-center transition-transform duration-300 group-hover:-translate-y-1">
-        <circle cx="22" cy="52" r="9" fill="#ffffff" stroke="#1d4ed8" strokeWidth="2.5" />
-        <circle cx="22" cy="52" r="4" fill="#315EFF" />
+
+      {/* Stage 1 Node Card */}
+      <g className="transition-transform duration-300 group-hover:-translate-y-1">
+        <circle cx="24" cy="58" r="12" fill="#ffffff" stroke="#3b82f6" strokeWidth="2.5" />
+        <circle cx="24" cy="58" r="5" fill="#315EFF" />
       </g>
-      <g className="origin-center transition-transform duration-300 group-hover:scale-110">
-        <circle cx="44" cy="28" r="10" fill="#315EFF" stroke="#1e40af" strokeWidth="2" />
-        <path d="M 40 28 L 48 28 M 44 24 L 44 32" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" />
+
+      {/* Stage 2 Active Logic Hub Card */}
+      <g className="transition-transform duration-300 group-hover:scale-110 origin-[58px_28px]">
+        <rect
+          x="46"
+          y="16"
+          width="24"
+          height="24"
+          rx="6"
+          fill="#315EFF"
+          stroke="#1d4ed8"
+          strokeWidth="2"
+        />
+        <path d="M 53 28 L 63 28 M 58 23 L 58 33" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
       </g>
-      <g className="origin-center transition-transform duration-300 group-hover:translate-x-1">
-        <circle cx="62" cy="44" r="8" fill="#ffffff" stroke="#1d4ed8" strokeWidth="2" />
-        <circle cx="62" cy="44" r="3.5" fill="#3b82f6" />
+
+      {/* Stage 3 Output Verified Node Card */}
+      <g className="transition-transform duration-300 group-hover:translate-x-1">
+        <circle cx="88" cy="50" r="11" fill="#ffffff" stroke="#1d4ed8" strokeWidth="2.5" />
+        <path d="M 84 50 L 87 53 L 93 47" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </g>
     </svg>
   </div>
 );
 
-/** 3. Learn What Works for You: Insight Spark / Radiant Bulb Illustration */
+/** 3. Learn What Works for You: Insight Spark & Value Card Illustration */
 const InsightValueIllustration = () => (
   <div
     aria-hidden="true"
-    className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 select-none overflow-visible"
+    className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible"
   >
     <svg
-      viewBox="0 0 80 80"
+      viewBox="0 0 110 88"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="h-full w-full overflow-visible"
     >
-      <circle
-        cx="40"
-        cy="40"
-        r="34"
+      {/* Soft Ambient Aura Blob */}
+      <path
+        d="M 22 42 C 16 16, 52 10, 84 18 C 104 24, 106 60, 92 76 C 76 90, 34 88, 22 72 C 16 60, 24 52, 22 42 Z"
         fill="#eff6ff"
         className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
       />
-      <g className="origin-center transition-all duration-500 ease-out opacity-60 group-hover:opacity-100 group-hover:scale-115">
-        <line x1="40" y1="12" x2="40" y2="18" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
-        <line x1="20" y1="20" x2="25" y2="25" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
-        <line x1="60" y1="20" x2="55" y2="25" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
-        <line x1="14" y1="40" x2="20" y2="40" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
-        <line x1="66" y1="40" x2="60" y2="40" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
-      </g>
-      <g className="origin-center transition-transform duration-300 group-hover:-translate-y-1">
+
+      {/* Layer 1: Analytic Sparkline Chart Card in Background */}
+      <rect
+        x="16"
+        y="24"
+        width="60"
+        height="44"
+        rx="8"
+        fill="#ffffff"
+        stroke="#cbd5e1"
+        strokeWidth="1.5"
+        className="transition-transform duration-500 ease-out group-hover:translate-x-[-2px]"
+      />
+      <path
+        d="M 22 54 L 34 46 L 46 50 L 62 36"
+        stroke="#93c5fd"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="transition-colors duration-300 group-hover:stroke-[#3b82f6]"
+      />
+      <circle cx="62" cy="36" r="3" fill="#315EFF" />
+
+      {/* Layer 2: Radiant Value Bulb Floating in Foreground */}
+      <g className="origin-[74px_42px] transition-transform duration-500 ease-out group-hover:translate-x-1 group-hover:-translate-y-1">
+        {/* Radiating Energy Rays */}
+        <g className="origin-[74px_42px] opacity-60 transition-all duration-500 group-hover:opacity-100 group-hover:scale-115">
+          <line x1="74" y1="18" x2="74" y2="24" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
+          <line x1="56" y1="26" x2="61" y2="31" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
+          <line x1="92" y1="26" x2="87" y2="31" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
+          <line x1="50" y1="44" x2="56" y2="44" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
+          <line x1="98" y1="44" x2="92" y2="44" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
+        </g>
+
+        {/* Bulb Body */}
         <path
-          d="M 30 38 C 30 31, 34 26, 40 26 C 46 26, 50 31, 50 38 C 50 42, 47 45, 46 48 L 34 48 C 33 45, 30 42, 30 38 Z"
+          d="M 64 42 C 64 34, 69 28, 74 28 C 79 28, 84 34, 84 42 C 84 46, 81 49, 80 52 L 68 52 C 67 49, 64 46, 64 42 Z"
           fill="#ffffff"
           stroke="#1d4ed8"
           strokeWidth="2.5"
         />
-        <rect x="35" y="49" width="10" height="3" rx="1.5" fill="#93c5fd" />
-        <rect x="37" y="53" width="6" height="2" rx="1" fill="#60a5fa" />
+        {/* Bulb Base */}
+        <rect x="69" y="53" width="10" height="3" rx="1.5" fill="#93c5fd" />
+        <rect x="71" y="57" width="6" height="2" rx="1" fill="#60a5fa" />
+
+        {/* Core Glowing Filament */}
         <path
-          d="M 36 38 Q 40 33, 44 38"
+          d="M 70 42 Q 74 36, 78 42"
           stroke="#315EFF"
           strokeWidth="2"
           strokeLinecap="round"
-          className="transition-all duration-300 group-hover:stroke-[#2563eb] group-hover:scale-110"
+          className="transition-transform duration-300 group-hover:scale-110"
         />
       </g>
     </svg>
   </div>
 );
 
-/** 4. Scale When You Are Ready: Ascending Rocket / Trajectory Illustration */
+/** 4. Scale When You Are Ready: Velocity Rocket Launch Illustration (ZERO yellow) */
 const ScaleRocketIllustration = () => (
   <div
     aria-hidden="true"
-    className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 select-none overflow-visible"
+    className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible"
   >
     <svg
-      viewBox="0 0 80 80"
+      viewBox="0 0 110 88"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="h-full w-full overflow-visible"
     >
-      <circle
-        cx="40"
-        cy="40"
-        r="34"
+      {/* Soft Ambient Aura Blob */}
+      <path
+        d="M 20 45 C 16 20, 50 12, 82 20 C 102 26, 105 58, 92 74 C 76 88, 36 86, 22 72 C 16 62, 22 52, 20 45 Z"
         fill="#eff6ff"
         className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
       />
+
+      {/* Stepped Scale Growth Bars in Background */}
+      <rect x="18" y="54" width="9" height="16" rx="2.5" fill="#cbd5e1" />
+      <rect x="31" y="44" width="9" height="26" rx="2.5" fill="#93c5fd" />
+      <rect x="44" y="32" width="9" height="38" rx="2.5" fill="#3b82f6" />
+
+      {/* Curved Launch Trajectory Arc */}
       <path
-        d="M 18 64 Q 28 50, 48 24"
+        d="M 28 66 Q 48 50, 76 22"
         stroke="#93c5fd"
         strokeWidth="2"
-        strokeDasharray="3 3"
+        strokeDasharray="4 4"
         fill="none"
         className="transition-colors duration-500 group-hover:stroke-[#315EFF]"
       />
+
+      {/* Aerospace Rocket Vessel (Zero yellow: crisp blue/cyan ion thrust) */}
       <g className="origin-center transition-transform duration-500 ease-out group-hover:translate-x-2 group-hover:-translate-y-2">
+        {/* Ion Thruster Plume in Blue/Cyan */}
         <path
-          d="M 31 53 L 26 62 L 35 57 Z"
-          fill="#f59e0b"
+          d="M 52 56 L 44 68 L 57 62 Z"
+          fill="#60a5fa"
           className="transition-transform duration-300 group-hover:scale-125"
         />
-        <path d="M 32 54 L 29 60 L 34 56 Z" fill="#ef4444" />
-        <path d="M 32 44 L 26 50 L 33 53 Z" fill="#1e40af" />
-        <path d="M 44 32 L 50 38 L 47 45 Z" fill="#1e40af" />
+        <path d="M 53 57 L 48 65 L 56 61 Z" fill="#93c5fd" />
+
+        {/* Rocket Wings */}
+        <path d="M 56 46 L 48 54 L 57 58 Z" fill="#1e40af" />
+        <path d="M 72 32 L 80 40 L 76 48 Z" fill="#1e40af" />
+
+        {/* Fuselage */}
         <path
-          d="M 33 52 C 34 44, 42 34, 54 22 C 42 34, 32 42, 24 54 C 27 54, 30 53, 33 52 Z"
+          d="M 57 56 C 58 46, 68 34, 84 18 C 68 34, 54 44, 44 58 C 48 58, 52 57, 57 56 Z"
           fill="#315EFF"
           stroke="#1e3a8a"
-          strokeWidth="2"
+          strokeWidth="2.5"
         />
+        {/* White Nose Cone */}
         <path
-          d="M 47 29 C 50 25, 52 23, 54 22 C 53 24, 51 26, 47 29 Z"
+          d="M 75 27 C 79 22, 82 19, 84 18 C 83 20, 80 23, 75 27 Z"
           fill="#ffffff"
         />
-        <circle cx="42" cy="34" r="3" fill="#ffffff" stroke="#1e3a8a" strokeWidth="1" />
+        {/* Cockpit Porthole */}
+        <circle cx="68" cy="34" r="3.5" fill="#ffffff" stroke="#1e3a8a" strokeWidth="1.5" />
       </g>
     </svg>
   </div>
@@ -276,9 +362,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     category: "agency",
     problem: "Spending Too Much Time Chasing Project and Client Updates?",
     description: [
-      "Information sits across tools, meetings and team members.",
-      "Getting a clear picture takes too much effort.",
-      "Agency Lite brings the work that needs attention into one view.",
+      "Information sits across tools, meetings and team members. Getting a clear picture takes too much effort. Agency Lite brings the work that needs attention into one view.",
     ],
     helpsWith: [
       "Client visibility",
@@ -301,9 +385,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     problem: "Too Much Admin. Not Enough Time for People?",
     presentingPrefix: "Presenting",
     description: [
-      "Calls. Scheduling. Follow-ups. Everyday administrative work.",
-      "It all takes time away from your team.",
-      "HealthHub AI Lite helps reduce repetitive work behind patient operations.",
+      "Calls. Scheduling. Follow-ups. Everyday administrative work. It all takes time away from your team. HealthHub AI Lite helps reduce repetitive work behind patient operations.",
     ],
     helpsWith: [
       "Patient communication",
@@ -328,9 +410,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     problem: "Board Information Buried Across Emails, Files and Folders?",
     presentingPrefix: "Presenting",
     description: [
-      "Meeting notes are in one place. Policies are somewhere else.",
-      "Finding the right information takes too long.",
-      "Nonprofit Board Control Tower Lite brings important board information together.",
+      "Meeting notes are in one place. Policies are somewhere else. Finding the right information takes too long. Nonprofit Board Control Tower Lite brings important board information together.",
     ],
     helpsWith: [
       "Board documents",
@@ -352,9 +432,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     category: "industry",
     problem: "Finding Loan Problems Only After They Become Urgent?",
     description: [
-      "Too much to track. Too easy to fall behind.",
-      "Busy pipelines make it harder to see which files, deadlines and risks need attention first.",
-      "MortgageAI Lite helps surface what your team needs to act on.",
+      "Too much to track. Too easy to fall behind. Busy pipelines make it harder to see which files, deadlines and risks need attention first. MortgageAI Lite helps surface what your team needs to act on.",
     ],
     helpsWith: [
       "Pipeline visibility",
@@ -378,8 +456,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     category: "growth",
     problem: "Leads Going Cold While You’re Busy With Everything Else?",
     description: [
-      "Follow-ups get delayed. Old leads disappear into the CRM. Good opportunities lose momentum.",
-      "RealtorHelp Lite helps keep conversations moving.",
+      "Follow-ups get delayed. Old leads disappear into the CRM. Good opportunities lose momentum. RealtorHelp Lite helps keep conversations moving.",
     ],
     helpsWith: [
       "Lead follow-up",
@@ -402,8 +479,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     problem: "Marketing Moving Too Slowly? Clients Slipping Away?",
     presentingPrefix: "Presenting",
     description: [
-      "Campaigns are spread across tools. Tasks pile up. Performance takes too long to understand.",
-      "Marketing Lite brings the work and the numbers into clearer view.",
+      "Campaigns are spread across tools. Tasks pile up. Performance takes too long to understand. Marketing Lite brings the work and the numbers into clearer view.",
     ],
     helpsWith: [
       "Marketing performance",
@@ -428,8 +504,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     problem: "Clients Slipping Away Before You See the Warning Signs?",
     presentingPrefix: "Presenting",
     description: [
-      "Account updates are scattered. Follow-ups get delayed. Risk becomes visible too late.",
-      "Client Success Lite helps you see who needs attention and why.",
+      "Account updates are scattered. Follow-ups get delayed. Risk becomes visible too late. Client Success Lite helps you see who needs attention and why.",
     ],
     helpsWith: [
       "Client health",
@@ -452,8 +527,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     problem: "Too Much Happening to See What Needs Attention?",
     presentingPrefix: "Presenting",
     description: [
-      "Contacts. Conversations. Pipelines. Revenue. The data is there. The next action is not always obvious.",
-      "GHL Control Tower Lite turns GHL activity into clearer priorities.",
+      "Contacts. Conversations. Pipelines. Revenue. The data is there. The next action is not always obvious. GHL Control Tower Lite turns GHL activity into clearer priorities.",
     ],
     helpsWith: [
       "Pipeline visibility",
@@ -536,7 +610,7 @@ const ControlTowerLite = () => {
               AI projects often become complicated because businesses try to solve everything at once.
             </p>
 
-            {/* Trust Badges matching ControlTowerHero & ProductPageShell */}
+            {/* Trust Badges */}
             <div className="mt-5 flex items-center justify-center">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3.5 py-1 text-[11px] sm:text-xs uppercase tracking-[0.14em] text-muted-foreground shadow-2xs">
                 <Lock className="w-3.5 h-3.5 text-[hsl(var(--brand-secondary))]" />
@@ -544,29 +618,27 @@ const ControlTowerLite = () => {
               </span>
             </div>
 
-            {/* CTAs matching CollabAI button system */}
+            {/* CTAs */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5">
-              <Button
-                size="lg"
-                variant="outline"
+              <button
+                type="button"
                 onClick={scrollToSolutions}
-                className="group relative cursor-pointer overflow-hidden rounded-full border border-slate-900 bg-slate-950 px-8 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[2px]"
+                className="group inline-flex items-center justify-center rounded-full border border-slate-900 bg-slate-950 px-8 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[2px]"
               >
                 <span>Explore Lite Now</span>
-                <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
+                <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5 text-white" />
+              </button>
+              <button
+                type="button"
                 onClick={() => setSelectedSolution(LITE_SOLUTIONS[0])}
-                className="rounded-full border border-slate-300 bg-white px-8 py-3 text-sm font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 active:translate-y-[2px]"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-8 py-3 text-sm font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 active:translate-y-[2px]"
               >
                 <Sparkles className="mr-2 h-4 w-4 text-[hsl(var(--brand-secondary))]" />
                 <span>Lovable Remix (Instant Buy)</span>
-              </Button>
+              </button>
             </div>
 
-            {/* Industry Coverage Badges with Live Signal Dots */}
+            {/* Industry Coverage Badges with Blue Pulse Dots */}
             <div className="mt-14 pt-8 border-t border-border">
               <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">
                 AI solutions for agencies, healthcare, nonprofits, mortgage, realtors, marketing, client success, &amp; GoHighLevel agencies
@@ -577,7 +649,7 @@ const ControlTowerLite = () => {
                     key={industry}
                     className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-1 text-slate-secondary transition-colors hover:border-[hsl(var(--brand-secondary))]/40 hover:text-brand-primary"
                   >
-                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-[hsl(var(--signal-live))]" />
+                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-[hsl(var(--brand-secondary))]" />
                     {industry}
                   </span>
                 ))}
@@ -606,11 +678,11 @@ const ControlTowerLite = () => {
             </p>
           </div>
 
-          {/* 4 Cards with responsive-to-hover animated vector illustrations on top-right */}
+          {/* 4 Cards with custom responsive-to-hover animated vector illustrations */}
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {/* Card 1: Start With One Need */}
             <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-start justify-between gap-4 mb-4">
+              <div className="flex items-start justify-between gap-3 mb-4">
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-brand-primary leading-snug">
                     Start With One Need
@@ -625,7 +697,7 @@ const ControlTowerLite = () => {
 
             {/* Card 2: Experience the Workflow */}
             <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-start justify-between gap-4 mb-4">
+              <div className="flex items-start justify-between gap-3 mb-4">
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-brand-primary leading-snug">
                     Experience the Workflow
@@ -640,7 +712,7 @@ const ControlTowerLite = () => {
 
             {/* Card 3: Learn What Works for You */}
             <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-start justify-between gap-4 mb-4">
+              <div className="flex items-start justify-between gap-3 mb-4">
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-brand-primary leading-snug">
                     Learn What Works for You
@@ -655,7 +727,7 @@ const ControlTowerLite = () => {
 
             {/* Card 4: Scale When You Are Ready */}
             <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-start justify-between gap-4 mb-4">
+              <div className="flex items-start justify-between gap-3 mb-4">
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-brand-primary leading-snug">
                     Scale When You Are Ready
@@ -672,7 +744,7 @@ const ControlTowerLite = () => {
       </section>
 
       {/* =========================================================================
-          3–6. CHOOSE YOUR LITE SOLUTION (Clean Single Row Toggles, Streamlined Cards)
+          3–6. CHOOSE YOUR LITE SOLUTION (Clean Toggles, Legible High-Contrast Buttons)
          ========================================================================= */}
       <section id="choose-lite" className="py-24 bg-background">
         <div className="container mx-auto px-4">
@@ -684,7 +756,7 @@ const ControlTowerLite = () => {
               CHOOSE YOUR LITE SOLUTION
             </h2>
 
-            {/* 4 Clean Toggles in ONE Row Without ANY Horizontal Scrollbar */}
+            {/* 4 Clean Toggles without any scrollbar */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
               <button
                 type="button"
@@ -733,7 +805,7 @@ const ControlTowerLite = () => {
             </div>
           </div>
 
-          {/* Cards Grid: Streamlined, Airy, Exact Copy Without Walls of Text */}
+          {/* Cards Grid: Streamlined, Airy, Exact Copy, High Contrast */}
           <div className="mt-14 grid gap-8 md:grid-cols-2">
             {filteredSolutions.map((solution) => (
               <div
@@ -750,7 +822,7 @@ const ControlTowerLite = () => {
                       {solution.name}
                     </span>
                     <span className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-slate-500">
-                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-[hsl(var(--signal-live))]" />
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-[hsl(var(--brand-secondary))]" />
                       Lite Edition
                     </span>
                   </div>
@@ -790,26 +862,23 @@ const ControlTowerLite = () => {
                   </p>
                 </div>
 
-                {/* Action Buttons: High-Contrast Legible Buttons */}
+                {/* Action Buttons: 100% High-Contrast Deterministic Styling */}
                 <div className="pt-5 border-t border-border flex flex-col sm:flex-row gap-2.5 items-stretch">
-                  <Button
-                    variant="outline"
+                  <button
+                    type="button"
                     onClick={() => setSelectedSolution(solution)}
-                    className="flex-1 rounded-full border border-slate-900 bg-slate-950 px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[1px]"
+                    className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full border border-slate-900 bg-slate-950 px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[1px]"
                   >
-                    <Sparkles className="mr-1.5 h-3.5 w-3.5 text-[hsl(var(--signal-live))]" />
+                    <Sparkles className="mr-1.5 h-3.5 w-3.5 text-white" />
                     <span>Lovable Remix (Instant Buy)</span>
-                  </Button>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="rounded-full border border-slate-300 bg-white px-5 py-2.5 text-xs font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 active:translate-y-[1px]"
+                  </button>
+                  <Link
+                    to={solution.targetHref}
+                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-slate-300 bg-white px-5 py-2.5 text-xs font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 active:translate-y-[1px]"
                   >
-                    <Link to={solution.targetHref}>
-                      <span>{solution.ctaText}</span>
-                      <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-                    </Link>
-                  </Button>
+                    <span>{solution.ctaText}</span>
+                    <ArrowRight className="ml-1.5 h-3.5 w-3.5 text-slate-700" />
+                  </Link>
                 </div>
               </div>
             ))}
@@ -819,6 +888,7 @@ const ControlTowerLite = () => {
 
       {/* =========================================================================
           7. BENEFITS (WHAT YOU GET)
+          Fixed orphaned word: "Workday You Already&nbsp;Have." with [text-wrap:balance]
          ========================================================================= */}
       <section className="py-24 bg-slate-light border-y border-border">
         <div className="container mx-auto px-4">
@@ -826,8 +896,8 @@ const ControlTowerLite = () => {
             <div className="inline-flex items-center space-x-2 bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
               WHAT YOU GET
             </div>
-            <h2 className="mt-6 text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight">
-              More Output From the Workday You Already Have.
+            <h2 className="mt-6 text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight max-w-2xl mx-auto [text-wrap:balance]">
+              More Output From the Workday You Already&nbsp;Have.
             </h2>
           </div>
 
@@ -915,7 +985,7 @@ const ControlTowerLite = () => {
       </section>
 
       {/* =========================================================================
-          9. EXPLAINING WHY (Clean Centered Layout Matching Exact Copy)
+          9. EXPLAINING WHY (Exact Copy)
          ========================================================================= */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
@@ -932,7 +1002,6 @@ const ControlTowerLite = () => {
             </p>
           </div>
 
-          {/* 4 Feature Cards */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
             <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
               <h3 className="text-lg font-bold text-brand-primary mb-2">Purpose-Built</h3>
@@ -1021,7 +1090,8 @@ const ControlTowerLite = () => {
       </section>
 
       {/* =========================================================================
-          11. CONCLUSION - NEED SOMETHING MORE? (Brand Blue Full-Bleed Section)
+          11. CONCLUSION - NEED SOMETHING MORE?
+          (CollabAI Brand Blue Section with 100% High Contrast Text & Buttons)
          ========================================================================= */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#091b4d] via-[#1d4ed8] to-[#1e3a8a] py-16 sm:py-20 md:py-24 text-white shadow-inner">
         <div
@@ -1053,11 +1123,11 @@ const ControlTowerLite = () => {
           <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12">
             <div className="text-left lg:col-span-7">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white shadow-xs mb-5">
-                <Sparkles className="h-3.5 w-3.5 text-[hsl(var(--signal-live))]" />
+                <Sparkles className="h-3.5 w-3.5 text-white" />
                 <span>NEED SOMETHING MORE?</span>
               </div>
 
-              <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl xl:text-5xl leading-[1.15] text-balance">
+              <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl xl:text-5xl leading-[1.15] text-balance text-white">
                 <span>When Your Needs Go Beyond Lite,</span>
                 <span className="block mt-1 text-white/95">We Can Go Further.</span>
               </h2>
@@ -1080,35 +1150,29 @@ const ControlTowerLite = () => {
                 ].map((chip) => (
                   <span
                     key={chip}
-                    className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-medium text-white shadow-2xs backdrop-blur-xs"
+                    className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-xs font-medium text-white shadow-2xs backdrop-blur-xs"
                   >
-                    <Check className="mr-1.5 h-3.5 w-3.5 text-[hsl(var(--signal-live))]" />
+                    <Check className="mr-1.5 h-3.5 w-3.5 text-white" />
                     {chip}
                   </span>
                 ))}
               </div>
 
+              {/* High-Contrast Action Buttons (Explicit solid styling, zero clash) */}
               <div className="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3.5">
-                <Button
-                  asChild
-                  size="lg"
-                  className="rounded-full bg-white px-8 py-3 text-sm font-bold text-[#091b4d] shadow-md hover:bg-slate-100 hover:text-black transition-all active:translate-y-[1px]"
+                <Link
+                  to="/collabai-platform"
+                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-bold text-slate-950 shadow-md transition-all duration-150 hover:bg-slate-100 hover:text-black active:translate-y-[1px]"
                 >
-                  <Link to="/collabai-platform">
-                    <span>Explore Full &amp; Custom AI Solutions</span>
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="rounded-full border border-white/35 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all duration-150 hover:border-white/60 hover:bg-white/20 hover:text-white active:translate-y-[1px]"
+                  <span>Explore Full &amp; Custom AI Solutions</span>
+                  <ArrowRight className="ml-2 h-4 w-4 text-slate-950" />
+                </Link>
+                <Link
+                  to="/book-demo"
+                  className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all duration-150 hover:border-white/70 hover:bg-white/20 hover:text-white active:translate-y-[1px]"
                 >
-                  <Link to="/book-demo">
-                    Schedule Private Architecture Review
-                  </Link>
-                </Button>
+                  Schedule Private Architecture Review
+                </Link>
               </div>
             </div>
 
@@ -1247,7 +1311,7 @@ const ControlTowerLite = () => {
             </div>
           </div>
 
-          {/* Stats Grid matching CollabAI Trust Style */}
+          {/* Stats Grid */}
           <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center">
             <div className="rounded-2xl border border-border bg-card p-6 shadow-xs">
               <div className="text-3xl sm:text-4xl font-extrabold text-[hsl(var(--brand-secondary))]">
@@ -1274,7 +1338,7 @@ const ControlTowerLite = () => {
               <div className="mt-1.5 text-xs sm:text-sm font-semibold text-brand-primary">
                 ISO/IEC 27001:2022 Certified
               </div>
-              <div className="text-xs text-slate-secondary mt-0.5">Information security practices backed by an internationally recognized standard</div>
+              <div className="text-xs text-slate-secondary mt-0.5">Information security practices backed by international standard</div>
             </div>
             <div className="rounded-2xl border border-border bg-card p-6 shadow-xs">
               <div className="text-3xl sm:text-4xl font-extrabold text-[hsl(var(--brand-secondary))]">
@@ -1345,31 +1409,23 @@ const ControlTowerLite = () => {
                 </div>
 
                 <div className="space-y-2.5 pt-2">
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="w-full h-11 rounded-full border border-slate-900 bg-slate-950 text-white font-semibold text-sm shadow-sm hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[1px]"
+                  <a
+                    href={selectedSolution.lovableRemixUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full h-11 inline-flex items-center justify-center rounded-full border border-slate-900 bg-slate-950 text-white font-semibold text-sm shadow-sm hover:border-slate-800 hover:bg-slate-800 active:translate-y-[1px]"
                   >
-                    <a
-                      href={selectedSolution.lovableRemixUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Sparkles className="mr-2 h-4 w-4 text-[hsl(var(--signal-live))]" />
-                      Remix on Lovable (Instant Deploy)
-                      <ArrowUpRight className="ml-1.5 h-4 w-4" />
-                    </a>
-                  </Button>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="w-full h-11 rounded-full border border-slate-300 bg-white hover:bg-slate-100 hover:text-slate-950 text-slate-800 font-semibold text-sm"
+                    <Sparkles className="mr-2 h-4 w-4 text-white" />
+                    Remix on Lovable (Instant Deploy)
+                    <ArrowUpRight className="ml-1.5 h-4 w-4 text-white" />
+                  </a>
+                  <Link
+                    to={selectedSolution.targetHref}
+                    className="w-full h-11 inline-flex items-center justify-center rounded-full border border-slate-300 bg-white hover:bg-slate-100 hover:text-slate-950 text-slate-800 font-semibold text-sm"
                   >
-                    <Link to={selectedSolution.targetHref}>
-                      {selectedSolution.ctaText}
-                      <ArrowRight className="ml-1.5 h-4 w-4" />
-                    </Link>
-                  </Button>
+                    {selectedSolution.ctaText}
+                    <ArrowRight className="ml-1.5 h-4 w-4 text-slate-700" />
+                  </Link>
                 </div>
               </div>
             </>

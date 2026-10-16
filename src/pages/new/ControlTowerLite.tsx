@@ -2374,6 +2374,29 @@ const ControlTowerLite = () => {
         {/* Ambient Floating Luminous Plus Signs, Sparkles & Dots */}
         <AmbientAtmosphere />
 
+        {/* Top-Corner Light Washes with Staggered Inward Drifting Particles */}
+        <div className="sg-corner-lights" aria-hidden="true">
+          {/* Left corner emitter */}
+          <div className="sg-corner-particles sg-corner-particles-left">
+            <span className="sg-corner-particle" />
+            <span className="sg-corner-particle" />
+            <span className="sg-corner-particle" />
+            <span className="sg-corner-particle" />
+            <span className="sg-corner-particle" />
+            <span className="sg-corner-particle" />
+          </div>
+
+          {/* Right corner emitter (mirrored) */}
+          <div className="sg-corner-particles sg-corner-particles-right">
+            <span className="sg-corner-particle" />
+            <span className="sg-corner-particle" />
+            <span className="sg-corner-particle" />
+            <span className="sg-corner-particle" />
+            <span className="sg-corner-particle" />
+            <span className="sg-corner-particle" />
+          </div>
+        </div>
+
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12">
             {/* Left Column: Heading, Subhead, Single Action CTA */}

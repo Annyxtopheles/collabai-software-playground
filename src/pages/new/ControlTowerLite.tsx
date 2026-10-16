@@ -738,70 +738,14 @@ const INDUSTRIES_TICKER = [
 ];
 
 const ENTERPRISE_CAPABILITIES = [
-  {
-    id: "workflows",
-    name: "Custom AI workflows",
-    tag: "AUTONOMOUS PIPELINE",
-    metric: "Multi-Agent Automation",
-    description: "Tailored multi-step agentic pipelines mapped directly to your proprietary SOPs.",
-    icon: Workflow,
-  },
-  {
-    id: "integrations",
-    name: "Deeper system integrations",
-    tag: "UNIFIED DATA FABRIC",
-    metric: "Two-Way Custom APIs",
-    description: "Deep bidirectional synchronization with your CRM, ERP, and proprietary legacy databases.",
-    icon: Database,
-  },
-  {
-    id: "multi-team",
-    name: "Multi-team solutions",
-    tag: "ENTERPRISE WORKSPACE",
-    metric: "Granular RBAC Controls",
-    description: "Unified cross-functional workspaces with department-level data boundaries.",
-    icon: Layers,
-  },
-  {
-    id: "dashboards",
-    name: "Custom dashboards",
-    tag: "EXECUTIVE TELEMETRY",
-    metric: "Real-Time KPI Insights",
-    description: "Operational pulse monitoring, delivery health metrics, and predictive workload signals.",
-    icon: LineChart,
-  },
-  {
-    id: "automation",
-    name: "AI automation",
-    tag: "EVENT ENGINE",
-    metric: "Zero-Latency Triggers",
-    description: "Continuous event monitoring, document parsing, and automated handoffs.",
-    icon: Cpu,
-  },
-  {
-    id: "private-env",
-    name: "Private AI environments",
-    tag: "DATA ISOLATION",
-    metric: "Zero Training Guarantee",
-    description: "Enclave isolation ensuring your business data is never ingested into public models.",
-    icon: ShieldCheck,
-  },
-  {
-    id: "self-hosted",
-    name: "Self-hosted solutions",
-    tag: "SOVEREIGN CLOUD",
-    metric: "VPC / On-Premise Deploy",
-    description: "Run directly inside your own AWS, GCP, or Azure perimeter under your security rules.",
-    icon: Boxes,
-  },
-  {
-    id: "industry-specific",
-    name: "Industry-specific development",
-    tag: "SPECIALIZED ARCHITECTURE",
-    metric: "Bespoke Domain Engine",
-    description: "Engineered specifically for the regulatory compliance and workflows of your sector.",
-    icon: Building2,
-  },
+  { id: "workflows", name: "Custom AI workflows", icon: Workflow },
+  { id: "integrations", name: "Deeper system integrations", icon: Database },
+  { id: "multi-team", name: "Multi-team solutions", icon: Layers },
+  { id: "dashboards", name: "Custom dashboards", icon: LineChart },
+  { id: "automation", name: "AI automation", icon: Cpu },
+  { id: "private-env", name: "Private AI environments", icon: ShieldCheck },
+  { id: "self-hosted", name: "Self-hosted solutions", icon: Boxes },
+  { id: "industry-specific", name: "Industry-specific development", icon: Building2 },
 ];
 
 const ZIG_ZAG_COORDS = [
@@ -1699,27 +1643,8 @@ const ControlTowerLite = () => {
                 </svg>
               </div>
 
-              {/* Floating Readout (No Enclosing Card Box) */}
-              <div className="relative z-10 mb-7">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur-md px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white mb-2.5 shadow-xs">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
-                  </span>
-                  <span>{ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].tag}</span>
-                  <span className="text-white/40">·</span>
-                  <span className="text-blue-200">{ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].metric}</span>
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                  {ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].name}
-                </h3>
-                <p className="text-sm text-white/90 leading-relaxed max-w-xl mt-2">
-                  {ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].description}
-                </p>
-              </div>
-
               {/* 8 Floating Capability Pills in Responsive Grid */}
-              <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-xl mx-auto lg:mx-0 w-full">
                 {ENTERPRISE_CAPABILITIES.map((cap, idx) => {
                   const isActive = idx === activeCapabilityIndex2;
                   const Icon = cap.icon;

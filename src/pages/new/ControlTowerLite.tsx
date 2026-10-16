@@ -998,12 +998,12 @@ const ControlTowerLite = () => {
               </p>
 
               {/* Invisible Screen-Wide Bounds (Extends to far sides of the screen, cannot escape) */}
-              <div className="relative left-1/2 -translate-x-1/2 w-screen h-48 sm:h-56 overflow-hidden select-none">
+              <div className="relative left-1/2 -translate-x-1/2 w-screen h-56 sm:h-64 overflow-hidden select-none">
                 <FallingText
                   words={INDUSTRIES_TICKER}
                   variant="tiles"
                   theme="light"
-                  fontSize="1.05rem"
+                  fontSize="1.22rem"
                   trigger="auto"
                   gravity={0.85}
                   bounciness={0.3}

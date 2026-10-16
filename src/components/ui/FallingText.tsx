@@ -11,7 +11,7 @@ const THEMES: Record<string, Record<string, string>> = {
     '--falling-text-tile-ink': '#f4f4f5'
   },
   light: {
-    '--falling-text-tile': 'linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)',
+    '--falling-text-tile': '#ffffff',
     '--falling-text-tile-edge': 'rgba(24, 24, 27, 0.08)',
     '--falling-text-tile-highlight': 'rgba(255, 255, 255, 1)',
     '--falling-text-tile-shadow': '0 8px 18px -4px rgba(11, 26, 72, 0.25)',
@@ -506,8 +506,8 @@ const FallingText: FC<FallingTextProps> = ({
       if (phase === 'idle' && settingsRef.current.trigger === 'hover') fall();
       if (phase !== 'falling') return;
       if (drag && event.pointerId === drag.id) {
-        const padX = 60;
-        const padY = 24;
+        const padX = 80;
+        const padY = 30;
         const clampedX = clamp(point.x, padX, container.clientWidth - padX);
         const clampedY = clamp(point.y, padY, container.clientHeight - padY);
         drag.constraint.pointA = { x: clampedX, y: clampedY };

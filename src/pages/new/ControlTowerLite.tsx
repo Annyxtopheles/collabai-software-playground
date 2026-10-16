@@ -316,7 +316,7 @@ const ScaleRocketIllustration = () => (
 
 /** 7.1 Save Time: Automated Time-Recovery Clock */
 const SaveTimeIllustration = () => (
-  <div aria-hidden="true" className="relative h-14 w-18 sm:h-16 sm:w-20 shrink-0 select-none overflow-visible">
+  <div aria-hidden="true" className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible">
     <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
       <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
       <circle cx="40" cy="32" r="20" stroke="#93c5fd" strokeWidth="2" fill="#ffffff" />
@@ -337,7 +337,7 @@ const SaveTimeIllustration = () => (
 
 /** 7.2 Increase Productivity: Multi-Stream Turbo Throughput */
 const IncreaseProductivityIllustration = () => (
-  <div aria-hidden="true" className="relative h-14 w-18 sm:h-16 sm:w-20 shrink-0 select-none overflow-visible">
+  <div aria-hidden="true" className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible">
     <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
       <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
       {/* Pipeline 1 */}
@@ -360,7 +360,7 @@ const IncreaseProductivityIllustration = () => (
 
 /** 7.3 Respond Faster: Lightning Instant-Reply Beacon */
 const RespondFasterIllustration = () => (
-  <div aria-hidden="true" className="relative h-14 w-18 sm:h-16 sm:w-20 shrink-0 select-none overflow-visible">
+  <div aria-hidden="true" className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible">
     <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
       <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
       {/* Radar Broadcast Waves */}
@@ -378,7 +378,7 @@ const RespondFasterIllustration = () => (
 
 /** 7.4 See What Matters: Priority Spotlight Radar */
 const SeeWhatMattersIllustration = () => (
-  <div aria-hidden="true" className="relative h-14 w-18 sm:h-16 sm:w-20 shrink-0 select-none overflow-visible">
+  <div aria-hidden="true" className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible">
     <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
       <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
       {/* Background Dimmed Cards */}
@@ -400,7 +400,7 @@ const SeeWhatMattersIllustration = () => (
 
 /** 7.5 Stay Organized: Structured Workspace Matrix */
 const StayOrganizedIllustration = () => (
-  <div aria-hidden="true" className="relative h-14 w-18 sm:h-16 sm:w-20 shrink-0 select-none overflow-visible">
+  <div aria-hidden="true" className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible">
     <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
       <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
       {/* Modular Organized Drawer Container */}
@@ -420,7 +420,7 @@ const StayOrganizedIllustration = () => (
 
 /** 7.6 Make Better Decisions: Data-to-Decision Prism */
 const MakeBetterDecisionsIllustration = () => (
-  <div aria-hidden="true" className="relative h-14 w-18 sm:h-16 sm:w-20 shrink-0 select-none overflow-visible">
+  <div aria-hidden="true" className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible">
     <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
       <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
       {/* Incoming Stream Lines */}
@@ -1258,93 +1258,93 @@ const ControlTowerLite = () => {
           {/* 6 Benefit Cards following CollabAI Card Token with Responsive Illustrations */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {/* 1: Save Time */}
-            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-start justify-between gap-3 mb-4">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-brand-primary leading-snug">
-                    Save Time
-                  </h3>
-                </div>
+            <div className="group relative flex items-center justify-between gap-4 rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex-1 text-left">
+                <h3 className="text-xl font-bold text-brand-primary leading-snug mb-1.5">
+                  Save Time
+                </h3>
+                <p className="text-sm text-slate-secondary leading-relaxed">
+                  Reduce repetitive everyday work.
+                </p>
+              </div>
+              <div className="shrink-0">
                 <SaveTimeIllustration />
               </div>
-              <p className="text-sm text-slate-secondary leading-relaxed">
-                Reduce repetitive everyday work.
-              </p>
             </div>
 
             {/* 2: Increase Productivity */}
-            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-start justify-between gap-3 mb-4">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-brand-primary leading-snug">
-                    Increase Productivity
-                  </h3>
-                </div>
+            <div className="group relative flex items-center justify-between gap-4 rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex-1 text-left">
+                <h3 className="text-xl font-bold text-brand-primary leading-snug mb-1.5">
+                  Increase Productivity
+                </h3>
+                <p className="text-sm text-slate-secondary leading-relaxed">
+                  Help your team complete more without adding unnecessary manual steps.
+                </p>
+              </div>
+              <div className="shrink-0">
                 <IncreaseProductivityIllustration />
               </div>
-              <p className="text-sm text-slate-secondary leading-relaxed">
-                Help your team complete more without adding unnecessary manual steps.
-              </p>
             </div>
 
             {/* 3: Respond Faster */}
-            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-start justify-between gap-3 mb-4">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-brand-primary leading-snug">
-                    Respond Faster
-                  </h3>
-                </div>
+            <div className="group relative flex items-center justify-between gap-4 rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex-1 text-left">
+                <h3 className="text-xl font-bold text-brand-primary leading-snug mb-1.5">
+                  Respond Faster
+                </h3>
+                <p className="text-sm text-slate-secondary leading-relaxed">
+                  Keep customers, leads and important tasks moving.
+                </p>
+              </div>
+              <div className="shrink-0">
                 <RespondFasterIllustration />
               </div>
-              <p className="text-sm text-slate-secondary leading-relaxed">
-                Keep customers, leads and important tasks moving.
-              </p>
             </div>
 
             {/* 4: See What Matters */}
-            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-start justify-between gap-3 mb-4">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-brand-primary leading-snug">
-                    See What Matters
-                  </h3>
-                </div>
+            <div className="group relative flex items-center justify-between gap-4 rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex-1 text-left">
+                <h3 className="text-xl font-bold text-brand-primary leading-snug mb-1.5">
+                  See What Matters
+                </h3>
+                <p className="text-sm text-slate-secondary leading-relaxed">
+                  Surface priorities without digging through multiple systems.
+                </p>
+              </div>
+              <div className="shrink-0">
                 <SeeWhatMattersIllustration />
               </div>
-              <p className="text-sm text-slate-secondary leading-relaxed">
-                Surface priorities without digging through multiple systems.
-              </p>
             </div>
 
             {/* 5: Stay Organized */}
-            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-start justify-between gap-3 mb-4">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-brand-primary leading-snug">
-                    Stay Organized
-                  </h3>
-                </div>
+            <div className="group relative flex items-center justify-between gap-4 rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex-1 text-left">
+                <h3 className="text-xl font-bold text-brand-primary leading-snug mb-1.5">
+                  Stay Organized
+                </h3>
+                <p className="text-sm text-slate-secondary leading-relaxed">
+                  Keep important information and work easier to manage.
+                </p>
+              </div>
+              <div className="shrink-0">
                 <StayOrganizedIllustration />
               </div>
-              <p className="text-sm text-slate-secondary leading-relaxed">
-                Keep important information and work easier to manage.
-              </p>
             </div>
 
             {/* 6: Make Better Decisions */}
-            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="flex items-start justify-between gap-3 mb-4">
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-brand-primary leading-snug">
-                    Make Better Decisions
-                  </h3>
-                </div>
+            <div className="group relative flex items-center justify-between gap-4 rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex-1 text-left">
+                <h3 className="text-xl font-bold text-brand-primary leading-snug mb-1.5">
+                  Make Better Decisions
+                </h3>
+                <p className="text-sm text-slate-secondary leading-relaxed">
+                  Turn business information into useful insights and clearer next actions.
+                </p>
+              </div>
+              <div className="shrink-0">
                 <MakeBetterDecisionsIllustration />
               </div>
-              <p className="text-sm text-slate-secondary leading-relaxed">
-                Turn business information into useful insights and clearer next actions.
-              </p>
             </div>
           </div>
         </div>
@@ -1776,60 +1776,66 @@ const ControlTowerLite = () => {
             </div>
           </div>
 
-          {/* Stats Grid */}
-          <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center">
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-xs flex flex-col items-center justify-center">
-              <div className="text-3xl sm:text-4xl font-extrabold text-[hsl(var(--brand-secondary))]">
+          {/* Stats Grid: 3 Cards strictly per copy */}
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            {/* Card 1: 500+ Clients */}
+            <div className="rounded-2xl border border-border bg-card p-8 shadow-xs flex flex-col items-center justify-center">
+              <div className="text-4xl sm:text-5xl font-extrabold text-[hsl(var(--brand-secondary))]">
                 500+
               </div>
-              <div className="mt-1.5 text-xs sm:text-sm font-semibold text-brand-primary">
+              <div className="mt-2 text-base font-bold text-brand-primary">
                 Clients
               </div>
-              <div className="text-xs text-slate-secondary mt-0.5">Delivered across software, mobile, cloud and AI</div>
+              <p className="mt-2 text-xs sm:text-sm text-slate-secondary">
+                Delivered across software, mobile, cloud and AI.
+              </p>
             </div>
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-xs flex flex-col items-center justify-center">
-              <div className="text-3xl sm:text-4xl font-extrabold text-[hsl(var(--brand-secondary))]">
+
+            {/* Card 2: 1,000+ Projects Delivered */}
+            <div className="rounded-2xl border border-border bg-card p-8 shadow-xs flex flex-col items-center justify-center">
+              <div className="text-4xl sm:text-5xl font-extrabold text-[hsl(var(--brand-secondary))]">
                 1,000+
               </div>
-              <div className="mt-1.5 text-xs sm:text-sm font-semibold text-brand-primary">
+              <div className="mt-2 text-base font-bold text-brand-primary">
                 Projects Delivered
               </div>
-              <div className="text-xs text-slate-secondary mt-0.5">Proven delivery track record</div>
             </div>
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-xs flex flex-col items-center justify-center">
-              <div className="h-9 sm:h-10 flex items-center justify-center">
+
+            {/* Card 3: ISO/IEC 27001:2022 Certified */}
+            <div className="rounded-2xl border border-border bg-card p-8 shadow-xs flex flex-col items-center justify-center">
+              <div className="h-12 flex items-center justify-center mb-2">
                 <img
                   src={iso27001Logo}
                   alt="ISO/IEC 27001:2022 Certified"
-                  className="h-8 sm:h-9.5 w-auto object-contain"
+                  className="h-10 w-auto object-contain"
                 />
               </div>
-              <div className="mt-1.5 text-xs sm:text-sm font-semibold text-brand-primary">
+              <div className="text-base font-bold text-brand-primary">
                 ISO/IEC 27001:2022 Certified
               </div>
-              <div className="text-xs text-slate-secondary mt-0.5">Information security practices backed by international standard</div>
-            </div>
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-xs flex flex-col items-center justify-center">
-              <div className="text-3xl sm:text-4xl font-extrabold text-[hsl(var(--brand-secondary))]">
-                22+
-              </div>
-              <div className="mt-1.5 text-xs sm:text-sm font-semibold text-brand-primary">
-                Years in Tech
-              </div>
-              <div className="text-xs text-slate-secondary mt-0.5">Proven technology delivery</div>
+              <p className="mt-2 text-xs sm:text-sm text-slate-secondary">
+                Information security practices backed by an internationally recognized standard.
+              </p>
             </div>
           </div>
 
           {/* Recognition Bar */}
-          <div className="mt-8 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-            <div className="flex flex-wrap items-center gap-2.5">
-              <span className="font-semibold text-brand-primary uppercase tracking-wider">Recognition:</span>
-              <span className="rounded-full bg-slate-light border border-border px-3 py-1 text-brand-primary font-semibold">Inc. 5000</span>
-              <span className="rounded-full bg-slate-light border border-border px-3 py-1 text-brand-primary font-semibold">Clutch Recognized</span>
-              <span className="rounded-full bg-slate-light border border-border px-3 py-1 text-brand-primary font-semibold">NYC MBE</span>
-            </div>
-            <div className="text-muted-foreground font-medium text-center sm:text-right">
-              Delivered across software, mobile, cloud and AI.
+          <div className="mt-8 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-center gap-3 text-sm">
+            <span className="font-bold text-brand-primary uppercase tracking-wider text-xs">
+              Recognition
+            </span>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <span className="rounded-full bg-slate-light border border-border px-3 py-1 text-xs font-semibold text-brand-primary">
+                Inc. 5000
+              </span>
+              <span className="text-slate-400">·</span>
+              <span className="rounded-full bg-slate-light border border-border px-3 py-1 text-xs font-semibold text-brand-primary">
+                Clutch Recognized
+              </span>
+              <span className="text-slate-400">·</span>
+              <span className="rounded-full bg-slate-light border border-border px-3 py-1 text-xs font-semibold text-brand-primary">
+                Certified NYC MBE
+              </span>
             </div>
           </div>
         </div>

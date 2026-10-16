@@ -14,7 +14,7 @@ const THEMES: Record<string, Record<string, string>> = {
     '--falling-text-tile': '#ffffff',
     '--falling-text-tile-edge': 'rgba(24, 24, 27, 0.08)',
     '--falling-text-tile-highlight': 'rgba(255, 255, 255, 1)',
-    '--falling-text-tile-shadow': '0 8px 18px -4px rgba(11, 26, 72, 0.25)',
+    '--falling-text-tile-shadow': '0 2px 6px rgba(0, 0, 0, 0.08)',
     '--falling-text-tile-ink': '#0f172a'
   },
   brand: {

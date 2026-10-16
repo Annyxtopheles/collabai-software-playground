@@ -1220,6 +1220,7 @@ interface LiteSolution {
   outcome: string;
   ctaText: string;
   targetHref: string;
+  illustration: string;
 }
 
 const LITE_SOLUTIONS: LiteSolution[] = [
@@ -1244,6 +1245,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Less chasing. Clearer priorities. Better control over delivery.",
     ctaText: "Explore Agency Lite",
     targetHref: "/agency",
+    illustration: "/images/choose-your-lite-solution/Spending Too Much Time Chasing Project and Client Updates_.svg",
   },
   {
     id: "healthhub-lite",
@@ -1266,6 +1268,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Less admin. Faster workflows. More time for patients.",
     ctaText: "Explore HealthHub AI Lite",
     targetHref: "/healthcare",
+    illustration: "/images/choose-your-lite-solution/Too Much Admin. Not Enough Time for People_.svg",
   },
 
   // FOLD 2
@@ -1290,6 +1293,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Find answers faster. Prepare better. Make informed decisions.",
     ctaText: "Explore Nonprofit Board Control Tower Lite",
     targetHref: "/non-profit",
+    illustration: "/images/choose-your-lite-solution/Board Information Buried Across Emails, Files and Folders_.svg",
   },
   {
     id: "mortgage-lite",
@@ -1311,6 +1315,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "See priorities sooner. Act faster. Stay ahead of the pipeline.",
     ctaText: "Explore MortgageAI Lite",
     targetHref: "/mortgage-bank",
+    illustration: "/images/choose-your-lite-solution/Finding Loan Problems Only After They Become Urgent_.svg",
   },
 
   // FOLD 3
@@ -1334,6 +1339,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Respond faster. Follow up consistently. Keep more opportunities active.",
     ctaText: "Explore RealtorHelp Lite",
     targetHref: "/book-demo?solution=realtor-lite",
+    illustration: "/images/choose-your-lite-solution/Leads Going Cold While You're Busy With Everything Else_.svg",
   },
   {
     id: "marketing-lite",
@@ -1356,6 +1362,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Better visibility. Faster execution. Smarter marketing decisions.",
     ctaText: "Explore Marketing Lite",
     targetHref: "/book-demo?solution=marketing-lite",
+    illustration: "/images/choose-your-lite-solution/Marketing Moving Too Slowly_ Clients Slipping Away_.svg",
   },
 
   // FOLD 4
@@ -1380,6 +1387,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Earlier action. Stronger relationships. Better retention.",
     ctaText: "Explore Client Success Lite",
     targetHref: "/book-demo?solution=client-success-lite",
+    illustration: "/images/choose-your-lite-solution/Clients Slipping Away Before You See the Warning Signs_.svg",
   },
   {
     id: "ghl-lite",
@@ -1403,6 +1411,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "See what matters. Follow up faster. Keep your pipeline moving.",
     ctaText: "Explore GHL Control Tower Lite",
     targetHref: "/agency?addon=ghl-lite",
+    illustration: "/images/choose-your-lite-solution/GHL.svg",
   },
 ];
 
@@ -1856,6 +1865,18 @@ const ControlTowerLite = () => {
                 className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 sm:p-8 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/12"
               >
                 <div>
+                  {/* Card Illustration Banner */}
+                  {solution.illustration && (
+                    <div className="w-full h-44 sm:h-52 flex items-center justify-center bg-slate-50/90 rounded-xl mb-6 overflow-hidden p-4 border border-slate-100 group-hover:bg-slate-50 transition-colors">
+                      <img
+                        src={solution.illustration}
+                        alt={solution.name}
+                        className="h-full w-auto max-h-36 sm:max-h-44 object-contain transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+
                   {/* Top Row: Product Name Eyebrow + Lite Edition Dot */}
                   <div className="flex items-center justify-between gap-3 mb-3">
                     <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))]">

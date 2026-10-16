@@ -1003,7 +1003,7 @@ const ControlTowerLite = () => {
                   words={INDUSTRIES_TICKER}
                   variant="tiles"
                   theme="light"
-                  fontSize="1.15rem"
+                  fontSize="1.05rem"
                   trigger="auto"
                   gravity={0.85}
                   bounciness={0.3}

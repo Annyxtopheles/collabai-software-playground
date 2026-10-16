@@ -317,19 +317,27 @@ const ScaleRocketIllustration = () => (
 /** 7.1 Save Time: Automated Time-Recovery Clock */
 const SaveTimeIllustration = () => (
   <div aria-hidden="true" className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible">
-    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
-      <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
-      <circle cx="40" cy="32" r="20" stroke="#93c5fd" strokeWidth="2" fill="#ffffff" />
-      {/* Reclaimed Time Arc */}
-      <path d="M 40 12 A 20 20 0 0 1 58 40" stroke="#315EFF" strokeWidth="3" strokeLinecap="round" />
-      {/* Center Pin & Hands */}
-      <circle cx="40" cy="32" r="2.5" fill="#1d4ed8" />
-      <line x1="40" y1="32" x2="40" y2="20" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
-      <line x1="40" y1="32" x2="50" y2="32" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
-      {/* Time Saved Badge */}
-      <g className="transition-transform duration-300 group-hover:scale-110">
-        <rect x="46" y="38" width="24" height="13" rx="4" fill="#315EFF" />
-        <text x="50" y="47.5" fill="#ffffff" fontSize="7" fontWeight="bold" fontFamily="sans-serif">-4h</text>
+    <svg viewBox="0 0 96 76" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      {/* Soft Ambient Radial Backing */}
+      <circle cx="48" cy="38" r="30" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      {/* Precision Chronometer Bezel */}
+      <circle cx="48" cy="38" r="25" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.8" />
+      {/* Dial Hour Ticks */}
+      <line x1="48" y1="16" x2="48" y2="19" stroke="#93c5fd" strokeWidth="1.8" strokeLinecap="round" />
+      <line x1="48" y1="57" x2="48" y2="60" stroke="#93c5fd" strokeWidth="1.8" strokeLinecap="round" />
+      <line x1="26" y1="38" x2="29" y2="38" stroke="#93c5fd" strokeWidth="1.8" strokeLinecap="round" />
+      <line x1="67" y1="38" x2="70" y2="38" stroke="#93c5fd" strokeWidth="1.8" strokeLinecap="round" />
+      {/* Reclaimed Time Progress Arc */}
+      <path d="M 48 13 A 25 25 0 0 1 73 38" stroke="#315EFF" strokeWidth="3.5" strokeLinecap="round" />
+      {/* Clock Hands */}
+      <line x1="48" y1="38" x2="48" y2="24" stroke="#1d4ed8" strokeWidth="2.4" strokeLinecap="round" />
+      <line x1="48" y1="38" x2="60" y2="38" stroke="#315EFF" strokeWidth="2.4" strokeLinecap="round" />
+      <circle cx="48" cy="38" r="3" fill="#1d4ed8" />
+      {/* Floating Reclaimed Hours Badge */}
+      <g className="transition-transform duration-300 group-hover:scale-105">
+        <rect x="52" y="44" width="38" height="19" rx="5" fill="#315EFF" filter="drop-shadow(0 3px 8px rgba(49,94,255,0.3))" />
+        <circle cx="59" cy="53.5" r="2.5" fill="#93c5fd" />
+        <text x="65" y="56.5" fill="#ffffff" fontSize="8" fontWeight="bold" fontFamily="sans-serif">+4h</text>
       </g>
     </svg>
   </div>
@@ -338,22 +346,30 @@ const SaveTimeIllustration = () => (
 /** 7.2 Increase Productivity: Multi-Stream Turbo Throughput */
 const IncreaseProductivityIllustration = () => (
   <div aria-hidden="true" className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible">
-    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
-      <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
-      {/* Pipeline 1 */}
-      <rect x="14" y="20" width="46" height="7" rx="3.5" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.5" />
-      <rect x="16" y="22" width="28" height="3" rx="1.5" fill="#315EFF" className="transition-all duration-500 group-hover:w-36" />
-      {/* Pipeline 2 */}
-      <rect x="14" y="32" width="50" height="7" rx="3.5" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.5" />
-      <rect x="16" y="34" width="38" height="3" rx="1.5" fill="#315EFF" className="transition-all duration-500 group-hover:w-44" />
-      {/* Pipeline 3 */}
-      <rect x="14" y="44" width="42" height="7" rx="3.5" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.5" />
-      <rect x="16" y="46" width="24" height="3" rx="1.5" fill="#315EFF" className="transition-all duration-500 group-hover:w-32" />
-      {/* Turbo Accelerator Star */}
-      <g className="origin-[58px_24px] transition-transform duration-300 group-hover:scale-120">
-        <circle cx="58" cy="24" r="8" fill="#315EFF" />
-        <path d="M 58 19 L 59.5 22.5 L 63 24 L 59.5 25.5 L 58 29 L 56.5 25.5 L 53 24 L 56.5 22.5 Z" fill="#ffffff" />
+    <svg viewBox="0 0 96 76" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      {/* Ambient Backdrop */}
+      <circle cx="48" cy="38" r="30" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      {/* Parallel Execution Pipelines */}
+      <g className="transition-transform duration-300 group-hover:translate-x-0.5">
+        <rect x="10" y="16" width="56" height="10" rx="5" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.4" />
+        <rect x="12" y="18.5" width="38" height="5" rx="2.5" fill="#315EFF" />
+        <circle cx="58" cy="21" r="2.5" fill="#3b82f6" />
+
+        <rect x="10" y="32" width="62" height="10" rx="5" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.4" />
+        <rect x="12" y="34.5" width="48" height="5" rx="2.5" fill="#1d4ed8" />
+        <circle cx="64" cy="37" r="2.5" fill="#1d4ed8" />
+
+        <rect x="10" y="48" width="52" height="10" rx="5" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.4" />
+        <rect x="12" y="50.5" width="32" height="5" rx="2.5" fill="#60a5fa" />
+        <circle cx="54" cy="53" r="2.5" fill="#93c5fd" />
       </g>
+      {/* Speed Burst Indicator Badge */}
+      <g className="origin-[74px_24px] transition-transform duration-300 group-hover:scale-110">
+        <circle cx="74" cy="24" r="13" fill="#315EFF" stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 3px 10px rgba(49,94,255,0.35))" />
+        <path d="M 74 15 L 76.5 21 L 83 24 L 76.5 27 L 74 33 L 71.5 27 L 65 24 L 71.5 21 Z" fill="#ffffff" />
+      </g>
+      {/* Ascending Trend Arrow */}
+      <path d="M 68 54 L 78 44 M 78 44 L 72 44 M 78 44 L 78 50" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   </div>
 );
@@ -361,17 +377,29 @@ const IncreaseProductivityIllustration = () => (
 /** 7.3 Respond Faster: Lightning Instant-Reply Beacon */
 const RespondFasterIllustration = () => (
   <div aria-hidden="true" className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible">
-    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
-      <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
-      {/* Radar Broadcast Waves */}
-      <circle cx="40" cy="32" r="16" stroke="#bfdbfe" strokeWidth="1.5" strokeDasharray="3 3" />
-      <circle cx="40" cy="32" r="22" stroke="#dbeafe" strokeWidth="1" strokeDasharray="4 4" />
-      {/* Central High-Speed Beacon */}
-      <rect x="26" y="18" width="28" height="28" rx="8" fill="#ffffff" stroke="#315EFF" strokeWidth="2" className="transition-transform duration-300 group-hover:scale-105" />
-      {/* Bolt Glyph */}
-      <path d="M 42 22 L 35 33 L 41 33 L 38 42 L 46 31 L 40 31 Z" fill="#315EFF" />
-      {/* Fast Notification Pip */}
-      <circle cx="54" cy="20" r="3.5" fill="#1d4ed8" />
+    <svg viewBox="0 0 96 76" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      {/* Concentric Broadcast Waves */}
+      <circle cx="48" cy="38" r="30" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      <circle cx="48" cy="38" r="22" stroke="#bfdbfe" strokeWidth="1.2" strokeDasharray="3 3" />
+      <circle cx="48" cy="38" r="29" stroke="#dbeafe" strokeWidth="1" strokeDasharray="4 4" />
+      {/* High-Speed Dispatch Message Card */}
+      <g className="transition-transform duration-300 group-hover:scale-105 origin-[46px_36px]">
+        <rect x="18" y="18" width="48" height="34" rx="8" fill="#ffffff" stroke="#315EFF" strokeWidth="1.8" filter="drop-shadow(0 4px 14px rgba(49,94,255,0.18))" />
+        <path d="M 28 52 L 24 58 L 34 52 Z" fill="#ffffff" stroke="#315EFF" strokeWidth="1.5" />
+        {/* Message Content Lines */}
+        <circle cx="28" cy="28" r="3.5" fill="#dbeafe" />
+        <rect x="36" y="26" width="22" height="3.5" rx="1.75" fill="#315EFF" />
+        <rect x="28" y="36" width="28" height="2.5" rx="1.25" fill="#cbd5e1" />
+        <rect x="28" y="42" width="18" height="2" rx="1" fill="#cbd5e1" />
+      </g>
+      {/* Instant Action Lightning Bolt */}
+      <g className="transition-transform duration-300 group-hover:scale-115 origin-[72px_18px]">
+        <circle cx="72" cy="18" r="11" fill="#315EFF" stroke="#ffffff" strokeWidth="2" filter="drop-shadow(0 3px 10px rgba(49,94,255,0.35))" />
+        <path d="M 74 11 L 67 19 L 72 19 L 70 25 L 77 17 L 72 17 Z" fill="#ffffff" />
+      </g>
+      {/* Response Speed Badge */}
+      <rect x="52" y="46" width="34" height="14" rx="4" fill="#1d4ed8" filter="drop-shadow(0 2px 6px rgba(29,78,216,0.25))" />
+      <text x="56" y="56" fill="#ffffff" fontSize="7.5" fontWeight="bold" fontFamily="sans-serif">&lt; 1 min</text>
     </svg>
   </div>
 );
@@ -379,21 +407,29 @@ const RespondFasterIllustration = () => (
 /** 7.4 See What Matters: Priority Spotlight Radar */
 const SeeWhatMattersIllustration = () => (
   <div aria-hidden="true" className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible">
-    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
-      <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+    <svg viewBox="0 0 96 76" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      <circle cx="48" cy="38" r="30" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
       {/* Background Dimmed Cards */}
-      <rect x="14" y="34" width="26" height="18" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1.2" opacity="0.6" />
-      <rect x="42" y="36" width="24" height="16" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1.2" opacity="0.6" />
-      {/* Elevated Spotlight Target Card */}
-      <g className="transition-transform duration-300 group-hover:-translate-y-1">
-        <rect x="22" y="14" width="36" height="26" rx="6" fill="#ffffff" stroke="#315EFF" strokeWidth="2" />
-        <rect x="26" y="18" width="16" height="3" rx="1.5" fill="#315EFF" />
-        <rect x="26" y="24" width="24" height="2" rx="1" fill="#cbd5e1" />
-        <rect x="26" y="29" width="18" height="2" rx="1" fill="#cbd5e1" />
-        {/* High Priority Star */}
-        <circle cx="50" cy="19" r="4" fill="#315EFF" />
-        <path d="M 50 17 L 50.8 18.5 L 52.5 19 L 50.8 19.5 L 50 21 L 49.2 19.5 L 47.5 19 L 49.2 18.5 Z" fill="#ffffff" />
+      <rect x="10" y="38" width="34" height="22" rx="5" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1.2" opacity="0.6" />
+      <rect x="52" y="40" width="34" height="20" rx="5" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1.2" opacity="0.6" />
+      {/* Spotlight Ambient Cone */}
+      <polygon points="48,8 20,58 76,58" fill="rgba(49,94,255,0.06)" />
+      {/* Elevated Priority Card */}
+      <g className="transition-transform duration-300 group-hover:-translate-y-1.5 origin-[46px_28px]">
+        <rect x="18" y="12" width="54" height="38" rx="8" fill="#ffffff" stroke="#315EFF" strokeWidth="2" filter="drop-shadow(0 6px 18px rgba(49,94,255,0.22))" />
+        {/* Top Header Bar */}
+        <rect x="18" y="12" width="54" height="7" rx="7" fill="#315EFF" />
+        {/* Priority Title Bar */}
+        <rect x="25" y="24" width="22" height="4" rx="2" fill="#315EFF" />
+        <rect x="25" y="32" width="34" height="2.5" rx="1.25" fill="#cbd5e1" />
+        <rect x="25" y="38" width="24" height="2.5" rx="1.25" fill="#cbd5e1" />
+        {/* Priority Star Pip */}
+        <circle cx="62" cy="26" r="6" fill="#1d4ed8" />
+        <path d="M 62 22.5 L 63.2 24.8 L 65.5 26 L 63.2 27.2 L 62 29.5 L 60.8 27.2 L 58.5 26 L 60.8 24.8 Z" fill="#ffffff" />
       </g>
+      {/* Focus Tag Badge */}
+      <rect x="52" y="52" width="36" height="15" rx="4" fill="#315EFF" filter="drop-shadow(0 2px 6px rgba(49,94,255,0.25))" />
+      <text x="56" y="62.5" fill="#ffffff" fontSize="7" fontWeight="bold" fontFamily="sans-serif">PRIORITY</text>
     </svg>
   </div>
 );
@@ -401,19 +437,34 @@ const SeeWhatMattersIllustration = () => (
 /** 7.5 Stay Organized: Structured Workspace Matrix */
 const StayOrganizedIllustration = () => (
   <div aria-hidden="true" className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible">
-    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
-      <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
-      {/* Modular Organized Drawer Container */}
-      <rect x="16" y="14" width="48" height="36" rx="6" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1.5" />
+    <svg viewBox="0 0 96 76" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      <circle cx="48" cy="38" r="30" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      {/* Structured Cabinet Architecture */}
+      <rect x="14" y="10" width="68" height="56" rx="8" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1.6" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.06))" />
       {/* Drawer 1 */}
-      <rect x="20" y="18" width="40" height="7" rx="3" fill="#eff6ff" stroke="#93c5fd" strokeWidth="1" className="transition-transform duration-300 group-hover:translate-x-1" />
-      <circle cx="25" cy="21.5" r="1.5" fill="#315EFF" />
+      <g className="transition-transform duration-300 group-hover:translate-x-1.5">
+        <rect x="18" y="16" width="60" height="12" rx="4" fill="#eff6ff" stroke="#93c5fd" strokeWidth="1.3" />
+        <rect x="23" y="20" width="10" height="4" rx="2" fill="#315EFF" />
+        <rect x="38" y="21" width="22" height="2.5" rx="1.25" fill="#93c5fd" />
+        <circle cx="71" cy="22" r="2.2" fill="#1d4ed8" />
+      </g>
       {/* Drawer 2 */}
-      <rect x="20" y="28" width="40" height="7" rx="3" fill="#ffffff" stroke="#93c5fd" strokeWidth="1" className="transition-transform duration-300 group-hover:translate-x-1.5" />
-      <circle cx="25" cy="31.5" r="1.5" fill="#1d4ed8" />
+      <g className="transition-transform duration-300 group-hover:translate-x-2">
+        <rect x="18" y="32" width="60" height="12" rx="4" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.3" />
+        <rect x="23" y="36" width="10" height="4" rx="2" fill="#1d4ed8" />
+        <rect x="38" y="37" width="26" height="2.5" rx="1.25" fill="#cbd5e1" />
+        <circle cx="71" cy="38" r="2.2" fill="#315EFF" />
+      </g>
       {/* Drawer 3 */}
-      <rect x="20" y="38" width="40" height="7" rx="3" fill="#eff6ff" stroke="#93c5fd" strokeWidth="1" className="transition-transform duration-300 group-hover:translate-x-1" />
-      <circle cx="25" cy="41.5" r="1.5" fill="#315EFF" />
+      <g className="transition-transform duration-300 group-hover:translate-x-1">
+        <rect x="18" y="48" width="60" height="12" rx="4" fill="#eff6ff" stroke="#93c5fd" strokeWidth="1.3" />
+        <rect x="23" y="52" width="10" height="4" rx="2" fill="#60a5fa" />
+        <rect x="38" y="53" width="18" height="2.5" rx="1.25" fill="#93c5fd" />
+        <circle cx="71" cy="54" r="2.2" fill="#1d4ed8" />
+      </g>
+      {/* Verified Status Pip */}
+      <circle cx="76" cy="11" r="5" fill="#315EFF" stroke="#ffffff" strokeWidth="1.5" />
+      <path d="M 74 11 L 75.5 12.5 L 78 9.5" stroke="#ffffff" strokeWidth="1.2" strokeLinecap="round" />
     </svg>
   </div>
 );
@@ -421,22 +472,30 @@ const StayOrganizedIllustration = () => (
 /** 7.6 Make Better Decisions: Data-to-Decision Prism */
 const MakeBetterDecisionsIllustration = () => (
   <div aria-hidden="true" className="relative h-20 w-24 sm:h-22 sm:w-28 shrink-0 select-none overflow-visible">
-    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
-      <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
-      {/* Incoming Stream Lines */}
-      <line x1="14" y1="24" x2="32" y2="32" stroke="#93c5fd" strokeWidth="2" strokeLinecap="round" />
-      <line x1="14" y1="32" x2="32" y2="32" stroke="#93c5fd" strokeWidth="2" strokeLinecap="round" />
-      <line x1="14" y1="40" x2="32" y2="32" stroke="#93c5fd" strokeWidth="2" strokeLinecap="round" />
-      {/* Central Decision Prism Diamond */}
-      <g className="origin-[38px_32px] transition-transform duration-300 group-hover:scale-115">
-        <polygon points="38,20 48,32 38,44 28,32" fill="#315EFF" stroke="#1d4ed8" strokeWidth="1.5" />
-        <circle cx="38" cy="32" r="2.5" fill="#ffffff" />
+    <svg viewBox="0 0 96 76" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      <circle cx="48" cy="38" r="30" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      {/* Multi-Stream Input Vectors */}
+      <line x1="8" y1="22" x2="34" y2="35" stroke="#93c5fd" strokeWidth="2" strokeDasharray="3 3" strokeLinecap="round" />
+      <line x1="8" y1="38" x2="34" y2="38" stroke="#315EFF" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="8" y1="54" x2="34" y2="41" stroke="#93c5fd" strokeWidth="2" strokeDasharray="3 3" strokeLinecap="round" />
+      {/* Inflow Terminal Nodes */}
+      <circle cx="10" cy="22" r="3" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.5" />
+      <circle cx="10" cy="38" r="3.5" fill="#315EFF" />
+      <circle cx="10" cy="54" r="3" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.5" />
+      {/* Central Decision Prism Core */}
+      <g className="origin-[42px_38px] transition-transform duration-300 group-hover:scale-110">
+        <polygon points="42,18 58,38 42,58 26,38" fill="#315EFF" stroke="#1d4ed8" strokeWidth="2" />
+        <polygon points="42,23 52,38 42,53 32,38" fill="#ffffff" fillOpacity="0.3" />
+        <circle cx="42" cy="38" r="3.5" fill="#ffffff" />
       </g>
-      {/* Forward Action Trajectory Arrow */}
+      {/* Accelerated Forward Trajectory Arrow */}
       <g className="transition-transform duration-300 group-hover:translate-x-1.5">
-        <line x1="48" y1="32" x2="66" y2="22" stroke="#1d4ed8" strokeWidth="2.5" strokeLinecap="round" />
-        <polygon points="68,21 60,22 64,28" fill="#1d4ed8" />
+        <path d="M 58 38 C 66 38, 70 28, 84 20" stroke="#1d4ed8" strokeWidth="3" strokeLinecap="round" fill="none" />
+        <polygon points="88,18 80,18 84,25" fill="#1d4ed8" />
       </g>
+      {/* Action Clarity Tag */}
+      <rect x="58" y="46" width="34" height="15" rx="4" fill="#ffffff" stroke="#315EFF" strokeWidth="1.5" filter="drop-shadow(0 2px 8px rgba(49,94,255,0.18))" />
+      <text x="62" y="56.5" fill="#315EFF" fontSize="7" fontWeight="bold" fontFamily="sans-serif">INSIGHT</text>
     </svg>
   </div>
 );
@@ -447,7 +506,7 @@ const MakeBetterDecisionsIllustration = () => (
 
 /** 10.1 Bring Information Together: Central Integration Nexus */
 const BringTogetherIllustration = () => (
-  <div aria-hidden="true" className="relative h-16 w-20 mx-auto select-none overflow-visible mb-4">
+  <div aria-hidden="true" className="relative h-24 w-32 sm:h-28 sm:w-36 mx-auto select-none overflow-visible mb-5">
     <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
       <circle cx="40" cy="32" r="22" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
       {/* Satellite Integration Nodes */}
@@ -469,7 +528,7 @@ const BringTogetherIllustration = () => (
 
 /** 10.2 Reduce Repeated Tasks: Automated Loop-Bypass Highway */
 const ReduceRepeatedTasksIllustration = () => (
-  <div aria-hidden="true" className="relative h-16 w-20 mx-auto select-none overflow-visible mb-4">
+  <div aria-hidden="true" className="relative h-24 w-32 sm:h-28 sm:w-36 mx-auto select-none overflow-visible mb-5">
     <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
       <circle cx="40" cy="32" r="22" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
       {/* Faded Circular Loop */}
@@ -487,7 +546,7 @@ const ReduceRepeatedTasksIllustration = () => (
 
 /** 10.3 Surface Priorities: Smart Queue Elevator */
 const SurfacePrioritiesIllustration = () => (
-  <div aria-hidden="true" className="relative h-16 w-20 mx-auto select-none overflow-visible mb-4">
+  <div aria-hidden="true" className="relative h-24 w-32 sm:h-28 sm:w-36 mx-auto select-none overflow-visible mb-5">
     <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
       <circle cx="40" cy="32" r="22" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
       {/* Stacked Lower Queue */}
@@ -505,7 +564,7 @@ const SurfacePrioritiesIllustration = () => (
 
 /** 10.4 Move Info -> Action Faster: Kinetic Accelerator */
 const InformationToActionIllustration = () => (
-  <div aria-hidden="true" className="relative h-16 w-20 mx-auto select-none overflow-visible mb-4">
+  <div aria-hidden="true" className="relative h-24 w-32 sm:h-28 sm:w-36 mx-auto select-none overflow-visible mb-5">
     <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
       <circle cx="40" cy="32" r="22" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
       {/* Source Info Document */}
@@ -967,12 +1026,12 @@ const ControlTowerLite = () => {
               </p>
 
               {/* Invisible Screen-Wide Bounds (Extends to far sides of the screen, cannot escape) */}
-              <div className="relative left-1/2 -translate-x-1/2 w-screen h-56 sm:h-64 overflow-hidden select-none">
+              <div className="relative left-1/2 -translate-x-1/2 w-screen h-72 sm:h-84 overflow-hidden select-none">
                 <FallingText
                   words={INDUSTRIES_TICKER}
                   variant="tiles"
                   theme="light"
-                  fontSize="1.22rem"
+                  fontSize="1.65rem"
                   trigger="auto"
                   gravity={0.85}
                   bounciness={0.3}
@@ -1086,54 +1145,54 @@ const ControlTowerLite = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight uppercase">
               CHOOSE YOUR LITE SOLUTION
             </h2>
+          </div>
 
-            {/* 4 Clean Toggles without any scrollbar */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
-              <button
-                type="button"
-                onClick={() => setFilterCategory("all")}
-                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
-                  filterCategory === "all"
-                    ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
-                    : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
-                }`}
-              >
-                All Solutions (8)
-              </button>
-              <button
-                type="button"
-                onClick={() => setFilterCategory("agency")}
-                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
-                  filterCategory === "agency"
-                    ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
-                    : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
-                }`}
-              >
-                Agencies &amp; Operations
-              </button>
-              <button
-                type="button"
-                onClick={() => setFilterCategory("industry")}
-                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
-                  filterCategory === "industry"
-                    ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
-                    : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
-                }`}
-              >
-                Healthcare, Nonprofits, Mortgage
-              </button>
-              <button
-                type="button"
-                onClick={() => setFilterCategory("growth")}
-                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all duration-150 ${
-                  filterCategory === "growth"
-                    ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
-                    : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
-                }`}
-              >
-                Real Estate, Marketing &amp; CS
-              </button>
-            </div>
+          {/* 4 Clean Toggles strictly locked in ONE SINGLE ROW */}
+          <div className="mt-8 w-full max-w-5xl mx-auto flex flex-nowrap items-center justify-start sm:justify-center gap-2 sm:gap-3 overflow-x-auto whitespace-nowrap pb-2 sm:pb-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-2">
+            <button
+              type="button"
+              onClick={() => setFilterCategory("all")}
+              className={`shrink-0 whitespace-nowrap rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-150 ${
+                filterCategory === "all"
+                  ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
+                  : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
+              }`}
+            >
+              All Solutions (8)
+            </button>
+            <button
+              type="button"
+              onClick={() => setFilterCategory("agency")}
+              className={`shrink-0 whitespace-nowrap rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-150 ${
+                filterCategory === "agency"
+                  ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
+                  : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
+              }`}
+            >
+              Agencies &amp; Operations
+            </button>
+            <button
+              type="button"
+              onClick={() => setFilterCategory("industry")}
+              className={`shrink-0 whitespace-nowrap rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-150 ${
+                filterCategory === "industry"
+                  ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
+                  : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
+              }`}
+            >
+              Healthcare, Nonprofits, Mortgage
+            </button>
+            <button
+              type="button"
+              onClick={() => setFilterCategory("growth")}
+              className={`shrink-0 whitespace-nowrap rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-150 ${
+                filterCategory === "growth"
+                  ? "border border-slate-900 bg-slate-950 text-white shadow-xs"
+                  : "border border-border bg-card text-slate-secondary hover:border-slate-400 hover:text-brand-primary"
+              }`}
+            >
+              Real Estate, Marketing &amp; CS
+            </button>
           </div>
 
           {/* Cards Grid: Streamlined, Airy, Exact Copy, High Contrast */}

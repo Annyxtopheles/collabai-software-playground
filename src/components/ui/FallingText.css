@@ -41,13 +41,13 @@
 }
 
 .falling-text__piece--tile {
-  margin: 0.25em 0.2em;
-  padding: 0.52em 1.25em;
+  margin: 0.35em 0.28em;
+  padding: 0.68em 1.6em;
   border-radius: 9999px;
   background-color: var(--falling-text-tile, #ffffff);
   box-shadow:
     inset 0 0 0 1px var(--falling-text-tile-edge, rgba(24, 24, 27, 0.08)),
-    var(--falling-text-tile-shadow, 0 8px 18px -4px rgba(11, 26, 72, 0.25));
+    var(--falling-text-tile-shadow, 0 10px 24px -4px rgba(11, 26, 72, 0.28));
   color: var(--falling-text-tile-ink, #0f172a);
   line-height: 1.25;
   font-weight: 500;

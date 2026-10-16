@@ -33,6 +33,15 @@ import iso27001Logo from "@/assets/logos/iso-27001-certified-blue.svg";
 import { DEFAULT_OG_IMAGE, breadcrumbSchema } from "@/lib/seoSchema";
 import FallingText from "@/components/ui/FallingText";
 
+import agencyLiteSvg from "@/assets/choose-your-lite-solution/agency-lite.svg";
+import healthhubLiteSvg from "@/assets/choose-your-lite-solution/healthhub-lite.svg";
+import nonprofitLiteSvg from "@/assets/choose-your-lite-solution/nonprofit-lite.svg";
+import mortgageLiteSvg from "@/assets/choose-your-lite-solution/mortgage-lite.svg";
+import realtorLiteSvg from "@/assets/choose-your-lite-solution/realtor-lite.svg";
+import marketingLiteSvg from "@/assets/choose-your-lite-solution/marketing-lite.svg";
+import csLiteSvg from "@/assets/choose-your-lite-solution/cs-lite.svg";
+import ghlLiteSvg from "@/assets/choose-your-lite-solution/ghl-lite.svg";
+
 // =========================================================================
 // BESPOKE, RESPONSIVE-TO-HOVER VECTOR ILLUSTRATIONS
 // High-fidelity SaaS vectors in CollabAI Brand Blue palette (ZERO yellow)
@@ -1245,7 +1254,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Less chasing. Clearer priorities. Better control over delivery.",
     ctaText: "Explore Agency Lite",
     targetHref: "/agency",
-    illustration: "/images/choose-your-lite-solution/Spending Too Much Time Chasing Project and Client Updates_.svg",
+    illustration: agencyLiteSvg,
   },
   {
     id: "healthhub-lite",
@@ -1268,7 +1277,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Less admin. Faster workflows. More time for patients.",
     ctaText: "Explore HealthHub AI Lite",
     targetHref: "/healthcare",
-    illustration: "/images/choose-your-lite-solution/Too Much Admin. Not Enough Time for People_.svg",
+    illustration: healthhubLiteSvg,
   },
 
   // FOLD 2
@@ -1293,7 +1302,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Find answers faster. Prepare better. Make informed decisions.",
     ctaText: "Explore Nonprofit Board Control Tower Lite",
     targetHref: "/non-profit",
-    illustration: "/images/choose-your-lite-solution/Board Information Buried Across Emails, Files and Folders_.svg",
+    illustration: nonprofitLiteSvg,
   },
   {
     id: "mortgage-lite",
@@ -1315,7 +1324,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "See priorities sooner. Act faster. Stay ahead of the pipeline.",
     ctaText: "Explore MortgageAI Lite",
     targetHref: "/mortgage-bank",
-    illustration: "/images/choose-your-lite-solution/Finding Loan Problems Only After They Become Urgent_.svg",
+    illustration: mortgageLiteSvg,
   },
 
   // FOLD 3
@@ -1339,7 +1348,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Respond faster. Follow up consistently. Keep more opportunities active.",
     ctaText: "Explore RealtorHelp Lite",
     targetHref: "/book-demo?solution=realtor-lite",
-    illustration: "/images/choose-your-lite-solution/Leads Going Cold While You're Busy With Everything Else_.svg",
+    illustration: realtorLiteSvg,
   },
   {
     id: "marketing-lite",
@@ -1362,7 +1371,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Better visibility. Faster execution. Smarter marketing decisions.",
     ctaText: "Explore Marketing Lite",
     targetHref: "/book-demo?solution=marketing-lite",
-    illustration: "/images/choose-your-lite-solution/Marketing Moving Too Slowly_ Clients Slipping Away_.svg",
+    illustration: marketingLiteSvg,
   },
 
   // FOLD 4
@@ -1387,7 +1396,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Earlier action. Stronger relationships. Better retention.",
     ctaText: "Explore Client Success Lite",
     targetHref: "/book-demo?solution=client-success-lite",
-    illustration: "/images/choose-your-lite-solution/Clients Slipping Away Before You See the Warning Signs_.svg",
+    illustration: csLiteSvg,
   },
   {
     id: "ghl-lite",
@@ -1411,7 +1420,7 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "See what matters. Follow up faster. Keep your pipeline moving.",
     ctaText: "Explore GHL Control Tower Lite",
     targetHref: "/agency?addon=ghl-lite",
-    illustration: "/images/choose-your-lite-solution/GHL.svg",
+    illustration: ghlLiteSvg,
   },
 ];
 
@@ -2085,49 +2094,48 @@ const ControlTowerLite = () => {
             </button>
           </div>
 
-          {/* Cards Grid: Streamlined, Airy, Exact Copy, High Contrast */}
-          <div className="mt-14 grid gap-8 md:grid-cols-2">
+          {/* Cards Grid: Streamlined, Airy, Exact Copy, High Contrast in 3 Columns */}
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filteredSolutions.map((solution) => (
               <div
                 key={solution.id}
-                className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 sm:p-8 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/12"
+                className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-6 sm:p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/12"
               >
                 <div>
-                  {/* Card Illustration Banner */}
-                  {solution.illustration && (
-                    <div className="w-full h-44 sm:h-52 flex items-center justify-center bg-slate-50/90 rounded-xl mb-6 overflow-hidden p-4 border border-slate-100 group-hover:bg-slate-50 transition-colors">
-                      <img
-                        src={solution.illustration}
-                        alt={solution.name}
-                        className="h-full w-auto max-h-36 sm:max-h-44 object-contain transition-transform duration-300 group-hover:scale-105"
-                        loading="lazy"
-                      />
+                  {/* Top: Left (Eyebrow, Title, Description) + Right (Illustration) */}
+                  <div className="flex items-start justify-between gap-4 mb-5">
+                    <div className="flex-1 min-w-0">
+                      {/* Product Name Eyebrow (No Lite Edition text) */}
+                      <div className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))] mb-2">
+                        {solution.presentingPrefix && (
+                          <span className="text-muted-foreground font-medium mr-1.5">{solution.presentingPrefix}</span>
+                        )}
+                        {solution.name}
+                      </div>
+
+                      {/* Problem Hook Question / Title */}
+                      <h3 className="text-lg sm:text-xl font-bold tracking-tight text-brand-primary mb-2.5 leading-snug">
+                        {solution.problem}
+                      </h3>
+
+                      {/* Description Copy */}
+                      <p className="text-xs sm:text-sm text-slate-secondary leading-relaxed">
+                        {solution.description.join(" ")}
+                      </p>
                     </div>
-                  )}
 
-                  {/* Top Row: Product Name Eyebrow + Lite Edition Dot */}
-                  <div className="flex items-center justify-between gap-3 mb-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[hsl(var(--brand-secondary))]">
-                      {solution.presentingPrefix && (
-                        <span className="text-muted-foreground font-medium mr-1.5">{solution.presentingPrefix}</span>
-                      )}
-                      {solution.name}
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider text-slate-500">
-                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-[hsl(var(--brand-secondary))]" />
-                      Lite Edition
-                    </span>
+                    {/* SVG Illustration on the right of title and text */}
+                    {solution.illustration && (
+                      <div className="shrink-0 w-24 sm:w-28 h-24 sm:h-28 flex items-center justify-center p-1 self-start">
+                        <img
+                          src={solution.illustration}
+                          alt={solution.name}
+                          className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
                   </div>
-
-                  {/* Problem Hook Question */}
-                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-brand-primary mb-3 leading-snug">
-                    {solution.problem}
-                  </h3>
-
-                  {/* Description Copy */}
-                  <p className="text-sm text-slate-secondary leading-relaxed mb-5">
-                    {solution.description.join(" ")}
-                  </p>
 
                   {/* What It Helps With: Streamlined Chip List */}
                   <div className="mb-4">

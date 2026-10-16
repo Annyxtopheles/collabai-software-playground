@@ -583,6 +583,627 @@ const InformationToActionIllustration = () => (
 );
 
 // =========================================================================
+// SECTION 11 OPTION 2: DYNAMIC PER-PILL ENTERPRISE CAPABILITY ILLUSTRATIONS
+// Bespoke, animated, distinctive vector illustrations for each capability
+// =========================================================================
+
+/** 1. Custom AI Workflows: Multi-Stage Branching Orchestration Pipeline */
+const WorkflowsIllustration = () => (
+  <svg viewBox="0 0 340 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full max-w-[360px] max-h-44 sm:max-h-52 overflow-visible">
+    {/* Stage 1: Trigger / Event Ingestion Node */}
+    <g className="origin-[36px_80px]">
+      <motion.circle
+        cx="36"
+        cy="80"
+        r="18"
+        stroke="#ffffff"
+        strokeWidth="1.5"
+        strokeDasharray="3 3"
+        animate={{ scale: [1, 1.35, 1], opacity: [0.6, 0.1, 0.6] }}
+        transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <rect x="22" y="66" width="28" height="28" rx="8" fill="#ffffff" />
+      <Workflow className="w-4 h-4 text-blue-600" x="28" y="72" />
+    </g>
+
+    {/* Branching Pipelines */}
+    <path d="M 50 80 C 85 80, 85 46, 120 46" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.4" fill="none" />
+    <path d="M 50 80 C 85 80, 85 114, 120 114" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.4" fill="none" />
+
+    {/* Animated Flowing Data Beams */}
+    <motion.path
+      d="M 50 80 C 85 80, 85 46, 120 46"
+      stroke="#ffffff"
+      strokeWidth="2.5"
+      strokeDasharray="6 14"
+      fill="none"
+      animate={{ strokeDashoffset: [0, -40] }}
+      transition={{ duration: 1.6, repeat: Infinity, ease: "linear" }}
+    />
+    <motion.path
+      d="M 50 80 C 85 80, 85 114, 120 114"
+      stroke="#ffffff"
+      strokeWidth="2.5"
+      strokeDasharray="6 14"
+      fill="none"
+      animate={{ strokeDashoffset: [0, -40] }}
+      transition={{ duration: 1.6, repeat: Infinity, ease: "linear", delay: 0.3 }}
+    />
+
+    {/* Intermediate Branch 1: AI Task Classifier */}
+    <g>
+      <rect x="120" y="32" width="28" height="28" rx="8" fill="rgba(255,255,255,0.18)" stroke="#ffffff" strokeWidth="1.5" />
+      <rect x="126" y="42" width="16" height="3" rx="1.5" fill="#ffffff" />
+      <rect x="126" y="48" width="10" height="3" rx="1.5" fill="#bfdbfe" />
+    </g>
+
+    {/* Intermediate Branch 2: Automation Ruleset */}
+    <g>
+      <rect x="120" y="100" width="28" height="28" rx="8" fill="rgba(255,255,255,0.18)" stroke="#ffffff" strokeWidth="1.5" />
+      <circle cx="134" cy="114" r="5" stroke="#ffffff" strokeWidth="1.5" />
+      <path d="M 134 111 L 134 114 L 137 114" stroke="#bfdbfe" strokeWidth="1.5" strokeLinecap="round" />
+    </g>
+
+    {/* Conduits into Central Orchestrator Core */}
+    <path d="M 148 46 C 165 46, 160 80, 180 80" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.4" fill="none" />
+    <path d="M 148 114 C 165 114, 160 80, 180 80" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.4" fill="none" />
+
+    {/* Central Orchestrator Hub */}
+    <g className="origin-[194px_80px]">
+      <motion.circle
+        cx="194"
+        cy="80"
+        r="24"
+        stroke="#ffffff"
+        strokeWidth="1.5"
+        strokeDasharray="4 4"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+      />
+      <rect x="178" y="64" width="32" height="32" rx="10" fill="#ffffff" filter="drop-shadow(0 0 14px rgba(255,255,255,0.7))" />
+      <Zap className="w-5 h-5 text-blue-600" x="184" y="70" />
+    </g>
+
+    {/* Final Path to Execution Node */}
+    <path d="M 210 80 L 274 80" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.4" />
+    <motion.line
+      x1="210"
+      y1="80"
+      x2="274"
+      y2="80"
+      stroke="#ffffff"
+      strokeWidth="3"
+      strokeDasharray="8 12"
+      animate={{ strokeDashoffset: [0, -40] }}
+      transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
+    />
+
+    {/* Execution Output Node */}
+    <g className="origin-[290px_80px]">
+      <motion.circle
+        cx="290"
+        cy="80"
+        r="18"
+        stroke="#ffffff"
+        strokeWidth="1.5"
+        animate={{ scale: [1, 1.25, 1], opacity: [0.7, 0.2, 0.7] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <circle cx="290" cy="80" r="14" fill="#ffffff" />
+      <Check className="w-4 h-4 text-blue-600 stroke-[3]" x="282" y="72" />
+    </g>
+  </svg>
+);
+
+/** 2. Deeper System Integrations: High-Throughput API Gateway Hub */
+const IntegrationsIllustration = () => (
+  <svg viewBox="0 0 340 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full max-w-[360px] max-h-44 sm:max-h-52 overflow-visible">
+    {/* Expanding Sonar Shockwave */}
+    <motion.circle
+      cx="170"
+      cy="80"
+      r="28"
+      stroke="#ffffff"
+      strokeWidth="1.5"
+      animate={{ r: [28, 62], opacity: [0.8, 0] }}
+      transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
+    />
+
+    {/* Conduits from Satellites to Center Hub */}
+    <line x1="68" y1="48" x2="150" y2="72" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.35" />
+    <line x1="68" y1="112" x2="150" y2="88" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.35" />
+    <line x1="272" y1="48" x2="190" y2="72" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.35" />
+    <line x1="272" y1="112" x2="190" y2="88" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.35" />
+
+    {/* Animated Data Packets Flowing to/from Center */}
+    <motion.circle
+      r="3.5"
+      fill="#ffffff"
+      filter="drop-shadow(0 0 6px rgba(255,255,255,0.9))"
+      animate={{
+        cx: [68, 150, 68],
+        cy: [48, 72, 48],
+      }}
+      transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+    />
+    <motion.circle
+      r="3.5"
+      fill="#ffffff"
+      filter="drop-shadow(0 0 6px rgba(255,255,255,0.9))"
+      animate={{
+        cx: [68, 150, 68],
+        cy: [112, 88, 112],
+      }}
+      transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+    />
+    <motion.circle
+      r="3.5"
+      fill="#ffffff"
+      filter="drop-shadow(0 0 6px rgba(255,255,255,0.9))"
+      animate={{
+        cx: [272, 190, 272],
+        cy: [48, 72, 48],
+      }}
+      transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+    />
+    <motion.circle
+      r="3.5"
+      fill="#ffffff"
+      filter="drop-shadow(0 0 6px rgba(255,255,255,0.9))"
+      animate={{
+        cx: [272, 190, 272],
+        cy: [112, 88, 112],
+      }}
+      transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
+    />
+
+    {/* Satellite 1: Top-Left Cloud Node */}
+    <g>
+      <rect x="42" y="32" width="36" height="30" rx="8" fill="rgba(255,255,255,0.18)" stroke="#ffffff" strokeWidth="1.5" />
+      <circle cx="54" cy="48" r="4" fill="#ffffff" />
+      <circle cx="64" cy="46" r="6" fill="#ffffff" />
+      <rect x="52" y="48" width="16" height="6" rx="2" fill="#ffffff" />
+    </g>
+
+    {/* Satellite 2: Bottom-Left Database Cylinder */}
+    <g>
+      <rect x="44" y="98" width="32" height="28" rx="7" fill="rgba(255,255,255,0.18)" stroke="#ffffff" strokeWidth="1.5" />
+      <ellipse cx="60" cy="104" rx="10" ry="3.5" fill="#ffffff" />
+      <ellipse cx="60" cy="112" rx="10" ry="3.5" stroke="#ffffff" strokeWidth="1.2" fill="none" />
+      <ellipse cx="60" cy="120" rx="10" ry="3.5" stroke="#ffffff" strokeWidth="1.2" fill="none" />
+    </g>
+
+    {/* Satellite 3: Top-Right API Service Node */}
+    <g>
+      <rect x="262" y="32" width="36" height="30" rx="8" fill="rgba(255,255,255,0.18)" stroke="#ffffff" strokeWidth="1.5" />
+      <rect x="270" y="42" width="20" height="3" rx="1.5" fill="#ffffff" />
+      <rect x="270" y="48" width="14" height="3" rx="1.5" fill="#bfdbfe" />
+    </g>
+
+    {/* Satellite 4: Bottom-Right Realtime Stream Webhook */}
+    <g>
+      <rect x="262" y="98" width="36" height="28" rx="8" fill="rgba(255,255,255,0.18)" stroke="#ffffff" strokeWidth="1.5" />
+      <path d="M 280 104 L 275 113 L 279 113 L 277 122 L 284 111 L 280 111 Z" fill="#ffffff" />
+    </g>
+
+    {/* Center High-Throughput API Gateway Hub */}
+    <g className="origin-[170px_80px]">
+      <motion.circle
+        cx="170"
+        cy="80"
+        r="28"
+        stroke="#ffffff"
+        strokeWidth="1.5"
+        strokeDasharray="5 5"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+      />
+      <rect x="150" y="60" width="40" height="40" rx="12" fill="#ffffff" filter="drop-shadow(0 0 16px rgba(255,255,255,0.75))" />
+      <Database className="w-5 h-5 text-blue-600" x="160" y="70" />
+    </g>
+  </svg>
+);
+
+/** 3. Multi-Team Solutions: Collaborative Sync Triad Network */
+const MultiTeamIllustration = () => (
+  <svg viewBox="0 0 340 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full max-w-[360px] max-h-44 sm:max-h-52 overflow-visible">
+    {/* Triangular Laser Track */}
+    <polygon points="170,36 270,126 70,126" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.3" fill="none" />
+
+    {/* Dynamic Collaborative Sync Beams */}
+    <motion.polygon
+      points="170,36 270,126 70,126"
+      stroke="#ffffff"
+      strokeWidth="2.5"
+      strokeDasharray="8 14"
+      fill="none"
+      animate={{ strokeDashoffset: [0, -66] }}
+      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+    />
+
+    {/* Synchronized Collaborative Photon Looping along the Triangle */}
+    <motion.circle
+      r="4"
+      fill="#ffffff"
+      filter="drop-shadow(0 0 8px rgba(255,255,255,0.95))"
+      animate={{
+        cx: [170, 270, 70, 170],
+        cy: [36, 126, 126, 36],
+      }}
+      transition={{ duration: 4.5, repeat: Infinity, ease: "linear" }}
+    />
+
+    {/* Central Sync Core */}
+    <motion.g
+      className="origin-[170px_96px]"
+      animate={{ y: [-3, 3, -3] }}
+      transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+    >
+      <circle cx="170" cy="96" r="16" fill="rgba(255,255,255,0.18)" stroke="#ffffff" strokeWidth="1.5" />
+      <circle cx="170" cy="96" r="6" fill="#ffffff" filter="drop-shadow(0 0 8px rgba(255,255,255,0.9))" />
+    </motion.g>
+
+    {/* Pod 1: Leadership / Executive Pod (Top) */}
+    <g className="origin-[170px_36px]">
+      <rect x="152" y="18" width="36" height="36" rx="10" fill="#ffffff" filter="drop-shadow(0 0 12px rgba(255,255,255,0.6))" />
+      <Sparkles className="w-5 h-5 text-blue-600" x="160" y="26" />
+    </g>
+
+    {/* Pod 2: Operations / Delivery Pod (Bottom Left) */}
+    <g className="origin-[70px_126px]">
+      <rect x="52" y="108" width="36" height="36" rx="10" fill="#ffffff" filter="drop-shadow(0 0 12px rgba(255,255,255,0.6))" />
+      <Layers className="w-5 h-5 text-blue-600" x="60" y="116" />
+    </g>
+
+    {/* Pod 3: Growth / Client Success Pod (Bottom Right) */}
+    <g className="origin-[270px_126px]">
+      <rect x="252" y="108" width="36" height="36" rx="10" fill="#ffffff" filter="drop-shadow(0 0 12px rgba(255,255,255,0.6))" />
+      <UserCheck className="w-5 h-5 text-blue-600" x="260" y="116" />
+    </g>
+  </svg>
+);
+
+/** 4. Custom Dashboards: Glassmorphic Executive Telemetry Console */
+const DashboardsIllustration = () => (
+  <svg viewBox="0 0 340 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full max-w-[360px] max-h-44 sm:max-h-52 overflow-visible">
+    {/* Glassmorphic Cockpit Frame */}
+    <rect
+      x="40"
+      y="16"
+      width="260"
+      height="128"
+      rx="14"
+      fill="rgba(255,255,255,0.12)"
+      stroke="#ffffff"
+      strokeWidth="1.5"
+      strokeOpacity="0.4"
+      filter="drop-shadow(0 8px 24px rgba(0,0,0,0.15))"
+    />
+
+    {/* Window Controls Dots */}
+    <circle cx="58" cy="30" r="3" fill="#ffffff" opacity="0.8" />
+    <circle cx="68" cy="30" r="3" fill="#ffffff" opacity="0.5" />
+    <circle cx="78" cy="30" r="3" fill="#ffffff" opacity="0.3" />
+
+    {/* Left Column: Radial Telemetry Gauge */}
+    <g className="origin-[96px_86px]">
+      <circle cx="96" cy="86" r="26" stroke="#ffffff" strokeWidth="4" strokeOpacity="0.25" fill="none" />
+      <motion.circle
+        cx="96"
+        cy="86"
+        r="26"
+        stroke="#ffffff"
+        strokeWidth="4"
+        strokeLinecap="round"
+        strokeDasharray="163"
+        fill="none"
+        animate={{ strokeDashoffset: [120, 45, 120] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <circle cx="96" cy="86" r="16" fill="rgba(255,255,255,0.2)" />
+      <LineChart className="w-4 h-4 text-white" x="88" y="78" />
+    </g>
+
+    {/* Right Column: Live Sparkline Waveform */}
+    <path
+      d="M 148 100 Q 170 94, 185 70 T 225 76 T 255 48 L 280 44"
+      stroke="#ffffff"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+    />
+
+    {/* Live Apex Beacon at Sparkline End */}
+    <g>
+      <motion.circle
+        cx="280"
+        cy="44"
+        r="7"
+        stroke="#ffffff"
+        strokeWidth="1.5"
+        animate={{ scale: [1, 2, 1], opacity: [0.8, 0, 0.8] }}
+        transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <circle cx="280" cy="44" r="3.5" fill="#ffffff" filter="drop-shadow(0 0 6px rgba(255,255,255,0.9))" />
+    </g>
+
+    {/* Bottom Metric Bars with Animated Equalizer Heights */}
+    <g>
+      <motion.rect
+        x="154"
+        y="108"
+        width="14"
+        height="18"
+        rx="3"
+        fill="#ffffff"
+        animate={{ height: [18, 28, 18], y: [108, 98, 108] }}
+        transition={{ duration: 2.1, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.rect
+        x="176"
+        y="100"
+        width="14"
+        height="26"
+        rx="3"
+        fill="#ffffff"
+        opacity="0.8"
+        animate={{ height: [26, 14, 26], y: [100, 112, 100] }}
+        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+      />
+      <motion.rect
+        x="198"
+        y="92"
+        width="14"
+        height="34"
+        rx="3"
+        fill="#ffffff"
+        animate={{ height: [34, 20, 34], y: [92, 106, 92] }}
+        transition={{ duration: 2.3, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+      />
+      <motion.rect
+        x="220"
+        y="84"
+        width="14"
+        height="42"
+        rx="3"
+        fill="#ffffff"
+        opacity="0.8"
+        animate={{ height: [42, 28, 42], y: [84, 98, 84] }}
+        transition={{ duration: 2.7, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+      />
+      <motion.rect
+        x="242"
+        y="78"
+        width="14"
+        height="48"
+        rx="3"
+        fill="#ffffff"
+        animate={{ height: [48, 32, 48], y: [78, 94, 78] }}
+        transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+      />
+    </g>
+  </svg>
+);
+
+/** 5. AI Automation: High-Speed Neural Processor Chip & Express Orbit */
+const AutomationIllustration = () => (
+  <svg viewBox="0 0 340 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full max-w-[360px] max-h-44 sm:max-h-52 overflow-visible">
+    {/* Elliptical High-Speed Automation Orbit Track */}
+    <ellipse cx="170" cy="80" rx="100" ry="46" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.25" fill="none" />
+    <motion.ellipse
+      cx="170"
+      cy="80"
+      rx="100"
+      ry="46"
+      stroke="#ffffff"
+      strokeWidth="2.5"
+      strokeDasharray="8 14"
+      fill="none"
+      animate={{ strokeDashoffset: [0, -66] }}
+      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+    />
+
+    {/* Orbiting Autonomous Node 1 */}
+    <motion.circle
+      r="5"
+      fill="#ffffff"
+      filter="drop-shadow(0 0 8px rgba(255,255,255,0.95))"
+      animate={{
+        cx: [70, 170, 270, 170, 70],
+        cy: [80, 34, 80, 126, 80],
+      }}
+      transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+    />
+
+    {/* Orbiting Autonomous Node 2 */}
+    <motion.circle
+      r="4"
+      fill="#ffffff"
+      filter="drop-shadow(0 0 6px rgba(255,255,255,0.9))"
+      animate={{
+        cx: [270, 170, 70, 170, 270],
+        cy: [80, 126, 80, 34, 80],
+      }}
+      transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+    />
+
+    {/* Radiating Circuit Bus Lines */}
+    <line x1="170" y1="20" x2="170" y2="52" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.4" />
+    <line x1="170" y1="108" x2="170" y2="140" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.4" />
+    <line x1="108" y1="80" x2="142" y2="80" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.4" />
+    <line x1="198" y1="80" x2="232" y2="80" stroke="#ffffff" strokeWidth="2" strokeOpacity="0.4" />
+
+    {/* Central High-Speed AI Microprocessor Chip */}
+    <g className="origin-[170px_80px]">
+      <rect x="142" y="52" width="56" height="56" rx="14" fill="#ffffff" filter="drop-shadow(0 0 18px rgba(255,255,255,0.8))" />
+      <rect x="150" y="60" width="40" height="40" rx="8" fill="#eff6ff" />
+      <Cpu className="w-6 h-6 text-blue-600" x="158" y="68" />
+    </g>
+  </svg>
+);
+
+/** 6. Private AI Environments: Sovereign Vault Shield & Radar Perimeter */
+const PrivateEnvIllustration = () => (
+  <svg viewBox="0 0 340 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full max-w-[360px] max-h-44 sm:max-h-52 overflow-visible">
+    {/* Concentric Radar Security Rings */}
+    <circle cx="170" cy="80" r="64" stroke="#ffffff" strokeWidth="1.5" strokeOpacity="0.25" strokeDasharray="3 4" />
+    <circle cx="170" cy="80" r="44" stroke="#ffffff" strokeWidth="1.5" strokeOpacity="0.35" />
+
+    {/* 360-Degree Continuous Rotating Radar Sweep Beam */}
+    <motion.g
+      className="origin-[170px_80px]"
+      animate={{ rotate: 360 }}
+      transition={{ duration: 4.5, repeat: Infinity, ease: "linear" }}
+    >
+      <line x1="170" y1="80" x2="234" y2="80" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" filter="drop-shadow(0 0 8px rgba(255,255,255,0.9))" />
+      <path d="M 170 80 L 230 55 A 64 64 0 0 1 234 80 Z" fill="rgba(255,255,255,0.14)" />
+    </motion.g>
+
+    {/* Floating Encrypted Perimeter Nodes */}
+    <g>
+      <rect x="76" y="66" width="28" height="28" rx="8" fill="rgba(255,255,255,0.18)" stroke="#ffffff" strokeWidth="1.5" />
+      <Lock className="w-3.5 h-3.5 text-white" x="83" y="73" />
+    </g>
+    <g>
+      <rect x="236" y="66" width="28" height="28" rx="8" fill="rgba(255,255,255,0.18)" stroke="#ffffff" strokeWidth="1.5" />
+      <Lock className="w-3.5 h-3.5 text-white" x="243" y="73" />
+    </g>
+
+    {/* Center Sovereign Vault Shield */}
+    <motion.g
+      className="origin-[170px_80px]"
+      animate={{ scale: [1, 1.05, 1] }}
+      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+    >
+      <circle cx="170" cy="80" r="28" fill="#ffffff" filter="drop-shadow(0 0 20px rgba(255,255,255,0.8))" />
+      <ShieldCheck className="w-8 h-8 text-blue-600 stroke-[2.2]" x="154" y="64" />
+    </motion.g>
+  </svg>
+);
+
+/** 7. Self-Hosted Solutions: 3-Tier Enterprise Rack Cluster */
+const SelfHostedIllustration = () => (
+  <svg viewBox="0 0 340 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full max-w-[360px] max-h-44 sm:max-h-52 overflow-visible">
+    {/* Enclosing Private Datacenter Enclave */}
+    <rect x="62" y="20" width="216" height="120" rx="14" fill="rgba(255,255,255,0.08)" stroke="#ffffff" strokeWidth="1.5" strokeOpacity="0.3" />
+
+    {/* High-Speed Vertical Data Backbone Cable */}
+    <line x1="84" y1="36" x2="84" y2="124" stroke="#ffffff" strokeWidth="2.5" strokeOpacity="0.4" />
+    <motion.line
+      x1="84"
+      y1="36"
+      x2="84"
+      y2="124"
+      stroke="#ffffff"
+      strokeWidth="3"
+      strokeDasharray="6 10"
+      animate={{ strokeDashoffset: [0, -32] }}
+      transition={{ duration: 1.4, repeat: Infinity, ease: "linear" }}
+    />
+
+    {/* Server Blade 1 (Top Tier) */}
+    <g>
+      <rect x="100" y="32" width="162" height="26" rx="6" fill="#ffffff" filter="drop-shadow(0 2px 8px rgba(0,0,0,0.12))" />
+      <rect x="110" y="41" width="40" height="8" rx="2" fill="#dbeafe" />
+      <line x1="160" y1="45" x2="210" y2="45" stroke="#93c5fd" strokeWidth="2" strokeDasharray="3 3" />
+      {/* Blinking LEDs */}
+      <motion.circle cx="230" cy="45" r="3" fill="#2563eb" animate={{ opacity: [1, 0.2, 1] }} transition={{ duration: 0.9, repeat: Infinity }} />
+      <motion.circle cx="242" cy="45" r="3" fill="#2563eb" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 1.3, repeat: Infinity }} />
+      <circle cx="254" cy="45" r="3" fill="#2563eb" />
+    </g>
+
+    {/* Server Blade 2 (Middle Tier) */}
+    <g>
+      <rect x="100" y="67" width="162" height="26" rx="6" fill="#ffffff" filter="drop-shadow(0 2px 8px rgba(0,0,0,0.12))" />
+      <rect x="110" y="76" width="40" height="8" rx="2" fill="#dbeafe" />
+      <line x1="160" y1="80" x2="210" y2="80" stroke="#93c5fd" strokeWidth="2" strokeDasharray="3 3" />
+      {/* Blinking LEDs */}
+      <motion.circle cx="230" cy="80" r="3" fill="#2563eb" animate={{ opacity: [0.2, 1, 0.2] }} transition={{ duration: 1.1, repeat: Infinity }} />
+      <motion.circle cx="242" cy="80" r="3" fill="#2563eb" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 0.8, repeat: Infinity }} />
+      <circle cx="254" cy="80" r="3" fill="#2563eb" />
+    </g>
+
+    {/* Server Blade 3 (Bottom Tier) */}
+    <g>
+      <rect x="100" y="102" width="162" height="26" rx="6" fill="#ffffff" filter="drop-shadow(0 2px 8px rgba(0,0,0,0.12))" />
+      <rect x="110" y="111" width="40" height="8" rx="2" fill="#dbeafe" />
+      <line x1="160" y1="115" x2="210" y2="115" stroke="#93c5fd" strokeWidth="2" strokeDasharray="3 3" />
+      {/* Blinking LEDs */}
+      <motion.circle cx="230" cy="115" r="3" fill="#2563eb" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 1.4, repeat: Infinity }} />
+      <motion.circle cx="242" cy="115" r="3" fill="#2563eb" animate={{ opacity: [0.2, 1, 0.2] }} transition={{ duration: 1.0, repeat: Infinity }} />
+      <circle cx="254" cy="115" r="3" fill="#2563eb" />
+    </g>
+  </svg>
+);
+
+/** 8. Industry-Specific Development: Bespoke Modular Blueprint Architecture */
+const IndustrySpecificIllustration = () => (
+  <svg viewBox="0 0 340 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full max-w-[360px] max-h-44 sm:max-h-52 overflow-visible">
+    {/* Blueprint Technical Grid Frame */}
+    <rect x="45" y="18" width="250" height="124" rx="12" fill="rgba(255,255,255,0.08)" stroke="#ffffff" strokeWidth="1.5" strokeOpacity="0.3" strokeDasharray="4 4" />
+
+    {/* Technical Crosshair Alignments */}
+    <path d="M 60 30 L 70 30 M 65 25 L 65 35" stroke="#ffffff" strokeWidth="1.5" strokeOpacity="0.6" />
+    <path d="M 270 30 L 280 30 M 275 25 L 275 35" stroke="#ffffff" strokeWidth="1.5" strokeOpacity="0.6" />
+    <path d="M 60 130 L 70 130 M 65 125 L 65 135" stroke="#ffffff" strokeWidth="1.5" strokeOpacity="0.6" />
+    <path d="M 270 130 L 280 130 M 275 125 L 275 135" stroke="#ffffff" strokeWidth="1.5" strokeOpacity="0.6" />
+
+    {/* Rotating Architectural Drafting Compass Arc */}
+    <motion.path
+      d="M 120 40 A 60 60 0 0 1 220 40"
+      stroke="#ffffff"
+      strokeWidth="2"
+      strokeDasharray="4 4"
+      fill="none"
+      animate={{ rotate: [-8, 8, -8] }}
+      className="origin-[170px_80px]"
+      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+    />
+
+    {/* Base Modular Blocks */}
+    <g>
+      <rect x="95" y="88" width="46" height="38" rx="8" fill="rgba(255,255,255,0.22)" stroke="#ffffff" strokeWidth="1.5" />
+      <rect x="199" y="88" width="46" height="38" rx="8" fill="rgba(255,255,255,0.22)" stroke="#ffffff" strokeWidth="1.5" />
+      <rect x="147" y="98" width="46" height="28" rx="6" fill="rgba(255,255,255,0.28)" stroke="#ffffff" strokeWidth="1.5" />
+    </g>
+
+    {/* Floating Bespoke Keystone Block Docking In Real-Time */}
+    <motion.g
+      className="origin-[170px_60px]"
+      animate={{ y: [0, -10, 0] }}
+      transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+    >
+      <rect x="145" y="44" width="50" height="42" rx="10" fill="#ffffff" filter="drop-shadow(0 0 18px rgba(255,255,255,0.85))" />
+      <Building2 className="w-6 h-6 text-blue-600" x="157" y="52" />
+    </motion.g>
+  </svg>
+);
+
+/** Dynamic Illustration Dispatcher for Section 11 Option 2 */
+const EnterpriseCapabilityIllustration = ({ id }: { id: string }) => {
+  return (
+    <motion.div
+      key={id}
+      initial={{ opacity: 0, scale: 0.94, y: 8 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.94, y: -8 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="w-full h-full flex items-center justify-center select-none"
+    >
+      {id === "workflows" && <WorkflowsIllustration />}
+      {id === "integrations" && <IntegrationsIllustration />}
+      {id === "multi-team" && <MultiTeamIllustration />}
+      {id === "dashboards" && <DashboardsIllustration />}
+      {id === "automation" && <AutomationIllustration />}
+      {id === "private-env" && <PrivateEnvIllustration />}
+      {id === "self-hosted" && <SelfHostedIllustration />}
+      {id === "industry-specific" && <IndustrySpecificIllustration />}
+    </motion.div>
+  );
+};
+
+// =========================================================================
 // DATA STRUCTURES
 // =========================================================================
 
@@ -1642,41 +2263,20 @@ const ControlTowerLite = () => {
               </div>
             </div>
 
-            {/* Right Column: Option 2 Cardless Capability Matrix (No Card, Background Graphic Visible, Open Floating Grid) */}
-            <div className="lg:col-span-7 relative w-full min-h-[440px] select-none flex flex-col justify-center">
-              {/* Background Ambient SVG Ribbons Graphic */}
-              <div className="pointer-events-none absolute inset-0 -z-0 opacity-45 overflow-visible">
-                <svg viewBox="0 0 540 380" fill="none" className="h-full w-full">
-                  <motion.path
-                    d="M 20 260 C 110 260, 150 70, 270 85 C 370 100, 420 230, 500 130"
-                    stroke="#ffffff"
-                    strokeWidth="30"
-                    strokeLinecap="round"
-                    fill="none"
-                    filter="drop-shadow(0 0 18px rgba(255,255,255,0.65))"
-                    animate={{
-                      d: [
-                        "M 20 260 C 110 260, 150 70, 270 85 C 370 100, 420 230, 500 130",
-                        "M 20 230 C 130 280, 170 90, 280 110 C 360 130, 410 200, 500 110",
-                        "M 20 260 C 110 260, 150 70, 270 85 C 370 100, 420 230, 500 130",
-                      ],
-                    }}
-                    transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
+            {/* Right Column: Option 2 Vertical Stacked Capability Showcase (Dynamic Illustration ON TOP, Pills BELOW) */}
+            <div className="lg:col-span-7 relative w-full select-none flex flex-col items-center justify-center gap-6">
+              {/* Dynamic Animated Vector Illustration Display ON TOP */}
+              <div className="relative w-full h-44 sm:h-52 flex items-center justify-center overflow-visible">
+                <AnimatePresence mode="wait">
+                  <EnterpriseCapabilityIllustration
+                    key={ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].id}
+                    id={ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].id}
                   />
-                  <motion.path
-                    d="M 10 210 Q 160 40, 300 190 T 490 110"
-                    stroke="#ffffff"
-                    strokeWidth="2.5"
-                    strokeDasharray="4 7"
-                    fill="none"
-                    animate={{ strokeDashoffset: [0, -45] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  />
-                </svg>
+                </AnimatePresence>
               </div>
 
-              {/* 8 Floating Capability Pills in Responsive Grid */}
-              <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-xl mx-auto lg:mx-0 w-full">
+              {/* 8 Floating Capability Pills in Responsive Grid BELOW */}
+              <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mx-auto lg:mx-0 w-full">
                 {ENTERPRISE_CAPABILITIES.map((cap, idx) => {
                   const isActive = idx === activeCapabilityIndex2;
                   const Icon = cap.icon;

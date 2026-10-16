@@ -33,15 +33,15 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import sjInnovationLogo from "@/assets/sj-innovation-logo.svg";
-const iso27001Logo = "/images/ISOIEC 270012022 Certified.svg";
+import iso27001Logo from "@/assets/logos/iso-27001-certified-blue.svg";
 import { DEFAULT_OG_IMAGE, breadcrumbSchema } from "@/lib/seoSchema";
 
 // =========================================================================
-// BESPOKE, RESPONSIVE-TO-HOVER VECTOR ILLUSTRATIONS (Top-Right of Cards)
-// Crafted in CollabAI Brand Blue palette (Zero yellow anywhere)
+// BESPOKE, RESPONSIVE-TO-HOVER VECTOR ILLUSTRATIONS
+// High-fidelity SaaS vectors in CollabAI Brand Blue palette (ZERO yellow)
 // =========================================================================
 
-/** 1. Start With One Need: Focus / Target Workflow Layer Illustration */
+/** 1. Start With One Need: Precision Target Lock */
 const TargetFocusIllustration = () => (
   <div
     aria-hidden="true"
@@ -53,14 +53,11 @@ const TargetFocusIllustration = () => (
       xmlns="http://www.w3.org/2000/svg"
       className="h-full w-full overflow-visible"
     >
-      {/* Soft Ambient Aura Blob */}
       <path
         d="M 20 44 C 18 18, 55 10, 85 16 C 105 22, 108 55, 96 72 C 80 88, 38 88, 24 74 C 16 66, 22 56, 20 44 Z"
         fill="#eff6ff"
         className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
       />
-
-      {/* Background Dashboard Slate Layer */}
       <rect
         x="14"
         y="18"
@@ -72,15 +69,11 @@ const TargetFocusIllustration = () => (
         strokeWidth="1.5"
         className="transition-transform duration-500 ease-out group-hover:translate-x-[-2px] group-hover:translate-y-[-2px]"
       />
-      {/* Mini Table Rows on background layer */}
       <line x1="22" y1="28" x2="48" y2="28" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round" />
       <line x1="22" y1="36" x2="68" y2="36" stroke="#e2e8f0" strokeWidth="2" strokeLinecap="round" />
       <line x1="22" y1="44" x2="60" y2="44" stroke="#e2e8f0" strokeWidth="2" strokeLinecap="round" />
       <line x1="22" y1="52" x2="52" y2="52" stroke="#e2e8f0" strokeWidth="2" strokeLinecap="round" />
-
-      {/* Elevated Front Target Card with Radar Focus Reticle */}
       <g className="origin-center transition-transform duration-500 ease-out group-hover:translate-x-1 group-hover:translate-y-[-3px]">
-        {/* Outer Rotating Precision Dashed Ring */}
         <circle
           cx="68"
           cy="44"
@@ -90,7 +83,6 @@ const TargetFocusIllustration = () => (
           strokeDasharray="4 4"
           className="origin-center transition-transform duration-700 ease-out group-hover:rotate-90 group-hover:stroke-[#315EFF]"
         />
-        {/* Middle Solid Reticle Ring */}
         <circle
           cx="68"
           cy="44"
@@ -100,13 +92,10 @@ const TargetFocusIllustration = () => (
           fill="#ffffff"
           className="transition-colors duration-300 group-hover:stroke-[#1d4ed8]"
         />
-        {/* Precision Crosshair Lines */}
         <line x1="68" y1="20" x2="68" y2="28" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
         <line x1="68" y1="60" x2="68" y2="68" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
         <line x1="44" y1="44" x2="52" y2="44" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
         <line x1="84" y1="44" x2="92" y2="44" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
-
-        {/* Center Target Lock Pip */}
         <circle
           cx="68"
           cy="44"
@@ -120,7 +109,7 @@ const TargetFocusIllustration = () => (
   </div>
 );
 
-/** 2. Experience the Workflow: Dynamic Connected Pipeline Illustration */
+/** 2. Experience the Workflow: High-Fidelity Interactive Pipeline Canvas */
 const WorkflowPipelineIllustration = () => (
   <div
     aria-hidden="true"
@@ -132,64 +121,65 @@ const WorkflowPipelineIllustration = () => (
       xmlns="http://www.w3.org/2000/svg"
       className="h-full w-full overflow-visible"
     >
-      {/* Soft Ambient Aura Blob */}
       <path
-        d="M 25 40 C 20 15, 60 8, 88 18 C 106 25, 108 58, 92 74 C 76 88, 32 86, 20 70 C 14 58, 28 50, 25 40 Z"
+        d="M 22 42 C 18 16, 56 10, 86 18 C 104 24, 108 56, 94 72 C 78 88, 36 88, 22 72 C 16 62, 24 52, 22 42 Z"
         fill="#eff6ff"
         className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
       />
+      {/* Background Canvas Grid Ticks */}
+      <circle cx="30" cy="24" r="1.5" fill="#bfdbfe" />
+      <circle cx="58" cy="20" r="1.5" fill="#bfdbfe" />
+      <circle cx="86" cy="24" r="1.5" fill="#bfdbfe" />
+      <circle cx="30" cy="70" r="1.5" fill="#bfdbfe" />
+      <circle cx="86" cy="70" r="1.5" fill="#bfdbfe" />
 
-      {/* Connecting Pipeline Curves */}
+      {/* Main Connecting Flow Bezier */}
       <path
-        d="M 24 58 C 42 58, 38 28, 58 28 C 76 28, 72 50, 88 50"
+        d="M 24 52 C 40 52, 38 32, 56 32 C 74 32, 72 52, 88 52"
         stroke="#93c5fd"
-        strokeWidth="3.5"
+        strokeWidth="3"
         strokeLinecap="round"
         fill="none"
         className="transition-colors duration-500 group-hover:stroke-[#315EFF]"
       />
-      {/* Pulsing Highlight Along Pipeline */}
+      {/* Active Flow Trajectory Pulse */}
       <path
-        d="M 24 58 C 42 58, 38 28, 58 28 C 76 28, 72 50, 88 50"
+        d="M 24 52 C 40 52, 38 32, 56 32 C 74 32, 72 52, 88 52"
         stroke="#1d4ed8"
-        strokeWidth="3.5"
+        strokeWidth="3"
         strokeLinecap="round"
-        strokeDasharray="8 14"
+        strokeDasharray="6 12"
         fill="none"
-        className="opacity-40 transition-opacity duration-300 group-hover:opacity-100"
+        className="opacity-50 transition-all duration-300 group-hover:opacity-100"
       />
 
-      {/* Stage 1 Node Card */}
+      {/* Stage 1: Trigger / Event Badge */}
       <g className="transition-transform duration-300 group-hover:-translate-y-1">
-        <circle cx="24" cy="58" r="12" fill="#ffffff" stroke="#3b82f6" strokeWidth="2.5" />
-        <circle cx="24" cy="58" r="5" fill="#315EFF" />
+        <rect x="14" y="42" width="20" height="20" rx="6" fill="#ffffff" stroke="#93c5fd" strokeWidth="2" />
+        <rect x="18" y="46" width="12" height="4" rx="1.5" fill="#315EFF" />
+        <rect x="18" y="52" width="8" height="2" rx="1" fill="#cbd5e1" />
+        <circle cx="24" cy="52" r="7" stroke="#315EFF" strokeWidth="1" strokeDasharray="2 2" className="opacity-0 group-hover:opacity-100 transition-opacity" />
       </g>
 
-      {/* Stage 2 Active Logic Hub Card */}
-      <g className="transition-transform duration-300 group-hover:scale-110 origin-[58px_28px]">
-        <rect
-          x="46"
-          y="16"
-          width="24"
-          height="24"
-          rx="6"
-          fill="#315EFF"
-          stroke="#1d4ed8"
-          strokeWidth="2"
-        />
-        <path d="M 53 28 L 63 28 M 58 23 L 58 33" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
+      {/* Stage 2: Center AI Processing Engine Hex Chip */}
+      <g className="origin-[56px_32px] transition-transform duration-300 group-hover:scale-115">
+        <rect x="44" y="20" width="24" height="24" rx="7" fill="#315EFF" stroke="#1d4ed8" strokeWidth="2" />
+        {/* Core AI Spark Icon */}
+        <path d="M 56 25 L 57.5 30.5 L 63 32 L 57.5 33.5 L 56 39 L 54.5 33.5 L 49 32 L 54.5 30.5 Z" fill="#ffffff" />
+        {/* Radial Orbit Indicator */}
+        <circle cx="56" cy="32" r="16" stroke="#bfdbfe" strokeWidth="1" strokeDasharray="3 3" />
       </g>
 
-      {/* Stage 3 Output Verified Node Card */}
+      {/* Stage 3: Automated Action / Verified Badge */}
       <g className="transition-transform duration-300 group-hover:translate-x-1">
-        <circle cx="88" cy="50" r="11" fill="#ffffff" stroke="#1d4ed8" strokeWidth="2.5" />
-        <path d="M 84 50 L 87 53 L 93 47" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="88" cy="52" r="12" fill="#ffffff" stroke="#1d4ed8" strokeWidth="2.5" />
+        <path d="M 83 52 L 87 56 L 93 48" stroke="#315EFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
       </g>
     </svg>
   </div>
 );
 
-/** 3. Learn What Works for You: Insight Spark & Value Card Illustration */
+/** 3. Learn What Works for You: Executive Analytics & AI Value Discovery */
 const InsightValueIllustration = () => (
   <div
     aria-hidden="true"
@@ -201,71 +191,68 @@ const InsightValueIllustration = () => (
       xmlns="http://www.w3.org/2000/svg"
       className="h-full w-full overflow-visible"
     >
-      {/* Soft Ambient Aura Blob */}
+      <defs>
+        <linearGradient id="liteInsightGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#315EFF" stopOpacity="0.25" />
+          <stop offset="100%" stopColor="#315EFF" stopOpacity="0.0" />
+        </linearGradient>
+      </defs>
       <path
         d="M 22 42 C 16 16, 52 10, 84 18 C 104 24, 106 60, 92 76 C 76 90, 34 88, 22 72 C 16 60, 24 52, 22 42 Z"
         fill="#eff6ff"
         className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
       />
 
-      {/* Layer 1: Analytic Sparkline Chart Card in Background */}
-      <rect
-        x="16"
-        y="24"
-        width="60"
-        height="44"
-        rx="8"
-        fill="#ffffff"
-        stroke="#cbd5e1"
-        strokeWidth="1.5"
-        className="transition-transform duration-500 ease-out group-hover:translate-x-[-2px]"
-      />
-      <path
-        d="M 22 54 L 34 46 L 46 50 L 62 36"
-        stroke="#93c5fd"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="transition-colors duration-300 group-hover:stroke-[#3b82f6]"
-      />
-      <circle cx="62" cy="36" r="3" fill="#315EFF" />
-
-      {/* Layer 2: Radiant Value Bulb Floating in Foreground */}
-      <g className="origin-[74px_42px] transition-transform duration-500 ease-out group-hover:translate-x-1 group-hover:-translate-y-1">
-        {/* Radiating Energy Rays */}
-        <g className="origin-[74px_42px] opacity-60 transition-all duration-500 group-hover:opacity-100 group-hover:scale-115">
-          <line x1="74" y1="18" x2="74" y2="24" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
-          <line x1="56" y1="26" x2="61" y2="31" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
-          <line x1="92" y1="26" x2="87" y2="31" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
-          <line x1="50" y1="44" x2="56" y2="44" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
-          <line x1="98" y1="44" x2="92" y2="44" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
-        </g>
-
-        {/* Bulb Body */}
-        <path
-          d="M 64 42 C 64 34, 69 28, 74 28 C 79 28, 84 34, 84 42 C 84 46, 81 49, 80 52 L 68 52 C 67 49, 64 46, 64 42 Z"
+      {/* Analytical Dashboard Container */}
+      <g className="transition-transform duration-500 ease-out group-hover:translate-x-[-1px] group-hover:-translate-y-1">
+        <rect
+          x="12"
+          y="18"
+          width="74"
+          height="54"
+          rx="10"
           fill="#ffffff"
-          stroke="#1d4ed8"
-          strokeWidth="2.5"
+          stroke="#cbd5e1"
+          strokeWidth="1.5"
         />
-        {/* Bulb Base */}
-        <rect x="69" y="53" width="10" height="3" rx="1.5" fill="#93c5fd" />
-        <rect x="71" y="57" width="6" height="2" rx="1" fill="#60a5fa" />
+        {/* Subtle Horizontal Guide Lines */}
+        <line x1="18" y1="32" x2="80" y2="32" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="2 3" />
+        <line x1="18" y1="46" x2="80" y2="46" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="2 3" />
+        <line x1="18" y1="60" x2="80" y2="60" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="2 3" />
 
-        {/* Core Glowing Filament */}
+        {/* Gradient Area Chart Fill */}
         <path
-          d="M 70 42 Q 74 36, 78 42"
-          stroke="#315EFF"
-          strokeWidth="2"
-          strokeLinecap="round"
-          className="transition-transform duration-300 group-hover:scale-110"
+          d="M 18 58 Q 32 54, 42 46 T 68 28 L 78 26 L 78 64 L 18 64 Z"
+          fill="url(#liteInsightGradient)"
         />
+
+        {/* Ascending Value Curve */}
+        <path
+          d="M 18 58 Q 32 54, 42 46 T 68 28 L 78 26"
+          stroke="#315EFF"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <circle cx="42" cy="46" r="2.5" fill="#93c5fd" />
+        <circle cx="68" cy="28" r="3" fill="#1d4ed8" />
+      </g>
+
+      {/* Floating Precision AI Insight Chip at Inflection Point */}
+      <g className="origin-[76px_26px] transition-transform duration-300 group-hover:scale-115">
+        <rect x="62" y="14" width="36" height="18" rx="6" fill="#315EFF" stroke="#1d4ed8" strokeWidth="1.5" />
+        {/* Sparkle Glyphs & Metric */}
+        <path d="M 69 23 L 70 20 L 71 23 L 74 24 L 71 25 L 70 28 L 69 25 L 66 24 Z" fill="#ffffff" />
+        <text x="76" y="26.5" fill="#ffffff" fontSize="8" fontWeight="bold" fontFamily="sans-serif">
+          +ROI
+        </text>
+        <circle cx="80" cy="23" r="16" stroke="#60a5fa" strokeWidth="1" strokeDasharray="3 3" className="opacity-0 group-hover:opacity-100 transition-opacity" />
       </g>
     </svg>
   </div>
 );
 
-/** 4. Scale When You Are Ready: Velocity Rocket Launch Illustration (ZERO yellow) */
+/** 4. Scale When You Are Ready: Modular Architecture Expansion */
 const ScaleRocketIllustration = () => (
   <div
     aria-hidden="true"
@@ -277,56 +264,263 @@ const ScaleRocketIllustration = () => (
       xmlns="http://www.w3.org/2000/svg"
       className="h-full w-full overflow-visible"
     >
-      {/* Soft Ambient Aura Blob */}
       <path
         d="M 20 45 C 16 20, 50 12, 82 20 C 102 26, 105 58, 92 74 C 76 88, 36 86, 22 72 C 16 62, 22 52, 20 45 Z"
         fill="#eff6ff"
         className="transition-colors duration-500 group-hover:fill-[#dbeafe]"
       />
 
-      {/* Stepped Scale Growth Bars in Background */}
-      <rect x="18" y="54" width="9" height="16" rx="2.5" fill="#cbd5e1" />
-      <rect x="31" y="44" width="9" height="26" rx="2.5" fill="#93c5fd" />
-      <rect x="44" y="32" width="9" height="38" rx="2.5" fill="#3b82f6" />
+      {/* Tier 1: Single Lite Workflow Stack */}
+      <g className="transition-transform duration-500 ease-out group-hover:translate-y-1">
+        <rect x="16" y="52" width="24" height="18" rx="5" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1.5" />
+        <rect x="20" y="57" width="16" height="3" rx="1.5" fill="#94a3b8" />
+        <rect x="20" y="62" width="10" height="2" rx="1" fill="#e2e8f0" />
+      </g>
 
-      {/* Curved Launch Trajectory Arc */}
-      <path
-        d="M 28 66 Q 48 50, 76 22"
-        stroke="#93c5fd"
-        strokeWidth="2"
-        strokeDasharray="4 4"
-        fill="none"
-        className="transition-colors duration-500 group-hover:stroke-[#315EFF]"
-      />
+      {/* Tier 2: Orchestrated Multi-Workflow Stack */}
+      <g className="transition-transform duration-500 ease-out group-hover:-translate-y-0.5">
+        <rect x="36" y="38" width="28" height="24" rx="6" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.8" />
+        <rect x="42" y="44" width="16" height="3" rx="1.5" fill="#3b82f6" />
+        <rect x="42" y="50" width="12" height="2" rx="1" fill="#bfdbfe" />
+        <circle cx="58" cy="54" r="2" fill="#315EFF" />
+      </g>
 
-      {/* Aerospace Rocket Vessel (Zero yellow: crisp blue/cyan ion thrust) */}
-      <g className="origin-center transition-transform duration-500 ease-out group-hover:translate-x-2 group-hover:-translate-y-2">
-        {/* Ion Thruster Plume in Blue/Cyan */}
+      {/* Tier 3: Enterprise Platform Stack with High-Tech Glow */}
+      <g className="transition-transform duration-500 ease-out group-hover:-translate-y-2">
+        <rect x="58" y="20" width="34" height="28" rx="7" fill="#315EFF" stroke="#1d4ed8" strokeWidth="2" />
+        <rect x="64" y="26" width="22" height="3" rx="1.5" fill="#ffffff" />
+        <rect x="64" y="32" width="14" height="2.5" rx="1" fill="#bfdbfe" />
+        <circle cx="84" cy="38" r="3" fill="#ffffff" />
+        <circle cx="72" cy="38" r="2" fill="#93c5fd" />
+      </g>
+
+      {/* Kinetic Velocity Vector Arrow Traversing Upward */}
+      <g className="transition-transform duration-500 ease-out group-hover:translate-x-1 group-hover:-translate-y-1.5">
         <path
-          d="M 52 56 L 44 68 L 57 62 Z"
-          fill="#60a5fa"
-          className="transition-transform duration-300 group-hover:scale-125"
-        />
-        <path d="M 53 57 L 48 65 L 56 61 Z" fill="#93c5fd" />
-
-        {/* Rocket Wings */}
-        <path d="M 56 46 L 48 54 L 57 58 Z" fill="#1e40af" />
-        <path d="M 72 32 L 80 40 L 76 48 Z" fill="#1e40af" />
-
-        {/* Fuselage */}
-        <path
-          d="M 57 56 C 58 46, 68 34, 84 18 C 68 34, 54 44, 44 58 C 48 58, 52 57, 57 56 Z"
-          fill="#315EFF"
-          stroke="#1e3a8a"
+          d="M 24 72 Q 44 64, 58 48 T 92 18"
+          stroke="#1d4ed8"
           strokeWidth="2.5"
+          strokeDasharray="4 4"
+          strokeLinecap="round"
+          fill="none"
         />
-        {/* White Nose Cone */}
-        <path
-          d="M 75 27 C 79 22, 82 19, 84 18 C 83 20, 80 23, 75 27 Z"
-          fill="#ffffff"
-        />
-        {/* Cockpit Porthole */}
-        <circle cx="68" cy="34" r="3.5" fill="#ffffff" stroke="#1e3a8a" strokeWidth="1.5" />
+        {/* Forward Arrowhead */}
+        <polygon points="94,15 84,18 90,24" fill="#315EFF" />
+        {/* Expansion Orbit Rings */}
+        <circle cx="92" cy="18" r="6" stroke="#93c5fd" strokeWidth="1" strokeDasharray="2 2" />
+      </g>
+    </svg>
+  </div>
+);
+
+// =========================================================================
+// SECTION 7: WHAT YOU GET (BENEFIT MICRO-ILLUSTRATIONS)
+// =========================================================================
+
+/** 7.1 Save Time: Automated Time-Recovery Clock */
+const SaveTimeIllustration = () => (
+  <div aria-hidden="true" className="relative h-14 w-18 sm:h-16 sm:w-20 shrink-0 select-none overflow-visible">
+    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      <circle cx="40" cy="32" r="20" stroke="#93c5fd" strokeWidth="2" fill="#ffffff" />
+      {/* Reclaimed Time Arc */}
+      <path d="M 40 12 A 20 20 0 0 1 58 40" stroke="#315EFF" strokeWidth="3" strokeLinecap="round" />
+      {/* Center Pin & Hands */}
+      <circle cx="40" cy="32" r="2.5" fill="#1d4ed8" />
+      <line x1="40" y1="32" x2="40" y2="20" stroke="#1d4ed8" strokeWidth="2" strokeLinecap="round" />
+      <line x1="40" y1="32" x2="50" y2="32" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" />
+      {/* Time Saved Badge */}
+      <g className="transition-transform duration-300 group-hover:scale-110">
+        <rect x="46" y="38" width="24" height="13" rx="4" fill="#315EFF" />
+        <text x="50" y="47.5" fill="#ffffff" fontSize="7" fontWeight="bold" fontFamily="sans-serif">-4h</text>
+      </g>
+    </svg>
+  </div>
+);
+
+/** 7.2 Increase Productivity: Multi-Stream Turbo Throughput */
+const IncreaseProductivityIllustration = () => (
+  <div aria-hidden="true" className="relative h-14 w-18 sm:h-16 sm:w-20 shrink-0 select-none overflow-visible">
+    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      {/* Pipeline 1 */}
+      <rect x="14" y="20" width="46" height="7" rx="3.5" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.5" />
+      <rect x="16" y="22" width="28" height="3" rx="1.5" fill="#315EFF" className="transition-all duration-500 group-hover:w-36" />
+      {/* Pipeline 2 */}
+      <rect x="14" y="32" width="50" height="7" rx="3.5" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.5" />
+      <rect x="16" y="34" width="38" height="3" rx="1.5" fill="#315EFF" className="transition-all duration-500 group-hover:w-44" />
+      {/* Pipeline 3 */}
+      <rect x="14" y="44" width="42" height="7" rx="3.5" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.5" />
+      <rect x="16" y="46" width="24" height="3" rx="1.5" fill="#315EFF" className="transition-all duration-500 group-hover:w-32" />
+      {/* Turbo Accelerator Star */}
+      <g className="origin-[58px_24px] transition-transform duration-300 group-hover:scale-120">
+        <circle cx="58" cy="24" r="8" fill="#315EFF" />
+        <path d="M 58 19 L 59.5 22.5 L 63 24 L 59.5 25.5 L 58 29 L 56.5 25.5 L 53 24 L 56.5 22.5 Z" fill="#ffffff" />
+      </g>
+    </svg>
+  </div>
+);
+
+/** 7.3 Respond Faster: Lightning Instant-Reply Beacon */
+const RespondFasterIllustration = () => (
+  <div aria-hidden="true" className="relative h-14 w-18 sm:h-16 sm:w-20 shrink-0 select-none overflow-visible">
+    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      {/* Radar Broadcast Waves */}
+      <circle cx="40" cy="32" r="16" stroke="#bfdbfe" strokeWidth="1.5" strokeDasharray="3 3" />
+      <circle cx="40" cy="32" r="22" stroke="#dbeafe" strokeWidth="1" strokeDasharray="4 4" />
+      {/* Central High-Speed Beacon */}
+      <rect x="26" y="18" width="28" height="28" rx="8" fill="#ffffff" stroke="#315EFF" strokeWidth="2" className="transition-transform duration-300 group-hover:scale-105" />
+      {/* Bolt Glyph */}
+      <path d="M 42 22 L 35 33 L 41 33 L 38 42 L 46 31 L 40 31 Z" fill="#315EFF" />
+      {/* Fast Notification Pip */}
+      <circle cx="54" cy="20" r="3.5" fill="#1d4ed8" />
+    </svg>
+  </div>
+);
+
+/** 7.4 See What Matters: Priority Spotlight Radar */
+const SeeWhatMattersIllustration = () => (
+  <div aria-hidden="true" className="relative h-14 w-18 sm:h-16 sm:w-20 shrink-0 select-none overflow-visible">
+    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      {/* Background Dimmed Cards */}
+      <rect x="14" y="34" width="26" height="18" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1.2" opacity="0.6" />
+      <rect x="42" y="36" width="24" height="16" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1.2" opacity="0.6" />
+      {/* Elevated Spotlight Target Card */}
+      <g className="transition-transform duration-300 group-hover:-translate-y-1">
+        <rect x="22" y="14" width="36" height="26" rx="6" fill="#ffffff" stroke="#315EFF" strokeWidth="2" />
+        <rect x="26" y="18" width="16" height="3" rx="1.5" fill="#315EFF" />
+        <rect x="26" y="24" width="24" height="2" rx="1" fill="#cbd5e1" />
+        <rect x="26" y="29" width="18" height="2" rx="1" fill="#cbd5e1" />
+        {/* High Priority Star */}
+        <circle cx="50" cy="19" r="4" fill="#315EFF" />
+        <path d="M 50 17 L 50.8 18.5 L 52.5 19 L 50.8 19.5 L 50 21 L 49.2 19.5 L 47.5 19 L 49.2 18.5 Z" fill="#ffffff" />
+      </g>
+    </svg>
+  </div>
+);
+
+/** 7.5 Stay Organized: Structured Workspace Matrix */
+const StayOrganizedIllustration = () => (
+  <div aria-hidden="true" className="relative h-14 w-18 sm:h-16 sm:w-20 shrink-0 select-none overflow-visible">
+    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      {/* Modular Organized Drawer Container */}
+      <rect x="16" y="14" width="48" height="36" rx="6" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1.5" />
+      {/* Drawer 1 */}
+      <rect x="20" y="18" width="40" height="7" rx="3" fill="#eff6ff" stroke="#93c5fd" strokeWidth="1" className="transition-transform duration-300 group-hover:translate-x-1" />
+      <circle cx="25" cy="21.5" r="1.5" fill="#315EFF" />
+      {/* Drawer 2 */}
+      <rect x="20" y="28" width="40" height="7" rx="3" fill="#ffffff" stroke="#93c5fd" strokeWidth="1" className="transition-transform duration-300 group-hover:translate-x-1.5" />
+      <circle cx="25" cy="31.5" r="1.5" fill="#1d4ed8" />
+      {/* Drawer 3 */}
+      <rect x="20" y="38" width="40" height="7" rx="3" fill="#eff6ff" stroke="#93c5fd" strokeWidth="1" className="transition-transform duration-300 group-hover:translate-x-1" />
+      <circle cx="25" cy="41.5" r="1.5" fill="#315EFF" />
+    </svg>
+  </div>
+);
+
+/** 7.6 Make Better Decisions: Data-to-Decision Prism */
+const MakeBetterDecisionsIllustration = () => (
+  <div aria-hidden="true" className="relative h-14 w-18 sm:h-16 sm:w-20 shrink-0 select-none overflow-visible">
+    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      <circle cx="40" cy="32" r="24" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      {/* Incoming Stream Lines */}
+      <line x1="14" y1="24" x2="32" y2="32" stroke="#93c5fd" strokeWidth="2" strokeLinecap="round" />
+      <line x1="14" y1="32" x2="32" y2="32" stroke="#93c5fd" strokeWidth="2" strokeLinecap="round" />
+      <line x1="14" y1="40" x2="32" y2="32" stroke="#93c5fd" strokeWidth="2" strokeLinecap="round" />
+      {/* Central Decision Prism Diamond */}
+      <g className="origin-[38px_32px] transition-transform duration-300 group-hover:scale-115">
+        <polygon points="38,20 48,32 38,44 28,32" fill="#315EFF" stroke="#1d4ed8" strokeWidth="1.5" />
+        <circle cx="38" cy="32" r="2.5" fill="#ffffff" />
+      </g>
+      {/* Forward Action Trajectory Arrow */}
+      <g className="transition-transform duration-300 group-hover:translate-x-1.5">
+        <line x1="48" y1="32" x2="66" y2="22" stroke="#1d4ed8" strokeWidth="2.5" strokeLinecap="round" />
+        <polygon points="68,21 60,22 64,28" fill="#1d4ed8" />
+      </g>
+    </svg>
+  </div>
+);
+
+// =========================================================================
+// SECTION 10: BUILT AROUND THE WAY YOU WORK (FEATURE ILLUSTRATIONS)
+// =========================================================================
+
+/** 10.1 Bring Information Together: Central Integration Nexus */
+const BringTogetherIllustration = () => (
+  <div aria-hidden="true" className="relative h-16 w-20 mx-auto select-none overflow-visible mb-4">
+    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      <circle cx="40" cy="32" r="22" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      {/* Satellite Integration Nodes */}
+      <circle cx="18" cy="20" r="6" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.5" />
+      <circle cx="18" cy="44" r="6" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.5" />
+      <circle cx="62" cy="32" r="6" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.5" />
+      {/* Converging Bus Lines */}
+      <path d="M 24 20 Q 32 24, 40 32" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" fill="none" />
+      <path d="M 24 44 Q 32 40, 40 32" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" fill="none" />
+      <path d="M 56 32 L 40 32" stroke="#315EFF" strokeWidth="2" strokeLinecap="round" fill="none" />
+      {/* Central Unified Core */}
+      <g className="origin-[40px_32px] transition-transform duration-300 group-hover:scale-115">
+        <rect x="30" y="22" width="20" height="20" rx="6" fill="#315EFF" stroke="#1d4ed8" strokeWidth="2" />
+        <circle cx="40" cy="32" r="3" fill="#ffffff" />
+      </g>
+    </svg>
+  </div>
+);
+
+/** 10.2 Reduce Repeated Tasks: Automated Loop-Bypass Highway */
+const ReduceRepeatedTasksIllustration = () => (
+  <div aria-hidden="true" className="relative h-16 w-20 mx-auto select-none overflow-visible mb-4">
+    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      <circle cx="40" cy="32" r="22" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      {/* Faded Circular Loop */}
+      <path d="M 32 20 A 14 14 0 1 0 48 44" stroke="#cbd5e1" strokeWidth="2" strokeDasharray="3 3" fill="none" />
+      {/* High-Speed Direct Automated Expressway */}
+      <path d="M 16 32 L 64 32" stroke="#315EFF" strokeWidth="3" strokeLinecap="round" />
+      {/* Moving Automated Progress Particle */}
+      <g className="transition-transform duration-500 ease-out group-hover:translate-x-3">
+        <circle cx="42" cy="32" r="6" fill="#1d4ed8" stroke="#ffffff" strokeWidth="1.5" />
+        <polygon points="62,32 54,28 56,32 54,36" fill="#315EFF" />
+      </g>
+    </svg>
+  </div>
+);
+
+/** 10.3 Surface Priorities: Smart Queue Elevator */
+const SurfacePrioritiesIllustration = () => (
+  <div aria-hidden="true" className="relative h-16 w-20 mx-auto select-none overflow-visible mb-4">
+    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      <circle cx="40" cy="32" r="22" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      {/* Stacked Lower Queue */}
+      <rect x="22" y="42" width="36" height="7" rx="3.5" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1.5" />
+      <rect x="22" y="32" width="36" height="7" rx="3.5" fill="#ffffff" stroke="#cbd5e1" strokeWidth="1.5" />
+      {/* Elevated Priority Item */}
+      <g className="transition-transform duration-300 group-hover:-translate-y-2">
+        <rect x="18" y="16" width="44" height="12" rx="4" fill="#315EFF" stroke="#1d4ed8" strokeWidth="1.5" />
+        <rect x="24" y="20.5" width="20" height="3" rx="1.5" fill="#ffffff" />
+        <circle cx="54" cy="22" r="2.5" fill="#93c5fd" />
+      </g>
+    </svg>
+  </div>
+);
+
+/** 10.4 Move Info -> Action Faster: Kinetic Accelerator */
+const InformationToActionIllustration = () => (
+  <div aria-hidden="true" className="relative h-16 w-20 mx-auto select-none overflow-visible mb-4">
+    <svg viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full overflow-visible">
+      <circle cx="40" cy="32" r="22" fill="#eff6ff" className="transition-colors duration-500 group-hover:fill-[#dbeafe]" />
+      {/* Source Info Document */}
+      <rect x="12" y="22" width="18" height="20" rx="4" fill="#ffffff" stroke="#93c5fd" strokeWidth="1.5" />
+      <line x1="16" y1="28" x2="24" y2="28" stroke="#315EFF" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="16" y1="34" x2="22" y2="34" stroke="#cbd5e1" strokeWidth="1.5" strokeLinecap="round" />
+      {/* Acceleration Beam */}
+      <line x1="33" y1="32" x2="47" y2="32" stroke="#315EFF" strokeWidth="2.5" strokeDasharray="3 3" strokeLinecap="round" />
+      {/* Target Action Badge */}
+      <g className="transition-transform duration-300 group-hover:translate-x-1.5">
+        <rect x="50" y="20" width="22" height="24" rx="6" fill="#315EFF" stroke="#1d4ed8" strokeWidth="2" />
+        <path d="M 62 24 L 57 32 L 61 32 L 59 40 L 65 31 L 61 31 Z" fill="#ffffff" />
       </g>
     </svg>
   </div>
@@ -901,81 +1095,93 @@ const ControlTowerLite = () => {
             </h2>
           </div>
 
-          {/* 6 Benefit Cards following CollabAI Card Token */}
+          {/* 6 Benefit Cards following CollabAI Card Token with Responsive Illustrations */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {/* 1: Save Time */}
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
-                <Clock className="h-5 w-5" />
+            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-brand-primary leading-snug">
+                    Save Time
+                  </h3>
+                </div>
+                <SaveTimeIllustration />
               </div>
-              <h3 className="text-xl font-bold text-brand-primary mb-2">
-                Save Time
-              </h3>
               <p className="text-sm text-slate-secondary leading-relaxed">
                 Reduce repetitive everyday work.
               </p>
             </div>
 
             {/* 2: Increase Productivity */}
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
-                <Zap className="h-5 w-5" />
+            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-brand-primary leading-snug">
+                    Increase Productivity
+                  </h3>
+                </div>
+                <IncreaseProductivityIllustration />
               </div>
-              <h3 className="text-xl font-bold text-brand-primary mb-2">
-                Increase Productivity
-              </h3>
               <p className="text-sm text-slate-secondary leading-relaxed">
                 Help your team complete more without adding unnecessary manual steps.
               </p>
             </div>
 
             {/* 3: Respond Faster */}
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
-                <Rocket className="h-5 w-5" />
+            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-brand-primary leading-snug">
+                    Respond Faster
+                  </h3>
+                </div>
+                <RespondFasterIllustration />
               </div>
-              <h3 className="text-xl font-bold text-brand-primary mb-2">
-                Respond Faster
-              </h3>
               <p className="text-sm text-slate-secondary leading-relaxed">
                 Keep customers, leads and important tasks moving.
               </p>
             </div>
 
             {/* 4: See What Matters */}
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
-                <Target className="h-5 w-5" />
+            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-brand-primary leading-snug">
+                    See What Matters
+                  </h3>
+                </div>
+                <SeeWhatMattersIllustration />
               </div>
-              <h3 className="text-xl font-bold text-brand-primary mb-2">
-                See What Matters
-              </h3>
               <p className="text-sm text-slate-secondary leading-relaxed">
                 Surface priorities without digging through multiple systems.
               </p>
             </div>
 
             {/* 5: Stay Organized */}
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
-                <Boxes className="h-5 w-5" />
+            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-brand-primary leading-snug">
+                    Stay Organized
+                  </h3>
+                </div>
+                <StayOrganizedIllustration />
               </div>
-              <h3 className="text-xl font-bold text-brand-primary mb-2">
-                Stay Organized
-              </h3>
               <p className="text-sm text-slate-secondary leading-relaxed">
                 Keep important information and work easier to manage.
               </p>
             </div>
 
             {/* 6: Make Better Decisions */}
-            <div className="rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-lg hover:shadow-[hsl(var(--brand-secondary))]/10">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mb-5">
-                <LineChart className="h-5 w-5" />
+            <div className="group relative flex flex-col justify-between rounded-2xl border border-border bg-card p-7 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10">
+              <div className="flex items-start justify-between gap-3 mb-4">
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-brand-primary leading-snug">
+                    Make Better Decisions
+                  </h3>
+                </div>
+                <MakeBetterDecisionsIllustration />
               </div>
-              <h3 className="text-xl font-bold text-brand-primary mb-2">
-                Make Better Decisions
-              </h3>
               <p className="text-sm text-slate-secondary leading-relaxed">
                 Turn business information into useful insights and clearer next actions.
               </p>
@@ -1050,38 +1256,34 @@ const ControlTowerLite = () => {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
-            <div className="rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))]">
-              <div className="grid h-12 w-12 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mx-auto mb-4">
-                <Boxes className="h-6 w-6" />
-              </div>
-              <h3 className="text-base font-semibold text-brand-primary">
+            {/* Card 1: Bring information together */}
+            <div className="group rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10 flex flex-col items-center justify-between">
+              <BringTogetherIllustration />
+              <h3 className="text-base font-semibold text-brand-primary mt-2">
                 Bring information together.
               </h3>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))]">
-              <div className="grid h-12 w-12 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mx-auto mb-4">
-                <Clock className="h-6 w-6" />
-              </div>
-              <h3 className="text-base font-semibold text-brand-primary">
+            {/* Card 2: Reduce repeated tasks */}
+            <div className="group rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10 flex flex-col items-center justify-between">
+              <ReduceRepeatedTasksIllustration />
+              <h3 className="text-base font-semibold text-brand-primary mt-2">
                 Reduce repeated tasks.
               </h3>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))]">
-              <div className="grid h-12 w-12 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mx-auto mb-4">
-                <Target className="h-6 w-6" />
-              </div>
-              <h3 className="text-base font-semibold text-brand-primary">
+            {/* Card 3: Surface priorities */}
+            <div className="group rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10 flex flex-col items-center justify-between">
+              <SurfacePrioritiesIllustration />
+              <h3 className="text-base font-semibold text-brand-primary mt-2">
                 Surface priorities.
               </h3>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))]">
-              <div className="grid h-12 w-12 place-items-center rounded-xl bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] mx-auto mb-4">
-                <ArrowRight className="h-6 w-6" />
-              </div>
-              <h3 className="text-base font-semibold text-brand-primary">
+            {/* Card 4: Help your team move from information → action faster */}
+            <div className="group rounded-2xl border border-border bg-card p-7 text-center shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[hsl(var(--brand-secondary))] hover:shadow-xl hover:shadow-[hsl(var(--brand-secondary))]/10 flex flex-col items-center justify-between">
+              <InformationToActionIllustration />
+              <h3 className="text-base font-semibold text-brand-primary mt-2">
                 Help your team move from information → action faster.
               </h3>
             </div>
@@ -1283,30 +1485,19 @@ const ControlTowerLite = () => {
       <section className="py-20 bg-background border-t border-border">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-10 border-b border-border">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center">
               <img
                 src={sjInnovationLogo}
                 alt="SJ Innovation"
                 className="h-10 sm:h-12 w-auto object-contain"
               />
-              <div className="h-8 w-px bg-border" />
-              <div className="flex items-center gap-2.5">
-                <img
-                  src={iso27001Logo}
-                  alt="ISO 27001 Certified"
-                  className="h-8 sm:h-9 w-auto object-contain"
-                />
-                <span className="text-xs font-semibold text-muted-foreground max-w-[150px] leading-tight hidden md:inline-block">
-                  ISO/IEC 27001:2022 Certified Information Security
-                </span>
-              </div>
             </div>
             <div className="text-left sm:text-right">
               <div className="inline-block rounded-full bg-slate-light border border-border px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[hsl(var(--brand-secondary))] mb-2">
                 BUILT AND BROUGHT TO YOU BY SJ INNOVATION
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-primary leading-tight">
-                22+ Years of Proven Technology Delivery.
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-brand-primary leading-tight [text-wrap:balance]">
+                22+ Years of Proven Technology&nbsp;Delivery.
               </h2>
             </div>
           </div>

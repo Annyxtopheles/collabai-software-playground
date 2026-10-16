@@ -594,6 +594,7 @@ const FallingText: FC<FallingTextProps> = ({
                     key={position}
                     className={`${pieceClass}${group.highlighted ? ` ${highlightClass}` : ''}`}
                     data-piece=""
+                    data-word={group.word}
                     data-highlight={group.highlighted ? '' : undefined}
                   >
                     {letter}
@@ -604,6 +605,7 @@ const FallingText: FC<FallingTextProps> = ({
               <span
                 className={`${pieceClass}${group.highlighted ? ` ${highlightClass}` : ''}`}
                 data-piece=""
+                data-word={group.word}
                 data-highlight={group.highlighted ? '' : undefined}
               >
                 {group.word}

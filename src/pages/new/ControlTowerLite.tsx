@@ -952,19 +952,13 @@ const ControlTowerLite = () => {
         </div>
 
         <div className="container relative z-10 mx-auto px-4">
-          <div className="mx-auto max-w-4xl text-center">
-            {/* Eyebrow Badge (Frosted White Capsule) */}
-            <div className="mb-6">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur-md px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white shadow-xs">
-                <Sparkles className="w-3.5 h-3.5 text-blue-200" />
-                <span>INTRODUCING LITE · DESIGNED TO MAKE YOUR FIRST STEP EASIER</span>
+          <div className="mx-auto max-w-5xl lg:max-w-6xl text-center">
+            {/* Main Headline: Exactly 2 lines */}
+            <h1 className="text-3xl font-extrabold leading-[1.18] text-white sm:text-5xl lg:text-[3.65rem] xl:text-[4rem] tracking-tight">
+              <span className="block whitespace-normal md:whitespace-nowrap">
+                You Don’t Need the Biggest AI System.
               </span>
-            </div>
-
-            {/* Main Headline */}
-            <h1 className="text-4xl font-extrabold leading-[1.1] text-white sm:text-5xl lg:text-6xl tracking-tight text-balance">
-              <span>You Don’t Need the Biggest AI System.</span>
-              <span className="block mt-2 text-white">
+              <span className="block mt-2 text-white whitespace-normal md:whitespace-nowrap">
                 You Need the Right Starting Point.
               </span>
             </h1>
@@ -973,14 +967,6 @@ const ControlTowerLite = () => {
             <p className="mx-auto mt-6 max-w-2xl text-lg sm:text-xl text-blue-100/95 leading-relaxed text-pretty">
               AI projects often become complicated because businesses try to solve everything at once.
             </p>
-
-            {/* Trust Badges */}
-            <div className="mt-5 flex items-center justify-center">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-4 py-1.5 text-[11px] sm:text-xs uppercase tracking-[0.14em] text-white/90 shadow-2xs">
-                <Lock className="w-3.5 h-3.5 text-blue-200" />
-                Private by design · Self-hosted by default · Real workflows on day one
-              </span>
-            </div>
 
             {/* CTAs */}
             <div className="mt-8 flex items-center justify-center">
@@ -994,14 +980,14 @@ const ControlTowerLite = () => {
               </button>
             </div>
 
-            {/* Industry Coverage: Interactive 2D Physics Falling Tiles (No Dots, Bigger, Matter.js) */}
+            {/* Industry Coverage: Interactive 2D Physics Falling Tiles (Unbounded, Drag-Enabled, Custom Hover Glows) */}
             <div className="mt-14 pt-8 border-t border-white/20">
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-blue-100/95 mb-4 text-center">
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-blue-100/95 mb-6 text-center">
                 AI solutions for agencies, healthcare, nonprofits, mortgage, realtors, marketing, client success, &amp; GoHighLevel agencies
               </p>
 
-              {/* Matter.js Physics Canvas Container */}
-              <div className="relative mx-auto h-48 sm:h-56 w-full max-w-4xl rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-2 overflow-hidden shadow-2xl">
+              {/* Unbounded Canvas Container (Seamless, no card border, transparent) */}
+              <div className="relative mx-auto h-44 sm:h-52 w-full max-w-5xl overflow-hidden select-none">
                 <FallingText
                   words={INDUSTRIES_TICKER}
                   variant="tiles"
@@ -1009,17 +995,15 @@ const ControlTowerLite = () => {
                   fontSize="1.15rem"
                   trigger="auto"
                   gravity={0.85}
-                  bounciness={0.35}
-                  scatter={0.4}
+                  bounciness={0.3}
+                  scatter={0.35}
                   stagger={0.04}
                   draggable={true}
-                  cursorPush={0.65}
-                  className="w-full h-full"
+                  mouseConstraintStiffness={0.35}
+                  cursorPush={0}
+                  className="w-full h-full bg-transparent"
                 />
               </div>
-              <p className="text-[11px] font-medium text-blue-200/80 mt-2.5 text-center">
-                Interactive: Click &amp; drag or flick any industry tile around
-              </p>
             </div>
           </div>
         </div>
@@ -1030,7 +1014,7 @@ const ControlTowerLite = () => {
          ========================================================================= */}
       <section className="py-24 bg-slate-light border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-5xl text-center">
             <div className="inline-flex items-center space-x-2 bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
               WHAT “LITE” ACTUALLY MEANS
             </div>
@@ -1039,10 +1023,10 @@ const ControlTowerLite = () => {
               <span className="block mt-1 sm:inline sm:mt-0">Not Just Another AI Demo.</span>
             </h2>
             <div className="mt-5 space-y-3 text-base sm:text-lg text-slate-secondary leading-relaxed">
-              <p>
+              <p className="whitespace-normal md:whitespace-nowrap">
                 Our Lite products are focused versions of larger AI platforms and industry solutions.
               </p>
-              <p>
+              <p className="max-w-2xl mx-auto">
                 Instead of asking you to commit to a large system before you know how it fits your business, Lite gives you a practical way to start with the workflows that matter most.
               </p>
             </div>

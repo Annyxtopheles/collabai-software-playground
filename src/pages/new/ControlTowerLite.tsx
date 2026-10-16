@@ -748,28 +748,53 @@ const ENTERPRISE_CAPABILITIES = [
   { id: "industry-specific", name: "Industry-specific development", icon: Building2 },
 ];
 
-const ZIG_ZAG_COORDS = [
-  { x: 22, y: 12 }, // 0: Top Left (Custom AI workflows)
-  { x: 74, y: 14 }, // 1: Top Right (Deeper system integrations)
-  { x: 24, y: 36 }, // 2: Upper Mid Left (Multi-team solutions)
-  { x: 72, y: 40 }, // 3: Center Mid Right (Custom dashboards)
-  { x: 26, y: 62 }, // 4: Lower Mid Left (AI automation)
-  { x: 75, y: 64 }, // 5: Lower Mid Right (Private AI environments)
-  { x: 24, y: 88 }, // 6: Bottom Left (Self-hosted solutions)
-  { x: 72, y: 88 }, // 7: Bottom Right (Industry-specific development)
+// Random scattered 2D coordinates for the 8 capability pills across the canvas
+const CONSTELLATION_COORDS = [
+  { x: 20, y: 14 }, // 0: Custom AI workflows (Top Left)
+  { x: 68, y: 12 }, // 1: Deeper system integrations (Top Right)
+  { x: 38, y: 34 }, // 2: Multi-team solutions (Upper Center)
+  { x: 80, y: 38 }, // 3: Custom dashboards (Right Mid)
+  { x: 16, y: 56 }, // 4: AI automation (Left Mid)
+  { x: 58, y: 58 }, // 5: Private AI environments (Center Lower)
+  { x: 24, y: 84 }, // 6: Self-hosted solutions (Bottom Left)
+  { x: 74, y: 82 }, // 7: Industry-specific development (Bottom Right)
 ];
 
+// Coherent network edges connecting adjacent spatial neighbors
+const CONSTELLATION_EDGES: [number, number][] = [
+  [0, 1],
+  [0, 2],
+  [1, 2],
+  [1, 3],
+  [2, 3],
+  [2, 4],
+  [2, 5],
+  [3, 5],
+  [3, 7],
+  [4, 5],
+  [4, 6],
+  [5, 6],
+  [5, 7],
+  [6, 7],
+];
+
+// Natural loop traversal path for the animated active pulse beam
+const CONSTELLATION_TRAVERSAL = [0, 1, 3, 7, 5, 6, 4, 2];
+
 const ControlTowerLite = () => {
-  const [activeCapabilityIndex, setActiveCapabilityIndex] = useState(0);
+  const [constellationStep, setConstellationStep] = useState(0);
   const [activeCapabilityIndex2, setActiveCapabilityIndex2] = useState(0);
   const [filterCategory, setFilterCategory] = useState<"all" | "agency" | "industry" | "growth">("all");
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveCapabilityIndex((prev) => (prev + 1) % ENTERPRISE_CAPABILITIES.length);
-    }, 3600);
+      setConstellationStep((prev) => (prev + 1) % CONSTELLATION_TRAVERSAL.length);
+    }, 3200);
     return () => clearInterval(timer);
   }, []);
+
+  const activeCapabilityIndex = CONSTELLATION_TRAVERSAL[constellationStep];
+  const nextCapabilityIndex = CONSTELLATION_TRAVERSAL[(constellationStep + 1) % CONSTELLATION_TRAVERSAL.length];
 
   useEffect(() => {
     const timer2 = setInterval(() => {
@@ -1407,116 +1432,68 @@ const ControlTowerLite = () => {
               </div>
             </div>
 
-            {/* Right Column: Connected Zig-Zag Constellation (No Card, Background Graphic Visible, Sequential Animated Pulse Lines) */}
+            {/* Right Column: Connected Organic Constellation (No Clutter, Ultra-thin Coherent Lines, Random Scattered Placement) */}
             <div className="lg:col-span-7 relative w-full h-[520px] sm:h-[480px] select-none flex items-center justify-center">
-              {/* Background Ambient SVG Ribbons Graphic */}
-              <div className="pointer-events-none absolute inset-0 -z-0 opacity-45 overflow-visible">
-                <svg viewBox="0 0 540 380" fill="none" className="h-full w-full">
-                  <motion.path
-                    d="M 20 280 C 110 280, 150 70, 270 85 C 370 100, 420 230, 520 140"
-                    stroke="#ffffff"
-                    strokeWidth="32"
-                    strokeLinecap="round"
-                    fill="none"
-                    filter="drop-shadow(0 0 20px rgba(255,255,255,0.7))"
-                    animate={{
-                      d: [
-                        "M 20 280 C 110 280, 150 70, 270 85 C 370 100, 420 230, 520 140",
-                        "M 20 240 C 130 300, 170 90, 280 110 C 360 130, 410 210, 520 120",
-                        "M 20 280 C 110 280, 150 70, 270 85 C 370 100, 420 230, 520 140",
-                      ],
-                    }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                  />
-                  <motion.path
-                    d="M 10 220 Q 160 40, 300 200 T 520 120"
-                    stroke="#ffffff"
-                    strokeWidth="2.5"
-                    strokeDasharray="5 8"
-                    fill="none"
-                    animate={{ strokeDashoffset: [0, -50] }}
-                    transition={{ duration: 3.2, repeat: Infinity, ease: "linear" }}
-                  />
-                </svg>
-              </div>
-
-              {/* Connecting Lines SVG Layer */}
+              {/* Connecting Constellation Lines SVG Layer */}
               <svg
                 viewBox="0 0 100 100"
                 preserveAspectRatio="none"
                 className="pointer-events-none absolute inset-0 h-full w-full z-0 overflow-visible"
               >
-                <defs>
-                  <linearGradient id="activeZigZagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
-                    <stop offset="50%" stopColor="#ffffff" stopOpacity="1" />
-                    <stop offset="100%" stopColor="#93c5fa" stopOpacity="0.9" />
-                  </linearGradient>
-                  <filter id="beamPulseGlow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="2" result="blur" />
-                    <feMerge>
-                      <feMergeNode in="blur" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
-                </defs>
-
-                {/* Static Translucent Zig-Zag Connecting Lines */}
-                {ZIG_ZAG_COORDS.map((coord, idx) => {
-                  if (idx === ZIG_ZAG_COORDS.length - 1) return null;
-                  const next = ZIG_ZAG_COORDS[idx + 1];
+                {/* Static Fine Network Mesh Connecting Adjacent Nodes */}
+                {CONSTELLATION_EDGES.map(([fromIdx, toIdx], edgeIdx) => {
+                  const p1 = CONSTELLATION_COORDS[fromIdx];
+                  const p2 = CONSTELLATION_COORDS[toIdx];
                   return (
                     <line
-                      key={`base-line-${idx}`}
-                      x1={`${coord.x}%`}
-                      y1={`${coord.y}%`}
-                      x2={`${next.x}%`}
-                      y2={`${next.y}%`}
-                      stroke="rgba(255, 255, 255, 0.22)"
-                      strokeWidth="2"
-                      strokeDasharray="4 4"
+                      key={`constellation-edge-${edgeIdx}`}
+                      x1={`${p1.x}%`}
+                      y1={`${p1.y}%`}
+                      x2={`${p2.x}%`}
+                      y2={`${p2.y}%`}
+                      stroke="rgba(255, 255, 255, 0.2)"
+                      strokeWidth="0.75"
                     />
                   );
                 })}
 
-                {/* Active Animated Beam Line from current active pill to next */}
+                {/* Active Animated Beam Traveling Along Natural Network Edge */}
                 {(() => {
-                  const curr = ZIG_ZAG_COORDS[activeCapabilityIndex];
-                  const next = ZIG_ZAG_COORDS[(activeCapabilityIndex + 1) % ENTERPRISE_CAPABILITIES.length];
+                  const curr = CONSTELLATION_COORDS[activeCapabilityIndex];
+                  const next = CONSTELLATION_COORDS[nextCapabilityIndex];
                   return (
-                    <g key={`active-flow-${activeCapabilityIndex}`}>
+                    <g key={`active-flow-${activeCapabilityIndex}-${nextCapabilityIndex}`}>
                       <motion.line
                         x1={`${curr.x}%`}
                         y1={`${curr.y}%`}
                         x2={`${next.x}%`}
                         y2={`${next.y}%`}
-                        stroke="url(#activeZigZagGrad)"
-                        strokeWidth="3.5"
-                        filter="url(#beamPulseGlow)"
+                        stroke="rgba(255, 255, 255, 0.9)"
+                        strokeWidth="1.5"
+                        filter="drop-shadow(0 0 3px rgba(255,255,255,0.7))"
                         initial={{ pathLength: 0, opacity: 0 }}
                         animate={{ pathLength: 1, opacity: 1 }}
-                        transition={{ duration: 1.8, ease: "easeInOut" }}
+                        transition={{ duration: 1.4, ease: "easeInOut" }}
                       />
-                      {/* Comet light particle traveling the path */}
+                      {/* Subtle light comet particle along path */}
                       <motion.circle
-                        r="4"
+                        r="2.5"
                         fill="#ffffff"
-                        filter="drop-shadow(0 0 6px #ffffff)"
+                        filter="drop-shadow(0 0 4px #ffffff)"
                         animate={{
                           cx: [`${curr.x}%`, `${next.x}%`],
                           cy: [`${curr.y}%`, `${next.y}%`],
-                          scale: [1, 1.4, 1],
                         }}
-                        transition={{ duration: 1.8, ease: "easeInOut" }}
+                        transition={{ duration: 1.4, ease: "easeInOut" }}
                       />
                     </g>
                   );
                 })()}
               </svg>
 
-              {/* Capability Pills Placed at the Zig-Zag Nodes */}
+              {/* Capability Pills Placed at Random Scattered Constellation Nodes */}
               {ENTERPRISE_CAPABILITIES.map((cap, idx) => {
-                const coord = ZIG_ZAG_COORDS[idx];
+                const coord = CONSTELLATION_COORDS[idx];
                 const isActive = idx === activeCapabilityIndex;
                 const Icon = cap.icon;
 
@@ -1524,23 +1501,19 @@ const ControlTowerLite = () => {
                   <button
                     key={cap.id}
                     type="button"
-                    onClick={() => setActiveCapabilityIndex(idx)}
-                    className={`group absolute -translate-x-1/2 -translate-y-1/2 rounded-full px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-300 active:scale-95 ${
+                    onClick={() => {
+                      const step = CONSTELLATION_TRAVERSAL.indexOf(idx);
+                      setConstellationStep(step !== -1 ? step : 0);
+                    }}
+                    className={`group absolute -translate-x-1/2 -translate-y-1/2 rounded-full px-3.5 sm:px-4 py-2 text-xs sm:text-sm transition-all duration-300 active:scale-95 ${
                       isActive
-                        ? "bg-white text-slate-950 shadow-[0_0_28px_rgba(255,255,255,0.95)] scale-110 ring-2 ring-white z-30"
-                        : "border border-white/25 bg-white/10 text-white/90 backdrop-blur-md hover:bg-white/20 hover:border-white/50 hover:text-white hover:scale-105 z-10"
+                        ? "bg-white text-slate-950 font-semibold shadow-[0_0_24px_rgba(255,255,255,0.85)] scale-105 ring-1 ring-white z-30"
+                        : "border border-white/20 bg-white/10 text-white/90 font-medium backdrop-blur-md hover:bg-white/20 hover:border-white/40 hover:text-white hover:scale-105 z-10"
                     }`}
                     style={{ left: `${coord.x}%`, top: `${coord.y}%` }}
                   >
                     <div className="flex items-center gap-2 whitespace-nowrap">
-                      {isActive ? (
-                        <span className="relative flex h-2 w-2">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75" />
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600" />
-                        </span>
-                      ) : (
-                        <Icon className="h-3.5 w-3.5 text-white/70 group-hover:text-white" />
-                      )}
+                      <Icon className={`h-3.5 w-3.5 ${isActive ? "text-slate-900" : "text-white/70 group-hover:text-white"}`} />
                       <span>{cap.name}</span>
                     </div>
                   </button>
@@ -1663,12 +1636,6 @@ const ControlTowerLite = () => {
                         <Icon className={`h-4 w-4 shrink-0 ${isActive ? "text-blue-600" : "text-white/70 group-hover:text-white"}`} />
                         <span className="truncate">{cap.name}</span>
                       </div>
-                      {isActive && (
-                        <span className="relative flex h-2 w-2 shrink-0">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75" />
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600" />
-                        </span>
-                      )}
                     </button>
                   );
                 })}

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Sparkles,
   ArrowRight,
@@ -12,7 +12,6 @@ import {
   Rocket,
   Check,
   Boxes,
-  ArrowUpRight,
   Activity,
   HeartPulse,
   HeartHandshake,
@@ -23,15 +22,12 @@ import {
   UserCheck,
   Lock,
   Workflow,
+  Cpu,
+  Layers,
+  Database,
+  ShieldCheck,
 } from "lucide-react";
 import PageSeoHead from "@/components/PageSeoHead";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import sjInnovationLogo from "@/assets/sj-innovation-logo.svg";
 import iso27001Logo from "@/assets/logos/iso-27001-certified-blue.svg";
 import { DEFAULT_OG_IMAGE, breadcrumbSchema } from "@/lib/seoSchema";
@@ -544,7 +540,6 @@ interface LiteSolution {
   outcome: string;
   ctaText: string;
   targetHref: string;
-  lovableRemixUrl: string;
 }
 
 const LITE_SOLUTIONS: LiteSolution[] = [
@@ -569,7 +564,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Less chasing. Clearer priorities. Better control over delivery.",
     ctaText: "Explore Agency Lite",
     targetHref: "/agency",
-    lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-agency-lite",
   },
   {
     id: "healthhub-lite",
@@ -592,7 +586,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Less admin. Faster workflows. More time for patients.",
     ctaText: "Explore HealthHub AI Lite",
     targetHref: "/healthcare",
-    lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-healthhub-lite",
   },
 
   // FOLD 2
@@ -617,7 +610,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Find answers faster. Prepare better. Make informed decisions.",
     ctaText: "Explore Nonprofit Board Control Tower Lite",
     targetHref: "/non-profit",
-    lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-nonprofit-lite",
   },
   {
     id: "mortgage-lite",
@@ -639,7 +631,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "See priorities sooner. Act faster. Stay ahead of the pipeline.",
     ctaText: "Explore MortgageAI Lite",
     targetHref: "/mortgage-bank",
-    lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-mortgage-lite",
   },
 
   // FOLD 3
@@ -663,7 +654,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Respond faster. Follow up consistently. Keep more opportunities active.",
     ctaText: "Explore RealtorHelp Lite",
     targetHref: "/book-demo?solution=realtor-lite",
-    lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-realtor-lite",
   },
   {
     id: "marketing-lite",
@@ -686,7 +676,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Better visibility. Faster execution. Smarter marketing decisions.",
     ctaText: "Explore Marketing Lite",
     targetHref: "/book-demo?solution=marketing-lite",
-    lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-marketing-lite",
   },
 
   // FOLD 4
@@ -711,7 +700,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "Earlier action. Stronger relationships. Better retention.",
     ctaText: "Explore Client Success Lite",
     targetHref: "/book-demo?solution=client-success-lite",
-    lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-clientsuccess-lite",
   },
   {
     id: "ghl-lite",
@@ -735,7 +723,6 @@ const LITE_SOLUTIONS: LiteSolution[] = [
     outcome: "See what matters. Follow up faster. Keep your pipeline moving.",
     ctaText: "Explore GHL Control Tower Lite",
     targetHref: "/agency?addon=ghl-lite",
-    lovableRemixUrl: "https://lovable.dev/projects?ref=collabai-ghl-lite",
   },
 ];
 
@@ -750,9 +737,83 @@ const INDUSTRIES_TICKER = [
   "GoHighLevel Agencies",
 ];
 
+const ENTERPRISE_CAPABILITIES = [
+  {
+    id: "workflows",
+    name: "Custom AI workflows",
+    tag: "AUTONOMOUS PIPELINE",
+    metric: "Multi-Agent Automation",
+    description: "Tailored multi-step agentic pipelines mapped directly to your proprietary SOPs.",
+    icon: Workflow,
+  },
+  {
+    id: "integrations",
+    name: "Deeper system integrations",
+    tag: "UNIFIED DATA FABRIC",
+    metric: "Two-Way Custom APIs",
+    description: "Deep bidirectional synchronization with your CRM, ERP, and proprietary legacy databases.",
+    icon: Database,
+  },
+  {
+    id: "multi-team",
+    name: "Multi-team solutions",
+    tag: "ENTERPRISE WORKSPACE",
+    metric: "Granular RBAC Controls",
+    description: "Unified cross-functional workspaces with department-level data boundaries.",
+    icon: Layers,
+  },
+  {
+    id: "dashboards",
+    name: "Custom dashboards",
+    tag: "EXECUTIVE TELEMETRY",
+    metric: "Real-Time KPI Insights",
+    description: "Operational pulse monitoring, delivery health metrics, and predictive workload signals.",
+    icon: LineChart,
+  },
+  {
+    id: "automation",
+    name: "AI automation",
+    tag: "EVENT ENGINE",
+    metric: "Zero-Latency Triggers",
+    description: "Continuous event monitoring, document parsing, and automated handoffs.",
+    icon: Cpu,
+  },
+  {
+    id: "private-env",
+    name: "Private AI environments",
+    tag: "DATA ISOLATION",
+    metric: "Zero Training Guarantee",
+    description: "Enclave isolation ensuring your business data is never ingested into public models.",
+    icon: ShieldCheck,
+  },
+  {
+    id: "self-hosted",
+    name: "Self-hosted solutions",
+    tag: "SOVEREIGN CLOUD",
+    metric: "VPC / On-Premise Deploy",
+    description: "Run directly inside your own AWS, GCP, or Azure perimeter under your security rules.",
+    icon: Boxes,
+  },
+  {
+    id: "industry-specific",
+    name: "Industry-specific development",
+    tag: "SPECIALIZED ARCHITECTURE",
+    metric: "Bespoke Domain Engine",
+    description: "Engineered specifically for the regulatory compliance and workflows of your sector.",
+    icon: Building2,
+  },
+];
+
 const ControlTowerLite = () => {
-  const [selectedSolution, setSelectedSolution] = useState<LiteSolution | null>(null);
+  const [activeCapabilityIndex, setActiveCapabilityIndex] = useState(0);
   const [filterCategory, setFilterCategory] = useState<"all" | "agency" | "industry" | "growth">("all");
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveCapabilityIndex((prev) => (prev + 1) % ENTERPRISE_CAPABILITIES.length);
+    }, 3600);
+    return () => clearInterval(timer);
+  }, []);
 
   const filteredSolutions =
     filterCategory === "all"
@@ -914,7 +975,7 @@ const ControlTowerLite = () => {
             </div>
 
             {/* CTAs */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5">
+            <div className="mt-8 flex items-center justify-center">
               <button
                 type="button"
                 onClick={scrollToSolutions}
@@ -922,14 +983,6 @@ const ControlTowerLite = () => {
               >
                 <span>Explore Lite Now</span>
                 <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5 text-[hsl(var(--brand-secondary))]" />
-              </button>
-              <button
-                type="button"
-                onClick={() => setSelectedSolution(LITE_SOLUTIONS[0])}
-                className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 backdrop-blur-md px-8 py-3.5 text-sm font-semibold text-white shadow-xs transition-all duration-150 hover:bg-white/20 hover:border-white/50 active:translate-y-[2px]"
-              >
-                <Sparkles className="mr-2 h-4 w-4 text-blue-200" />
-                <span>Lovable Remix (Instant Buy)</span>
               </button>
             </div>
 
@@ -974,13 +1027,17 @@ const ControlTowerLite = () => {
               WHAT “LITE” ACTUALLY MEANS
             </div>
             <h2 className="mt-6 text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight">
-              A Smaller Starting Point.
-              <span className="block text-slate-secondary font-medium mt-1">Not Just Another AI Demo.</span>
+              <span>A Smaller Starting Point.</span>{" "}
+              <span className="block mt-1 sm:inline sm:mt-0">Not Just Another AI Demo.</span>
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-slate-secondary leading-relaxed">
-              Our Lite products are focused versions of larger AI platforms and industry solutions.
-              Instead of asking you to commit to a large system before you know how it fits your business, Lite gives you a practical way to start with the workflows that matter most.
-            </p>
+            <div className="mt-5 space-y-3 text-base sm:text-lg text-slate-secondary leading-relaxed">
+              <p>
+                Our Lite products are focused versions of larger AI platforms and industry solutions.
+              </p>
+              <p>
+                Instead of asking you to commit to a large system before you know how it fits your business, Lite gives you a practical way to start with the workflows that matter most.
+              </p>
+            </div>
           </div>
 
           {/* 4 Cards with custom responsive-to-hover animated vector illustrations */}
@@ -1054,10 +1111,7 @@ const ControlTowerLite = () => {
       <section id="choose-lite" className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center space-x-2 bg-[hsl(var(--brand-secondary))]/10 text-[hsl(var(--brand-secondary))] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
-              PRODUCTION-READY EDITIONS
-            </div>
-            <h2 className="mt-4 text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight uppercase">
+            <h2 className="text-3xl lg:text-4xl font-bold text-brand-primary tracking-tight uppercase">
               CHOOSE YOUR LITE SOLUTION
             </h2>
 
@@ -1167,22 +1221,14 @@ const ControlTowerLite = () => {
                   </p>
                 </div>
 
-                {/* Action Buttons: 100% High-Contrast Deterministic Styling */}
-                <div className="pt-5 border-t border-border flex flex-col sm:flex-row gap-2.5 items-stretch">
-                  <button
-                    type="button"
-                    onClick={() => setSelectedSolution(solution)}
-                    className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full border border-slate-900 bg-slate-950 px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[1px]"
-                  >
-                    <Sparkles className="mr-1.5 h-3.5 w-3.5 text-white" />
-                    <span>Lovable Remix (Instant Buy)</span>
-                  </button>
+                {/* Action CTA Button: Single Crisp, High-Contrast Brand Action */}
+                <div className="pt-5 border-t border-border flex items-center">
                   <Link
                     to={solution.targetHref}
-                    className="inline-flex items-center justify-center gap-1.5 rounded-full border border-slate-300 bg-white px-5 py-2.5 text-xs font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 active:translate-y-[1px]"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-slate-900 bg-slate-950 px-6 py-3 text-xs sm:text-sm font-semibold text-white shadow-xs transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[1px]"
                   >
                     <span>{solution.ctaText}</span>
-                    <ArrowRight className="ml-1.5 h-3.5 w-3.5 text-slate-700" />
+                    <ArrowRight className="h-4 w-4 text-white" />
                   </Link>
                 </div>
               </div>
@@ -1434,157 +1480,165 @@ const ControlTowerLite = () => {
 
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12">
-            <div className="text-left lg:col-span-7">
+            {/* Left Column: Heading, Subhead, Single Action CTA */}
+            <div className="text-left lg:col-span-5">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white shadow-xs mb-5">
                 <Sparkles className="h-3.5 w-3.5 text-white" />
                 <span>NEED SOMETHING MORE?</span>
               </div>
 
-              <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl xl:text-5xl leading-[1.15] text-balance text-white">
+              <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl leading-[1.15] text-balance text-white">
                 <span>When Your Needs Go Beyond Lite,</span>
                 <span className="block mt-1 text-white/95">We Can Go Further.</span>
               </h2>
 
-              <p className="mt-5 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-white/90 text-pretty">
+              <p className="mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-white/90 text-pretty">
                 Need AI across more workflows, teams or systems? We also provide annual AI services and custom-built solutions around your business.
               </p>
 
-              {/* 8 Feature Chips */}
-              <div className="mt-7 flex flex-wrap gap-2 max-w-xl">
-                {[
-                  "Custom AI workflows",
-                  "Deeper system integrations",
-                  "Multi-team solutions",
-                  "Custom dashboards",
-                  "AI automation",
-                  "Private AI environments",
-                  "Self-hosted solutions",
-                  "Industry-specific development",
-                ].map((chip) => (
-                  <span
-                    key={chip}
-                    className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-xs font-medium text-white shadow-2xs backdrop-blur-xs"
-                  >
-                    <Check className="mr-1.5 h-3.5 w-3.5 text-white" />
-                    {chip}
-                  </span>
-                ))}
-              </div>
-
-              {/* High-Contrast Action Buttons (Explicit solid styling, zero clash) */}
-              <div className="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3.5">
+              {/* Single Primary Action Button */}
+              <div className="mt-9">
                 <Link
                   to="/collabai-platform"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-bold text-slate-950 shadow-md transition-all duration-150 hover:bg-slate-100 hover:text-black active:translate-y-[1px]"
+                  className="group inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-bold text-slate-950 shadow-xl shadow-blue-950/20 transition-all duration-150 hover:bg-blue-50 active:translate-y-[1px]"
                 >
                   <span>Explore Full &amp; Custom AI Solutions</span>
-                  <ArrowRight className="ml-2 h-4 w-4 text-slate-950" />
-                </Link>
-                <Link
-                  to="/book-demo"
-                  className="inline-flex items-center justify-center rounded-full border border-white/40 bg-white/10 px-8 py-3 text-sm font-semibold text-white backdrop-blur-xs transition-all duration-150 hover:border-white/70 hover:bg-white/20 hover:text-white active:translate-y-[1px]"
-                >
-                  Schedule Private Architecture Review
+                  <ArrowRight className="ml-2 h-4 w-4 text-slate-950 transition-transform duration-150 group-hover:translate-x-1" />
                 </Link>
               </div>
             </div>
 
-            {/* Right Column: Ribbon Animation Canvas in Blue Palette */}
-            <div className="relative lg:col-span-5 h-[280px] sm:h-[340px] w-full flex items-center justify-center">
-              <svg
-                viewBox="0 0 460 320"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="absolute inset-0 h-full w-full pointer-events-none overflow-visible select-none"
-              >
-                <defs>
-                  <linearGradient id="liteRibbonGlowA" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#ffffff" stopOpacity="0.85" />
-                    <stop offset="45%" stopColor="#93c5fd" stopOpacity="0.4" />
-                    <stop offset="85%" stopColor="#ffffff" stopOpacity="0.75" />
-                    <stop offset="100%" stopColor="#315EFF" stopOpacity="0.1" />
-                  </linearGradient>
+            {/* Right Column: Dynamic Animated Graphic HUD + Indefinitely Looped Capability Pills Below */}
+            <div className="lg:col-span-7 flex flex-col">
+              {/* Dynamic Animated Graphic HUD */}
+              <div className="relative rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-6 sm:p-7 shadow-2xl overflow-hidden min-h-[280px] sm:min-h-[300px] flex flex-col justify-between">
+                {/* Ambient glowing ribbons behind HUD */}
+                <div className="pointer-events-none absolute inset-0 -z-0 opacity-40">
+                  <svg viewBox="0 0 460 320" fill="none" className="h-full w-full">
+                    <motion.path
+                      d="M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140"
+                      stroke="#ffffff"
+                      strokeWidth="28"
+                      strokeLinecap="round"
+                      fill="none"
+                      filter="drop-shadow(0 0 16px rgba(255,255,255,0.6))"
+                      animate={{
+                        d: [
+                          "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
+                          "M 20 230 C 120 270, 160 90, 255 105 C 335 120, 385 200, 450 120",
+                          "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
+                        ],
+                      }}
+                      transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                    <motion.path
+                      d="M 10 210 Q 150 40, 280 180 T 450 110"
+                      stroke="#ffffff"
+                      strokeWidth="2"
+                      strokeDasharray="4 6"
+                      strokeDashoffset={0}
+                      fill="none"
+                      animate={{ strokeDashoffset: [0, -40] }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                    />
+                  </svg>
+                </div>
 
-                  <linearGradient id="liteRibbonGlowB" x1="100%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#ffffff" stopOpacity="0.75" />
-                    <stop offset="50%" stopColor="#60a5fa" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="#ffffff" stopOpacity="0.6" />
-                  </linearGradient>
+                {/* Dynamic HUD Content with AnimatePresence */}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={ENTERPRISE_CAPABILITIES[activeCapabilityIndex].id}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="relative z-10 flex flex-col justify-between h-full space-y-4"
+                  >
+                    {/* Top Status Bar */}
+                    <div className="flex items-center justify-between gap-3 border-b border-white/15 pb-3">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                        </span>
+                        <span>{ENTERPRISE_CAPABILITIES[activeCapabilityIndex].tag}</span>
+                      </span>
+                      <span className="text-[11px] font-mono tracking-widest text-blue-100/90 font-semibold">
+                        CAPABILITY 0{activeCapabilityIndex + 1} / 08
+                      </span>
+                    </div>
 
-                  <filter id="liteSoftGlow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="8" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
-                </defs>
+                    {/* Active Highlight Body */}
+                    <div className="my-2">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/20 text-white shadow-md backdrop-blur-xs">
+                          {(() => {
+                            const Icon = ENTERPRISE_CAPABILITIES[activeCapabilityIndex].icon;
+                            return <Icon className="h-5 w-5 text-white" />;
+                          })()}
+                        </div>
+                        <div>
+                          <h4 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+                            {ENTERPRISE_CAPABILITIES[activeCapabilityIndex].name}
+                          </h4>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-blue-200">
+                            {ENTERPRISE_CAPABILITIES[activeCapabilityIndex].metric}
+                          </p>
+                        </div>
+                      </div>
+                      <p className="text-sm text-white/95 leading-relaxed mt-3">
+                        {ENTERPRISE_CAPABILITIES[activeCapabilityIndex].description}
+                      </p>
+                    </div>
 
-                <motion.path
-                  d="M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140"
-                  stroke="url(#liteRibbonGlowA)"
-                  strokeWidth="38"
-                  strokeLinecap="round"
-                  fill="none"
-                  filter="url(#liteSoftGlow)"
-                  animate={{
-                    d: [
-                      "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
-                      "M 20 230 C 120 270, 160 90, 255 105 C 335 120, 385 200, 450 120",
-                      "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
-                    ],
-                  }}
-                  transition={{
-                    duration: 7.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
+                    {/* Bottom Telemetry Ticker */}
+                    <div className="pt-3 border-t border-white/15 flex flex-wrap items-center justify-between text-[11px] text-blue-100/90 gap-2">
+                      <span className="inline-flex items-center gap-1.5">
+                        <Lock className="w-3.5 h-3.5 text-blue-200" />
+                        Private Enclave Guaranteed
+                      </span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <Check className="w-3.5 h-3.5 text-blue-200" />
+                        Self-Hosted or Dedicated Cloud
+                      </span>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
 
-                <motion.path
-                  d="M 40 90 C 130 90, 160 260, 260 240 C 350 220, 380 70, 450 190"
-                  stroke="url(#liteRibbonGlowB)"
-                  strokeWidth="28"
-                  strokeLinecap="round"
-                  fill="none"
-                  filter="url(#liteSoftGlow)"
-                  animate={{
-                    d: [
-                      "M 40 90 C 130 90, 160 260, 260 240 C 350 220, 380 70, 450 190",
-                      "M 40 110 C 140 70, 170 240, 255 220 C 345 200, 390 90, 450 210",
-                      "M 40 90 C 130 90, 160 260, 260 240 C 350 220, 380 70, 450 190",
-                    ],
-                  }}
-                  transition={{
-                    duration: 8.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-
-                <motion.path
-                  d="M 10 210 Q 150 40, 280 180 T 450 110"
-                  stroke="#ffffff"
-                  strokeWidth="2"
-                  strokeDasharray="4 6"
-                  strokeDashoffset={0}
-                  fill="none"
-                  animate={{
-                    strokeDashoffset: [0, -40],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                />
-
-                <circle cx="250" cy="85" r="5" fill="#ffffff" filter="url(#liteSoftGlow)" />
-                <circle cx="250" cy="85" r="2" fill="#315EFF" />
-
-                <circle cx="340" cy="100" r="4" fill="#ffffff" filter="url(#liteSoftGlow)" />
-                <circle cx="340" cy="100" r="1.5" fill="#315EFF" />
-
-                <circle cx="160" cy="240" r="4.5" fill="#ffffff" filter="url(#liteSoftGlow)" />
-                <circle cx="160" cy="240" r="1.8" fill="#315EFF" />
-              </svg>
+              {/* The 8 Dynamic Looped Capability Pills Below Graphic */}
+              <div className="mt-6">
+                <div className="flex flex-wrap gap-2 sm:gap-2.5">
+                  {ENTERPRISE_CAPABILITIES.map((cap, idx) => {
+                    const isActive = idx === activeCapabilityIndex;
+                    return (
+                      <button
+                        key={cap.id}
+                        type="button"
+                        onClick={() => setActiveCapabilityIndex(idx)}
+                        className={`relative inline-flex items-center gap-2 rounded-full px-3.5 sm:px-4 py-2 text-xs font-semibold transition-all duration-300 active:scale-95 ${
+                          isActive
+                            ? "border border-white bg-white text-slate-950 shadow-xl shadow-blue-950/40 scale-[1.04] ring-2 ring-white/50"
+                            : "border border-white/20 bg-white/10 text-white/80 hover:border-white/40 hover:bg-white/20 hover:text-white"
+                        }`}
+                      >
+                        {isActive ? (
+                          <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75" />
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600" />
+                          </span>
+                        ) : (
+                          <Check className="h-3 w-3 text-white/60" />
+                        )}
+                        <span>{cap.name}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+                <p className="text-[11px] font-medium text-blue-100/75 mt-3">
+                  Auto-cycling through enterprise capabilities · Click any pill to inspect
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -1671,73 +1725,6 @@ const ControlTowerLite = () => {
           </div>
         </div>
       </section>
-
-      {/* =========================================================================
-          INTERACTIVE LOVABLE REMIX / INSTANT BUY DIALOG MODAL (CollabAI Design Tokens)
-         ========================================================================= */}
-      <Dialog open={!!selectedSolution} onOpenChange={(open) => !open && setSelectedSolution(null)}>
-        <DialogContent className="max-w-lg border border-border bg-card text-foreground p-6 sm:p-8 sm:rounded-2xl shadow-xl">
-          {selectedSolution && (
-            <>
-              <DialogHeader>
-                <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[hsl(var(--brand-secondary))] uppercase tracking-wider mb-1">
-                  <Sparkles className="h-3.5 w-3.5 text-[hsl(var(--brand-secondary))]" />
-                  INSTANT BUY &amp; LOVABLE REMIX
-                </div>
-                <DialogTitle className="text-2xl font-bold text-brand-primary tracking-tight">
-                  {selectedSolution.name}
-                </DialogTitle>
-                <DialogDescription className="text-slate-secondary text-sm">
-                  {selectedSolution.outcome}
-                </DialogDescription>
-              </DialogHeader>
-
-              <div className="mt-4 space-y-4">
-                <div className="rounded-xl border border-border bg-slate-light p-4">
-                  <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
-                    Included Workflows &amp; Capabilities:
-                  </div>
-                  <ul className="space-y-2 text-xs text-slate-secondary font-medium">
-                    {selectedSolution.helpsWith.map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2">
-                        <Check className="h-3.5 w-3.5 text-[hsl(var(--brand-secondary))] shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="rounded-xl border border-[hsl(var(--brand-secondary))]/25 bg-[hsl(var(--brand-secondary))]/5 p-3.5 text-xs text-brand-primary flex items-center justify-between font-medium">
-                  <span>Pre-configured template · Zero vendor lock-in</span>
-                  <span className="inline-flex items-center gap-1 rounded-full border border-border bg-card px-2.5 py-0.5 text-[10px] font-semibold text-[hsl(var(--brand-secondary))]">
-                    Production Ready
-                  </span>
-                </div>
-
-                <div className="space-y-2.5 pt-2">
-                  <a
-                    href={selectedSolution.lovableRemixUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full h-11 inline-flex items-center justify-center rounded-full border border-slate-900 bg-slate-950 text-white font-semibold text-sm shadow-sm hover:border-slate-800 hover:bg-slate-800 active:translate-y-[1px]"
-                  >
-                    <Sparkles className="mr-2 h-4 w-4 text-white" />
-                    Remix on Lovable (Instant Deploy)
-                    <ArrowUpRight className="ml-1.5 h-4 w-4 text-white" />
-                  </a>
-                  <Link
-                    to={selectedSolution.targetHref}
-                    className="w-full h-11 inline-flex items-center justify-center rounded-full border border-slate-300 bg-white hover:bg-slate-100 hover:text-slate-950 text-slate-800 font-semibold text-sm"
-                  >
-                    {selectedSolution.ctaText}
-                    <ArrowRight className="ml-1.5 h-4 w-4 text-slate-700" />
-                  </Link>
-                </div>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };

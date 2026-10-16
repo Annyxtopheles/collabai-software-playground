@@ -35,6 +35,7 @@ import {
 import sjInnovationLogo from "@/assets/sj-innovation-logo.svg";
 import iso27001Logo from "@/assets/logos/iso-27001-certified-blue.svg";
 import { DEFAULT_OG_IMAGE, breadcrumbSchema } from "@/lib/seoSchema";
+import FallingText from "@/components/ui/FallingText";
 
 // =========================================================================
 // BESPOKE, RESPONSIVE-TO-HOVER VECTOR ILLUSTRATIONS
@@ -779,35 +780,135 @@ const ControlTowerLite = () => {
       />
 
       {/* =========================================================================
-          1. HERO - FIRST FOLD (CollabAI Design System)
+          1. HERO - FIRST FOLD (CollabAI Brand Blue Gradient + Ambient Sparkles + FallingText)
          ========================================================================= */}
-      <section className="bg-background pt-20 pb-16 lg:pt-28 lg:pb-24 border-b border-border">
-        <div className="container mx-auto px-4">
+      <section className="relative overflow-hidden pt-20 pb-16 lg:pt-28 lg:pb-24 border-b border-border text-white" style={{
+        background: "linear-gradient(180deg, #1342c4 0%, #1c52e0 35%, #2563eb 70%, #1d4ed8 100%)",
+      }}>
+        {/* Luminous Ambient Radial Spotlight */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-0 opacity-80"
+          style={{
+            backgroundImage: `
+              radial-gradient(ellipse 75% 55% at 50% 25%, rgba(255, 255, 255, 0.22) 0%, transparent 65%),
+              radial-gradient(circle at 10% 20%, rgba(147, 197, 253, 0.2) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(30, 64, 175, 0.4) 0%, transparent 50%)
+            `,
+          }}
+        />
+
+        {/* Ambient Floating Luminous Sparkles (Mirroring ePhysician Atmospheric Visuals) */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 select-none overflow-hidden -z-0">
+          {/* Sparkle 1 (Left Top) */}
+          <motion.div
+            animate={{ opacity: [0.35, 0.95, 0.35], scale: [0.85, 1.2, 0.85] }}
+            transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute left-[7%] top-[26%]"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 0L13.8 9.2L23 11L13.8 12.8L12 22L10.2 12.8L1 11L10.2 9.2L12 0Z"
+                fill="white"
+                fillOpacity="0.9"
+                filter="drop-shadow(0 0 8px rgba(255,255,255,0.85))"
+              />
+            </svg>
+          </motion.div>
+
+          {/* Sparkle 2 (Far Right Top) */}
+          <motion.div
+            animate={{ opacity: [0.3, 0.85, 0.3], scale: [0.9, 1.15, 0.9] }}
+            transition={{ duration: 5.4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+            className="absolute right-[9%] top-[22%]"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 0L13.8 9.2L23 11L13.8 12.8L12 22L10.2 12.8L1 11L10.2 9.2L12 0Z"
+                fill="white"
+                fillOpacity="0.85"
+                filter="drop-shadow(0 0 7px rgba(255,255,255,0.8))"
+              />
+            </svg>
+          </motion.div>
+
+          {/* Sparkle 3 (Right Mid) */}
+          <motion.div
+            animate={{ opacity: [0.25, 0.75, 0.25], scale: [0.8, 1.1, 0.8] }}
+            transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 2.1 }}
+            className="absolute right-[13%] top-[62%]"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 0L13.8 9.2L23 11L13.8 12.8L12 22L10.2 12.8L1 11L10.2 9.2L12 0Z"
+                fill="white"
+                fillOpacity="0.8"
+                filter="drop-shadow(0 0 6px rgba(255,255,255,0.75))"
+              />
+            </svg>
+          </motion.div>
+
+          {/* Sparkle 4 (Left Mid/Bottom) */}
+          <motion.div
+            animate={{ opacity: [0.3, 0.8, 0.3], scale: [0.85, 1.15, 0.85] }}
+            transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 1.6 }}
+            className="absolute left-[11%] top-[65%]"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="5" fill="white" fillOpacity="0.85" filter="drop-shadow(0 0 8px rgba(255,255,255,0.9))" />
+            </svg>
+          </motion.div>
+
+          {/* Sparkle 5 (Right floating dot) */}
+          <motion.div
+            animate={{ opacity: [0.35, 0.9, 0.35] }}
+            transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}
+            className="absolute right-[4%] top-[42%]"
+          >
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <circle cx="6" cy="6" r="3.5" fill="white" fillOpacity="0.8" filter="drop-shadow(0 0 6px rgba(255,255,255,0.85))" />
+            </svg>
+          </motion.div>
+
+          {/* Sparkle 6 (Left floating dot) */}
+          <motion.div
+            animate={{ opacity: [0.2, 0.75, 0.2] }}
+            transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut", delay: 2.6 }}
+            className="absolute left-[3%] top-[46%]"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <circle cx="7" cy="7" r="3.5" fill="white" fillOpacity="0.75" filter="drop-shadow(0 0 6px rgba(255,255,255,0.8))" />
+            </svg>
+          </motion.div>
+        </div>
+
+        <div className="container relative z-10 mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center">
-            {/* Eyebrow badge matching CollabAI tokens */}
+            {/* Eyebrow Badge (Frosted White Capsule) */}
             <div className="mb-6">
-              <span className="inline-block rounded-full border border-border bg-card px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[hsl(var(--brand-secondary))] shadow-2xs">
-                INTRODUCING LITE · DESIGNED TO MAKE YOUR FIRST STEP EASIER
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur-md px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white shadow-xs">
+                <Sparkles className="w-3.5 h-3.5 text-blue-200" />
+                <span>INTRODUCING LITE · DESIGNED TO MAKE YOUR FIRST STEP EASIER</span>
               </span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl font-bold leading-tight text-brand-primary sm:text-5xl lg:text-6xl tracking-tight text-balance">
+            <h1 className="text-4xl font-extrabold leading-[1.1] text-white sm:text-5xl lg:text-6xl tracking-tight text-balance">
               <span>You Don’t Need the Biggest AI System.</span>
-              <span className="block mt-2 text-[hsl(var(--brand-secondary))]">
+              <span className="block mt-2 text-white">
                 You Need the Right Starting Point.
               </span>
             </h1>
 
-            {/* Subhead matching site tokens */}
-            <p className="mx-auto mt-6 max-w-2xl text-lg sm:text-xl text-slate-secondary text-pretty">
+            {/* Subhead with High Contrast */}
+            <p className="mx-auto mt-6 max-w-2xl text-lg sm:text-xl text-blue-100/95 leading-relaxed text-pretty">
               AI projects often become complicated because businesses try to solve everything at once.
             </p>
 
             {/* Trust Badges */}
             <div className="mt-5 flex items-center justify-center">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3.5 py-1 text-[11px] sm:text-xs uppercase tracking-[0.14em] text-muted-foreground shadow-2xs">
-                <Lock className="w-3.5 h-3.5 text-[hsl(var(--brand-secondary))]" />
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md px-4 py-1.5 text-[11px] sm:text-xs uppercase tracking-[0.14em] text-white/90 shadow-2xs">
+                <Lock className="w-3.5 h-3.5 text-blue-200" />
                 Private by design · Self-hosted by default · Real workflows on day one
               </span>
             </div>
@@ -817,37 +918,47 @@ const ControlTowerLite = () => {
               <button
                 type="button"
                 onClick={scrollToSolutions}
-                className="group inline-flex items-center justify-center rounded-full border border-slate-900 bg-slate-950 px-8 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:border-slate-800 hover:bg-slate-800 hover:text-white active:translate-y-[2px]"
+                className="group inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-sm font-bold text-[hsl(var(--brand-secondary))] shadow-xl transition-all duration-150 hover:bg-blue-50 hover:shadow-2xl active:translate-y-[2px]"
               >
                 <span>Explore Lite Now</span>
-                <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5 text-white" />
+                <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5 text-[hsl(var(--brand-secondary))]" />
               </button>
               <button
                 type="button"
                 onClick={() => setSelectedSolution(LITE_SOLUTIONS[0])}
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-8 py-3 text-sm font-semibold text-slate-800 shadow-xs transition-all duration-150 hover:border-slate-400 hover:bg-slate-100 hover:text-slate-950 active:translate-y-[2px]"
+                className="inline-flex items-center justify-center rounded-full border border-white/35 bg-white/10 backdrop-blur-md px-8 py-3.5 text-sm font-semibold text-white shadow-xs transition-all duration-150 hover:bg-white/20 hover:border-white/50 active:translate-y-[2px]"
               >
-                <Sparkles className="mr-2 h-4 w-4 text-[hsl(var(--brand-secondary))]" />
+                <Sparkles className="mr-2 h-4 w-4 text-blue-200" />
                 <span>Lovable Remix (Instant Buy)</span>
               </button>
             </div>
 
-            {/* Industry Coverage Badges with Blue Pulse Dots */}
-            <div className="mt-14 pt-8 border-t border-border">
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+            {/* Industry Coverage: Interactive 2D Physics Falling Tiles (No Dots, Bigger, Matter.js) */}
+            <div className="mt-14 pt-8 border-t border-white/20">
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-blue-100/95 mb-4 text-center">
                 AI solutions for agencies, healthcare, nonprofits, mortgage, realtors, marketing, client success, &amp; GoHighLevel agencies
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2.5 text-xs uppercase tracking-wider text-slate-secondary">
-                {INDUSTRIES_TICKER.map((industry) => (
-                  <span
-                    key={industry}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-1 text-slate-secondary transition-colors hover:border-[hsl(var(--brand-secondary))]/40 hover:text-brand-primary"
-                  >
-                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-[hsl(var(--brand-secondary))]" />
-                    {industry}
-                  </span>
-                ))}
+
+              {/* Matter.js Physics Canvas Container */}
+              <div className="relative mx-auto h-48 sm:h-56 w-full max-w-4xl rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-2 overflow-hidden shadow-2xl">
+                <FallingText
+                  words={INDUSTRIES_TICKER}
+                  variant="tiles"
+                  theme="light"
+                  fontSize="1.15rem"
+                  trigger="auto"
+                  gravity={0.85}
+                  bounciness={0.35}
+                  scatter={0.4}
+                  stagger={0.04}
+                  draggable={true}
+                  cursorPush={0.65}
+                  className="w-full h-full"
+                />
               </div>
+              <p className="text-[11px] font-medium text-blue-200/80 mt-2.5 text-center">
+                Interactive: Click &amp; drag or flick any industry tile around
+              </p>
             </div>
           </div>
         </div>

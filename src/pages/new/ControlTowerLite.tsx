@@ -33,7 +33,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import sjInnovationLogo from "@/assets/sj-innovation-logo.svg";
-import iso27001Logo from "@/assets/logos/iso-27001-certified.svg";
+const iso27001Logo = "/images/ISOIEC 270012022 Certified.svg";
 import { DEFAULT_OG_IMAGE, breadcrumbSchema } from "@/lib/seoSchema";
 
 // =========================================================================
@@ -1313,7 +1313,7 @@ const ControlTowerLite = () => {
 
           {/* Stats Grid */}
           <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center">
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-xs">
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-xs flex flex-col items-center justify-center">
               <div className="text-3xl sm:text-4xl font-extrabold text-[hsl(var(--brand-secondary))]">
                 500+
               </div>
@@ -1322,7 +1322,7 @@ const ControlTowerLite = () => {
               </div>
               <div className="text-xs text-slate-secondary mt-0.5">Delivered across software, mobile, cloud and AI</div>
             </div>
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-xs">
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-xs flex flex-col items-center justify-center">
               <div className="text-3xl sm:text-4xl font-extrabold text-[hsl(var(--brand-secondary))]">
                 1,000+
               </div>
@@ -1331,16 +1331,20 @@ const ControlTowerLite = () => {
               </div>
               <div className="text-xs text-slate-secondary mt-0.5">Proven delivery track record</div>
             </div>
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-xs">
-              <div className="text-3xl sm:text-4xl font-extrabold text-[hsl(var(--brand-secondary))]">
-                ISO 27001
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-xs flex flex-col items-center justify-center">
+              <div className="h-9 sm:h-10 flex items-center justify-center">
+                <img
+                  src={iso27001Logo}
+                  alt="ISO/IEC 27001:2022 Certified"
+                  className="h-8 sm:h-9.5 w-auto object-contain"
+                />
               </div>
               <div className="mt-1.5 text-xs sm:text-sm font-semibold text-brand-primary">
                 ISO/IEC 27001:2022 Certified
               </div>
               <div className="text-xs text-slate-secondary mt-0.5">Information security practices backed by international standard</div>
             </div>
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-xs">
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-xs flex flex-col items-center justify-center">
               <div className="text-3xl sm:text-4xl font-extrabold text-[hsl(var(--brand-secondary))]">
                 22+
               </div>

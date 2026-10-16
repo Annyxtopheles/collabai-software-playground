@@ -27,7 +27,7 @@ const THEMES: Record<string, Record<string, string>> = {
 };
 
 const STEP = 1000 / 120;
-const WALL = 400;
+const WALL = 1200;
 const SPRING =
   'linear(0, 0.0603, 0.2033, 0.3821, 0.5633, 0.7258, 0.8584, 0.9574, 1.0242, 1.0634, 1.0809, 1.0828, 1.0747, 1.0613, 1.046, 1.0313, 1.0186, 1.0085, 1.0012, 0.9965, 0.994, 0.9931, 0.9933, 0.9941, 0.9953, 0.9966, 0.9978, 0.9988, 1)';
 
@@ -239,6 +239,42 @@ const FallingText: FC<FallingTextProps> = ({
           piece.pa = piece.body.angle;
         }
         Matter.Engine.update(engine, STEP);
+
+        // Hard boundary protection: prevent any tile from escaping or tunneling through boundaries
+        const cWidth = container.clientWidth;
+        const cHeight = container.clientHeight;
+        for (const piece of pieces) {
+          const halfW = piece.w / 2 + 4;
+          const halfH = piece.h / 2 + 4;
+          let px = piece.body.position.x;
+          let py = piece.body.position.y;
+          let bounded = false;
+
+          if (px < halfW) {
+            px = halfW;
+            bounded = true;
+            Matter.Body.setVelocity(piece.body, { x: Math.max(0, -piece.body.velocity.x * 0.3), y: piece.body.velocity.y });
+          } else if (px > cWidth - halfW) {
+            px = cWidth - halfW;
+            bounded = true;
+            Matter.Body.setVelocity(piece.body, { x: Math.min(0, -piece.body.velocity.x * 0.3), y: piece.body.velocity.y });
+          }
+
+          if (py < halfH) {
+            py = halfH;
+            bounded = true;
+            Matter.Body.setVelocity(piece.body, { x: piece.body.velocity.x, y: Math.max(0, -piece.body.velocity.y * 0.3) });
+          } else if (py > cHeight - halfH) {
+            py = cHeight - halfH;
+            bounded = true;
+            Matter.Body.setVelocity(piece.body, { x: piece.body.velocity.x, y: Math.min(0, -piece.body.velocity.y * 0.2) });
+          }
+
+          if (bounded) {
+            Matter.Body.setPosition(piece.body, { x: px, y: py });
+          }
+        }
+
         accumulator -= STEP;
       }
       draw(accumulator / STEP);
@@ -276,10 +312,10 @@ const FallingText: FC<FallingTextProps> = ({
       const world = Matter.Engine.create({ enableSleeping: true, positionIterations: 10, velocityIterations: 8 });
       world.gravity.y = clamp(s.gravity, -3, 4) * 1.4;
       walls = [
-        Matter.Bodies.rectangle(0, 0, 10000, WALL, { isStatic: true, friction: 0.8 }),
-        Matter.Bodies.rectangle(0, 0, WALL, 10000, { isStatic: true, friction: 0.3 }),
-        Matter.Bodies.rectangle(0, 0, WALL, 10000, { isStatic: true, friction: 0.3 }),
-        Matter.Bodies.rectangle(0, 0, 10000, WALL, { isStatic: true, friction: 0.3 })
+        Matter.Bodies.rectangle(0, 0, 50000, WALL, { isStatic: true, friction: 0.8 }),
+        Matter.Bodies.rectangle(0, 0, WALL, 50000, { isStatic: true, friction: 0.3 }),
+        Matter.Bodies.rectangle(0, 0, WALL, 50000, { isStatic: true, friction: 0.3 }),
+        Matter.Bodies.rectangle(0, 0, 50000, WALL, { isStatic: true, friction: 0.3 })
       ];
       const count = rects.length;
       const center = rects.reduce((sum, rect) => sum + rect.x + rect.w / 2, 0) / count;
@@ -470,7 +506,11 @@ const FallingText: FC<FallingTextProps> = ({
       if (phase === 'idle' && settingsRef.current.trigger === 'hover') fall();
       if (phase !== 'falling') return;
       if (drag && event.pointerId === drag.id) {
-        drag.constraint.pointA = point;
+        const padX = 60;
+        const padY = 24;
+        const clampedX = clamp(point.x, padX, container.clientWidth - padX);
+        const clampedY = clamp(point.y, padY, container.clientHeight - padY);
+        drag.constraint.pointA = { x: clampedX, y: clampedY };
         return;
       }
       const s = settingsRef.current;

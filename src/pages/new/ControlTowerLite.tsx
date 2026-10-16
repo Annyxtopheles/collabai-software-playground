@@ -804,6 +804,17 @@ const ENTERPRISE_CAPABILITIES = [
   },
 ];
 
+const ZIG_ZAG_COORDS = [
+  { x: 22, y: 12 }, // 0: Top Left (Custom AI workflows)
+  { x: 74, y: 14 }, // 1: Top Right (Deeper system integrations)
+  { x: 24, y: 36 }, // 2: Upper Mid Left (Multi-team solutions)
+  { x: 72, y: 40 }, // 3: Center Mid Right (Custom dashboards)
+  { x: 26, y: 62 }, // 4: Lower Mid Left (AI automation)
+  { x: 75, y: 64 }, // 5: Lower Mid Right (Private AI environments)
+  { x: 24, y: 88 }, // 6: Bottom Left (Self-hosted solutions)
+  { x: 72, y: 88 }, // 7: Bottom Right (Industry-specific development)
+];
+
 const ControlTowerLite = () => {
   const [activeCapabilityIndex, setActiveCapabilityIndex] = useState(0);
   const [activeCapabilityIndex2, setActiveCapabilityIndex2] = useState(0);
@@ -986,8 +997,8 @@ const ControlTowerLite = () => {
                 AI solutions for agencies, healthcare, nonprofits, mortgage, realtors, marketing, client success, &amp; GoHighLevel agencies
               </p>
 
-              {/* Unbounded Canvas Container (Seamless, no card border, transparent) */}
-              <div className="relative mx-auto h-44 sm:h-52 w-full max-w-5xl overflow-hidden select-none">
+              {/* Invisible Screen-Wide Bounds (Extends to far sides of the screen, cannot escape) */}
+              <div className="relative left-1/2 -translate-x-1/2 w-screen h-48 sm:h-56 overflow-hidden select-none">
                 <FallingText
                   words={INDUSTRIES_TICKER}
                   variant="tiles"
@@ -1452,137 +1463,145 @@ const ControlTowerLite = () => {
               </div>
             </div>
 
-            {/* Right Column: Dynamic Animated Graphic HUD + Indefinitely Looped Capability Pills Below */}
-            <div className="lg:col-span-7 flex flex-col">
-              {/* Dynamic Animated Graphic HUD */}
-              <div className="relative rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-6 sm:p-7 shadow-2xl overflow-hidden min-h-[280px] sm:min-h-[300px] flex flex-col justify-between">
-                {/* Ambient glowing ribbons behind HUD */}
-                <div className="pointer-events-none absolute inset-0 -z-0 opacity-40">
-                  <svg viewBox="0 0 460 320" fill="none" className="h-full w-full">
-                    <motion.path
-                      d="M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140"
-                      stroke="#ffffff"
-                      strokeWidth="28"
-                      strokeLinecap="round"
-                      fill="none"
-                      filter="drop-shadow(0 0 16px rgba(255,255,255,0.6))"
-                      animate={{
-                        d: [
-                          "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
-                          "M 20 230 C 120 270, 160 90, 255 105 C 335 120, 385 200, 450 120",
-                          "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
-                        ],
-                      }}
-                      transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                    />
-                    <motion.path
-                      d="M 10 210 Q 150 40, 280 180 T 450 110"
-                      stroke="#ffffff"
+            {/* Right Column: Connected Zig-Zag Constellation (No Card, Background Graphic Visible, Sequential Animated Pulse Lines) */}
+            <div className="lg:col-span-7 relative w-full h-[520px] sm:h-[480px] select-none flex items-center justify-center">
+              {/* Background Ambient SVG Ribbons Graphic */}
+              <div className="pointer-events-none absolute inset-0 -z-0 opacity-45 overflow-visible">
+                <svg viewBox="0 0 540 380" fill="none" className="h-full w-full">
+                  <motion.path
+                    d="M 20 280 C 110 280, 150 70, 270 85 C 370 100, 420 230, 520 140"
+                    stroke="#ffffff"
+                    strokeWidth="32"
+                    strokeLinecap="round"
+                    fill="none"
+                    filter="drop-shadow(0 0 20px rgba(255,255,255,0.7))"
+                    animate={{
+                      d: [
+                        "M 20 280 C 110 280, 150 70, 270 85 C 370 100, 420 230, 520 140",
+                        "M 20 240 C 130 300, 170 90, 280 110 C 360 130, 410 210, 520 120",
+                        "M 20 280 C 110 280, 150 70, 270 85 C 370 100, 420 230, 520 140",
+                      ],
+                    }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  <motion.path
+                    d="M 10 220 Q 160 40, 300 200 T 520 120"
+                    stroke="#ffffff"
+                    strokeWidth="2.5"
+                    strokeDasharray="5 8"
+                    fill="none"
+                    animate={{ strokeDashoffset: [0, -50] }}
+                    transition={{ duration: 3.2, repeat: Infinity, ease: "linear" }}
+                  />
+                </svg>
+              </div>
+
+              {/* Connecting Lines SVG Layer */}
+              <svg
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+                className="pointer-events-none absolute inset-0 h-full w-full z-0 overflow-visible"
+              >
+                <defs>
+                  <linearGradient id="activeZigZagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
+                    <stop offset="50%" stopColor="#ffffff" stopOpacity="1" />
+                    <stop offset="100%" stopColor="#93c5fa" stopOpacity="0.9" />
+                  </linearGradient>
+                  <filter id="beamPulseGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="2" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                {/* Static Translucent Zig-Zag Connecting Lines */}
+                {ZIG_ZAG_COORDS.map((coord, idx) => {
+                  if (idx === ZIG_ZAG_COORDS.length - 1) return null;
+                  const next = ZIG_ZAG_COORDS[idx + 1];
+                  return (
+                    <line
+                      key={`base-line-${idx}`}
+                      x1={`${coord.x}%`}
+                      y1={`${coord.y}%`}
+                      x2={`${next.x}%`}
+                      y2={`${next.y}%`}
+                      stroke="rgba(255, 255, 255, 0.22)"
                       strokeWidth="2"
-                      strokeDasharray="4 6"
-                      strokeDashoffset={0}
-                      fill="none"
-                      animate={{ strokeDashoffset: [0, -40] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                      strokeDasharray="4 4"
                     />
-                  </svg>
-                </div>
+                  );
+                })}
 
-                {/* Dynamic HUD Content with AnimatePresence */}
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={ENTERPRISE_CAPABILITIES[activeCapabilityIndex].id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="relative z-10 flex flex-col justify-between h-full space-y-4"
+                {/* Active Animated Beam Line from current active pill to next */}
+                {(() => {
+                  const curr = ZIG_ZAG_COORDS[activeCapabilityIndex];
+                  const next = ZIG_ZAG_COORDS[(activeCapabilityIndex + 1) % ENTERPRISE_CAPABILITIES.length];
+                  return (
+                    <g key={`active-flow-${activeCapabilityIndex}`}>
+                      <motion.line
+                        x1={`${curr.x}%`}
+                        y1={`${curr.y}%`}
+                        x2={`${next.x}%`}
+                        y2={`${next.y}%`}
+                        stroke="url(#activeZigZagGrad)"
+                        strokeWidth="3.5"
+                        filter="url(#beamPulseGlow)"
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={{ pathLength: 1, opacity: 1 }}
+                        transition={{ duration: 1.8, ease: "easeInOut" }}
+                      />
+                      {/* Comet light particle traveling the path */}
+                      <motion.circle
+                        r="4"
+                        fill="#ffffff"
+                        filter="drop-shadow(0 0 6px #ffffff)"
+                        animate={{
+                          cx: [`${curr.x}%`, `${next.x}%`],
+                          cy: [`${curr.y}%`, `${next.y}%`],
+                          scale: [1, 1.4, 1],
+                        }}
+                        transition={{ duration: 1.8, ease: "easeInOut" }}
+                      />
+                    </g>
+                  );
+                })()}
+              </svg>
+
+              {/* Capability Pills Placed at the Zig-Zag Nodes */}
+              {ENTERPRISE_CAPABILITIES.map((cap, idx) => {
+                const coord = ZIG_ZAG_COORDS[idx];
+                const isActive = idx === activeCapabilityIndex;
+                const Icon = cap.icon;
+
+                return (
+                  <button
+                    key={cap.id}
+                    type="button"
+                    onClick={() => setActiveCapabilityIndex(idx)}
+                    className={`group absolute -translate-x-1/2 -translate-y-1/2 rounded-full px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-300 active:scale-95 ${
+                      isActive
+                        ? "bg-white text-slate-950 shadow-[0_0_28px_rgba(255,255,255,0.95)] scale-110 ring-2 ring-white z-30"
+                        : "border border-white/25 bg-white/10 text-white/90 backdrop-blur-md hover:bg-white/20 hover:border-white/50 hover:text-white hover:scale-105 z-10"
+                    }`}
+                    style={{ left: `${coord.x}%`, top: `${coord.y}%` }}
                   >
-                    {/* Top Status Bar */}
-                    <div className="flex items-center justify-between gap-3 border-b border-white/15 pb-3">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
+                    <div className="flex items-center gap-2 whitespace-nowrap">
+                      {isActive ? (
                         <span className="relative flex h-2 w-2">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75" />
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600" />
                         </span>
-                        <span>{ENTERPRISE_CAPABILITIES[activeCapabilityIndex].tag}</span>
-                      </span>
-                      <span className="text-[11px] font-mono tracking-widest text-blue-100/90 font-semibold">
-                        CAPABILITY 0{activeCapabilityIndex + 1} / 08
-                      </span>
+                      ) : (
+                        <Icon className="h-3.5 w-3.5 text-white/70 group-hover:text-white" />
+                      )}
+                      <span>{cap.name}</span>
                     </div>
-
-                    {/* Active Highlight Body */}
-                    <div className="my-2">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/20 text-white shadow-md backdrop-blur-xs">
-                          {(() => {
-                            const Icon = ENTERPRISE_CAPABILITIES[activeCapabilityIndex].icon;
-                            return <Icon className="h-5 w-5 text-white" />;
-                          })()}
-                        </div>
-                        <div>
-                          <h4 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
-                            {ENTERPRISE_CAPABILITIES[activeCapabilityIndex].name}
-                          </h4>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-blue-200">
-                            {ENTERPRISE_CAPABILITIES[activeCapabilityIndex].metric}
-                          </p>
-                        </div>
-                      </div>
-                      <p className="text-sm text-white/95 leading-relaxed mt-3">
-                        {ENTERPRISE_CAPABILITIES[activeCapabilityIndex].description}
-                      </p>
-                    </div>
-
-                    {/* Bottom Telemetry Ticker */}
-                    <div className="pt-3 border-t border-white/15 flex flex-wrap items-center justify-between text-[11px] text-blue-100/90 gap-2">
-                      <span className="inline-flex items-center gap-1.5">
-                        <Lock className="w-3.5 h-3.5 text-blue-200" />
-                        Private Enclave Guaranteed
-                      </span>
-                      <span className="inline-flex items-center gap-1.5">
-                        <Check className="w-3.5 h-3.5 text-blue-200" />
-                        Self-Hosted or Dedicated Cloud
-                      </span>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              {/* The 8 Dynamic Looped Capability Pills Below Graphic */}
-              <div className="mt-6">
-                <div className="flex flex-wrap gap-2 sm:gap-2.5">
-                  {ENTERPRISE_CAPABILITIES.map((cap, idx) => {
-                    const isActive = idx === activeCapabilityIndex;
-                    return (
-                      <button
-                        key={cap.id}
-                        type="button"
-                        onClick={() => setActiveCapabilityIndex(idx)}
-                        className={`relative inline-flex items-center gap-2 rounded-full px-3.5 sm:px-4 py-2 text-xs font-semibold transition-all duration-300 active:scale-95 ${
-                          isActive
-                            ? "border border-white bg-white text-slate-950 shadow-xl shadow-blue-950/40 scale-[1.04] ring-2 ring-white/50"
-                            : "border border-white/20 bg-white/10 text-white/80 hover:border-white/40 hover:bg-white/20 hover:text-white"
-                        }`}
-                      >
-                        {isActive ? (
-                          <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75" />
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600" />
-                          </span>
-                        ) : (
-                          <Check className="h-3 w-3 text-white/60" />
-                        )}
-                        <span>{cap.name}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-                <p className="text-[11px] font-medium text-blue-100/75 mt-3">
-                  Auto-cycling through enterprise capabilities · Click any pill to inspect
-                </p>
-              </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -1647,136 +1666,87 @@ const ControlTowerLite = () => {
               </div>
             </div>
 
-            {/* Right Column: Dynamic Animated Graphic HUD + Indefinitely Looped Capability Pills Below */}
-            <div className="lg:col-span-7 flex flex-col">
-              {/* Dynamic Animated Graphic HUD */}
-              <div className="relative rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-6 sm:p-7 shadow-2xl overflow-hidden min-h-[280px] sm:min-h-[300px] flex flex-col justify-between">
-                {/* Ambient glowing ribbons behind HUD */}
-                <div className="pointer-events-none absolute inset-0 -z-0 opacity-40">
-                  <svg viewBox="0 0 460 320" fill="none" className="h-full w-full">
-                    <motion.path
-                      d="M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140"
-                      stroke="#ffffff"
-                      strokeWidth="28"
-                      strokeLinecap="round"
-                      fill="none"
-                      filter="drop-shadow(0 0 16px rgba(255,255,255,0.6))"
-                      animate={{
-                        d: [
-                          "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
-                          "M 20 230 C 120 270, 160 90, 255 105 C 335 120, 385 200, 450 120",
-                          "M 20 250 C 110 250, 150 70, 250 85 C 340 100, 390 230, 450 140",
-                        ],
-                      }}
-                      transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                    />
-                    <motion.path
-                      d="M 10 210 Q 150 40, 280 180 T 450 110"
-                      stroke="#ffffff"
-                      strokeWidth="2"
-                      strokeDasharray="4 6"
-                      strokeDashoffset={0}
-                      fill="none"
-                      animate={{ strokeDashoffset: [0, -40] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                    />
-                  </svg>
-                </div>
-
-                {/* Dynamic HUD Content with AnimatePresence */}
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={`opt2-${ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].id}`}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="relative z-10 flex flex-col justify-between h-full space-y-4"
-                  >
-                    {/* Top Status Bar */}
-                    <div className="flex items-center justify-between gap-3 border-b border-white/15 pb-3">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
-                        <span className="relative flex h-2 w-2">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
-                          <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
-                        </span>
-                        <span>{ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].tag}</span>
-                      </span>
-                      <span className="text-[11px] font-mono tracking-widest text-blue-100/90 font-semibold">
-                        OPTION 2 · 0{activeCapabilityIndex2 + 1} / 08
-                      </span>
-                    </div>
-
-                    {/* Active Highlight Body */}
-                    <div className="my-2">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/30 bg-white/20 text-white shadow-md backdrop-blur-xs">
-                          {(() => {
-                            const Icon = ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].icon;
-                            return <Icon className="h-5 w-5 text-white" />;
-                          })()}
-                        </div>
-                        <div>
-                          <h4 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
-                            {ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].name}
-                          </h4>
-                          <p className="text-xs font-semibold uppercase tracking-wider text-blue-200">
-                            {ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].metric}
-                          </p>
-                        </div>
-                      </div>
-                      <p className="text-sm text-white/95 leading-relaxed mt-3">
-                        {ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].description}
-                      </p>
-                    </div>
-
-                    {/* Bottom Telemetry Ticker */}
-                    <div className="pt-3 border-t border-white/15 flex flex-wrap items-center justify-between text-[11px] text-blue-100/90 gap-2">
-                      <span className="inline-flex items-center gap-1.5">
-                        <Lock className="w-3.5 h-3.5 text-blue-200" />
-                        Private Enclave Guaranteed
-                      </span>
-                      <span className="inline-flex items-center gap-1.5">
-                        <Check className="w-3.5 h-3.5 text-blue-200" />
-                        Self-Hosted or Dedicated Cloud
-                      </span>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
+            {/* Right Column: Option 2 Cardless Capability Matrix (No Card, Background Graphic Visible, Open Floating Grid) */}
+            <div className="lg:col-span-7 relative w-full min-h-[440px] select-none flex flex-col justify-center">
+              {/* Background Ambient SVG Ribbons Graphic */}
+              <div className="pointer-events-none absolute inset-0 -z-0 opacity-45 overflow-visible">
+                <svg viewBox="0 0 540 380" fill="none" className="h-full w-full">
+                  <motion.path
+                    d="M 20 260 C 110 260, 150 70, 270 85 C 370 100, 420 230, 500 130"
+                    stroke="#ffffff"
+                    strokeWidth="30"
+                    strokeLinecap="round"
+                    fill="none"
+                    filter="drop-shadow(0 0 18px rgba(255,255,255,0.65))"
+                    animate={{
+                      d: [
+                        "M 20 260 C 110 260, 150 70, 270 85 C 370 100, 420 230, 500 130",
+                        "M 20 230 C 130 280, 170 90, 280 110 C 360 130, 410 200, 500 110",
+                        "M 20 260 C 110 260, 150 70, 270 85 C 370 100, 420 230, 500 130",
+                      ],
+                    }}
+                    transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  <motion.path
+                    d="M 10 210 Q 160 40, 300 190 T 490 110"
+                    stroke="#ffffff"
+                    strokeWidth="2.5"
+                    strokeDasharray="4 7"
+                    fill="none"
+                    animate={{ strokeDashoffset: [0, -45] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                  />
+                </svg>
               </div>
 
-              {/* The 8 Dynamic Looped Capability Pills Below Graphic */}
-              <div className="mt-6">
-                <div className="flex flex-wrap gap-2 sm:gap-2.5">
-                  {ENTERPRISE_CAPABILITIES.map((cap, idx) => {
-                    const isActive = idx === activeCapabilityIndex2;
-                    return (
-                      <button
-                        key={`opt2-btn-${cap.id}`}
-                        type="button"
-                        onClick={() => setActiveCapabilityIndex2(idx)}
-                        className={`relative inline-flex items-center gap-2 rounded-full px-3.5 sm:px-4 py-2 text-xs font-semibold transition-all duration-300 active:scale-95 ${
-                          isActive
-                            ? "border border-white bg-white text-slate-950 shadow-xl shadow-blue-950/40 scale-[1.04] ring-2 ring-white/50"
-                            : "border border-white/20 bg-white/10 text-white/80 hover:border-white/40 hover:bg-white/20 hover:text-white"
-                        }`}
-                      >
-                        {isActive ? (
-                          <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75" />
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600" />
-                          </span>
-                        ) : (
-                          <Check className="h-3 w-3 text-white/60" />
-                        )}
-                        <span>{cap.name}</span>
-                      </button>
-                    );
-                  })}
+              {/* Floating Readout (No Enclosing Card Box) */}
+              <div className="relative z-10 mb-7">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur-md px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white mb-2.5 shadow-xs">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                  </span>
+                  <span>{ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].tag}</span>
+                  <span className="text-white/40">·</span>
+                  <span className="text-blue-200">{ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].metric}</span>
                 </div>
-                <p className="text-[11px] font-medium text-blue-100/75 mt-3">
-                  Option 2 variant · Auto-cycling or click any pill to inspect
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                  {ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].name}
+                </h3>
+                <p className="text-sm text-white/90 leading-relaxed max-w-xl mt-2">
+                  {ENTERPRISE_CAPABILITIES[activeCapabilityIndex2].description}
                 </p>
+              </div>
+
+              {/* 8 Floating Capability Pills in Responsive Grid */}
+              <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {ENTERPRISE_CAPABILITIES.map((cap, idx) => {
+                  const isActive = idx === activeCapabilityIndex2;
+                  const Icon = cap.icon;
+                  return (
+                    <button
+                      key={`opt2-grid-${cap.id}`}
+                      type="button"
+                      onClick={() => setActiveCapabilityIndex2(idx)}
+                      className={`group flex items-center justify-between gap-3 rounded-full px-4 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 active:scale-95 ${
+                        isActive
+                          ? "border border-white bg-white text-slate-950 shadow-xl shadow-blue-950/40 scale-[1.02] ring-2 ring-white/60"
+                          : "border border-white/20 bg-white/10 text-white/85 backdrop-blur-md hover:border-white/45 hover:bg-white/20 hover:text-white"
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5 truncate">
+                        <Icon className={`h-4 w-4 shrink-0 ${isActive ? "text-blue-600" : "text-white/70 group-hover:text-white"}`} />
+                        <span className="truncate">{cap.name}</span>
+                      </div>
+                      {isActive && (
+                        <span className="relative flex h-2 w-2 shrink-0">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75" />
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600" />
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>

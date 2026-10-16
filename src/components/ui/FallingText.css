@@ -17,7 +17,8 @@
 }
 
 .falling-text__text {
-  max-width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
   padding: 1em;
   box-sizing: border-box;
   line-height: 1.4;

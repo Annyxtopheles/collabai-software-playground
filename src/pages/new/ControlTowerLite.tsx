@@ -2371,9 +2371,6 @@ const ControlTowerLite = () => {
           className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 h-[520px] w-[520px] rounded-full bg-radial from-white/30 via-[#dbeafe]/10 to-transparent blur-3xl -z-0"
         />
 
-        {/* Ambient Floating Luminous Plus Signs, Sparkles & Dots */}
-        <AmbientAtmosphere />
-
         {/* Top-Corner Light Washes with Staggered Inward Drifting Particles */}
         <div className="sg-corner-lights" aria-hidden="true">
           {/* Left corner emitter */}

@@ -2155,7 +2155,8 @@ const ControlTowerLite = () => {
                       x2={p2.x}
                       y2={p2.y}
                       stroke="rgba(255, 255, 255, 0.12)"
-                      strokeWidth="0.8"
+                      strokeWidth="0.75"
+                      vectorEffect="non-scaling-stroke"
                     />
                   );
                 })}
@@ -2165,37 +2166,47 @@ const ControlTowerLite = () => {
                   const curr = CONSTELLATION_COORDS[activeCapabilityIndex];
                   const next = CONSTELLATION_COORDS[nextCapabilityIndex];
                   return (
-                    <g key={`active-flow-${activeCapabilityIndex}-${nextCapabilityIndex}`}>
-                      <line
-                        x1={curr.x}
-                        y1={curr.y}
-                        x2={next.x}
-                        y2={next.y}
-                        stroke="url(#activeConstellationGradient)"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        filter="drop-shadow(0 0 4px rgba(255,255,255,0.7))"
-                      />
-
-                      {/* Traveling Dot: Pauses at focused pill, then glides to the next */}
-                      <motion.circle
-                        r="4.2"
-                        fill="#ffffff"
-                        filter="drop-shadow(0 0 5px #ffffff) drop-shadow(0 0 10px rgba(59,130,246,0.9))"
-                        animate={{
-                          cx: [curr.x, curr.x, next.x],
-                          cy: [curr.y, curr.y, next.y],
-                        }}
-                        transition={{
-                          duration: 3.6,
-                          times: [0, 0.35, 1],
-                          ease: ["linear", "easeInOut"],
-                        }}
-                      />
-                    </g>
+                    <line
+                      key={`active-line-${activeCapabilityIndex}-${nextCapabilityIndex}`}
+                      x1={curr.x}
+                      y1={curr.y}
+                      x2={next.x}
+                      y2={next.y}
+                      stroke="url(#activeConstellationGradient)"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                      vectorEffect="non-scaling-stroke"
+                      filter="drop-shadow(0 0 2px rgba(255,255,255,0.7))"
+                    />
                   );
                 })()}
               </svg>
+
+              {/* Pinpoint Glowing Dot: As small as the line width, glides from focused pill to next */}
+              {(() => {
+                const curr = CONSTELLATION_COORDS[activeCapabilityIndex];
+                const next = CONSTELLATION_COORDS[nextCapabilityIndex];
+                return (
+                  <motion.div
+                    key={`traveling-dot-${activeCapabilityIndex}-${nextCapabilityIndex}`}
+                    className="pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-white z-20"
+                    style={{
+                      width: "3px",
+                      height: "3px",
+                      boxShadow: "0 0 4px #ffffff, 0 0 8px rgba(255, 255, 255, 0.9), 0 0 12px rgba(59, 130, 246, 0.8)",
+                    }}
+                    animate={{
+                      left: [`${curr.x}%`, `${curr.x}%`, `${next.x}%`],
+                      top: [`${curr.y}%`, `${curr.y}%`, `${next.y}%`],
+                    }}
+                    transition={{
+                      duration: 3.6,
+                      times: [0, 0.35, 1],
+                      ease: ["linear", "easeInOut"],
+                    }}
+                  />
+                );
+              })()}
 
               {/* Capability Pills Placed at Exact Figma Spatial Nodes */}
               {ENTERPRISE_CAPABILITIES.map((cap, idx) => {

@@ -245,7 +245,7 @@ const FallingText: FC<FallingTextProps> = ({
         const cHeight = container.clientHeight;
         for (const piece of pieces) {
           const halfW = piece.w / 2 + 4;
-          const halfH = piece.h / 2 + 4;
+          const halfH = piece.h / 2;
           let px = piece.body.position.x;
           let py = piece.body.position.y;
           let bounded = false;

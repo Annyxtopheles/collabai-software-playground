@@ -1460,6 +1460,120 @@ const CONSTELLATION_EDGES: [number, number][] = [
 // Natural loop traversal path starting at AI automation (4) and going to Self-hosted solutions (6)
 const CONSTELLATION_TRAVERSAL = [4, 6, 7, 3, 1, 0, 2, 5];
 
+/** Ambient Floating Luminous Atmospheric Visuals (Pulsating glowing white plus signs, 4-point sparkle stars, & dots) */
+const AmbientAtmosphere = () => (
+  <div aria-hidden="true" className="pointer-events-none absolute inset-0 select-none overflow-hidden -z-0">
+    {/* Plus Sign 1 (Top Left) */}
+    <motion.div
+      animate={{ opacity: [0.25, 0.9, 0.25], scale: [0.85, 1.2, 0.85] }}
+      transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut" }}
+      className="absolute left-[6%] top-[18%]"
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 4V20M4 12H20" stroke="white" strokeWidth="2.5" strokeLinecap="round" filter="drop-shadow(0 0 6px rgba(255,255,255,0.9))" />
+      </svg>
+    </motion.div>
+
+    {/* Sparkle Star 1 (Left Upper) */}
+    <motion.div
+      animate={{ opacity: [0.35, 0.95, 0.35], scale: [0.85, 1.2, 0.85] }}
+      transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+      className="absolute left-[13%] top-[34%]"
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M12 0L13.8 9.2L23 11L13.8 12.8L12 22L10.2 12.8L1 11L10.2 9.2L12 0Z"
+          fill="white"
+          fillOpacity="0.9"
+          filter="drop-shadow(0 0 8px rgba(255,255,255,0.85))"
+        />
+      </svg>
+    </motion.div>
+
+    {/* Plus Sign 2 (Lower Left) */}
+    <motion.div
+      animate={{ opacity: [0.2, 0.85, 0.2], scale: [0.8, 1.15, 0.8] }}
+      transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 1.6 }}
+      className="absolute left-[20%] top-[68%]"
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M12 4V20M4 12H20" stroke="white" strokeWidth="2.5" strokeLinecap="round" filter="drop-shadow(0 0 6px rgba(255,255,255,0.85))" />
+      </svg>
+    </motion.div>
+
+    {/* Plus Sign 3 (Top Right) */}
+    <motion.div
+      animate={{ opacity: [0.3, 0.95, 0.3], scale: [0.85, 1.2, 0.85] }}
+      transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
+      className="absolute right-[8%] top-[16%]"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M12 4V20M4 12H20" stroke="white" strokeWidth="2.5" strokeLinecap="round" filter="drop-shadow(0 0 6px rgba(255,255,255,0.9))" />
+      </svg>
+    </motion.div>
+
+    {/* Sparkle Star 2 (Right Mid) */}
+    <motion.div
+      animate={{ opacity: [0.3, 0.9, 0.3], scale: [0.9, 1.15, 0.9] }}
+      transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 2.2 }}
+      className="absolute right-[14%] top-[42%]"
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <path
+          d="M12 0L13.8 9.2L23 11L13.8 12.8L12 22L10.2 12.8L1 11L10.2 9.2L12 0Z"
+          fill="white"
+          fillOpacity="0.85"
+          filter="drop-shadow(0 0 7px rgba(255,255,255,0.8))"
+        />
+      </svg>
+    </motion.div>
+
+    {/* Plus Sign 4 (Bottom Right) */}
+    <motion.div
+      animate={{ opacity: [0.25, 0.85, 0.25], scale: [0.8, 1.15, 0.8] }}
+      transition={{ duration: 4.9, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+      className="absolute right-[10%] top-[78%]"
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+        <path d="M12 4V20M4 12H20" stroke="white" strokeWidth="2.5" strokeLinecap="round" filter="drop-shadow(0 0 6px rgba(255,255,255,0.85))" />
+      </svg>
+    </motion.div>
+
+    {/* Glowing Floating Dot 1 (Left Mid) */}
+    <motion.div
+      animate={{ opacity: [0.3, 0.85, 0.3], scale: [0.85, 1.25, 0.85] }}
+      transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
+      className="absolute left-[3%] top-[48%]"
+    >
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <circle cx="7" cy="7" r="3.5" fill="white" fillOpacity="0.85" filter="drop-shadow(0 0 6px rgba(255,255,255,0.9))" />
+      </svg>
+    </motion.div>
+
+    {/* Glowing Floating Dot 2 (Right Upper) */}
+    <motion.div
+      animate={{ opacity: [0.35, 0.9, 0.35] }}
+      transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+      className="absolute right-[4%] top-[30%]"
+    >
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+        <circle cx="6" cy="6" r="3.5" fill="white" fillOpacity="0.8" filter="drop-shadow(0 0 6px rgba(255,255,255,0.85))" />
+      </svg>
+    </motion.div>
+
+    {/* Glowing Floating Dot 3 (Center Lower) */}
+    <motion.div
+      animate={{ opacity: [0.2, 0.8, 0.2] }}
+      transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut", delay: 2.7 }}
+      className="absolute left-[44%] top-[82%]"
+    >
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <circle cx="5" cy="5" r="3" fill="white" fillOpacity="0.75" filter="drop-shadow(0 0 5px rgba(255,255,255,0.8))" />
+      </svg>
+    </motion.div>
+  </div>
+);
+
 const ControlTowerLite = () => {
   const [constellationStep, setConstellationStep] = useState(0);
   const [activeCapabilityIndex2, setActiveCapabilityIndex2] = useState(0);
@@ -1510,7 +1624,7 @@ const ControlTowerLite = () => {
       {/* =========================================================================
           1. HERO - FIRST FOLD (CollabAI Brand Blue Gradient + Ambient Sparkles + FallingText)
          ========================================================================= */}
-      <section className="relative overflow-hidden pt-20 pb-16 lg:pt-28 lg:pb-24 border-b border-border text-white" style={{
+      <section className="relative overflow-hidden pt-20 pb-0 lg:pt-28 lg:pb-0 border-b border-border text-white" style={{
         background: "linear-gradient(180deg, #1342c4 0%, #1c52e0 35%, #2563eb 70%, #1d4ed8 100%)",
       }}>
         {/* Luminous Ambient Radial Spotlight */}
@@ -1526,89 +1640,8 @@ const ControlTowerLite = () => {
           }}
         />
 
-        {/* Ambient Floating Luminous Sparkles (Mirroring ePhysician Atmospheric Visuals) */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 select-none overflow-hidden -z-0">
-          {/* Sparkle 1 (Left Top) */}
-          <motion.div
-            animate={{ opacity: [0.35, 0.95, 0.35], scale: [0.85, 1.2, 0.85] }}
-            transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute left-[7%] top-[26%]"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 0L13.8 9.2L23 11L13.8 12.8L12 22L10.2 12.8L1 11L10.2 9.2L12 0Z"
-                fill="white"
-                fillOpacity="0.9"
-                filter="drop-shadow(0 0 8px rgba(255,255,255,0.85))"
-              />
-            </svg>
-          </motion.div>
-
-          {/* Sparkle 2 (Far Right Top) */}
-          <motion.div
-            animate={{ opacity: [0.3, 0.85, 0.3], scale: [0.9, 1.15, 0.9] }}
-            transition={{ duration: 5.4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
-            className="absolute right-[9%] top-[22%]"
-          >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 0L13.8 9.2L23 11L13.8 12.8L12 22L10.2 12.8L1 11L10.2 9.2L12 0Z"
-                fill="white"
-                fillOpacity="0.85"
-                filter="drop-shadow(0 0 7px rgba(255,255,255,0.8))"
-              />
-            </svg>
-          </motion.div>
-
-          {/* Sparkle 3 (Right Mid) */}
-          <motion.div
-            animate={{ opacity: [0.25, 0.75, 0.25], scale: [0.8, 1.1, 0.8] }}
-            transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 2.1 }}
-            className="absolute right-[13%] top-[62%]"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 0L13.8 9.2L23 11L13.8 12.8L12 22L10.2 12.8L1 11L10.2 9.2L12 0Z"
-                fill="white"
-                fillOpacity="0.8"
-                filter="drop-shadow(0 0 6px rgba(255,255,255,0.75))"
-              />
-            </svg>
-          </motion.div>
-
-          {/* Sparkle 4 (Left Mid/Bottom) */}
-          <motion.div
-            animate={{ opacity: [0.3, 0.8, 0.3], scale: [0.85, 1.15, 0.85] }}
-            transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 1.6 }}
-            className="absolute left-[11%] top-[65%]"
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="5" fill="white" fillOpacity="0.85" filter="drop-shadow(0 0 8px rgba(255,255,255,0.9))" />
-            </svg>
-          </motion.div>
-
-          {/* Sparkle 5 (Right floating dot) */}
-          <motion.div
-            animate={{ opacity: [0.35, 0.9, 0.35] }}
-            transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}
-            className="absolute right-[4%] top-[42%]"
-          >
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <circle cx="6" cy="6" r="3.5" fill="white" fillOpacity="0.8" filter="drop-shadow(0 0 6px rgba(255,255,255,0.85))" />
-            </svg>
-          </motion.div>
-
-          {/* Sparkle 6 (Left floating dot) */}
-          <motion.div
-            animate={{ opacity: [0.2, 0.75, 0.2] }}
-            transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut", delay: 2.6 }}
-            className="absolute left-[3%] top-[46%]"
-          >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <circle cx="7" cy="7" r="3.5" fill="white" fillOpacity="0.75" filter="drop-shadow(0 0 6px rgba(255,255,255,0.8))" />
-            </svg>
-          </motion.div>
-        </div>
+        {/* Ambient Floating Luminous Plus Signs, Sparkles & Dots */}
+        <AmbientAtmosphere />
 
         <div className="container relative z-10 mx-auto px-4">
           <div className="mx-auto max-w-5xl lg:max-w-6xl text-center">
@@ -1639,32 +1672,32 @@ const ControlTowerLite = () => {
               </button>
             </div>
 
-            {/* Industry Coverage: Interactive 2D Physics Falling Tiles (Unbounded, Drag-Enabled, Custom Hover Glows) */}
+            {/* Industry Coverage Label */}
             <div className="mt-14 pt-8 border-t border-white/20">
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-blue-100/95 mb-6 text-center">
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-blue-100/95 mb-2 text-center">
                 AI solutions for agencies, healthcare, nonprofits, mortgage, realtors, marketing, client success, &amp; GoHighLevel agencies
               </p>
-
-              {/* Invisible Screen-Wide Bounds (Extends to far sides of the screen, cannot escape) */}
-              <div className="relative left-1/2 -translate-x-1/2 w-screen h-72 sm:h-84 overflow-hidden select-none">
-                <FallingText
-                  words={INDUSTRIES_TICKER}
-                  variant="tiles"
-                  theme="light"
-                  fontSize="1.65rem"
-                  trigger="auto"
-                  gravity={0.85}
-                  bounciness={0.3}
-                  scatter={0.35}
-                  stagger={0.04}
-                  draggable={true}
-                  mouseConstraintStiffness={0.35}
-                  cursorPush={0}
-                  className="w-full h-full bg-transparent"
-                />
-              </div>
             </div>
           </div>
+        </div>
+
+        {/* Screen-Wide FallingText Container sitting flush at the bottom edge so the white is the ground */}
+        <div className="relative w-full h-64 sm:h-72 overflow-hidden select-none -mb-[1px]">
+          <FallingText
+            words={INDUSTRIES_TICKER}
+            variant="tiles"
+            theme="light"
+            fontSize="1.65rem"
+            trigger="auto"
+            gravity={0.85}
+            bounciness={0.3}
+            scatter={0.35}
+            stagger={0.04}
+            draggable={true}
+            mouseConstraintStiffness={0.35}
+            cursorPush={0}
+            className="w-full h-full bg-transparent"
+          />
         </div>
       </section>
 
@@ -2081,6 +2114,9 @@ const ControlTowerLite = () => {
           className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 h-[520px] w-[520px] rounded-full bg-radial from-white/30 via-[#dbeafe]/10 to-transparent blur-3xl -z-0"
         />
 
+        {/* Ambient Floating Luminous Plus Signs, Sparkles & Dots */}
+        <AmbientAtmosphere />
+
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12">
             {/* Left Column: Heading, Subhead, Single Action CTA */}
@@ -2273,6 +2309,9 @@ const ControlTowerLite = () => {
           }}
           className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 h-[520px] w-[520px] rounded-full bg-radial from-white/30 via-[#dbeafe]/10 to-transparent blur-3xl -z-0"
         />
+
+        {/* Ambient Floating Luminous Plus Signs, Sparkles & Dots */}
+        <AmbientAtmosphere />
 
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="relative z-10 grid items-center gap-10 lg:grid-cols-12">
